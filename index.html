@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quotation — Celestial Arts &amp; Music Festival · Wecomeone</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    /* Poster-extracted palette */
+    --sky:        #C8DDE8;        /* soft sky blue background */
+    --sky-dark:   #A8C5D2;        /* deeper sky for borders */
+    --cream:      #F5E8D0;        /* warm cream */
+    --cream-soft: #FAF1E0;        /* paler cream for cards */
+    --rose:       #E89A99;        /* dusty rose - the sun */
+    --rose-deep:  #D67E81;        /* deeper rose */
+    --peach:      #E8B289;        /* peach mid */
+    --yellow:     #E8C470;        /* warm sunset yellow */
+    --teal:       #2C8076;        /* deep earthy teal accent */
+    --teal-dark:  #1F5C55;        /* darker teal */
+    --text:       #2D2520;        /* warm dark brown */
+    --text-soft:  #4A3F38;        /* softer brown */
+    --text-muted: #75665C;        /* muted warm grey */
+    --text-dim:   #998778;        /* dim warm grey */
+
+    --maxw: 1080px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--sky);
+    color: var(--text);
+    font-family: 'Manrope', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .display { font-family: 'Bagel Fat One', 'Manrope', sans-serif; font-weight: 400; }
+
+  .accent { color: var(--teal); }
+  .rose { color: var(--rose-deep); }
+
+  .container {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* ============================ COVER ============================ */
+  .cover {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 48px 0 56px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* The sun - large rose gradient circle behind the title */
+  .sun {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(85vw, 720px);
+    height: min(85vw, 720px);
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 50%,
+      var(--cream) 0%,
+      var(--peach) 35%,
+      var(--rose) 65%,
+      var(--rose-deep) 100%);
+    z-index: 0;
+    opacity: 0.95;
+  }
+
+  /* Sunset stripe band at bottom */
+  .sunset-stripes {
+    height: 40px;
+    background: linear-gradient(180deg,
+      var(--rose-deep) 0%, var(--rose-deep) 16%,
+      var(--peach)     16%, var(--peach)    32%,
+      var(--yellow)    32%, var(--yellow)   48%,
+      var(--cream)     48%, var(--cream)    64%,
+      var(--teal)      64%, var(--teal)     80%,
+      var(--teal-dark) 80%, var(--teal-dark) 100%);
+    width: 100%;
+  }
+
+  .cover-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+    z-index: 2;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-soft);
+    font-weight: 600;
+  }
+  .cover-top .left-meta {
+    line-height: 1.6;
+  }
+  .cover-top .right-meta {
+    text-align: right;
+    line-height: 1.6;
+  }
+
+  .cover-mid {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    padding: 60px 0;
+  }
+  .cover-eyebrow {
+    font-size: 13px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--text-soft);
+    font-weight: 700;
+    margin-bottom: 24px;
+  }
+  .cover-tagline {
+    font-size: clamp(13px, 1.6vw, 16px);
+    color: var(--text-soft);
+    font-style: italic;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+  }
+  .cover-title {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 800;
+    font-size: clamp(56px, 11vw, 132px);
+    line-height: 0.92;
+    letter-spacing: -3px;
+    color: var(--text);
+    margin-bottom: 32px;
+  }
+  .cover-sub {
+    font-size: clamp(15px, 2vw, 19px);
+    color: var(--text-soft);
+    font-weight: 400;
+    max-width: 540px;
+    line-height: 1.55;
+    margin: 0 auto;
+  }
+  .cover-doctype {
+    margin-top: 48px;
+    padding: 12px 28px;
+    background: var(--cream);
+    border: 2px solid var(--text);
+    border-radius: 999px;
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  .cover-bottom {
+    position: relative;
+    z-index: 2;
+    margin-top: auto;
+  }
+
+  .cover-meta {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 24px 0 32px;
+  }
+  .meta-block .label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+    font-weight: 700;
+  }
+  .meta-block .value {
+    font-size: 16px;
+    color: var(--text);
+    font-weight: 700;
+  }
+
+  @media (max-width: 720px) {
+    .cover-meta { grid-template-columns: 1fr; gap: 16px; text-align: left; }
+    .cover-top { font-size: 10px; }
+    .sun { width: 100vw; height: 100vw; }
+  }
+
+  /* ======================== INTRO BANNER ====================== */
+  .intro-banner {
+    background: var(--cream-soft);
+    border-left: 4px solid var(--teal);
+    padding: 32px 36px;
+    margin: 64px 0 48px;
+    border-radius: 4px;
+  }
+  .intro-banner .label {
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--teal);
+    font-weight: 700;
+    margin-bottom: 14px;
+  }
+  .intro-banner .body {
+    font-size: 15.5px;
+    color: var(--text);
+    line-height: 1.7;
+  }
+  .intro-banner .body strong { font-weight: 700; }
+
+  /* ========================== SECTIONS ========================== */
+  h2.section-title {
+    font-size: clamp(26px, 3.4vw, 34px);
+    font-weight: 800;
+    color: var(--text);
+    margin: 64px 0 8px 0;
+    letter-spacing: -0.6px;
+    line-height: 1.1;
+  }
+  h2.section-title .accent-bar {
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--teal);
+    margin-bottom: 16px;
+    border-radius: 2px;
+  }
+  .section-intro {
+    font-size: 15px;
+    color: var(--text-muted);
+    margin-bottom: 32px;
+    max-width: 720px;
+    line-height: 1.6;
+  }
+
+  /* Phase header */
+  .phase-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 24px 0 8px;
+    border-bottom: 2px solid var(--text);
+    margin-bottom: 28px;
+  }
+  .phase-eyebrow {
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--teal);
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .phase-title {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--text);
+    letter-spacing: -0.4px;
+    line-height: 1.1;
+  }
+  .phase-window {
+    font-size: 13px;
+    color: var(--text-muted);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    margin-top: 4px;
+  }
+  .phase-total {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--text);
+    letter-spacing: -1px;
+  }
+  .phase-total .label {
+    display: block;
+    font-size: 10px;
+    color: var(--text-muted);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 2px;
+    letter-spacing: 2px;
+  }
+
+  /* =========================== ITEMS ============================ */
+  .item {
+    margin-bottom: 16px;
+    padding: 24px 28px;
+    background: var(--cream-soft);
+    border: 1px solid var(--sky-dark);
+    border-radius: 6px;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+  .item:hover {
+    border-color: var(--teal);
+  }
+  .item-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 10px;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .item-title {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--text);
+    flex: 1;
+    letter-spacing: -0.2px;
+    min-width: 0;
+  }
+  .item-price {
+    font-size: 22px;
+    color: var(--text);
+    font-weight: 800;
+    white-space: nowrap;
+    letter-spacing: -0.5px;
+  }
+  .item-body {
+    font-size: 14.5px;
+    color: var(--text-soft);
+    line-height: 1.65;
+  }
+  .item-body p { margin-bottom: 10px; }
+  .item-body p:last-child { margin-bottom: 0; }
+  .item-body ul { list-style: none; padding: 0; margin: 8px 0; }
+  .item-body li {
+    padding-left: 18px;
+    position: relative;
+    margin-bottom: 5px;
+  }
+  .item-body li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--teal);
+    font-weight: 700;
+  }
+  .item-body strong { color: var(--text); font-weight: 700; }
+
+  /* ========================= POST BREAKDOWN ====================== */
+  .post-group {
+    margin-bottom: 16px;
+  }
+  .post-group-label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--teal);
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .post-line {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 8px 0;
+    border-bottom: 1px dashed var(--sky-dark);
+    font-size: 14.5px;
+    line-height: 1.5;
+  }
+  .post-line:last-child { border-bottom: none; }
+  .post-count {
+    color: var(--teal);
+    font-weight: 700;
+    white-space: nowrap;
+    min-width: 36px;
+  }
+  .post-desc {
+    color: var(--text-soft);
+    flex: 1;
+  }
+  .post-desc strong { color: var(--text); font-weight: 700; }
+
+  /* ========================= VENUE LIST ========================= */
+  .venue-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px 16px;
+    margin: 12px 0 4px 0;
+    padding: 16px 20px;
+    background: var(--sky);
+    border-radius: 4px;
+  }
+  .venue-list li {
+    padding: 0 0 0 14px !important;
+    font-size: 13.5px;
+    margin-bottom: 0 !important;
+  }
+  .venue-list li::before {
+    content: "·" !important;
+    color: var(--rose-deep) !important;
+    font-size: 18px;
+    top: -2px;
+  }
+  @media (max-width: 600px) {
+    .venue-list { grid-template-columns: 1fr; }
+  }
+
+  /* ========================== TOTAL BOX ========================= */
+  .total-section {
+    margin: 56px 0 32px;
+    padding: 36px 40px;
+    background: linear-gradient(135deg, var(--rose) 0%, var(--peach) 50%, var(--yellow) 100%);
+    border-radius: 8px;
+    color: var(--text);
+    position: relative;
+    overflow: hidden;
+  }
+  .total-grid {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 16px 32px;
+    align-items: center;
+  }
+  .total-label {
+    font-size: 12px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .total-amount {
+    font-size: clamp(48px, 7vw, 76px);
+    font-weight: 800;
+    letter-spacing: -2px;
+    line-height: 1;
+  }
+  .total-fineprint {
+    font-size: 13px;
+    color: var(--text-soft);
+    margin-top: 14px;
+    line-height: 1.5;
+  }
+
+  /* ===================== PAYMENT SCHEDULE ======================= */
+  .payment-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 24px;
+  }
+  .payment-card {
+    padding: 24px;
+    background: var(--cream-soft);
+    border: 1px solid var(--sky-dark);
+    border-radius: 6px;
+    position: relative;
+  }
+  .payment-card .pct {
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--teal);
+    letter-spacing: -1px;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .payment-card .when {
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .payment-card .amount {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--text);
+    letter-spacing: -0.5px;
+  }
+  .payment-card .desc {
+    font-size: 13px;
+    color: var(--text-soft);
+    margin-top: 6px;
+    line-height: 1.5;
+  }
+  @media (max-width: 720px) {
+    .payment-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ========================== TIMELINE ========================== */
+  .timeline-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+  }
+  .timeline-table th {
+    text-align: left;
+    font-size: 11px;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    font-weight: 700;
+    padding: 14px 16px;
+    border-bottom: 2px solid var(--text);
+  }
+  .timeline-table td {
+    padding: 18px 16px;
+    font-size: 14.5px;
+    color: var(--text-soft);
+    border-bottom: 1px solid var(--sky-dark);
+    vertical-align: top;
+    line-height: 1.55;
+  }
+  .timeline-table tr td:first-child {
+    color: var(--teal);
+    font-weight: 700;
+    white-space: nowrap;
+    min-width: 110px;
+  }
+  .timeline-table tr td:nth-child(2) {
+    color: var(--text);
+    font-weight: 700;
+  }
+  @media (max-width: 720px) {
+    .timeline-table thead { display: none; }
+    .timeline-table, .timeline-table tbody, .timeline-table tr, .timeline-table td {
+      display: block;
+      width: 100%;
+    }
+    .timeline-table tr {
+      border: 1px solid var(--sky-dark);
+      border-radius: 6px;
+      padding: 16px;
+      margin-bottom: 12px;
+      background: var(--cream-soft);
+    }
+    .timeline-table td { border: none; padding: 4px 0; font-size: 14px; }
+    .timeline-table tr td:first-child {
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+  }
+
+  /* ===================== EXCLUSIONS BLOCK ======================= */
+  .exclusions {
+    background: var(--cream-soft);
+    border: 1px solid var(--sky-dark);
+    border-radius: 6px;
+    padding: 28px 32px;
+    margin: 24px 0;
+  }
+  .exclusions p {
+    font-size: 14px;
+    color: var(--text-soft);
+    margin-bottom: 16px;
+    line-height: 1.6;
+  }
+  .exclusions ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px 24px;
+  }
+  .exclusions li {
+    padding-left: 20px;
+    position: relative;
+    font-size: 13.5px;
+    color: var(--text-soft);
+    line-height: 1.5;
+    margin-bottom: 4px;
+  }
+  .exclusions li::before {
+    content: "×";
+    position: absolute;
+    left: 0;
+    color: var(--rose-deep);
+    font-weight: 800;
+  }
+  @media (max-width: 600px) {
+    .exclusions ul { grid-template-columns: 1fr; }
+  }
+
+  /* ========================= CLOSING NOTE ======================= */
+  .closing-note {
+    margin: 56px 0 32px;
+    padding: 36px 40px;
+    background: var(--cream);
+    border: 2px solid var(--teal);
+    border-radius: 8px;
+  }
+  .closing-note .label {
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--teal);
+    font-weight: 700;
+    margin-bottom: 14px;
+  }
+  .closing-note .body {
+    font-size: 15.5px;
+    color: var(--text);
+    line-height: 1.7;
+  }
+  .closing-note .body strong { font-weight: 700; }
+  .closing-note .signature {
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px dashed var(--sky-dark);
+    font-size: 13px;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  /* ============================ FOOTER ========================== */
+  footer {
+    border-top: 1px solid var(--sky-dark);
+    padding: 36px 0 16px;
+    margin-top: 24px;
+    text-align: center;
+  }
+  footer .footer-logo {
+    width: 140px;
+    height: auto;
+    margin-bottom: 16px;
+    opacity: 0.9;
+  }
+  footer .footer-text {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    font-weight: 600;
+  }
+  footer .footer-meta {
+    margin-top: 8px;
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 1px;
+  }
+
+  /* ============================ MISC ============================ */
+  ::selection { background: var(--teal); color: var(--cream); }
+
+  @media (max-width: 600px) {
+    .container { padding: 0 20px; }
+    .item { padding: 20px; }
+    .intro-banner, .closing-note { padding: 24px 22px; }
+    .total-section { padding: 28px 24px; }
+    .total-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<!-- ============= COVER ============= -->
+<section class="cover">
+  <div class="sun"></div>
+
+  <div class="cover-top">
+    <div class="left-meta">
+      Laiki Geitonia<br>
+      Larnaka
+    </div>
+    <div class="right-meta">
+      June 13<sup>th</sup>, 2026<br>
+      6pm – 5am
+    </div>
+  </div>
+
+  <div class="cover-mid">
+    <div class="cover-eyebrow">Marketing &amp; Production Quotation</div>
+    <div class="cover-tagline">Arts and Music Festival</div>
+    <h1 class="cover-title">CELESTIAL</h1>
+    <p class="cover-sub">A complete proposal covering brand, campaign, and on-the-night production for Edition 01.</p>
+    <div class="cover-doctype">Prepared for Client Review</div>
+  </div>
+
+  <div class="cover-bottom">
+    <div class="cover-meta">
+      <div class="meta-block">
+        <div class="label">Project Total</div>
+        <div class="value">€6,360</div>
+      </div>
+      <div class="meta-block">
+        <div class="label">Engagement Length</div>
+        <div class="value">6.5 weeks</div>
+      </div>
+      <div class="meta-block">
+        <div class="label">Prepared by</div>
+        <div class="value">Wecomeone Marketing and Comms</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sunset-stripes"></div>
+
+<!-- ============= INTRO ============= -->
+<div class="intro-banner">
+  <div class="label">Overview</div>
+  <div class="body">
+    This quotation reflects everything agreed during our discovery and scoping conversations: a complete marketing and production engagement for Celestial Arts &amp; Music Festival, Edition 01. Work is structured in <strong>two phases</strong> — Foundations (delivered by May 18) and Campaign &amp; Event (May 18 to event day). All deliverables, timelines, payment milestones, and explicit exclusions are detailed below.
+  </div>
+</div>
+
+<!-- ============================================================== -->
+<!-- ============= PHASE 1 — FOUNDATIONS ============= -->
+<!-- ============================================================== -->
+
+<div class="phase-header">
+  <div>
+    <div class="phase-eyebrow">Phase 01</div>
+    <div class="phase-title">Foundations</div>
+    <div class="phase-window">Delivered by May 18, 2026</div>
+  </div>
+  <div class="phase-total">
+    <span class="label">Subtotal</span>
+    €1,880
+  </div>
+</div>
+
+<div class="item">
+  <div class="item-head">
+    <div class="item-title">Logo &amp; Brand Identity</div>
+    <div class="item-price">€750</div>
+  </div>
+  <div class="item-body">
+    <p>Master logo lockup with the celestial-themed wordmark, primary and secondary color palette, typography system (display + body pairing), and edition variant template designed for annual continuity (Edition 01 / 2026, scalable to future editions).</p>
+    <p>Includes basic usage guidance for placement on light and dark backgrounds, plus packaged file formats for print and digital application.</p>
+  </div>
+</div>
+
+<div class="item">
+  <div class="item-head">
+    <div class="item-title">Social Media Account Setup</div>
+    <div class="item-price">€180</div>
+  </div>
+  <div class="item-body">
+    <p>Account creation and full configuration on Facebook, Instagram, and TikTok:</p>
+    <ul>
+      <li>Branded profile pictures and cover art</li>
+      <li>Optimized bios with link-in-bio routing to the festival website</li>
+      <li>Hashtag strategy document covering master event tags and per-stage tags</li>
+      <li>Account discoverability and accessibility settings</li>
+    </ul>
+  </div>
+</div>
+
+<div class="item">
+  <div class="item-head">
+    <div class="item-title">Print Design</div>
+    <div class="item-price">€500</div>
+  </div>
+  <div class="item-body">
+    <p>Design and print-ready file preparation for two collateral pieces:</p>
+    <ul>
+      <li><strong>A2 event poster</strong> — lineup, stages, partner venues, date, ticketing info, sponsors when confirmed</li>
+      <li><strong>A5 promotional flyer</strong> — front: hero visual + key info; back: lineup teaser</li>
+    </ul>
+    <p>Includes 2 rounds of revisions on each asset and CMYK-ready PDF exports with bleed and crop marks for print production.</p>
+  </div>
+</div>
+
+<div class="item">
+  <div class="item-head">
+    <div class="item-title">Print Production</div>
+    <div class="item-price">€450</div>
+  </div>
+  <div class="item-body">
+    <p>Coordination and delivery of:</p>
+    <ul>
+      <li>100 × A2 posters</li>
+      <li>500 × A5 flyers</li>
+    </ul>
+    <p>Sourced through our trusted print partner network with quality control on color and stock. Cost is pass-through plus 20% handling markup. Delivery to a single Larnaka address by May 17.</p>
+    <p style="font-size: 13px; color: var(--text-muted); font-style: italic; padding: 10px 14px; background: var(--sky); border-radius: 4px; margin-top: 12px;"><strong style="color: var(--teal); font-style: normal;">Note:</strong> Print production pricing is estimated. Final cost will be confirmed once a print partner is selected and stock options are agreed. Any variance from this estimate will be communicated and approved before production begins.</p>
+  </div>
+</div>
+
+<!-- ============================================================== -->
+<!-- ============= PHASE 2 — CAMPAIGN & EVENT ============= -->
+<!-- ============================================================== -->
+
+<div class="phase-header" style="margin-top: 56px;">
+  <div>
+    <div class="phase-eyebrow">Phase 02</div>
+    <div class="phase-title">Campaign &amp; Event</div>
+    <div class="phase-window">May 18 → June 13, 2026 + post-event delivery</div>
+  </div>
+  <div class="phase-total">
+    <span class="label">Subtotal</span>
+    €4,480
+  </div>
+</div>
+
+<!-- Social media -->
+<div class="item">
+  <div class="item-head">
+    <div class="item-title">Social Media Management &amp; Content Production</div>
+    <div class="item-price">€1,800</div>
+  </div>
+  <div class="item-body">
+    <p>Approximately <strong>40 designed posts</strong> across Instagram, Facebook, and TikTok over four weeks, plus event-day live coverage and post-event content.</p>
+
+    <div class="post-group">
+      <div class="post-group-label">Pre-event content (weeks 1–3)</div>
+      <div class="post-line">
+        <div class="post-count">1×</div>
+        <div class="post-desc"><strong>Festival announcement post</strong> — hero reveal of Celestial, date, location, free-entry confirmation, after-party ticket teaser. Multi-platform.</div>
+      </div>
+      <div class="post-line">
+        <div class="post-count">5×</div>
+        <div class="post-desc"><strong>Stage reveal posts</strong> — one per celestial stage paired with its genre and visual identity. Distinct treatment per stage within the master brand. Released across week 2 to build momentum.</div>
+      </div>
+      <div class="post-line">
+        <div class="post-count">11×</div>
+        <div class="post-desc"><strong>"Meet the Neighborhood" reels and posts</strong> — one feature per partner venue, showing its character and contribution to the festival atmosphere. Featured venues listed below.</div>
+      </div>
+      <div class="post-line">
+        <div class="post-count">6×</div>
+        <div class="post-desc"><strong>Artist feature posts</strong> — confirmed performers paired with their stage and genre.</div>
+      </div>
+      <div class="post-line">
+        <div class="post-count">3×</div>
+        <div class="post-desc"><strong>After-party ticket conversion posts</strong> — what the wristband gets you (5% drinks/food discount), how to buy, presale countdown.</div>
+      </div>
+      <div class="post-line">
+        <div class="post-count">1×</div>
+        <div class="post-desc"><strong>Event map reveal post</strong> — neighborhood layout, all 5 stages, all partner venues, food joints, in the festival visual language.</div>
+      </div>
+      <div class="post-line">
+        <div class="post-count">2×</div>
+        <div class="post-desc"><strong>Sponsor / partner spotlight posts</strong> — once confirmed.</div>
+      </div>
+    </div>
+
+    <ul class="venue-list">
+      <li>Savino Rock Bar</li>
+      <li>The Old Market St.</li>
+      <li>Pikla</li>
+      <li>Avalon Live</li>
+      <li>The Big Bun</li>
+      <li>Dylan's Rock Bar</li>
+      <li>Stories Cocktail &amp; Wine Bar</li>
+      <li>Savino Live</li>
+      <li>Stone Age Cafe-Bar</li>
+      <li>Blok Cocktail Bar</li>
+      <li>Diho Rock Cafe-Bar</li>
+    </ul>
+
+    <div class="post-group" style="margin-top: 16px;">
+      <div class="post-group-label">Final week countdown (week 4)</div>
+      <div class="post-line">
+        <div class="post-count">7×</div>
+        <div class="post-desc"><strong>Daily countdown stories and grid posts</strong> — building urgency, highlighting different aspects each day (artists, stages, after-party, food, the neighborhood).</div>
+      </div>
+    </div>
+
+    <div class="post-group">
+      <div class="post-group-label">Event day</div>
+      <div class="post-line">
+        <div class="post-count">—</div>
+        <div class="post-desc"><strong>Live story coverage</strong> — continuous Instagram and Facebook stories throughout the night, including pre-show setup, golden hour openers, peak energy moments, after-party transition.</div>
+      </div>
+      <div class="post-line">
+        <div class="post-count">2–3×</div>
+        <div class="post-desc"><strong>In-event grid posts</strong> — high-impact moments shared in real time.</div>
+      </div>
+    </div>
+
+    <div class="post-group">
+      <div class="post-group-label">Post-event</div>
+      <div class="post-line">
+        <div class="post-count">1×</div>
+        <div class="post-desc"><strong>Thank-you post</strong> — recap of the night, thanks to artists, partner venues, sponsors, audience.</div>
+      </div>
+      <div class="post-line">
+        <div class="post-count">1×</div>
+        <div class="post-desc"><strong>Highlight reel teaser</strong> — short-form cut from the videographer footage, delivered within 48 hours of the event.</div>
+      </div>
+      <div class="post-line">
+        <div class="post-count">1×</div>
+        <div class="post-desc"><strong>"Save the Date — Edition 02" tease</strong> — earliest seed for next year's edition.</div>
+      </div>
+    </div>
+
+    <div class="post-group" style="margin-top: 20px;">
+      <div class="post-group-label">Paid promotion management — included</div>
+      <p style="font-size: 14px; color: var(--text-soft); line-height: 1.6;">
+        Concentrated paid campaign during the final 7–10 days before the event. Meta ad campaign setup (Facebook + Instagram), audience targeting (Larnaka core + Nicosia/Limassol radius), three creative waves (awareness → ticket conversion → final push), retargeting flow built on the previous three weeks of organic engagement, daily monitoring and optimization, end-of-campaign reporting with reach, impressions, conversions, and after-party ticket attribution.
+      </p>
+      <p style="font-size: 14px; color: var(--text-soft); line-height: 1.6; margin-top: 8px;">
+        Ad spend (~€400 recommended) is paid directly by the client to Meta and is <strong>not</strong> included in this fee.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- Website -->
+<div class="item">
+  <div class="item-head">
+    <div class="item-title">One-Page Website</div>
+    <div class="item-price">€250</div>
+  </div>
+  <div class="item-body">
+    <p>Mobile-first single-page website built and hosted with a clean custom URL, owned by the client and designed for annual reuse across future editions.</p>
+    <ul>
+      <li>Hero section with festival name, date, location, free-entry badge, after-party ticket CTA</li>
+      <li>About / concept section</li>
+      <li>The 5 celestial stages with genres</li>
+      <li>Lineup organized by stage</li>
+      <li>Embedded event map (replacing a printed map)</li>
+      <li>Schedule (main event 6pm–1:30am, after-party 1:30am–5am)</li>
+      <li>After-party ticket section (presale €15 / door €20, wristband perks)</li>
+      <li>FAQ</li>
+      <li>Sponsors and partner venues</li>
+      <li>Social links and contact</li>
+    </ul>
+    <p>Designed to receive paid ad traffic and link-in-bio routing. Lives at the same URL across future editions.</p>
+  </div>
+</div>
+
+<!-- Press release -->
+<div class="item">
+  <div class="item-head">
+    <div class="item-title">Press Release</div>
+    <div class="item-price">€150</div>
+  </div>
+  <div class="item-body">
+    <p>Single comprehensive press release covering the festival concept, lineup highlights, the 5-stage celestial structure, partner venue collaborations, after-party ticketing, date and access. Distributed to relevant Cyprus media — including national outlets such as Politis, Phileleftheros, In-Cyprus, City Free Press, Time Out Cyprus, plus Larnaka-focused publications including Larnaka Online, City of Larnaca, and Skala Times. Also distributed to relevant event listing platforms.</p>
+  </div>
+</div>
+
+<!-- Crisis comms -->
+<div class="item">
+  <div class="item-head">
+    <div class="item-title">Crisis &amp; Weather Contingency Comms</div>
+    <div class="item-price">€80</div>
+  </div>
+  <div class="item-body">
+    <p>Pre-drafted communication templates for postponement, partial cancellation, and heat advisories. Decision-tree document for who calls it, when, and how it is communicated. Owned channels primed for fast deployment.</p>
+  </div>
+</div>
+
+<!-- Media coverage -->
+<div class="item">
+  <div class="item-head">
+    <div class="item-title">Event Day Media Coverage</div>
+    <div class="item-price">€2,200</div>
+  </div>
+  <div class="item-body">
+    <p><strong>On-site production team:</strong> 2 videographers + 2 photographers.</p>
+    <p><strong>Coverage window:</strong> 6pm – 1:30am (7.5 hours, main event only).</p>
+    <p><strong>Coverage scope:</strong></p>
+    <ul>
+      <li>Multi-team roving plan across all 5 stages and the neighborhood</li>
+      <li>Pre-event setup and arrival shots, golden hour openers, blue hour transition, full-night peak energy</li>
+      <li>Editorial photography (crowd, atmosphere, partner venues, signage, sponsors)</li>
+      <li>Artist portrait and performance shots per stage</li>
+      <li>Sponsor activation documentation for post-event reporting</li>
+      <li>UGC capture and live story support</li>
+    </ul>
+    <p><strong>Post-event delivery (within 14 days):</strong></p>
+    <ul>
+      <li>Master highlight reel (60–90 seconds, social-optimized)</li>
+      <li>5 × per-stage cutdowns (15–30 seconds each)</li>
+      <li>Edited photo selection (~80–120 final images, color-corrected, social-ready)</li>
+      <li>Raw selects archive available on request</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ============= TOTAL ============= -->
+<div class="total-section">
+  <div class="total-grid">
+    <div>
+      <div class="total-label">Project Total</div>
+      <div class="total-amount">€6,360</div>
+      <div class="total-fineprint">
+        Excludes VAT (add 19% if applicable). Excludes client-funded Meta ad spend (~€400, paid directly by client).
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============= PAYMENT SCHEDULE ============= -->
+<h2 class="section-title">
+  <span class="accent-bar"></span>
+  Payment Schedule
+</h2>
+<p class="section-intro">Three milestones aligned to phase delivery. Standard 7-day payment terms apply.</p>
+
+<div class="payment-grid">
+  <div class="payment-card">
+    <div class="pct">40%</div>
+    <div class="when">On Signing</div>
+    <div class="amount">€2,544</div>
+    <div class="desc">Kicks off Phase 1 immediately.</div>
+  </div>
+  <div class="payment-card">
+    <div class="pct">30%</div>
+    <div class="when">By May 18</div>
+    <div class="amount">€1,908</div>
+    <div class="desc">Phase 1 delivered, Phase 2 begins.</div>
+  </div>
+  <div class="payment-card">
+    <div class="pct">30%</div>
+    <div class="when">On Event Day</div>
+    <div class="amount">€1,908</div>
+    <div class="desc">Final balance, due before media coverage starts.</div>
+  </div>
+</div>
+
+<!-- ============= TIMELINE ============= -->
+<h2 class="section-title">
+  <span class="accent-bar"></span>
+  Timeline at a Glance
+</h2>
+<p class="section-intro">Working backwards from June 13. Each window has clear deliverables; the full critical path was discussed in scoping.</p>
+
+<table class="timeline-table">
+  <thead>
+    <tr>
+      <th style="width: 18%;">Window</th>
+      <th style="width: 28%;">Focus</th>
+      <th style="width: 54%;">Key Outputs</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Now → May 18</td>
+      <td>Foundations</td>
+      <td>Logo and brand identity, social account setup, A2 poster + A5 flyer design and print, website build begins</td>
+    </tr>
+    <tr>
+      <td>May 18</td>
+      <td>Kickoff</td>
+      <td>Phase 1 delivered, social channels live, Phase 2 begins</td>
+    </tr>
+    <tr>
+      <td>May 18 → June 5</td>
+      <td>Organic Build</td>
+      <td>Festival announcement, stage reveals, "Meet the Neighborhood" series, artist features, website live, sponsor spotlights</td>
+    </tr>
+    <tr>
+      <td>June 4 → June 13</td>
+      <td>Paid Push</td>
+      <td>Concentrated paid ad campaign, daily countdown content, press release distribution, media team briefed and confirmed</td>
+    </tr>
+    <tr>
+      <td>June 13</td>
+      <td>Event Day</td>
+      <td>Multi-team coverage 6pm–1:30am · live story posting · UGC capture · in-event grid posts</td>
+    </tr>
+    <tr>
+      <td>June 14 → June 27</td>
+      <td>Wrap &amp; Deliver</td>
+      <td>Highlight reel, per-stage cutdowns, edited photo selection, thank-you content, "Save the Date Edition 02" tease</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ============= EXCLUSIONS ============= -->
+<h2 class="section-title">
+  <span class="accent-bar"></span>
+  What's Not Included
+</h2>
+<p class="section-intro">Listed explicitly to prevent scope creep. Any of the below can be added as a change order at additional cost.</p>
+
+<div class="exclusions">
+  <ul>
+    <li>Sponsorship deck and sponsor outreach</li>
+    <li>Influencer or creator seeding programs</li>
+    <li>Stage signage, sponsor walls, lanyards</li>
+    <li>On-site wayfinding signage</li>
+    <li>Email marketing</li>
+    <li>Edition 02 marketing campaign</li>
+    <li>Full event brand book or motion identity</li>
+    <li>After-party media coverage (1:30am–5am)</li>
+    <li>Greek-language content (English only included)</li>
+    <li>Additional artist features beyond the 6 in scope</li>
+    <li>Print re-runs if quantities run out</li>
+    <li>Any deliverable not explicitly listed above</li>
+  </ul>
+</div>
+
+<!-- ============= CLOSING NOTE ============= -->
+<div class="closing-note">
+  <div class="label">A note on delivery</div>
+  <div class="body">
+    For a free festival, every marketing decision is also a sponsor and partner decision. We've structured the engagement so that the organic content phase (May 18 → June 5) builds the warm audience, partner venues amplify through their own channels, and the concentrated paid campaign in the final week harvests that audience for after-party ticket conversions. Both phases must land for the strategy to deliver — and we've sized the team and timeline to make that achievable within the runway.
+    <br><br>
+    We're looking forward to building Edition 01 with you and laying the groundwork for what becomes Larnaka's signature annual arts and music event.
+  </div>
+  <div class="signature">
+    Wecomeone Marketing and Comms
+  </div>
+</div>
+
+</div>
+
+<!-- ============= FOOTER ============= -->
+<footer>
+  <img src="data:image/png;base64,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" alt="Wecomeone" class="footer-logo" />
+  <div class="footer-text">A.A. Marketing &amp; Comms Ltd</div>
+  <div class="footer-meta">Confidential · Celestial Arts &amp; Music Festival · Quotation · Edition 01</div>
+</footer>
+
+</body>
+</html>
