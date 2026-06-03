@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Πρόταση Ιστοσελίδας — Lab Restaurant &amp; Bar | Social Pulse</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2a3960;
+    --ink-2:#34436b;
+    --paper:#f5f0e6;
+    --paper-2:#ece4d4;
+    --muted:#8a93a6;
+    --muted-d:#b6bfce;
+    --accent:#c2a05a;
+    --accent-br:#dcc079;
+    --line:rgba(42,57,96,.13);
+    --line-d:rgba(245,240,230,.14);
+    --terra:#bc5734;
+    --olive:#6f7a4c;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:'Commissioner',sans-serif;font-weight:300;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  h1,h2,h3,h4{font-family:'Playfair Display',serif;font-weight:500;line-height:1.08;letter-spacing:0}
+  a{color:inherit}
+  .mono{font-family:'Commissioner',sans-serif;font-weight:600;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 40px}
+  .accent{color:var(--accent)}
+
+  /* TOP BAR */
+  .topbar{position:sticky;top:0;z-index:50;background:rgba(245,240,230,.85);backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:16px 40px}
+  .logo{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;letter-spacing:-.01em;text-transform:lowercase}
+  .logo b{color:var(--accent);font-weight:600}
+  .topbar .mono{color:var(--muted)}
+
+  /* COVER */
+  .cover{background:var(--ink);color:var(--paper);padding:110px 0 90px;position:relative;overflow:hidden}
+  .cover::before{content:"";position:absolute;inset:0;opacity:.5;
+    background:radial-gradient(80% 60% at 80% 0%,rgba(220,192,121,.20),transparent 60%)}
+  .cover .wrap{position:relative;z-index:2}
+  .cover .mono{color:var(--accent);margin-bottom:30px}
+  .cover h1{font-size:clamp(3rem,7.5vw,5.8rem);font-weight:500;margin-bottom:22px}
+  .cover h1 em{font-style:italic;color:var(--accent-br);font-weight:400}
+  .cover .lede{font-size:1.2rem;color:var(--muted-d);max-width:54ch;font-weight:300}
+  .cover-meta{display:flex;gap:50px;margin-top:60px;flex-wrap:wrap}
+  .cover-meta .mono{color:var(--muted);margin-bottom:8px}
+  .cover-meta .v{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:500;color:var(--paper)}
+
+  /* SECTION */
+  section{padding:96px 0}
+  .sec-tag{display:flex;align-items:center;gap:16px;margin-bottom:30px}
+  .sec-tag .num{font-family:'Commissioner',sans-serif;font-weight:700;font-size:.82rem;color:var(--accent);letter-spacing:.06em}
+  .sec-tag .bar{flex:1;height:1px;background:var(--line)}
+  h2.sec-title{font-size:clamp(2.2rem,4.6vw,3.4rem);font-weight:500;margin-bottom:22px}
+  .intro-p{font-size:1.08rem;color:#43485c;max-width:64ch}
+  .intro-p+.intro-p{margin-top:18px}
+
+  /* UNDERSTAND list */
+  .goals{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+  .goal{border-top:2px solid var(--ink);padding-top:18px}
+  .goal h4{font-size:1.45rem;margin-bottom:8px}
+  .goal p{font-size:.95rem;color:#565d72}
+
+  /* STRUCTURE */
+  .struct-intro{display:flex;justify-content:space-between;gap:40px;align-items:flex-end;flex-wrap:wrap;margin-bottom:14px}
+  .pages{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:40px}
+  .page{background:var(--paper);padding:34px 32px;transition:background .3s}
+  .page:hover{background:var(--paper-2)}
+  .page .pnum{font-family:'Commissioner',sans-serif;font-weight:700;font-size:.72rem;color:var(--accent);letter-spacing:.08em}
+  .page h3{font-size:1.7rem;margin:10px 0 10px}
+  .page p{font-size:.94rem;color:#565d72;margin-bottom:14px}
+  .page ul{list-style:none}
+  .page li{font-size:.88rem;color:#6c7388;padding-left:18px;position:relative;margin-bottom:5px}
+  .page li::before{content:"—";position:absolute;left:0;color:var(--accent)}
+  .struct-notes{margin-top:36px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .note{background:var(--ink);color:var(--paper);padding:26px;border-radius:6px}
+  .note .mono{color:var(--accent);margin-bottom:10px}
+  .note p{font-size:.9rem;color:var(--muted-d)}
+
+  /* STYLE OPTIONS */
+  .styles-sec{background:var(--ink);color:var(--paper)}
+  .styles-sec .sec-tag .bar{background:var(--line-d)}
+  .styles-sec h2.sec-title{color:var(--paper)}
+  .styles-sec .intro-p{color:var(--muted-d)}
+  .opt-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:50px}
+  .opt{border:1px solid var(--line-d);border-radius:10px;overflow:hidden;background:var(--ink-2);display:flex;flex-direction:column}
+  .opt .mood{height:200px;position:relative;display:flex;align-items:flex-end;padding:22px}
+  .mood-a{background:linear-gradient(150deg,#10172e,#1d2747 70%,#2a3960)}
+  .mood-b{background:linear-gradient(150deg,#f3ead9,#dcb78f 45%,#bc5734)}
+  .mood .sample{font-family:'Playfair Display',serif;font-size:2.1rem;font-weight:500}
+  .mood-a .sample{color:#ece4d4}
+  .mood-b .sample{color:#2b2519}
+  .swatches{position:absolute;top:18px;right:18px;display:flex;gap:7px}
+  .sw{width:18px;height:18px;border-radius:50%;border:1px solid rgba(255,255,255,.25)}
+  .opt-body{padding:28px}
+  .opt-body .label{font-family:'Commissioner',sans-serif;font-weight:700;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+  .opt-body h3{font-size:1.9rem;margin:8px 0 4px;color:var(--paper)}
+  .opt-body .cred{font-size:.82rem;color:var(--muted);margin-bottom:16px}
+  .opt-body p{font-size:.92rem;color:var(--muted-d);margin-bottom:14px}
+  .opt-body .forlab{font-size:.9rem;color:var(--paper);border-left:2px solid var(--accent);padding-left:14px;margin-bottom:20px}
+  .opt-body .forlab b{font-family:'Playfair Display',serif;font-weight:600;font-size:1.05rem}
+  .visit{display:inline-flex;align-items:center;gap:8px;text-decoration:none;border:1px solid var(--accent);color:var(--accent);
+    padding:11px 20px;border-radius:40px;font-family:'Commissioner',sans-serif;font-weight:600;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;transition:.3s}
+  .visit:hover{background:var(--accent);color:var(--ink)}
+  .opt-note{text-align:center;margin-top:34px;color:var(--muted-d);font-size:.98rem;max-width:64ch;margin-left:auto;margin-right:auto}
+
+  /* BOOKING */
+  .book-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:46px}
+  .bk{background:var(--paper);padding:32px}
+  .bk.rec{background:var(--ink);color:var(--paper)}
+  .bk .bk-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px;gap:10px}
+  .bk h3{font-size:1.65rem}
+  .bk.rec h3{color:var(--paper)}
+  .bk .pill{font-family:'Commissioner',sans-serif;font-weight:700;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;background:var(--accent);color:var(--ink);padding:5px 11px;border-radius:30px;white-space:nowrap}
+  .bk .role{font-family:'Commissioner',sans-serif;font-weight:600;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;display:block}
+  .bk p{font-size:.92rem;color:#565d72;margin-bottom:14px}
+  .bk.rec p{color:var(--muted-d)}
+  .bk .meta{font-size:.82rem;border-top:1px solid var(--line);padding-top:12px;color:#6c7388}
+  .bk.rec .meta{border-color:var(--line-d);color:var(--muted-d)}
+  .bk .meta b{color:var(--ink);font-weight:700}
+  .bk.rec .meta b{color:var(--paper)}
+  .book-foot{margin-top:26px;font-size:.84rem;color:var(--muted);font-style:italic}
+
+  /* NEEDS */
+  .needs{display:grid;grid-template-columns:1fr 1fr;gap:14px 40px;margin-top:42px}
+  .need{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-bottom:1px solid var(--line)}
+  .need .dot{font-family:'Commissioner',sans-serif;font-weight:700;color:var(--accent);font-size:.82rem;margin-top:3px}
+  .need b{font-family:'Playfair Display',serif;font-weight:600;font-size:1.2rem}
+  .need span{display:block;font-size:.86rem;color:#6c7388}
+
+  /* PROCESS */
+  .proc-sec{background:var(--paper-2)}
+  .phases{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:46px}
+  .phase{position:relative;padding-top:26px;border-top:2px solid var(--accent)}
+  .phase .pn{font-family:'Commissioner',sans-serif;font-weight:700;font-size:.72rem;color:var(--accent);letter-spacing:.06em}
+  .phase h4{font-size:1.5rem;margin:8px 0 8px}
+  .phase p{font-size:.88rem;color:#565d72}
+  .closing{margin-top:60px;background:var(--ink);color:var(--paper);border-radius:10px;padding:48px;text-align:center}
+  .closing h3{font-size:clamp(1.8rem,3.2vw,2.6rem);font-weight:500;margin-bottom:14px}
+  .closing h3 em{font-style:italic;color:var(--accent-br);font-weight:400}
+  .closing p{color:var(--muted-d);max-width:58ch;margin:0 auto}
+
+  /* FOOTER */
+  footer{background:var(--ink);color:var(--paper);padding:64px 0 40px;border-top:1px solid var(--line-d)}
+  .foot-grid{display:grid;grid-template-columns:1fr;gap:36px;margin-bottom:44px}
+  .foot-logo{font-family:'Playfair Display',serif;font-size:2.1rem;font-weight:700;line-height:1;text-transform:lowercase}
+  .foot-logo b{color:var(--accent)}
+  .foot-grid h5{font-family:'Commissioner',sans-serif;font-weight:700;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+  .foot-grid p,.foot-grid a{display:block;color:var(--muted-d);font-size:.9rem;margin-bottom:7px;text-decoration:none}
+  .foot-bottom{border-top:1px solid var(--line-d);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:.78rem;color:var(--muted)}
+
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s,transform .8s}
+  .reveal.in{opacity:1;transform:none}
+
+  @media(max-width:860px){
+    .wrap{padding:0 22px}
+    .topbar{padding:14px 22px}
+    section{padding:64px 0}
+    .goals,.struct-notes,.phases{grid-template-columns:1fr}
+    .pages,.opt-grid,.book-grid,.needs,.foot-grid{grid-template-columns:1fr}
+    .cover-meta{gap:30px}
+  }
+  @media print{
+    .topbar{position:static}
+    .reveal{opacity:1;transform:none}
+    section{padding:40px 0}
+    .opt,.page,.bk{break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="logo">social pulse</div>
+  <div class="mono">Πρόταση Ιστοσελίδας · Ιούνιος 2026</div>
+</div>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="wrap">
+    <div class="mono">Για το Lab Restaurant &amp; Bar · Λεμεσός</div>
+    <h1>Μια νέα ιστοσελίδα,<br>φτιαγμένη για να γεμίζει <em>τραπέζια.</em></h1>
+    <p class="lede">Μια πρόταση για μια ιστοσελίδα πολλαπλών σελίδων που αποτυπώνει τον χαρακτήρα του Lab — και μετατρέπει τους επισκέπτες σε κρατήσεις.</p>
+    <div class="cover-meta">
+      <div><div class="mono">Από</div><div class="v">Social Pulse</div></div>
+      <div><div class="mono">Για</div><div class="v">Lab Restaurant &amp; Bar</div></div>
+      <div><div class="mono">Αντικείμενο</div><div class="v">Ιστοσελίδα &amp; Κρατήσεις</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- 01 -->
+<section>
+  <div class="wrap reveal">
+    <div class="sec-tag"><span class="num">01</span><span class="bar"></span><span class="mono accent">Η Ανάθεση</span></div>
+    <h2 class="sec-title">Ένα σημείο-ορόσημο αξίζει μια παρουσία στο διαδίκτυο.</h2>
+    <p class="intro-p">Από το 2018, το Lab έχει καθιερωθεί ως ένα από τα πιο ξεχωριστά στέκια της παλιάς πόλης της Λεμεσού — μια σύγχρονη μεσογειακή κουζίνα και bar μέσα σε ένα ανακαινισμένο πέτρινο κτήριο, με τον δικό του εσωτερικό κήπο-αίθριο, signature cocktails, εκλεκτά κρασιά και χώρο για ιδιωτικές εκδηλώσεις.</p>
+    <p class="intro-p">Σήμερα η ιστορία αυτή ζει κυρίως στα social media. Στόχος αυτού του έργου είναι μια ιστοσελίδα που κάνει τρία πράγματα: μεταδίδει την ατμόσφαιρα του Lab, κάνει το μενού και τον χώρο εύκολα προσβάσιμα, και επιτρέπει στους επισκέπτες να κλείσουν τραπέζι με λίγα μόνο πατήματα — η βασική απαίτηση του ιδιοκτήτη.</p>
+    <div class="goals">
+      <div class="goal"><h4>Ανάδειξη ταυτότητας</h4><p>Μια ιστοσελίδα που σε κάνει να νιώθεις σαν να μπαίνεις στο Lab — με έμφαση στην ατμόσφαιρα και τη φωτογραφία.</p></div>
+      <div class="goal"><h4>Περισσότερες κρατήσεις</h4><p>Μια ξεκάθαρη, εύκολη διαδρομή κράτησης σε κάθε σελίδα, βελτιστοποιημένη για κινητά.</p></div>
+      <div class="goal"><h4>Ιδιωτικές εκδηλώσεις</h4><p>Προβολή του αίθριου και του χώρου εκδηλώσεων για την προσέλκυση πιο κερδοφόρων αιτημάτων.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 -->
+<section style="background:var(--paper-2)">
+  <div class="wrap reveal">
+    <div class="sec-tag"><span class="num">02</span><span class="bar"></span><span class="mono accent">Προτεινόμενη Δομή</span></div>
+    <div class="struct-intro">
+      <h2 class="sec-title" style="margin-bottom:0">Μια ξεκάθαρη ιστοσελίδα πολλαπλών σελίδων.</h2>
+      <p class="intro-p" style="max-width:48ch">Κάθε σελίδα έχει έναν ξεκάθαρο ρόλο. Οι επισκέπτες βρίσκουν αυτό που ψάχνουν — το μενού, τον χώρο, την κράτηση — χωρίς ψάξιμο, και οι μηχανές αναζήτησης βρίσκουν καθαρές, καλά δομημένες σελίδες.</p>
+    </div>
+    <div class="pages">
+      <div class="page">
+        <span class="pnum">ΣΕΛΙΔΑ 01</span><h3>Αρχική</h3>
+        <p>Η πρώτη γεύση του Lab. Ατμόσφαιρα, μια γρήγορη αίσθηση του concept, και η συντομότερη διαδρομή προς μια κράτηση.</p>
+        <ul>
+          <li>Hero πλήρους οθόνης με χαρακτηριστικές εικόνες</li>
+          <li>Σύντομη παρουσίαση της ταυτότητας &amp; highlights (brunch · bar · κήπος)</li>
+          <li>Επιλεγμένα πιάτα / cocktails</li>
+          <li>Μόνιμο κουμπί «Κλείσε Τραπέζι»</li>
+        </ul>
+      </div>
+      <div class="page">
+        <span class="pnum">ΣΕΛΙΔΑ 02</span><h3>Η Ιστορία μας</h3>
+        <p>Η κληρονομιά που ξεχωρίζει το Lab — το κτήριο, ο σεφ Μιχάλης Γεωργίου, και η φιλοσοφία πίσω από την κουζίνα.</p>
+        <ul>
+          <li>Το πέτρινο ορόσημο &amp; η ιστορία του</li>
+          <li>Παρουσίαση του σεφ &amp; της ομάδας</li>
+          <li>Η προσέγγιση στη μεσογειακή fusion κουζίνα</li>
+        </ul>
+      </div>
+      <div class="page">
+        <span class="pnum">ΣΕΛΙΔΑ 03</span><h3>Μενού</h3>
+        <p>Φαγητό, brunch και το πλήρες bar — ξεκάθαρα, εύκολα στην πλοήγηση και απλά στην ενημέρωση.</p>
+        <ul>
+          <li>Μενού φαγητού &amp; brunch</li>
+          <li>Cocktails, κρασί, cava &amp; πούρα</li>
+          <li>Εύκολη ενημέρωση (χωρίς ανάγκη για προγραμματιστή)</li>
+        </ul>
+      </div>
+      <div class="page">
+        <span class="pnum">ΣΕΛΙΔΑ 04</span><h3>Ο Κήπος &amp; ο Χώρος</h3>
+        <p>Μια ξεχωριστή σελίδα για το μοναδικό αίθριο του είδους του στη Λεμεσό — αυτό που θυμούνται περισσότερο οι επισκέπτες.</p>
+        <ul>
+          <li>Φωτογραφίες αίθριου &amp; εσωτερικού χώρου</li>
+          <li>Οι διαφορετικές ατμόσφαιρες, από το πρωί ως το βράδυ</li>
+          <li>Ατμόσφαιρα &amp; βραδιές με live μουσική</li>
+        </ul>
+      </div>
+      <div class="page">
+        <span class="pnum">ΣΕΛΙΔΑ 05</span><h3>Ιδιωτικές Εκδηλώσεις</h3>
+        <p>Η σελίδα εσόδων. Τοποθετεί το Lab για γιορτές και εταιρικές βραδιές έως 50 ατόμων.</p>
+        <ul>
+          <li>Τύποι εκδηλώσεων &amp; χωρητικότητα</li>
+          <li>Εξατομικευμένα πακέτα μενού &amp; ποτών</li>
+          <li>Ειδική φόρμα αιτήματος → απευθείας στην ομάδα</li>
+        </ul>
+      </div>
+      <div class="page">
+        <span class="pnum">ΣΕΛΙΔΑ 06</span><h3>Φωτογραφίες</h3>
+        <p>Αφήστε την εικόνα να μιλήσει. Ένα επιμελημένο grid με φαγητό, ποτά, τον κήπο και τον κόσμο.</p>
+        <ul>
+          <li>Grid με φωτογραφίες &amp; σύντομα βίντεο</li>
+          <li>Ενσωμάτωση Instagram feed (προαιρετικά)</li>
+        </ul>
+      </div>
+      <div class="page">
+        <span class="pnum">ΣΕΛΙΔΑ 07</span><h3>Κρατήσεις</h3>
+        <p>Η καρδιά της ιστοσελίδας — κράτηση σε πραγματικό χρόνο, με ενσωματωμένο το επιλεγμένο σύστημα (βλ. ενότητα 04).</p>
+        <ul>
+          <li>Ενσωματωμένο widget κράτησης — ημερομηνία, ώρα, αριθμός ατόμων</li>
+          <li>Αυτόματες επιβεβαιώσεις &amp; υπενθυμίσεις</li>
+          <li>Διαχείριση μεγάλων γκρουπ &amp; ιδιωτικών εκδηλώσεων</li>
+        </ul>
+      </div>
+      <div class="page">
+        <span class="pnum">ΣΕΛΙΔΑ 08</span><h3>Επικοινωνία &amp; Πρόσβαση</h3>
+        <p>Όλα όσα χρειάζεται ένας επισκέπτης για να σας βρει — και να κλείσει τηλεφωνικά αν προτιμά.</p>
+        <ul>
+          <li>Χάρτης, διεύθυνση &amp; ώρες λειτουργίας</li>
+          <li>Τηλέφωνο, email &amp; social links</li>
+          <li>Πληροφορίες parking &amp; πρόσβασης</li>
+        </ul>
+      </div>
+    </div>
+    <div class="struct-notes">
+      <div class="note"><div class="mono">Δίγλωσση</div><p>Στα Ελληνικά &amp; Αγγλικά (EL/EN), για τον ντόπιο κόσμο και τους επισκέπτες της Λεμεσού.</p></div>
+      <div class="note"><div class="mono">Mobile-first</div><p>Η πλειονότητα της επισκεψιμότητας και των κρατήσεων προέρχεται από κινητά — η ιστοσελίδα σχεδιάζεται πρώτα γι' αυτή την οθόνη.</p></div>
+      <div class="note"><div class="mono">Βάση SEO</div><p>Καθαρή δομή σελίδων, τοπικό SEO και ευθυγράμμιση με το Google Business Profile, ώστε το Lab να βρίσκεται στις αναζητήσεις.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 -->
+<section class="styles-sec">
+  <div class="wrap reveal">
+    <div class="sec-tag"><span class="num">03</span><span class="bar"></span><span class="mono accent">Σχεδιαστική Κατεύθυνση</span></div>
+    <h2 class="sec-title">Δύο κατευθύνσεις για να επιλέξετε.</h2>
+    <p class="intro-p">Πριν σχεδιάσουμε έστω και μία σελίδα, θα θέλαμε να μας πείτε ποια αίσθηση σας εκφράζει. Παρακάτω υπάρχουν δύο ενεργές ιστοσελίδες εστιατορίων στα δύο άκρα του φάσματος — και οι δύο, όπως το Lab, στεγάζονται σε παλιά κτήρια με χαρακτήρα. Παρουσιάζονται ως <b>σημεία αναφοράς στυλ</b>, όχι ως έτοιμα πρότυπα (templates): όποια κατεύθυνση κι αν προτιμήσετε, προσαρμόζουμε τη δομή, το περιεχόμενο και τις κρατήσεις στο Lab.</p>
+    <div class="opt-grid">
+      <div class="opt">
+        <div class="mood mood-a">
+          <div class="swatches"><span class="sw" style="background:#1d2747"></span><span class="sw" style="background:#2a3960"></span><span class="sw" style="background:#ece4d4"></span><span class="sw" style="background:#c0883a"></span></div>
+          <span class="sample">Κομψό. Λιτό.</span>
+        </div>
+        <div class="opt-body">
+          <span class="label">Κατεύθυνση Α</span>
+          <h3>Canlis</h3>
+          <div class="cred">Σιάτλ · ορόσημο fine dining</div>
+          <p>Σκούρο, ήρεμο και σίγουρο. Μεγάλες ατμοσφαιρικές φωτογραφίες πρωταγωνιστούν, με άπλετο χώρο και ελάχιστο κείμενο. Δίνει αίσθηση premium και ωριμότητας.</p>
+          <div class="forlab"><b>Για το Lab:</b> τοποθετεί τον χώρο ως έναν εκλεπτυσμένο προορισμό για cocktails και φαγητό — ατμοσφαιρικό, με έμφαση στη βραδινή εμπειρία.</div>
+          <a class="visit" href="https://canlis.com" target="_blank" rel="noopener">Δείτε το canlis.com →</a>
+        </div>
+      </div>
+      <div class="opt">
+        <div class="mood mood-b">
+          <div class="swatches"><span class="sw" style="background:#f3ead9"></span><span class="sw" style="background:#6f7a4c"></span><span class="sw" style="background:#bc5734"></span><span class="sw" style="background:#2b2519"></span></div>
+          <span class="sample">Ζεστό. Φιλόξενο.</span>
+        </div>
+        <div class="opt-body">
+          <span class="label">Κατεύθυνση Β</span>
+          <h3>Juniper &amp; Ivy</h3>
+          <div class="cred">Σαν Ντιέγκο · chef-driven, σε μετατραπείσα αποθήκη</div>
+          <p>Πιο ζεστή παλέτα, rustic-modern υφές και φιλική τυπογραφία. Έντονη ενέργεια, δυνατή φωτογραφία φαγητού, και άριστη προβολή των χώρων ιδιωτικών εκδηλώσεων.</p>
+          <div class="forlab"><b>Για το Lab:</b> προσιτό και κοινωνικό — αναδεικνύει την all-day διάσταση, από το brunch ως αργά το βράδυ, και τον κήπο.</div>
+          <a class="visit" href="https://www.juniperandivy.com" target="_blank" rel="noopener">Δείτε το juniperandivy.com →</a>
+        </div>
+      </div>
+    </div>
+    <p class="opt-note">Η επιλογή ανάμεσα σε αυτές νωρίς ξεκαθαρίζει τη σημαντικότερη απόφαση — <em>ατμοσφαιρικό &amp; premium</em> έναντι <em>ζεστό &amp; προσιτό</em> — και όλα τα υπόλοιπα του σχεδιασμού απορρέουν από εκεί.</p>
+  </div>
+</section>
+
+<!-- 04 -->
+<section>
+  <div class="wrap reveal">
+    <div class="sec-tag"><span class="num">04</span><span class="bar"></span><span class="mono accent">Κρατήσεις</span></div>
+    <h2 class="sec-title">Το σύστημα κρατήσεων.</h2>
+    <p class="intro-p">Οι κρατήσεις είναι η βασική απαίτηση του ιδιοκτήτη, οπότε η σωστή επιλογή συστήματος έχει σημασία. Αντί για μια απλή φόρμα επικοινωνίας, προτείνουμε ένα εξειδικευμένο σύστημα κρατήσεων ενσωματωμένο στην ιστοσελίδα — διαθεσιμότητα σε πραγματικό χρόνο, αυτόματες επιβεβαιώσεις και υπενθυμίσεις για λιγότερα no-shows, και ένα απλό ημερολόγιο διαχείρισης για την ομάδα. Παρακάτω είναι οι επιλογές που θα προτείναμε για έναν χώρο στο μέγεθος του Lab.</p>
+    <div class="book-grid">
+      <div class="bk rec">
+        <div class="bk-top"><h3>Eat App</h3><span class="pill">Η πρότασή μας</span></div>
+        <span class="role">Ενσωματωμένο στην ιστοσελίδα</span>
+        <p>Μια δυνατή ολοκληρωμένη λύση για ανεξάρτητα εστιατόρια: κρατήσεις σε πραγματικό χρόνο, οπτικό floor plan, βάση πελατών (CRM), και υπενθυμίσεις SMS/WhatsApp για λιγότερα no-shows. Γενναιόδωρο δωρεάν πλάνο, με προσιτά επί πληρωμή πλάνα καθώς αυξάνεται ο όγκος.</p>
+        <div class="meta">Μοντέλο: <b>Δωρεάν πλάνο + μηνιαία συνδρομή</b> · Χωρίς χρέωση ανά κάλυμμα · Ενσωματώνεται απευθείας στη σελίδα Κρατήσεων</div>
+      </div>
+      <div class="bk">
+        <div class="bk-top"><h3>Tablein</h3></div>
+        <span class="role">Ενσωματωμένο · οικονομικό</span>
+        <p>Δημοφιλές σε όλη την Ευρώπη σε ανεξάρτητα εστιατόρια. Καθαρό widget που ενσωματώνεται εύκολα, drag-and-drop floor plan, αυτοματοποιημένες ειδοποιήσεις. Η πιο απλή και οικονομική λύση για ένα σωστό σύστημα κρατήσεων σε πραγματικό χρόνο.</p>
+        <div class="meta">Μοντέλο: <b>Σταθερή μηνιαία χρέωση (ενδεικτικά από ~€37/μήνα)</b> · Χωρίς χρέωση ανά κάλυμμα</div>
+      </div>
+      <div class="bk">
+        <div class="bk-top"><h3>TheFork</h3></div>
+        <span class="role">Δίκτυο προβολής</span>
+        <p>Η κυρίαρχη πλατφόρμα κρατήσεων στη νότια Ευρώπη, με την υποστήριξη του Tripadvisor. Αξίζει να προστεθεί παράλληλα με το σύστημα της ιστοσελίδας για επιπλέον προβολή σε τουρίστες και ντόπιους που χρησιμοποιούν την εφαρμογή — με κόστος μια προμήθεια σε αυτές τις κρατήσεις.</p>
+        <div class="meta">Μοντέλο: <b>Προμήθεια στις κρατήσεις μέσω της πλατφόρμας</b> · Ιδανικό για προσέγγιση τουριστών στη Λεμεσό</div>
+      </div>
+      <div class="bk">
+        <div class="bk-top"><h3>Απλή φόρμα αιτήματος</h3></div>
+        <span class="role">Βασική εναλλακτική</span>
+        <p>Μια απλή φόρμα που στέλνει email στην ομάδα και ειδοποίηση στο WhatsApp, με χειροκίνητη επιβεβαίωση. Το χαμηλότερο κόστος και η ταχύτερη υλοποίηση — αλλά χωρίς διαθεσιμότητα σε πραγματικό χρόνο, οπότε ενδείκνυται μόνο για μικρό όγκο κρατήσεων.</p>
+        <div class="meta">Μοντέλο: <b>Χωρίς μηνιαίο κόστος</b> · Ενσωματωμένη απευθείας στην ιστοσελίδα</div>
+      </div>
+    </div>
+    <p class="book-foot">Οι τιμές είναι ενδεικτικές και επιβεβαιώνονται στο στάδιο της υλοποίησης. Για τους περισσότερους χώρους σαν το Lab προτείνουμε ένα ενσωματωμένο σύστημα (Eat App ή Tablein) ως βάση, προαιρετικά με καταχώριση στο TheFork για προβολή. Πλατφόρμες enterprise όπως το SevenRooms και το OpenTable είναι ισχυρές, αλλά ταιριάζουν περισσότερο σε μεγάλους ομίλους και αλυσίδες.</p>
+  </div>
+</section>
+
+<!-- 05 -->
+<section style="background:var(--paper-2)">
+  <div class="wrap reveal">
+    <div class="sec-tag"><span class="num">05</span><span class="bar"></span><span class="mono accent">Από το Lab</span></div>
+    <h2 class="sec-title">Τι θα χρειαστούμε για να ξεκινήσουμε.</h2>
+    <p class="intro-p">Για να φτιάξουμε κάτι που μοιάζει και λειτουργεί όπως το Lab, θα συγκεντρώσουμε μαζί σας τα παρακάτω στην εκκίνηση του έργου.</p>
+    <div class="needs">
+      <div class="need"><span class="dot">Α</span><div><b>Υλικό ταυτότητας</b><span>Αρχεία λογότυπου, χρώματα &amp; γραμματοσειρές</span></div></div>
+      <div class="need"><span class="dot">Β</span><div><b>Φωτογραφίες</b><span>Εσωτερικός χώρος, αίθριο, φαγητό &amp; cocktails (ή κανονίζουμε φωτογράφιση)</span></div></div>
+      <div class="need"><span class="dot">Γ</span><div><b>Μενού</b><span>Φαγητό, brunch, ποτά, κρασί — και προτίμηση για τιμές</span></div></div>
+      <div class="need"><span class="dot">Δ</span><div><b>Ώρες &amp; στοιχεία</b><span>Ώρες λειτουργίας, διεύθυνση, τηλέφωνο &amp; email κρατήσεων</span></div></div>
+      <div class="need"><span class="dot">Ε</span><div><b>Επιλογή κρατήσεων</b><span>Προτιμώμενο σύστημα από την ενότητα 04</span></div></div>
+      <div class="need"><span class="dot">ΣΤ</span><div><b>Γλώσσες</b><span>Μόνο Αγγλικά, ή Αγγλικά + Ελληνικά</span></div></div>
+      <div class="need"><span class="dot">Ζ</span><div><b>Domain &amp; hosting</b><span>Υπάρχον domain, ή το κατοχυρώνουμε εμείς</span></div></div>
+      <div class="need"><span class="dot">Η</span><div><b>Λογαριασμοί</b><span>Google Business Profile &amp; λογαριασμοί social media</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 -->
+<section class="proc-sec">
+  <div class="wrap reveal">
+    <div class="sec-tag"><span class="num">06</span><span class="bar"></span><span class="mono accent">Πώς Δουλεύουμε</span></div>
+    <h2 class="sec-title">Μια απλή διαδρομή προς το launch.</h2>
+    <div class="phases">
+      <div class="phase"><div class="pn">ΦΑΣΗ 01</div><h4>Διερεύνηση</h4><p>Επιβεβαίωση κατεύθυνσης (Α ή Β), συγκέντρωση υλικού, οριστικοποίηση συστήματος κρατήσεων και λίστας σελίδων.</p></div>
+      <div class="phase"><div class="pn">ΦΑΣΗ 02</div><h4>Σχεδιασμός</h4><p>Σχεδιασμός της αρχικής και των βασικών σελίδων στην επιλεγμένη κατεύθυνση, προς έγκριση πριν την υλοποίηση.</p></div>
+      <div class="phase"><div class="pn">ΦΑΣΗ 03</div><h4>Υλοποίηση</h4><p>Ανάπτυξη ολόκληρης της ιστοσελίδας, ενσωμάτωση του συστήματος κρατήσεων, δίγλωσσο περιεχόμενο και SEO.</p></div>
+      <div class="phase"><div class="pn">ΦΑΣΗ 04</div><h4>Launch</h4><p>Έλεγχος κρατήσεων από άκρη σε άκρη, δημοσίευση, σύνδεση με Google, και παράδοση με σύντομη εκπαίδευση.</p></div>
+    </div>
+    <div class="closing">
+      <h3>Ας δώσουμε στο Lab μια παρουσία στο διαδίκτυο <em>εξίσου αξέχαστη με τον ίδιο τον χώρο.</em></h3>
+      <p>Μόλις επιλέξετε σχεδιαστική κατεύθυνση και τρόπο κρατήσεων, θα ακολουθήσει αναλυτικό αντικείμενο εργασιών και προσφορά. Είμαστε έτοιμοι να ξεκινήσουμε όποτε είστε κι εσείς.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo">social pulse</div>
+        <p style="margin-top:12px;max-width:36ch">Ολοκληρωμένες υπηρεσίες marketing &amp; επικοινωνίας — branding, web, social, SEO &amp; άλλα.</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Social Pulse</span>
+      <span>Πρόταση Ιστοσελίδας · Lab Restaurant &amp; Bar</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.08});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
