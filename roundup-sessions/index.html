@@ -1,1 +1,781 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RoundUp Sessions</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --coral: #FF6B7A;
+    --teal: #4F7272;
+    --dark: #1E3535;
+    --light-teal: #EBF2F2;
+    --mid: #5C7272;
+    --white: #FFFFFF;
+    --off-white: #F8FAFA;
+  }
+
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; background: var(--dark); color: var(--white); overflow-x: hidden; }
+
+  /* ── HERO ─────────────────────────────── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 80px 24px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(255,107,122,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -150px; left: -150px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(79,114,114,0.2) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .hero-logo {
+    width: min(600px, 85vw);
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-tagline {
+    font-size: clamp(11px, 1.5vw, 14px);
+    font-weight: 500;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 56px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-stat-row {
+    display: flex;
+    gap: 56px;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-stat { text-align: center; }
+
+  .hero-stat-num {
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 800;
+    color: var(--coral);
+    line-height: 1;
+    letter-spacing: -1px;
+  }
+
+  .hero-stat-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    margin-top: 8px;
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 36px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,255,255,0.2);
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    animation: bounce 2.5s ease-in-out infinite;
+  }
+
+  .scroll-hint::after {
+    content: '';
+    width: 1px;
+    height: 36px;
+    background: linear-gradient(to bottom, rgba(255,107,122,0.5), transparent);
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(8px); }
+  }
+
+  /* ── SECTIONS ─────────────────────────── */
+  section { padding: 100px 24px; }
+
+  .container { max-width: 1100px; margin: 0 auto; }
+
+  .section-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--coral);
+    margin-bottom: 14px;
+  }
+
+  .section-title {
+    font-size: clamp(28px, 4vw, 46px);
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--white);
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+  }
+
+  .section-body {
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.6);
+    max-width: 680px;
+  }
+
+  /* ── ABOUT ────────────────────────────── */
+  .about { background: var(--off-white); }
+  .about .section-title { color: var(--dark); }
+  .about .section-body { color: rgba(30,53,53,0.65); }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+    margin-top: 60px;
+  }
+
+  .about-feature {
+    padding: 28px 28px 28px 24px;
+    border-left: 3px solid var(--coral);
+    background: var(--white);
+    margin-bottom: 16px;
+    border-radius: 0 6px 6px 0;
+  }
+
+  .about-feature-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 8px;
+  }
+
+  .about-feature-body {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.7;
+    color: rgba(30,53,53,0.6);
+  }
+
+  .about-quote {
+    padding: 48px;
+    background: var(--dark);
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-quote::before {
+    content: '"';
+    font-size: 160px;
+    font-weight: 900;
+    color: var(--coral);
+    opacity: 0.12;
+    position: absolute;
+    top: -20px;
+    left: 16px;
+    line-height: 1;
+    font-family: Georgia, serif;
+  }
+
+  .about-quote-text {
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.5;
+    color: var(--white);
+    position: relative;
+    z-index: 1;
+  }
+
+  .about-quote-attr {
+    margin-top: 20px;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--coral);
+    font-weight: 600;
+  }
+
+  /* ── STATS ────────────────────────────── */
+  .stats { background: var(--dark); }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2px;
+    margin-top: 60px;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .stat-card {
+    background: rgba(255,255,255,0.04);
+    padding: 32px 20px;
+    text-align: center;
+    transition: background 0.3s;
+    border-top: 2px solid transparent;
+  }
+
+  .stat-card:hover {
+    background: rgba(255,107,122,0.08);
+    border-top-color: var(--coral);
+  }
+
+  .stat-platform {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--coral);
+    margin-bottom: 14px;
+  }
+
+  .stat-number {
+    font-size: clamp(22px, 3vw, 34px);
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+  }
+
+  .stat-detail {
+    font-size: 11px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.3);
+    line-height: 1.6;
+  }
+
+  .stats-total {
+    margin-top: 32px;
+    padding: 32px 40px;
+    background: linear-gradient(135deg, rgba(255,107,122,0.1), rgba(79,114,114,0.1));
+    border: 1px solid rgba(255,107,122,0.18);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .stats-total-num {
+    font-size: clamp(36px, 5vw, 60px);
+    font-weight: 900;
+    color: var(--coral);
+    letter-spacing: -1px;
+  }
+
+  .stats-total-label {
+    font-size: 15px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.5);
+    max-width: 360px;
+    line-height: 1.7;
+  }
+
+  /* ── EPISODES ─────────────────────────── */
+  .episodes { background: var(--teal); }
+  .episodes .section-title { color: var(--white); }
+
+  .episodes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 56px;
+  }
+
+  .episode-card {
+    background: rgba(0,0,0,0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    text-decoration: none;
+    display: block;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .episode-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+  }
+
+  .episode-thumb-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    background: rgba(0,0,0,0.3);
+  }
+
+  .episode-thumb-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s;
+  }
+
+  .episode-card:hover .episode-thumb-wrap img {
+    transform: scale(1.04);
+  }
+
+  .play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 52px;
+    height: 52px;
+    background: rgba(255,107,122,0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .episode-card:hover .play-btn {
+    background: var(--coral);
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+
+  .play-btn svg { margin-left: 3px; }
+
+  .episode-info { padding: 22px; }
+
+  .episode-num {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--coral);
+    margin-bottom: 6px;
+  }
+
+  .episode-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 14px;
+    line-height: 1.3;
+  }
+
+  .episode-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--coral);
+    text-decoration: none;
+  }
+
+  .episode-link::after { content: '→'; transition: transform 0.2s; }
+  .episode-card:hover .episode-link::after { transform: translateX(4px); }
+
+  /* ── SOCIALS ──────────────────────────── */
+  .socials { background: var(--off-white); }
+  .socials .section-title { color: var(--dark); }
+  .socials .section-label { color: var(--coral); }
+
+  .socials-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 14px;
+    margin-top: 56px;
+  }
+
+  .social-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 32px 16px;
+    background: var(--white);
+    border-radius: 10px;
+    text-decoration: none;
+    border: 2px solid transparent;
+    transition: all 0.3s;
+    box-shadow: 0 2px 16px rgba(30,53,53,0.05);
+  }
+
+  .social-card:hover {
+    border-color: var(--coral);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 32px rgba(255,107,122,0.13);
+  }
+
+  .social-icon { width: 44px; height: 44px; }
+
+  .social-name {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--teal);
+  }
+
+  .social-handle {
+    font-size: 12px;
+    font-weight: 400;
+    color: rgba(30,53,53,0.45);
+    text-align: center;
+    word-break: break-all;
+  }
+
+  /* ── CTA ──────────────────────────────── */
+  .cta { background: var(--dark); text-align: center; padding: 120px 24px; position: relative; overflow: hidden; }
+
+  .cta::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(255,107,122,0.09) 0%, transparent 65%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .cta .section-title { max-width: 560px; margin: 14px auto 32px; }
+
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 36px;
+    background: var(--coral);
+    color: var(--white);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.3s;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta-btn:hover {
+    background: #ff4d5e;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(255,107,122,0.35);
+  }
+
+  .cta-contact {
+    margin-top: 36px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.3);
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta-contact a { color: var(--coral); text-decoration: none; }
+  .cta-contact a:hover { text-decoration: underline; }
+
+  /* ── FOOTER ───────────────────────────── */
+  footer {
+    background: rgba(0,0,0,0.25);
+    padding: 28px 24px;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+
+  footer p { font-size: 11px; color: rgba(255,255,255,0.18); letter-spacing: 1px; }
+
+  /* ── FADE IN ──────────────────────────── */
+  .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── RESPONSIVE ───────────────────────── */
+  @media (max-width: 900px) {
+    .stats-grid { grid-template-columns: repeat(3, 1fr); }
+    .episodes-grid { grid-template-columns: 1fr; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .socials-grid { grid-template-columns: repeat(3, 1fr); }
+    .about-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 600px) {
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .socials-grid { grid-template-columns: repeat(2, 1fr); }
+    .hero-stat-row { gap: 28px; }
+    .stats-total { flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── HERO ──────────────────────────────── -->
+<section class="hero">
+  <div class="hero-logo fade-in">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" zoomAndPan="magnify" viewBox="0 0 1440 809.999993" height="auto" preserveAspectRatio="xMidYMid meet" version="1.0"><defs><g/><clipPath id="3d7a4e6a12"><rect x="0" width="1051" y="0" height="238"/></clipPath><clipPath id="7c54569e30"><rect x="0" width="203" y="0" height="37"/></clipPath></defs><g transform="matrix(1, 0, 0, 1, 197, 286)"><g clip-path="url(#3d7a4e6a12)"><g fill="#5c7675" fill-opacity="1"><g transform="translate(0.351349, 184.035797)"><g><path d="M 7.171875 0 L 7.171875 -161.859375 L 91.34375 -161.859375 C 98.425781 -161.859375 106.285156 -160.894531 114.921875 -158.96875 C 123.554688 -157.039062 131.265625 -153.378906 138.046875 -147.984375 C 144.210938 -143.054688 148.914062 -136.890625 152.15625 -129.484375 C 155.394531 -122.085938 157.015625 -114.769531 157.015625 -107.53125 C 157.015625 -99.664062 155.316406 -92.1875 151.921875 -85.09375 C 148.523438 -78 143.859375 -71.945312 137.921875 -66.9375 C 131.992188 -61.925781 125.097656 -58.578125 117.234375 -56.890625 L 161.171875 -1.625 L 161.171875 0 L 110.765625 0 L 70.53125 -54.34375 L 50.40625 -54.34375 L 50.40625 0 Z M 50.40625 -89.484375 L 92.265625 -89.484375 C 99.359375 -89.484375 104.675781 -91.367188 108.21875 -95.140625 C 111.757812 -98.921875 113.53125 -102.972656 113.53125 -107.296875 C 113.53125 -111.921875 111.679688 -116.117188 107.984375 -119.890625 C 104.285156 -123.671875 98.738281 -125.5625 91.34375 -125.5625 L 50.40625 -125.5625 Z M 50.40625 -89.484375 "/></g></g></g><g fill="#5c7675" fill-opacity="1"><g transform="translate(162.899416, 184.035797)"><g><path d="M 61.515625 1.84375 C 49.796875 1.84375 39.347656 -0.582031 30.171875 -5.4375 C 21.003906 -10.289062 13.757812 -17.03125 8.4375 -25.65625 C 3.125 -34.289062 0.46875 -44.238281 0.46875 -55.5 C 0.46875 -66.75 3.125 -76.613281 8.4375 -85.09375 C 13.757812 -93.570312 21.003906 -100.238281 30.171875 -105.09375 C 39.347656 -109.945312 49.796875 -112.375 61.515625 -112.375 C 73.066406 -112.375 83.429688 -109.945312 92.609375 -105.09375 C 101.785156 -100.238281 108.992188 -93.570312 114.234375 -85.09375 C 119.472656 -76.613281 122.09375 -66.75 122.09375 -55.5 C 122.09375 -44.238281 119.472656 -34.289062 114.234375 -25.65625 C 108.992188 -17.03125 101.785156 -10.289062 92.609375 -5.4375 C 83.429688 -0.582031 73.066406 1.84375 61.515625 1.84375 Z M 61.515625 -33.296875 C 67.671875 -33.296875 72.710938 -35.375 76.640625 -39.53125 C 80.578125 -43.695312 82.546875 -49.019531 82.546875 -55.5 C 82.546875 -61.820312 80.578125 -67.023438 76.640625 -71.109375 C 72.710938 -75.191406 67.671875 -77.234375 61.515625 -77.234375 C 55.347656 -77.234375 50.21875 -75.191406 46.125 -71.109375 C 42.039062 -67.023438 40 -61.820312 40 -55.5 C 40 -49.019531 42.039062 -43.695312 46.125 -39.53125 C 50.21875 -35.375 55.347656 -33.296875 61.515625 -33.296875 Z M 61.515625 -33.296875 "/></g></g></g><g fill="#5c7675" fill-opacity="1"><g transform="translate(295.388831, 184.035797)"><g><path d="M 50.875 1.84375 C 39.613281 1.84375 30.628906 -0.503906 23.921875 -5.203125 C 17.222656 -9.898438 12.410156 -16.253906 9.484375 -24.265625 C 6.554688 -32.285156 5.09375 -41.382812 5.09375 -51.5625 L 5.09375 -110.0625 L 45.328125 -110.0625 L 45.328125 -51.328125 C 45.171875 -43.773438 46.75 -38.84375 50.0625 -36.53125 C 53.375 -34.21875 57.113281 -32.984375 61.28125 -32.828125 C 65.75 -32.984375 69.910156 -34.523438 73.765625 -37.453125 C 77.617188 -40.390625 79.546875 -45.785156 79.546875 -53.640625 L 79.546875 -110.0625 L 119.546875 -110.0625 L 119.546875 0 L 83.25 0 L 79.546875 -10.875 C 76.304688 -6.09375 72.066406 -2.8125 66.828125 -1.03125 C 61.585938 0.738281 56.269531 1.695312 50.875 1.84375 Z M 50.875 1.84375 "/></g></g></g><g fill="#5c7675" fill-opacity="1"><g transform="translate(432.040285, 184.035797)"><g><path d="M 5.3125 0 L 5.3125 -110.0625 L 41.390625 -110.0625 L 45.328125 -98.96875 C 48.554688 -103.90625 52.753906 -107.257812 57.921875 -109.03125 C 63.085938 -110.800781 68.367188 -111.6875 73.765625 -111.6875 C 85.171875 -111.6875 94.1875 -109.375 100.8125 -104.75 C 107.445312 -100.125 112.226562 -93.765625 115.15625 -85.671875 C 118.082031 -77.578125 119.546875 -68.441406 119.546875 -58.265625 L 119.546875 0 L 79.546875 0 L 79.546875 -58.5 C 79.703125 -66.207031 78.117188 -71.21875 74.796875 -73.53125 C 71.484375 -75.84375 67.75 -77.078125 63.59375 -77.234375 C 59.125 -77.078125 54.960938 -75.492188 51.109375 -72.484375 C 47.253906 -69.484375 45.328125 -64.128906 45.328125 -56.421875 L 45.328125 0 Z M 5.3125 0 "/></g></g></g><g fill="#5c7675" fill-opacity="1"><g transform="translate(565.685733, 184.035797)"><g><path d="M 56.1875 1.390625 C 43.695312 1.390625 33.289062 -1.34375 24.96875 -6.8125 C 16.644531 -12.289062 10.398438 -19.382812 6.234375 -28.09375 C 2.078125 -36.800781 0 -45.859375 0 -55.265625 C 0 -64.671875 2.003906 -73.613281 6.015625 -82.09375 C 10.023438 -90.570312 16 -97.507812 23.9375 -102.90625 C 31.875 -108.300781 41.851562 -111 53.875 -111 C 58.96875 -111 64.09375 -110.109375 69.25 -108.328125 C 74.414062 -106.554688 79.15625 -103.4375 83.46875 -98.96875 L 83.46875 -161.859375 L 123.484375 -161.859375 L 123.484375 0 L 91.34375 0 L 87.171875 -13.1875 C 83.785156 -7.789062 79.238281 -4.007812 73.53125 -1.84375 C 67.832031 0.308594 62.050781 1.390625 56.1875 1.390625 Z M 61.96875 -33.53125 C 69.0625 -33.53125 74.609375 -35.609375 78.609375 -39.765625 C 82.617188 -43.929688 84.625 -48.941406 84.625 -54.796875 C 84.625 -60.960938 82.617188 -66.125 78.609375 -70.28125 C 74.609375 -74.445312 69.0625 -76.53125 61.96875 -76.53125 C 54.570312 -76.53125 49.019531 -74.296875 45.3125 -69.828125 C 41.613281 -65.359375 39.765625 -60.425781 39.765625 -55.03125 C 39.765625 -49.945312 41.613281 -45.09375 45.3125 -40.46875 C 49.019531 -35.84375 54.570312 -33.53125 61.96875 -33.53125 Z M 61.96875 -33.53125 "/></g></g></g><g fill="#ff727f" fill-opacity="1"><g transform="translate(708.397108, 184.035797)"><g><path d="M 90.875 4.15625 C 80.394531 4.15625 70.179688 2.304688 60.234375 -1.390625 C 50.296875 -5.085938 41.316406 -10.632812 33.296875 -18.03125 C 25.285156 -25.4375 18.925781 -34.726562 14.21875 -45.90625 C 9.519531 -57.082031 7.171875 -70.066406 7.171875 -84.859375 L 7.171875 -161.859375 L 50.640625 -161.859375 L 50.640625 -84.859375 C 50.640625 -73.453125 52.566406 -63.929688 56.421875 -56.296875 C 60.273438 -48.671875 65.242188 -42.96875 71.328125 -39.1875 C 77.421875 -35.414062 83.78125 -33.453125 90.40625 -33.296875 C 97.039062 -33.296875 103.441406 -35.179688 109.609375 -38.953125 C 115.773438 -42.734375 120.859375 -48.4375 124.859375 -56.0625 C 128.867188 -63.695312 130.875 -73.296875 130.875 -84.859375 L 130.875 -161.859375 L 174.125 -161.859375 L 174.125 -84.859375 C 174.125 -70.066406 171.769531 -57.082031 167.0625 -45.90625 C 162.363281 -34.726562 156.046875 -25.4375 148.109375 -18.03125 C 140.171875 -10.632812 131.265625 -5.085938 121.390625 -1.390625 C 111.523438 2.304688 101.351562 4.15625 90.875 4.15625 Z M 90.875 4.15625 "/></g></g></g><g fill="#ff727f" fill-opacity="1"><g transform="translate(901.697565, 184.035797)"><g><path d="M 5.3125 50.171875 L 5.3125 -110.0625 L 37.453125 -110.0625 L 41.625 -96.65625 C 45.007812 -102.050781 49.59375 -105.828125 55.375 -107.984375 C 61.15625 -110.140625 66.898438 -111.21875 72.609375 -111.21875 C 85.242188 -111.21875 95.722656 -108.441406 104.046875 -102.890625 C 112.378906 -97.347656 118.625 -90.222656 122.78125 -81.515625 C 126.945312 -72.804688 129.03125 -63.671875 129.03125 -54.109375 C 129.03125 -45.015625 127.023438 -36.226562 123.015625 -27.75 C 119.003906 -19.269531 112.988281 -12.332031 104.96875 -6.9375 C 96.957031 -1.539062 86.941406 1.15625 74.921875 1.15625 C 69.984375 1.15625 64.894531 0.382812 59.65625 -1.15625 C 54.414062 -2.695312 49.640625 -5.703125 45.328125 -10.171875 L 45.328125 50.171875 Z M 66.828125 -33.53125 C 74.222656 -33.53125 79.769531 -35.800781 83.46875 -40.34375 C 87.175781 -44.894531 89.03125 -49.789062 89.03125 -55.03125 C 89.03125 -60.125 87.175781 -64.976562 83.46875 -69.59375 C 79.769531 -74.21875 74.222656 -76.53125 66.828125 -76.53125 C 59.890625 -76.53125 54.378906 -74.445312 50.296875 -70.28125 C 46.210938 -66.125 44.171875 -61.117188 44.171875 -55.265625 C 44.171875 -49.097656 46.171875 -43.929688 50.171875 -39.765625 C 54.179688 -35.609375 59.734375 -33.53125 66.828125 -33.53125 Z M 66.828125 -33.53125 "/></g></g></g></g></g><g transform="matrix(1, 0, 0, 1, 634, 314)"><g clip-path="url(#7c54569e30)"><g fill="#ff727f" fill-opacity="1"><g transform="translate(1.507908, 28.720442)"><g><path d="M 12.515625 0.640625 C 11.160156 0.640625 9.753906 0.507812 8.296875 0.25 C 6.847656 -0.0078125 5.492188 -0.484375 4.234375 -1.171875 C 2.984375 -1.859375 1.9375 -2.820312 1.09375 -4.0625 C 0.25 -5.300781 -0.242188 -6.878906 -0.390625 -8.796875 L 6.3125 -8.796875 C 6.550781 -7.679688 7.015625 -6.867188 7.703125 -6.359375 C 8.390625 -5.847656 9.160156 -5.523438 10.015625 -5.390625 C 10.867188 -5.265625 11.675781 -5.191406 12.4375 -5.171875 C 12.789062 -5.171875 13.273438 -5.195312 13.890625 -5.25 C 14.515625 -5.3125 15.140625 -5.425781 15.765625 -5.59375 C 16.398438 -5.757812 16.9375 -6.007812 17.375 -6.34375 C 17.8125 -6.675781 18.03125 -7.101562 18.03125 -7.625 C 18.03125 -8.144531 17.84375 -8.5625 17.46875 -8.875 C 17.101562 -9.1875 16.625 -9.410156 16.03125 -9.546875 C 15.4375 -9.691406 14.804688 -9.785156 14.140625 -9.828125 C 13.484375 -9.878906 12.859375 -9.90625 12.265625 -9.90625 L 10.9375 -9.90625 C 9.769531 -9.957031 8.550781 -10.070312 7.28125 -10.25 C 6.007812 -10.425781 4.820312 -10.75 3.71875 -11.21875 C 2.613281 -11.695312 1.71875 -12.410156 1.03125 -13.359375 C 0.34375 -14.316406 0 -15.613281 0 -17.25 C 0 -18.625 0.253906 -19.789062 0.765625 -20.75 C 1.273438 -21.71875 1.96875 -22.507812 2.84375 -23.125 C 3.726562 -23.75 4.695312 -24.238281 5.75 -24.59375 C 6.8125 -24.945312 7.90625 -25.191406 9.03125 -25.328125 C 10.164062 -25.472656 11.226562 -25.546875 12.21875 -25.546875 C 13.507812 -25.546875 14.84375 -25.425781 16.21875 -25.1875 C 17.59375 -24.957031 18.875 -24.53125 20.0625 -23.90625 C 21.25 -23.289062 22.21875 -22.410156 22.96875 -21.265625 C 23.71875 -20.128906 24.101562 -18.660156 24.125 -16.859375 L 17.609375 -16.859375 C 17.609375 -17.597656 17.332031 -18.179688 16.78125 -18.609375 C 16.238281 -19.035156 15.53125 -19.347656 14.65625 -19.546875 C 13.789062 -19.753906 12.847656 -19.859375 11.828125 -19.859375 C 10.972656 -19.859375 10.15625 -19.765625 9.375 -19.578125 C 8.59375 -19.398438 7.957031 -19.132812 7.46875 -18.78125 C 6.976562 -18.425781 6.734375 -17.972656 6.734375 -17.421875 C 6.734375 -16.878906 6.9375 -16.476562 7.34375 -16.21875 C 7.75 -15.957031 8.28125 -15.789062 8.9375 -15.71875 C 9.601562 -15.644531 10.304688 -15.585938 11.046875 -15.546875 C 12.753906 -15.515625 14.421875 -15.410156 16.046875 -15.234375 C 17.679688 -15.054688 19.148438 -14.707031 20.453125 -14.1875 C 21.765625 -13.664062 22.8125 -12.898438 23.59375 -11.890625 C 24.375 -10.878906 24.765625 -9.539062 24.765625 -7.875 C 24.765625 -6.332031 24.375 -4.992188 23.59375 -3.859375 C 22.8125 -2.734375 21.785156 -1.828125 20.515625 -1.140625 C 19.242188 -0.453125 17.882812 0.0351562 16.4375 0.328125 C 15.40625 0.535156 14.097656 0.640625 12.515625 0.640625 Z M 12.515625 0.640625 "/></g></g></g><g fill="#ff727f" fill-opacity="1"><g transform="translate(28.092244, 28.720442)"><g><path d="M 1 0 L 1 -24.953125 L 21.5625 -24.953125 L 21.5625 -19.390625 L 7.515625 -19.390625 L 7.515625 -15.21875 L 21 -15.21875 L 21 -9.625 L 7.515625 -9.625 L 7.515625 -5.59375 L 21.5625 -5.59375 L 21.5625 0 Z M 1 0 "/></g></g></g><g fill="#ff727f" fill-opacity="1"><g transform="translate(52.182094, 28.720442)"><g><path d="M 12.515625 0.640625 C 11.160156 0.640625 9.753906 0.507812 8.296875 0.25 C 6.847656 -0.0078125 5.492188 -0.484375 4.234375 -1.171875 C 2.984375 -1.859375 1.9375 -2.820312 1.09375 -4.0625 C 0.25 -5.300781 -0.242188 -6.878906 -0.390625 -8.796875 L 6.3125 -8.796875 C 6.550781 -7.679688 7.015625 -6.867188 7.703125 -6.359375 C 8.390625 -5.847656 9.160156 -5.523438 10.015625 -5.390625 C 10.867188 -5.265625 11.675781 -5.191406 12.4375 -5.171875 C 12.789062 -5.171875 13.273438 -5.195312 13.890625 -5.25 C 14.515625 -5.3125 15.140625 -5.425781 15.765625 -5.59375 C 16.398438 -5.757812 16.9375 -6.007812 17.375 -6.34375 C 17.8125 -6.675781 18.03125 -7.101562 18.03125 -7.625 C 18.03125 -8.144531 17.84375 -8.5625 17.46875 -8.875 C 17.101562 -9.1875 16.625 -9.410156 16.03125 -9.546875 C 15.4375 -9.691406 14.804688 -9.785156 14.140625 -9.828125 C 13.484375 -9.878906 12.859375 -9.90625 12.265625 -9.90625 L 10.9375 -9.90625 C 9.769531 -9.957031 8.550781 -10.070312 7.28125 -10.25 C 6.007812 -10.425781 4.820312 -10.75 3.71875 -11.21875 C 2.613281 -11.695312 1.71875 -12.410156 1.03125 -13.359375 C 0.34375 -14.316406 0 -15.613281 0 -17.25 C 0 -18.625 0.253906 -19.789062 0.765625 -20.75 C 1.273438 -21.71875 1.96875 -22.507812 2.84375 -23.125 C 3.726562 -23.75 4.695312 -24.238281 5.75 -24.59375 C 6.8125 -24.945312 7.90625 -25.191406 9.03125 -25.328125 C 10.164062 -25.472656 11.226562 -25.546875 12.21875 -25.546875 C 13.507812 -25.546875 14.84375 -25.425781 16.21875 -25.1875 C 17.59375 -24.957031 18.875 -24.53125 20.0625 -23.90625 C 21.25 -23.289062 22.21875 -22.410156 22.96875 -21.265625 C 23.71875 -20.128906 24.101562 -18.660156 24.125 -16.859375 L 17.609375 -16.859375 C 17.609375 -17.597656 17.332031 -18.179688 16.78125 -18.609375 C 16.238281 -19.035156 15.53125 -19.347656 14.65625 -19.546875 C 13.789062 -19.753906 12.847656 -19.859375 11.828125 -19.859375 C 10.972656 -19.859375 10.15625 -19.765625 9.375 -19.578125 C 8.59375 -19.398438 7.957031 -19.132812 7.46875 -18.78125 C 6.976562 -18.425781 6.734375 -17.972656 6.734375 -17.421875 C 6.734375 -16.878906 6.9375 -16.476562 7.34375 -16.21875 C 7.75 -15.957031 8.28125 -15.789062 8.9375 -15.71875 C 9.601562 -15.644531 10.304688 -15.585938 11.046875 -15.546875 C 12.753906 -15.515625 14.421875 -15.410156 16.046875 -15.234375 C 17.679688 -15.054688 19.148438 -14.707031 20.453125 -14.1875 C 21.765625 -13.664062 22.8125 -12.898438 23.59375 -11.890625 C 24.375 -10.878906 24.765625 -9.539062 24.765625 -7.875 C 24.765625 -6.332031 24.375 -4.992188 23.59375 -3.859375 C 22.8125 -2.734375 21.785156 -1.828125 20.515625 -1.140625 C 19.242188 -0.453125 17.882812 0.0351562 16.4375 0.328125 C 15.40625 0.535156 14.097656 0.640625 12.515625 0.640625 Z M 12.515625 0.640625 "/></g></g></g><g fill="#ff727f" fill-opacity="1"><g transform="translate(79.514805, 28.720442)"><g><path d="M 12.515625 0.640625 C 11.160156 0.640625 9.753906 0.507812 8.296875 0.25 C 6.847656 -0.0078125 5.492188 -0.484375 4.234375 -1.171875 C 2.984375 -1.859375 1.9375 -2.820312 1.09375 -4.0625 C 0.25 -5.300781 -0.242188 -6.878906 -0.390625 -8.796875 L 6.3125 -8.796875 C 6.550781 -7.679688 7.015625 -6.867188 7.703125 -6.359375 C 8.390625 -5.847656 9.160156 -5.523438 10.015625 -5.390625 C 10.867188 -5.265625 11.675781 -5.191406 12.4375 -5.171875 C 12.789062 -5.171875 13.273438 -5.195312 13.890625 -5.25 C 14.515625 -5.3125 15.140625 -5.425781 15.765625 -5.59375 C 16.398438 -5.757812 16.9375 -6.007812 17.375 -6.34375 C 17.8125 -6.675781 18.03125 -7.101562 18.03125 -7.625 C 18.03125 -8.144531 17.84375 -8.5625 17.46875 -8.875 C 17.101562 -9.1875 16.625 -9.410156 16.03125 -9.546875 C 15.4375 -9.691406 14.804688 -9.785156 14.140625 -9.828125 C 13.484375 -9.878906 12.859375 -9.90625 12.265625 -9.90625 L 10.9375 -9.90625 C 9.769531 -9.957031 8.550781 -10.070312 7.28125 -10.25 C 6.007812 -10.425781 4.820312 -10.75 3.71875 -11.21875 C 2.613281 -11.695312 1.71875 -12.410156 1.03125 -13.359375 C 0.34375 -14.316406 0 -15.613281 0 -17.25 C 0 -18.625 0.253906 -19.789062 0.765625 -20.75 C 1.273438 -21.71875 1.96875 -22.507812 2.84375 -23.125 C 3.726562 -23.75 4.695312 -24.238281 5.75 -24.59375 C 6.8125 -24.945312 7.90625 -25.191406 9.03125 -25.328125 C 10.164062 -25.472656 11.226562 -25.546875 12.21875 -25.546875 C 13.507812 -25.546875 14.84375 -25.425781 16.21875 -25.1875 C 17.59375 -24.957031 18.875 -24.53125 20.0625 -23.90625 C 21.25 -23.289062 22.21875 -22.410156 22.96875 -21.265625 C 23.71875 -20.128906 24.101562 -18.660156 24.125 -16.859375 L 17.609375 -16.859375 C 17.609375 -17.597656 17.332031 -18.179688 16.78125 -18.609375 C 16.238281 -19.035156 15.53125 -19.347656 14.65625 -19.546875 C 13.789062 -19.753906 12.847656 -19.859375 11.828125 -19.859375 C 10.972656 -19.859375 10.15625 -19.765625 9.375 -19.578125 C 8.59375 -19.398438 7.957031 -19.132812 7.46875 -18.78125 C 6.976562 -18.425781 6.734375 -17.972656 6.734375 -17.421875 C 6.734375 -16.878906 6.9375 -16.476562 7.34375 -16.21875 C 7.75 -15.957031 8.28125 -15.789062 8.9375 -15.71875 C 9.601562 -15.644531 10.304688 -15.585938 11.046875 -15.546875 C 12.753906 -15.515625 14.421875 -15.410156 16.046875 -15.234375 C 17.679688 -15.054688 19.148438 -14.707031 20.453125 -14.1875 C 21.765625 -13.664062 22.8125 -12.898438 23.59375 -11.890625 C 24.375 -10.878906 24.765625 -9.539062 24.765625 -7.875 C 24.765625 -6.332031 24.375 -4.992188 23.59375 -3.859375 C 22.8125 -2.734375 21.785156 -1.828125 20.515625 -1.140625 C 19.242188 -0.453125 17.882812 0.0351562 16.4375 0.328125 C 15.40625 0.535156 14.097656 0.640625 12.515625 0.640625 Z M 12.515625 0.640625 "/></g></g></g><g fill="#ff727f" fill-opacity="1"><g transform="translate(106.847516, 28.720442)"><g><path d="M 0.75 0 L 0.75 -24.953125 L 7.453125 -24.953125 L 7.453125 0 Z M 0.75 0 "/></g></g></g><g fill="#ff727f" fill-opacity="1"><g transform="translate(117.003754, 28.720442)"><g><path d="M 13.546875 0.609375 C 11.859375 0.609375 10.210938 0.335938 8.609375 -0.203125 C 7.003906 -0.753906 5.5625 -1.578125 4.28125 -2.671875 C 3 -3.765625 1.976562 -5.132812 1.21875 -6.78125 C 0.457031 -8.4375 0.078125 -10.359375 0.078125 -12.546875 C 0.078125 -14.734375 0.457031 -16.640625 1.21875 -18.265625 C 1.976562 -19.890625 3 -21.242188 4.28125 -22.328125 C 5.5625 -23.410156 7.003906 -24.222656 8.609375 -24.765625 C 10.210938 -25.316406 11.859375 -25.59375 13.546875 -25.59375 C 15.234375 -25.59375 16.878906 -25.316406 18.484375 -24.765625 C 20.085938 -24.222656 21.53125 -23.410156 22.8125 -22.328125 C 24.09375 -21.242188 25.113281 -19.890625 25.875 -18.265625 C 26.632812 -16.640625 27.015625 -14.734375 27.015625 -12.546875 C 27.015625 -10.359375 26.632812 -8.4375 25.875 -6.78125 C 25.113281 -5.132812 24.09375 -3.765625 22.8125 -2.671875 C 21.53125 -1.578125 20.085938 -0.753906 18.484375 -0.203125 C 16.878906 0.335938 15.234375 0.609375 13.546875 0.609375 Z M 13.546875 -5.3125 C 14.660156 -5.3125 15.726562 -5.578125 16.75 -6.109375 C 17.769531 -6.648438 18.609375 -7.457031 19.265625 -8.53125 C 19.921875 -9.613281 20.25 -10.953125 20.25 -12.546875 C 20.25 -14.140625 19.921875 -15.460938 19.265625 -16.515625 C 18.609375 -17.578125 17.769531 -18.375 16.75 -18.90625 C 15.726562 -19.4375 14.660156 -19.703125 13.546875 -19.703125 C 12.429688 -19.703125 11.359375 -19.4375 10.328125 -18.90625 C 9.304688 -18.375 8.46875 -17.578125 7.8125 -16.515625 C 7.164062 -15.460938 6.84375 -14.140625 6.84375 -12.546875 C 6.84375 -10.953125 7.164062 -9.613281 7.8125 -8.53125 C 8.46875 -7.457031 9.304688 -6.648438 10.328125 -6.109375 C 11.359375 -5.578125 12.429688 -5.3125 13.546875 -5.3125 Z M 13.546875 -5.3125 "/></g></g></g><g fill="#ff727f" fill-opacity="1"><g transform="translate(145.904416, 28.720442)"><g><path d="M 1.140625 0 L 1.140625 -24.953125 L 6.765625 -24.953125 L 19.109375 -10.625 L 19.453125 -10.125 L 19.390625 -10.828125 L 19.390625 -24.953125 L 25.90625 -24.953125 L 25.90625 0 L 19.859375 0 L 7.703125 -14.40625 L 7.703125 0 Z M 1.140625 0 "/></g></g></g><g fill="#ff727f" fill-opacity="1"><g transform="translate(175.303998, 28.720442)"><g><path d="M 12.515625 0.640625 C 11.160156 0.640625 9.753906 0.507812 8.296875 0.25 C 6.847656 -0.0078125 5.492188 -0.484375 4.234375 -1.171875 C 2.984375 -1.859375 1.9375 -2.820312 1.09375 -4.0625 C 0.25 -5.300781 -0.242188 -6.878906 -0.390625 -8.796875 L 6.3125 -8.796875 C 6.550781 -7.679688 7.015625 -6.867188 7.703125 -6.359375 C 8.390625 -5.847656 9.160156 -5.523438 10.015625 -5.390625 C 10.867188 -5.265625 11.675781 -5.191406 12.4375 -5.171875 C 12.789062 -5.171875 13.273438 -5.195312 13.890625 -5.25 C 14.515625 -5.3125 15.140625 -5.425781 15.765625 -5.59375 C 16.398438 -5.757812 16.9375 -6.007812 17.375 -6.34375 C 17.8125 -6.675781 18.03125 -7.101562 18.03125 -7.625 C 18.03125 -8.144531 17.84375 -8.5625 17.46875 -8.875 C 17.101562 -9.1875 16.625 -9.410156 16.03125 -9.546875 C 15.4375 -9.691406 14.804688 -9.785156 14.140625 -9.828125 C 13.484375 -9.878906 12.859375 -9.90625 12.265625 -9.90625 L 10.9375 -9.90625 C 9.769531 -9.957031 8.550781 -10.070312 7.28125 -10.25 C 6.007812 -10.425781 4.820312 -10.75 3.71875 -11.21875 C 2.613281 -11.695312 1.71875 -12.410156 1.03125 -13.359375 C 0.34375 -14.316406 0 -15.613281 0 -17.25 C 0 -18.625 0.253906 -19.789062 0.765625 -20.75 C 1.273438 -21.71875 1.96875 -22.507812 2.84375 -23.125 C 3.726562 -23.75 4.695312 -24.238281 5.75 -24.59375 C 6.8125 -24.945312 7.90625 -25.191406 9.03125 -25.328125 C 10.164062 -25.472656 11.226562 -25.546875 12.21875 -25.546875 C 13.507812 -25.546875 14.84375 -25.425781 16.21875 -25.1875 C 17.59375 -24.957031 18.875 -24.53125 20.0625 -23.90625 C 21.25 -23.289062 22.21875 -22.410156 22.96875 -21.265625 C 23.71875 -20.128906 24.101562 -18.660156 24.125 -16.859375 L 17.609375 -16.859375 C 17.609375 -17.597656 17.332031 -18.179688 16.78125 -18.609375 C 16.238281 -19.035156 15.53125 -19.347656 14.65625 -19.546875 C 13.789062 -19.753906 12.847656 -19.859375 11.828125 -19.859375 C 10.972656 -19.859375 10.15625 -19.765625 9.375 -19.578125 C 8.59375 -19.398438 7.957031 -19.132812 7.46875 -18.78125 C 6.976562 -18.425781 6.734375 -17.972656 6.734375 -17.421875 C 6.734375 -16.878906 6.9375 -16.476562 7.34375 -16.21875 C 7.75 -15.957031 8.28125 -15.789062 8.9375 -15.71875 C 9.601562 -15.644531 10.304688 -15.585938 11.046875 -15.546875 C 12.753906 -15.515625 14.421875 -15.410156 16.046875 -15.234375 C 17.679688 -15.054688 19.148438 -14.707031 20.453125 -14.1875 C 21.765625 -13.664062 22.8125 -12.898438 23.59375 -11.890625 C 24.375 -10.878906 24.765625 -9.539062 24.765625 -7.875 C 24.765625 -6.332031 24.375 -4.992188 23.59375 -3.859375 C 22.8125 -2.734375 21.785156 -1.828125 20.515625 -1.140625 C 19.242188 -0.453125 17.882812 0.0351562 16.4375 0.328125 C 15.40625 0.535156 14.097656 0.640625 12.515625 0.640625 Z M 12.515625 0.640625 "/></g></g></g></g></g></svg>
+  </div>
+  <p class="hero-tagline fade-in">Cyprus's Professional Roundtable Talk Show</p>
+  <div class="hero-stat-row fade-in">
+    <div class="hero-stat">
+      <div class="hero-stat-num">1.3M+</div>
+      <div class="hero-stat-label">Impressions</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">5</div>
+      <div class="hero-stat-label">Platforms</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">3</div>
+      <div class="hero-stat-label">Episodes</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">6mo</div>
+      <div class="hero-stat-label">Track Record</div>
+    </div>
+  </div>
+  <div class="scroll-hint">Scroll</div>
+</section>
+
+<!-- ── ABOUT ─────────────────────────────── -->
+<section class="about">
+  <div class="container">
+    <p class="section-label fade-in">About the show</p>
+    <h2 class="section-title fade-in" style="color:var(--dark);">A table where real conversations happen.</h2>
+    <p class="section-body fade-in">RoundUp Sessions is a professionally produced roundtable talk show based in Cyprus. Each episode brings together five guests from the same industry for an open, honest and unscripted conversation. Produced and distributed across five major platforms, each episode generates organic reach, editorial content and genuine moments that audiences actually watch.</p>
+
+    <div class="about-grid">
+      <div class="fade-in">
+        <div class="about-feature">
+          <div class="about-feature-title">The Format</div>
+          <div class="about-feature-body">Five guests. One topic. No scripts. Each episode is a long-form roundtable conversation hosted in a professionally styled studio environment, with a multi-camera setup, broadcast-quality sound and natural lighting.</div>
+        </div>
+        <div class="about-feature">
+          <div class="about-feature-title">The Distribution</div>
+          <div class="about-feature-body">Every episode is cut into 15 to 20 short-form pieces distributed across YouTube, Instagram, TikTok, Facebook and LinkedIn, giving each conversation a long tail of visibility well beyond the release date.</div>
+        </div>
+        <div class="about-feature">
+          <div class="about-feature-title">The Audience</div>
+          <div class="about-feature-body">Professionals, creatives, entrepreneurs and curious people across Cyprus and the wider region. Over 85% of Instagram viewers are non-followers, meaning the show consistently reaches new audiences, not just existing fans.</div>
+        </div>
+      </div>
+      <div class="fade-in">
+        <div class="about-quote">
+          <p class="about-quote-text">Nothing's off the table. That's not just a tagline. It's the only rule in the room.</p>
+          <p class="about-quote-attr">RoundUp Sessions</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── STATS ──────────────────────────────── -->
+<section class="stats">
+  <div class="container">
+    <p class="section-label fade-in">By the numbers</p>
+    <h2 class="section-title fade-in">Nearly 1.3 million impressions in just 6 months.</h2>
+
+    <div class="stats-grid fade-in">
+      <div class="stat-card">
+        <div class="stat-platform">TikTok</div>
+        <div class="stat-number">244K</div>
+        <div class="stat-detail">video views<br>219,900 unique accounts reached</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-platform">Facebook</div>
+        <div class="stat-number">410K</div>
+        <div class="stat-detail">views<br>8,028 engagements · 368 new followers</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-platform">Instagram</div>
+        <div class="stat-number">576K</div>
+        <div class="stat-detail">views<br>85.9% from non-followers</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-platform">YouTube</div>
+        <div class="stat-number">39K</div>
+        <div class="stat-detail">views<br>816 watch hours</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-platform">LinkedIn</div>
+        <div class="stat-number">8.4K</div>
+        <div class="stat-detail">impressions<br>360 reactions</div>
+      </div>
+    </div>
+
+    <div class="stats-total fade-in">
+      <div>
+        <div class="stats-total-num">1,279,654</div>
+        <div style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-top:6px;font-weight:600;">Total impressions across all platforms</div>
+      </div>
+      <div class="stats-total-label">Across three episodes in six months, RoundUp Sessions has built a genuine cross-platform audience without paid promotion on the show itself.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── EPISODES ───────────────────────────── -->
+<section class="episodes">
+  <div class="container">
+    <p class="section-label fade-in">Watch the episodes</p>
+    <h2 class="section-title fade-in">Three episodes. Three industries. One table.</h2>
+
+    <div class="episodes-grid">
+
+      <div class="fade-in">
+        <a href="https://www.youtube.com/watch?v=I_IlGUqxz-s&t=6s" target="_blank" class="episode-card">
+          <div class="episode-thumb-wrap">
+            <img src="https://img.youtube.com/vi/I_IlGUqxz-s/maxresdefault.jpg" alt="Content Creators Episode" onerror="this.src='https://img.youtube.com/vi/I_IlGUqxz-s/hqdefault.jpg'">
+            <div class="play-btn">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M5 3L15 9L5 15V3Z" fill="white"/></svg>
+            </div>
+          </div>
+          <div class="episode-info">
+            <div class="episode-num">Episode 01</div>
+            <div class="episode-title">Content Creators</div>
+            <span class="episode-link">Watch on YouTube</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="fade-in">
+        <a href="https://www.youtube.com/watch?v=ta-V3CrspII&t=3919s" target="_blank" class="episode-card">
+          <div class="episode-thumb-wrap">
+            <img src="https://img.youtube.com/vi/ta-V3CrspII/maxresdefault.jpg" alt="Radio Producers Episode" onerror="this.src='https://img.youtube.com/vi/ta-V3CrspII/hqdefault.jpg'">
+            <div class="play-btn">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M5 3L15 9L5 15V3Z" fill="white"/></svg>
+            </div>
+          </div>
+          <div class="episode-info">
+            <div class="episode-num">Episode 02</div>
+            <div class="episode-title">Radio Producers</div>
+            <span class="episode-link">Watch on YouTube</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="fade-in">
+        <a href="https://www.youtube.com/watch?v=Zz8C-tr3p8c&t=189s" target="_blank" class="episode-card">
+          <div class="episode-thumb-wrap">
+            <img src="https://img.youtube.com/vi/Zz8C-tr3p8c/maxresdefault.jpg" alt="Stand-Up Comedians Episode" onerror="this.src='https://img.youtube.com/vi/Zz8C-tr3p8c/hqdefault.jpg'">
+            <div class="play-btn">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M5 3L15 9L5 15V3Z" fill="white"/></svg>
+            </div>
+          </div>
+          <div class="episode-info">
+            <div class="episode-num">Episode 03</div>
+            <div class="episode-title">Stand-Up Comedians</div>
+            <span class="episode-link">Watch on YouTube</span>
+          </div>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── SOCIALS ────────────────────────────── -->
+<section class="socials">
+  <div class="container">
+    <p class="section-label fade-in">Follow the show</p>
+    <h2 class="section-title fade-in" style="color:var(--dark);">Find us on every platform.</h2>
+
+    <div class="socials-grid">
+      <a href="https://www.youtube.com/@RoundUpSessions" target="_blank" class="social-card fade-in">
+        <svg class="social-icon" viewBox="0 0 48 48"><rect width="48" height="48" rx="10" fill="#FF0000"/><path d="M38.5 18.2s-.4-2.5-1.5-3.6c-1.4-1.5-3-.5-3.5-.5C30.5 14 24 14 24 14s-6.5 0-9.5.1c-.5 0-2.1-.1-3.5.5-1.1 1.1-1.5 3.6-1.5 3.6S9 21 9 23.8v2.5c0 2.7.5 5.5.5 5.5s.4 2.5 1.5 3.6c1.4 1.5 3.2 1.4 4 1.5C17.5 37 24 37 24 37s6.5 0 9.5-.2c.5 0 2.1.1 3.5-.5 1.1-1.1 1.5-3.6 1.5-3.6s.5-2.7.5-5.5v-2.5c0-2.7-.5-5.5-.5-5.5z" fill="white"/><path d="M21 28.5v-9l8 4.5-8 4.5z" fill="#FF0000"/></svg>
+        <span class="social-name">YouTube</span>
+        <span class="social-handle">@RoundUpSessions</span>
+      </a>
+
+      <a href="https://www.instagram.com/roundupsessions/" target="_blank" class="social-card fade-in">
+        <svg class="social-icon" viewBox="0 0 48 48"><defs><linearGradient id="ig" x1="0" y1="48" x2="48" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#F9A826"/><stop offset="40%" stop-color="#E1306C"/><stop offset="100%" stop-color="#833AB4"/></linearGradient></defs><rect width="48" height="48" rx="10" fill="url(#ig)"/><rect x="13" y="13" width="22" height="22" rx="5" stroke="white" stroke-width="2.5" fill="none"/><circle cx="24" cy="24" r="5.5" stroke="white" stroke-width="2.5" fill="none"/><circle cx="31.5" cy="16.5" r="1.5" fill="white"/></svg>
+        <span class="social-name">Instagram</span>
+        <span class="social-handle">@roundupsessions</span>
+      </a>
+
+      <a href="https://www.tiktok.com/@roundup.sessions" target="_blank" class="social-card fade-in">
+        <svg class="social-icon" viewBox="0 0 48 48"><rect width="48" height="48" rx="10" fill="#010101"/><path d="M32 14c.6 3.2 2.8 5.4 6 5.7v4c-2-.1-3.8-.7-5.4-1.8v8c0 5-3.6 8.1-8.3 8.1-4.8 0-8.3-3.5-8.3-8.1 0-4.8 3.7-8.1 8.3-8.1.5 0 1 0 1.4.1v4.1c-.4-.1-.9-.1-1.4-.1-2.4 0-4.1 1.7-4.1 4s1.7 4 4.1 4c2.3 0 4.1-1.7 4.1-4V14H32z" fill="white"/></svg>
+        <span class="social-name">TikTok</span>
+        <span class="social-handle">@roundup.sessions</span>
+      </a>
+
+      <a href="https://www.facebook.com/roundupsessions" target="_blank" class="social-card fade-in">
+        <svg class="social-icon" viewBox="0 0 48 48"><rect width="48" height="48" rx="10" fill="#1877F2"/><path d="M26.5 38V25.5H30l.5-4H26.5v-2.5c0-1.2.3-2 2-2H31V13.2c-.5-.1-2.2-.2-4.2-.2-4.1 0-7 2.5-7 7v3h-3.5v4H20V38h6.5z" fill="white"/></svg>
+        <span class="social-name">Facebook</span>
+        <span class="social-handle">roundupsessions</span>
+      </a>
+
+      <a href="https://www.linkedin.com/company/roundup-sessions/" target="_blank" class="social-card fade-in">
+        <svg class="social-icon" viewBox="0 0 48 48"><rect width="48" height="48" rx="10" fill="#0A66C2"/><path d="M16 20h-4v14h4V20zm-2-7a2 2 0 100 4 2 2 0 000-4zm18 7c-2.2 0-3.7.9-4.5 2V20h-4v14h4v-7.5c0-2 1-3 2.8-3 1.7 0 2.7 1 2.7 3V34h4V26c0-4-2.3-6-5-6z" fill="white"/></svg>
+        <span class="social-name">LinkedIn</span>
+        <span class="social-handle">roundup-sessions</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ────────────────────────────────── -->
+<section class="cta">
+  <div class="container">
+    <p class="section-label fade-in">Join the table</p>
+    <h2 class="section-title fade-in">Ready to be part of the conversation?</h2>
+    <a href="https://www.youtube.com/@RoundUpSessions" target="_blank" class="cta-btn fade-in">Watch on YouTube</a>
+    <p class="cta-contact fade-in">Get in touch at <a href="mailto:welcome@roundupsessions.com">welcome@roundupsessions.com</a> or call <a href="tel:+35799007611">99007611</a></p>
+  </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────── -->
+<footer>
+  <p>© 2026 RoundUp Sessions · Produced by Wecomeone Marketing And Comms · Larnaka, Cyprus</p>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 70);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
+
