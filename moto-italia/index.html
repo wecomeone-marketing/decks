@@ -1,1 +1,1312 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moto Italia — Marketing Proposals | Wecomeone</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black: #0D0D0D;
+    --white: #F5F3EF;
+    --red: #C0211A;
+    --steel: #1E1E1E;
+    --rule: #282828;
+    --mid: #555;
+    --light: #888;
+    --found: #2B6CB0;
+    --found-light: #4A9FE0;
+    --growth: #B5451B;
+    --growth-light: #E8612E;
+    --gold: #C8943A;
+    --green: #4A9B6F;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(13,13,13,0.96);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--rule);
+    padding: 0 56px;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    height: 50px;
+  }
+  .nav-brand {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-right: auto;
+  }
+  .nav-link {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--light);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-link:hover { color: var(--white); }
+
+  /* COVER */
+  .cover {
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    padding: 52px 56px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 60% at 85% 40%, rgba(192,33,26,0.10) 0%, transparent 65%),
+      radial-gradient(ellipse 40% 40% at 15% 80%, rgba(43,108,176,0.07) 0%, transparent 60%),
+      repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(255,255,255,0.025) 79px, rgba(255,255,255,0.025) 80px);
+    pointer-events: none;
+  }
+  .cover-logo {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--light);
+  }
+  .cover-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px 0 40px;
+  }
+  .cover-eyebrow {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 22px;
+  }
+  .cover-headline {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(70px, 12vw, 148px);
+    line-height: 0.88;
+    letter-spacing: 0.02em;
+    margin-bottom: 0;
+  }
+  .cover-headline span { color: var(--red); }
+  .cover-sub {
+    
+    
+    font-size: clamp(15px, 1.8vw, 20px);
+    color: var(--light);
+    margin-top: 24px;
+    max-width: 500px;
+    line-height: 1.6;
+  }
+  .cover-pills {
+    display: flex;
+    gap: 14px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+  }
+  .pill {
+    padding: 9px 22px;
+    border: 1px solid currentColor;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+  }
+  .pill-found { color: var(--found-light); }
+  .pill-found:hover { background: var(--found); color: var(--white); }
+  .pill-growth { color: var(--growth-light); }
+  .pill-growth:hover { background: var(--growth); color: var(--white); }
+  .pill-web { color: var(--gold); }
+  .pill-web:hover { background: rgba(200,148,58,0.2); color: var(--gold); }
+  .cover-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-size: 10px;
+    color: var(--mid);
+    letter-spacing: 0.1em;
+  }
+
+  /* LAYOUT */
+  .section {
+    padding: 72px 56px;
+    border-top: 1px solid var(--rule);
+  }
+  .inner { max-width: 1080px; margin: 0 auto; }
+
+  .eyebrow {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--light);
+    margin-bottom: 12px;
+  }
+  .s-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(34px, 5vw, 58px);
+    line-height: 1;
+    letter-spacing: 0.03em;
+    margin-bottom: 16px;
+  }
+  .s-body {
+    font-size: 14px;
+    color: var(--light);
+    max-width: 600px;
+    line-height: 1.75;
+  }
+
+  /* CONTEXT GRID */
+  .ctx-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--rule);
+    margin-top: 36px;
+  }
+  .ctx-cell {
+    background: var(--black);
+    padding: 26px 22px;
+  }
+  .ctx-label {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 10px;
+  }
+  .ctx-val {
+    font-size: 13px;
+    color: var(--white);
+    line-height: 1.6;
+  }
+
+  /* PROPOSALS */
+  .proposals-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--rule);
+    margin-top: 44px;
+  }
+  .p-card {
+    background: var(--black);
+    padding: 44px 38px;
+    position: relative;
+    overflow: hidden;
+  }
+  .p-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+  .p-found::before { background: var(--found-light); }
+  .p-growth::before { background: var(--growth-light); }
+
+  .p-badge {
+    display: inline-block;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    margin-bottom: 18px;
+  }
+  .badge-found { border: 1px solid var(--found-light); color: var(--found-light); }
+  .badge-growth { border: 1px solid var(--growth-light); color: var(--growth-light); }
+
+  .p-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 54px;
+    letter-spacing: 0.04em;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .p-tagline {
+    
+    
+    font-size: 13px;
+    color: var(--light);
+    margin-bottom: 30px;
+    line-height: 1.5;
+  }
+
+  .fee-block { margin-bottom: 30px; }
+  .fee-label {
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: var(--light);
+    margin-bottom: 4px;
+  }
+  .fee-amount {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 52px;
+    line-height: 1;
+    letter-spacing: 0.04em;
+  }
+  .fee-sub {
+    font-size: 12px;
+    color: var(--light);
+    margin-top: 3px;
+  }
+  .fee-commit {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    background: rgba(255,255,255,0.05);
+    color: var(--gold);
+    border: 1px solid rgba(200,148,58,0.3);
+  }
+
+  .divider { height: 1px; background: var(--rule); margin: 26px 0; }
+
+  .svc-heading {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--light);
+    margin-bottom: 14px;
+  }
+  .svc-item {
+    display: flex;
+    gap: 13px;
+    align-items: flex-start;
+    padding: 9px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.045);
+    font-size: 13px;
+  }
+  .svc-item:last-child { border-bottom: none; }
+  .svc-dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 7px;
+  }
+  .dot-found { background: var(--found-light); }
+  .dot-growth { background: var(--growth-light); }
+  .svc-main { color: var(--white); line-height: 1.4; }
+  .svc-sub { font-size: 11px; color: var(--light); margin-top: 2px; line-height: 1.4; }
+
+  /* BUDGET TABLE */
+  .budget-block { margin-top: 30px; }
+  .budget-heading {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .bh-found { color: var(--found-light); }
+  .bh-growth { color: var(--growth-light); }
+  .budget-note-text {
+    font-size: 11px;
+    color: var(--light);
+    margin-bottom: 14px;
+    line-height: 1.6;
+  }
+  .btable {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+  }
+  .btable th {
+    text-align: left;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--light);
+    padding: 7px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .btable td {
+    padding: 9px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    vertical-align: top;
+  }
+  .btable tr:last-child td { border-bottom: none; }
+  .b-item { color: var(--white); }
+  .b-note { font-size: 10px; color: var(--light); margin-top: 2px; }
+  .b-range { color: var(--gold); font-weight: 500; }
+  .b-tbc { color: var(--mid);  }
+
+  .budget-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px solid var(--rule);
+  }
+  .bt-label {
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--light);
+  }
+  .bt-val {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    color: var(--gold);
+  }
+
+  /* NOTE BOX */
+  .note-box {
+    background: rgba(200,148,58,0.06);
+    border: 1px solid rgba(200,148,58,0.22);
+    padding: 20px 24px;
+    margin-top: 26px;
+  }
+  .note-label {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+  .note-text {
+    font-size: 12px;
+    color: var(--light);
+    line-height: 1.7;
+  }
+  .note-text strong { color: var(--white); font-weight: 500; }
+
+  /* WEBSITE ADD-ON */
+  .web-card {
+    background: var(--steel);
+    border: 1px solid rgba(200,148,58,0.2);
+    padding: 40px 44px;
+    margin-top: 1px;
+    position: relative;
+    overflow: hidden;
+  }
+  .web-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--gold);
+  }
+  .web-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+  .web-badge {
+    display: inline-block;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+  .web-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 44px;
+    letter-spacing: 0.04em;
+    line-height: 1;
+    margin-bottom: 8px;
+    color: var(--gold);
+  }
+  .web-sub {
+    
+    
+    font-size: 13px;
+    color: var(--light);
+    margin-bottom: 20px;
+  }
+  .web-fee-label {
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: var(--light);
+    margin-bottom: 4px;
+  }
+  .web-fee {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 48px;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .web-fee-sub { font-size: 12px; color: var(--light); margin-top: 3px; }
+  .web-includes-title {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--light);
+    margin-bottom: 14px;
+  }
+
+  /* COMPARE */
+  .cmp-wrap {
+    display: grid;
+    grid-template-columns: 220px 1fr 1fr;
+    gap: 1px;
+    background: var(--rule);
+    margin-top: 36px;
+  }
+  .cmp-head {
+    padding: 13px 18px;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+  }
+  .ch-label { background: var(--black); color: var(--light); }
+  .ch-found { background: rgba(43,108,176,0.2); color: var(--found-light); }
+  .ch-growth { background: rgba(181,69,27,0.18); color: var(--growth-light); }
+
+  .cmp-row { display: contents; }
+  .cmp-cell {
+    padding: 11px 18px;
+    font-size: 12px;
+    border-top: 1px solid var(--rule);
+    line-height: 1.4;
+  }
+  .cc-label { background: var(--black); color: var(--light); }
+  .cc-found { background: rgba(43,108,176,0.07); color: var(--white); }
+  .cc-growth { background: rgba(181,69,27,0.06); color: var(--white); }
+  .yes { color: var(--green); font-weight: 500; }
+  .no { color: var(--mid); }
+  .partial { color: var(--gold); }
+
+  /* TIMELINE */
+  .tl-label {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .tl-found { color: var(--found-light); }
+  .tl-growth { color: var(--growth-light); }
+  .tl-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1px;
+    background: var(--rule);
+  }
+  .tl-cell {
+    background: var(--black);
+    padding: 22px 18px;
+  }
+  .tl-month {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    line-height: 1;
+    margin-bottom: 12px;
+    letter-spacing: 0.04em;
+  }
+  .tm-found { color: var(--found-light); }
+  .tm-growth { color: var(--growth-light); }
+  .tl-items { list-style: none; }
+  .tl-items li {
+    font-size: 11px;
+    color: var(--light);
+    padding: 4px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    line-height: 1.4;
+  }
+  .tl-items li:last-child { border-bottom: none; }
+  .tl-items li strong { color: var(--white); font-weight: 500; }
+
+  /* WHY */
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 1px;
+    background: var(--rule);
+    margin-top: 36px;
+  }
+  .why-cell {
+    background: var(--black);
+    padding: 26px 20px;
+  }
+  .why-icon { font-size: 20px; margin-bottom: 12px; }
+  .why-h { font-size: 12px; font-weight: 600; color: var(--white); margin-bottom: 7px; }
+  .why-p { font-size: 11px; color: var(--light); line-height: 1.6; }
+
+  /* NEXT STEPS */
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 1px;
+    background: var(--rule);
+    margin-top: 36px;
+  }
+  .step-cell {
+    background: var(--steel);
+    padding: 26px 20px;
+  }
+  .step-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 44px;
+    line-height: 1;
+    color: var(--rule);
+    margin-bottom: 10px;
+  }
+  .step-h { font-size: 12px; font-weight: 600; color: var(--white); margin-bottom: 6px; }
+  .step-p { font-size: 11px; color: var(--light); line-height: 1.5; }
+
+  /* FOOTER */
+  .footer {
+    padding: 44px 56px;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-brand { font-size: 10px; font-weight: 500; letter-spacing: 0.26em; text-transform: uppercase; color: var(--light); }
+  .footer-tagline {  font-size: 12px; color: var(--mid); }
+
+  /* RESPONSIVE */
+  @media (max-width: 860px) {
+    .nav, .cover, .section, .web-card, .footer { padding-left: 22px; padding-right: 22px; }
+    .proposals-wrap, .ctx-grid, .why-grid, .steps-grid { grid-template-columns: 1fr; }
+    .cmp-wrap { grid-template-columns: 1fr; }
+    .ch-found, .ch-growth, .cc-found, .cc-growth { display: none; }
+    .web-inner { grid-template-columns: 1fr; }
+    .tl-grid { grid-template-columns: repeat(2,1fr); }
+    .footer { flex-direction: column; gap: 10px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <span class="nav-brand">Moto Italia</span>
+  <a href="#context" class="nav-link">Context</a>
+  <a href="#proposals" class="nav-link">Plans</a>
+  <a href="#website" class="nav-link">Website</a>
+  <a href="#compare" class="nav-link">Compare</a>
+  <a href="#timeline" class="nav-link">Timeline</a>
+  <a href="#next" class="nav-link">Next Steps</a>
+</nav>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-logo">Wecomeone — Marketing &amp; Communications</div>
+  <div class="cover-center">
+    <div class="cover-eyebrow">Marketing Proposal · Dual Track</div>
+    <div class="cover-headline">MOTO<br><span>ITALIA</span></div>
+    <div class="cover-sub">Two plans. One direction — making Moto Italia the most recognised motorcycle destination in Cyprus.</div>
+    <div class="cover-pills">
+      <a href="#foundation" class="pill pill-found">Foundation — €1,000/mo</a>
+      <a href="#growth" class="pill pill-growth">Growth — €1,800/mo</a>
+      <a href="#website" class="pill pill-web">+ Website — separate</a>
+    </div>
+  </div>
+  <div class="cover-footer">
+    <span>Prepared by Andreas Andronikou — Wecomeone</span>
+    <span>Confidential · June 2026</span>
+  </div>
+</div>
+
+<!-- CONTEXT -->
+<div id="context" class="section">
+  <div class="inner">
+    <div class="eyebrow">Situation Analysis</div>
+    <div class="s-title">Where You Stand</div>
+    <div class="s-body">Prime location. Premium brand portfolio. New ownership energy. But zero digital presence — no website, no professional photography, weak social. That gap is the opportunity.</div>
+
+    <div class="ctx-grid">
+      <div class="ctx-cell">
+        <div class="ctx-label">Strengths</div>
+        <div class="ctx-val">Prime walk-in location · Full Piaggio Group portfolio (Vespa, Aprilia, Moto Guzzi, Gilera, Derbi, Scarabeo, Piaggio) · Accessories revenue · New ownership momentum</div>
+      </div>
+      <div class="ctx-cell">
+        <div class="ctx-label">Gaps to Close</div>
+        <div class="ctx-val">No website · Weak social media presence · No professional photography · No Google discoverability · No brand identity system in place</div>
+      </div>
+      <div class="ctx-cell">
+        <div class="ctx-label">Opportunity</div>
+        <div class="ctx-val">Cyprus's motorcycle market is digitally underserved. First mover on content, SEO, and paid reach captures category ownership fast. New signage + photography alone will transform perception.</div>
+      </div>
+      <div class="ctx-cell">
+        <div class="ctx-label">Target Audience</div>
+        <div class="ctx-val">Primary: Males 25–50, lifestyle-driven commuters and enthusiasts, island-wide · Secondary: Tourists and expats interested in Vespa and scooter acquisition</div>
+      </div>
+      <div class="ctx-cell">
+        <div class="ctx-label">Geographic Focus</div>
+        <div class="ctx-val">Walk-in priority: Larnaka · Digital reach: All of Cyprus — Nicosia, Limassol, Paphos, Famagusta</div>
+      </div>
+      <div class="ctx-cell">
+        <div class="ctx-label">Brand Assets</div>
+        <div class="ctx-val">Piaggio Group may supply photography and video assets — to be confirmed. Professional store shoot recommended as soon as possible regardless.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROPOSALS -->
+<div id="proposals" class="section" style="border-top:1px solid var(--rule);">
+  <div class="inner">
+    <div class="eyebrow">The Two Plans</div>
+    <div class="s-title">Choose Your Speed</div>
+    <div class="s-body">Same strategic thinking behind both. The difference is channel breadth and market aggression. Both require a 6-month minimum commitment.</div>
+  </div>
+
+  <div class="proposals-wrap" style="max-width:1080px;margin:44px auto 0;">
+
+    <!-- FOUNDATION -->
+    <div class="p-card p-found" id="foundation">
+      <div class="p-badge badge-found">Plan A</div>
+      <div class="p-name">FOUNDATION</div>
+      <div class="p-tagline">Establish presence. Build credibility. Own the digital conversation before competitors notice.</div>
+
+      <div class="fee-block">
+        <div class="fee-label">Monthly Agency Retainer</div>
+        <div class="fee-amount" style="color:var(--found-light)">€1,000</div>
+        <div class="fee-sub">per month · excl. media spend and third-party costs</div>
+        <div class="fee-commit">6-month minimum commitment</div>
+      </div>
+
+      <div class="divider"></div>
+      <div class="svc-heading">What's included</div>
+
+      <div class="svc-item">
+        <div class="svc-dot dot-found"></div>
+        <div>
+          <div class="svc-main">Social Media Management</div>
+          <div class="svc-sub">Instagram + Facebook · 3 posts/week · Stories · Caption writing · Hashtag strategy · Scheduling</div>
+        </div>
+      </div>
+      <div class="svc-item">
+        <div class="svc-dot dot-found"></div>
+        <div>
+          <div class="svc-main">Google Business Profile</div>
+          <div class="svc-sub">Full setup and optimisation · Weekly updates · Review management · Photo uploads</div>
+        </div>
+      </div>
+      <div class="svc-item">
+        <div class="svc-dot dot-found"></div>
+        <div>
+          <div class="svc-main">Meta Ads Management</div>
+          <div class="svc-sub">1 active awareness campaign · Cyprus-wide geo-targeting · Monthly creative refresh · Ad spend billed separately</div>
+        </div>
+      </div>
+      <div class="svc-item">
+        <div class="svc-dot dot-found"></div>
+        <div>
+          <div class="svc-main">Content Creation</div>
+          <div class="svc-sub">Using Piaggio Group brand assets where available · One-off photography shoot briefing and direction when needed</div>
+        </div>
+      </div>
+      <div class="svc-item">
+        <div class="svc-dot dot-found"></div>
+        <div>
+          <div class="svc-main">Brand &amp; Campaign Strategy</div>
+          <div class="svc-sub">Tone of voice, content pillars, seasonal campaign calendar</div>
+        </div>
+      </div>
+      <div class="svc-item">
+        <div class="svc-dot dot-found"></div>
+        <div>
+          <div class="svc-main">Monthly Reporting</div>
+          <div class="svc-sub">Reach, engagement, ad performance · 1 strategy call per month</div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+      <div class="budget-block">
+        <div class="budget-heading bh-found">Estimated Media &amp; Third-Party Costs</div>
+        <div class="budget-note-text">Paid by client · Managed by Wecomeone · Passed through at cost · All TBC items confirmed before commitment</div>
+        <table class="btable">
+          <thead>
+            <tr><th>Item</th><th style="text-align:right">Est. Cost</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div class="b-item">Meta Ads spend</div><div class="b-note">Facebook &amp; Instagram paid promotion</div></td>
+              <td style="text-align:right"><span class="b-range">€300–400/mo</span></td>
+            </tr>
+            <tr>
+              <td><div class="b-item">Professional Photography</div><div class="b-note">One-off store + product shoot, arranged as needed</div></td>
+              <td style="text-align:right"><span class="b-range">€350–600 once</span></td>
+            </tr>
+            <tr>
+              <td><div class="b-item">Store Signage</div><div class="b-note">External sign — supplier quote required</div></td>
+              <td style="text-align:right"><span class="b-tbc">TBC</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="budget-total">
+          <div class="bt-label">Est. monthly media</div>
+          <div class="bt-val">€300–400 + TBC</div>
+        </div>
+      </div>
+
+      <div class="note-box">
+        <div class="note-label">Best for</div>
+        <div class="note-text">New ownership wanting to <strong>build smart and steady</strong> — establish digital presence, grow an engaged audience, and generate leads before committing to heavier spend. Lower risk, strong 6-month ROI case.</div>
+      </div>
+    </div>
+
+    <!-- GROWTH -->
+    <div class="p-card p-growth" id="growth">
+      <div class="p-badge badge-growth">Plan B</div>
+      <div class="p-name">GROWTH</div>
+      <div class="p-tagline">Multi-channel market entry. Build presence and flood Cyprus simultaneously across digital, broadcast, and outdoor.</div>
+
+      <div class="fee-block">
+        <div class="fee-label">Monthly Agency Retainer</div>
+        <div class="fee-amount" style="color:var(--growth-light)">€1,800</div>
+        <div class="fee-sub">per month · excl. media spend and third-party costs</div>
+        <div class="fee-commit">6-month minimum commitment</div>
+      </div>
+
+      <div class="divider"></div>
+      <div class="svc-heading">What's included</div>
+
+      <div class="svc-item">
+        <div class="svc-dot dot-growth"></div>
+        <div>
+          <div class="svc-main">Full Social Media Management</div>
+          <div class="svc-sub">Instagram + Facebook + TikTok · 5 posts/week · Reels · Stories · Community management</div>
+        </div>
+      </div>
+      <div class="svc-item">
+        <div class="svc-dot dot-growth"></div>
+        <div>
+          <div class="svc-main">Meta Ads — Full Funnel</div>
+          <div class="svc-sub">Awareness, consideration and retargeting campaigns · A/B creative testing · Weekly optimisation · Ad spend billed separately</div>
+        </div>
+      </div>
+      <div class="svc-item">
+        <div class="svc-dot dot-growth"></div>
+        <div>
+          <div class="svc-main">Google Ads — Search + Display</div>
+          <div class="svc-sub">Cyprus-wide keyword targeting · Brand + category + competitor keywords · Ad spend billed separately</div>
+        </div>
+      </div>
+      <div class="svc-item">
+        <div class="svc-dot dot-growth"></div>
+        <div>
+          <div class="svc-main">Radio Advertising</div>
+          <div class="svc-sub">Script writing and campaign coordination included · Airtime cost billed separately (client selects station)</div>
+        </div>
+      </div>
+      <div class="svc-item">
+        <div class="svc-dot dot-growth"></div>
+        <div>
+          <div class="svc-main">Outdoor / OOH — Client's Choice</div>
+          <div class="svc-sub">Billboard or digital screen placement · Creative artwork included · Media placement cost billed separately</div>
+        </div>
+      </div>
+      <div class="svc-item">
+        <div class="svc-dot dot-growth"></div>
+        <div>
+          <div class="svc-main">Digital News Portals</div>
+          <div class="svc-sub">Banner placement on Cyprus digital media · Creative design included · Portal fees billed separately</div>
+        </div>
+      </div>
+      <div class="svc-item">
+        <div class="svc-dot dot-growth"></div>
+        <div>
+          <div class="svc-main">Event Concept &amp; Live Link</div>
+          <div class="svc-sub">Store event or ride-out concept, planning and social live coverage · Event production costs billed separately</div>
+        </div>
+      </div>
+      <div class="svc-item">
+        <div class="svc-dot dot-growth"></div>
+        <div>
+          <div class="svc-main">PR &amp; Press Coverage</div>
+          <div class="svc-sub">New ownership announcement · Press release writing and media outreach to Cyprus publications</div>
+        </div>
+      </div>
+      <div class="svc-item">
+        <div class="svc-dot dot-growth"></div>
+        <div>
+          <div class="svc-main">Google Business Profile + SEO Foundation</div>
+          <div class="svc-sub">Full GBP setup and management · On-page SEO groundwork ready for website launch</div>
+        </div>
+      </div>
+      <div class="svc-item">
+        <div class="svc-dot dot-growth"></div>
+        <div>
+          <div class="svc-main">Photography Direction</div>
+          <div class="svc-sub">Brief and art direction for store shoots as needed · Not monthly — scheduled based on campaign requirements</div>
+        </div>
+      </div>
+      <div class="svc-item">
+        <div class="svc-dot dot-growth"></div>
+        <div>
+          <div class="svc-main">Monthly Reporting + Strategy Sessions</div>
+          <div class="svc-sub">Full cross-channel performance dashboard · 2 calls per month</div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+      <div class="budget-block">
+        <div class="budget-heading bh-growth">Estimated Media &amp; Third-Party Costs</div>
+        <div class="budget-note-text">Paid by client · Managed by Wecomeone · Passed through at cost · TBC items confirmed before any commitment</div>
+        <table class="btable">
+          <thead>
+            <tr><th>Item</th><th style="text-align:right">Est. Monthly Cost</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div class="b-item">Meta Ads spend</div><div class="b-note">Full funnel Facebook &amp; Instagram</div></td>
+              <td style="text-align:right"><span class="b-range">€500–800/mo</span></td>
+            </tr>
+            <tr>
+              <td><div class="b-item">Google Ads spend</div><div class="b-note">Search + Display, Cyprus-wide</div></td>
+              <td style="text-align:right"><span class="b-range">€400–600/mo</span></td>
+            </tr>
+            <tr>
+              <td><div class="b-item">Radio airtime</div><div class="b-note">Station and frequency to be confirmed by client</div></td>
+              <td style="text-align:right"><span class="b-tbc">TBC</span></td>
+            </tr>
+            <tr>
+              <td><div class="b-item">Outdoor / OOH placement</div><div class="b-note">Billboard or digital screen — supplier quote pending</div></td>
+              <td style="text-align:right"><span class="b-tbc">TBC</span></td>
+            </tr>
+            <tr>
+              <td><div class="b-item">Digital portal banners</div><div class="b-note">e.g. Sigmalive, In Business Cyprus, Offsite</div></td>
+              <td style="text-align:right"><span class="b-range">€200–400/mo</span></td>
+            </tr>
+            <tr>
+              <td><div class="b-item">Event / Live Link production</div><div class="b-note">Per event — venue, equipment, logistics</div></td>
+              <td style="text-align:right"><span class="b-tbc">TBC / per event</span></td>
+            </tr>
+            <tr>
+              <td><div class="b-item">Photography (as needed)</div><div class="b-note">Not monthly — briefed per campaign</div></td>
+              <td style="text-align:right"><span class="b-range">€300–500 per shoot</span></td>
+            </tr>
+            <tr>
+              <td><div class="b-item">Store Signage (one-off)</div><div class="b-note">Supplier quote required</div></td>
+              <td style="text-align:right"><span class="b-tbc">TBC</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="budget-total">
+          <div class="bt-label">Est. monthly media (confirmed items)</div>
+          <div class="bt-val">€1,100–1,800 + TBC</div>
+        </div>
+      </div>
+
+      <div class="note-box">
+        <div class="note-label">Best for</div>
+        <div class="note-text">An owner who wants to <strong>make Moto Italia impossible to miss</strong> across every channel Cypriots consume — digital, broadcast, outdoor, and in-person. Stronger investment, faster brand recognition, faster sales pipeline.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- WEBSITE ADD-ON -->
+<div id="website" class="web-card">
+  <div class="web-inner">
+    <div>
+      <div class="web-badge">Separate Contract</div>
+      <div class="web-title">WEBSITE</div>
+      <div class="web-sub">Your digital showroom — available 24/7, anywhere in Cyprus.</div>
+      <p style="font-size:13px;color:var(--light);line-height:1.7;max-width:440px;">Right now, anyone searching for Moto Italia finds nothing. A website transforms that — product catalogue, brand story, contact, directions, and a platform for every ad campaign to land on. Recommended to begin in Month 1 alongside either plan.</p>
+      <div class="note-box" style="margin-top:20px;max-width:440px;">
+        <div class="note-label">Important note</div>
+        <div class="note-text">Website pricing is subject to a scoping conversation with the owner. The range below covers a clean, fast, mobile-first site. E-commerce or a full product catalogue will adjust the quote accordingly.</div>
+      </div>
+    </div>
+    <div>
+      <div class="web-fee-label">One-Time Project Fee</div>
+      <div class="web-fee">€1,800 – €3,000</div>
+      <div class="web-fee-sub">Fixed price · Agreed before work starts · Payment in milestones</div>
+      <div class="divider" style="margin:22px 0;"></div>
+      <div class="web-includes-title">What's included</div>
+      <div class="svc-item">
+        <div class="svc-dot" style="background:var(--gold);flex-shrink:0;margin-top:7px;"></div>
+        <div>
+          <div class="svc-main" style="color:var(--white);font-size:13px;">Custom design — no templates</div>
+          <div class="svc-sub">Built around Moto Italia's identity and the Piaggio Group aesthetic</div>
+        </div>
+      </div>
+      <div class="svc-item">
+        <div class="svc-dot" style="background:var(--gold);flex-shrink:0;margin-top:7px;"></div>
+        <div>
+          <div class="svc-main" style="color:var(--white);font-size:13px;">Mobile-first, fast-loading</div>
+          <div class="svc-sub">Optimised for Cyprus mobile users and Google Core Web Vitals</div>
+        </div>
+      </div>
+      <div class="svc-item">
+        <div class="svc-dot" style="background:var(--gold);flex-shrink:0;margin-top:7px;"></div>
+        <div>
+          <div class="svc-main" style="color:var(--white);font-size:13px;">SEO foundation built in</div>
+          <div class="svc-sub">Meta tags, schema, sitemap, GBP integration, Google Analytics</div>
+        </div>
+      </div>
+      <div class="svc-item">
+        <div class="svc-dot" style="background:var(--gold);flex-shrink:0;margin-top:7px;"></div>
+        <div>
+          <div class="svc-main" style="color:var(--white);font-size:13px;">Brand &amp; product pages</div>
+          <div class="svc-sub">Piaggio Group brands featured, accessories section, contact and directions</div>
+        </div>
+      </div>
+      <div class="svc-item">
+        <div class="svc-dot" style="background:var(--gold);flex-shrink:0;margin-top:7px;"></div>
+        <div>
+          <div class="svc-main" style="color:var(--white);font-size:13px;">Contact form + WhatsApp integration</div>
+          <div class="svc-sub">Lead capture from day one</div>
+        </div>
+      </div>
+      <div class="svc-item">
+        <div class="svc-dot" style="background:var(--gold);flex-shrink:0;margin-top:7px;"></div>
+        <div>
+          <div class="svc-main" style="color:var(--white);font-size:13px;">Hosting setup + 12 months support</div>
+          <div class="svc-sub">Annual hosting &amp; maintenance from Year 2 onwards: <span style="color:var(--gold);font-weight:500;">€500/year</span> — average figure, subject to website type and complexity</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- COMPARE -->
+<div id="compare" class="section">
+  <div class="inner">
+    <div class="eyebrow">Side by Side</div>
+    <div class="s-title">What You Get</div>
+    <div class="s-body">Channel-by-channel comparison across both plans.</div>
+
+    <div class="cmp-wrap">
+      <div class="cmp-head ch-label">Channel / Service</div>
+      <div class="cmp-head ch-found">Foundation — €1,000/mo</div>
+      <div class="cmp-head ch-growth">Growth — €1,800/mo</div>
+
+      <div class="cmp-row">
+        <div class="cmp-cell cc-label">Instagram &amp; Facebook</div>
+        <div class="cmp-cell cc-found"><span class="partial">3 posts/week + Stories</span></div>
+        <div class="cmp-cell cc-growth"><span class="yes">5 posts/week + Reels + Stories</span></div>
+      </div>
+      <div class="cmp-row">
+        <div class="cmp-cell cc-label">TikTok</div>
+        <div class="cmp-cell cc-found"><span class="no">Not included</span></div>
+        <div class="cmp-cell cc-growth"><span class="yes">Included</span></div>
+      </div>
+      <div class="cmp-row">
+        <div class="cmp-cell cc-label">Community Management</div>
+        <div class="cmp-cell cc-found"><span class="no">Not included</span></div>
+        <div class="cmp-cell cc-growth"><span class="yes">Included</span></div>
+      </div>
+      <div class="cmp-row">
+        <div class="cmp-cell cc-label">Meta Ads</div>
+        <div class="cmp-cell cc-found"><span class="partial">1 awareness campaign</span></div>
+        <div class="cmp-cell cc-growth"><span class="yes">Full funnel + retargeting</span></div>
+      </div>
+      <div class="cmp-row">
+        <div class="cmp-cell cc-label">Google Ads</div>
+        <div class="cmp-cell cc-found"><span class="no">Not included</span></div>
+        <div class="cmp-cell cc-growth"><span class="yes">Search + Display</span></div>
+      </div>
+      <div class="cmp-row">
+        <div class="cmp-cell cc-label">Google Business Profile</div>
+        <div class="cmp-cell cc-found"><span class="yes">Full setup + management</span></div>
+        <div class="cmp-cell cc-growth"><span class="yes">Full setup + management</span></div>
+      </div>
+      <div class="cmp-row">
+        <div class="cmp-cell cc-label">Radio Advertising</div>
+        <div class="cmp-cell cc-found"><span class="no">Not included</span></div>
+        <div class="cmp-cell cc-growth"><span class="yes">Script + coordination</span></div>
+      </div>
+      <div class="cmp-row">
+        <div class="cmp-cell cc-label">Outdoor / OOH</div>
+        <div class="cmp-cell cc-found"><span class="no">Not included</span></div>
+        <div class="cmp-cell cc-growth"><span class="yes">Creative + placement mgmt</span></div>
+      </div>
+      <div class="cmp-row">
+        <div class="cmp-cell cc-label">Digital Portals (banners)</div>
+        <div class="cmp-cell cc-found"><span class="no">Not included</span></div>
+        <div class="cmp-cell cc-growth"><span class="yes">Included</span></div>
+      </div>
+      <div class="cmp-row">
+        <div class="cmp-cell cc-label">Event / Live Link</div>
+        <div class="cmp-cell cc-found"><span class="no">Not included</span></div>
+        <div class="cmp-cell cc-growth"><span class="yes">Planning + live coverage</span></div>
+      </div>
+      <div class="cmp-row">
+        <div class="cmp-cell cc-label">PR &amp; Press Releases</div>
+        <div class="cmp-cell cc-found"><span class="no">Not included</span></div>
+        <div class="cmp-cell cc-growth"><span class="yes">Included</span></div>
+      </div>
+      <div class="cmp-row">
+        <div class="cmp-cell cc-label">SEO Foundation</div>
+        <div class="cmp-cell cc-found"><span class="partial">GBP only</span></div>
+        <div class="cmp-cell cc-growth"><span class="yes">GBP + on-page SEO</span></div>
+      </div>
+      <div class="cmp-row">
+        <div class="cmp-cell cc-label">Photography Direction</div>
+        <div class="cmp-cell cc-found"><span class="partial">As needed (one-off brief)</span></div>
+        <div class="cmp-cell cc-growth"><span class="yes">As needed per campaign</span></div>
+      </div>
+      <div class="cmp-row">
+        <div class="cmp-cell cc-label">Strategy Calls</div>
+        <div class="cmp-cell cc-found"><span class="partial">1 per month</span></div>
+        <div class="cmp-cell cc-growth"><span class="yes">2 per month</span></div>
+      </div>
+      <div class="cmp-row">
+        <div class="cmp-cell cc-label">Minimum Commitment</div>
+        <div class="cmp-cell cc-found"><span style="color:var(--white);">6 months</span></div>
+        <div class="cmp-cell cc-growth"><span style="color:var(--white);">6 months</span></div>
+      </div>
+      <div class="cmp-row">
+        <div class="cmp-cell cc-label">Website</div>
+        <div class="cmp-cell cc-found"><span class="partial">Separate contract</span></div>
+        <div class="cmp-cell cc-growth"><span class="partial">Separate contract</span></div>
+      </div>
+    </div>
+
+    <div class="note-box" style="margin-top:28px;">
+      <div class="note-label">On Out-of-Pocket Costs</div>
+      <div class="note-text"><strong>Agency fees cover strategy, execution, and management.</strong> All media spend (ads, radio, outdoor, portals), production costs (photography, events), and third-party supplier fees (signage) are billed separately and passed through at cost with zero markup. Items marked TBC are quoted and approved by the client before any commitment is made.</div>
+    </div>
+  </div>
+</div>
+
+<!-- TIMELINE -->
+<div id="timeline" class="section">
+  <div class="inner">
+    <div class="eyebrow">Delivery Roadmap</div>
+    <div class="s-title">First 6 Months</div>
+    <div class="s-body">A realistic picture of what gets done and when across both plans.</div>
+
+    <!-- FOUNDATION TIMELINE -->
+    <div style="margin-top:40px;">
+      <div class="tl-label tl-found">Plan A — Foundation</div>
+      <div class="tl-grid">
+        <div class="tl-cell">
+          <div class="tl-month tm-found">M01</div>
+          <ul class="tl-items">
+            <li><strong>Onboarding</strong> — social audit, asset review</li>
+            <li><strong>GBP</strong> — full setup and verification</li>
+            <li><strong>Strategy</strong> — content pillars, calendar</li>
+            <li><strong>Meta Ads</strong> — campaign live by week 2</li>
+            <li><strong>Photography brief</strong> — if brand assets unavailable</li>
+          </ul>
+        </div>
+        <div class="tl-cell">
+          <div class="tl-month tm-found">M02</div>
+          <ul class="tl-items">
+            <li><strong>Content rhythm</strong> — 3x/week posting</li>
+            <li><strong>Ad optimisation</strong> — Month 1 data applied</li>
+            <li><strong>Stories cadence</strong> — product and accessories</li>
+            <li><strong>Report + call</strong></li>
+          </ul>
+        </div>
+        <div class="tl-cell">
+          <div class="tl-month tm-found">M03</div>
+          <ul class="tl-items">
+            <li><strong>Campaign 2</strong> — seasonal or promo push</li>
+            <li><strong>Audience growth</strong> — review and refine</li>
+            <li><strong>Q1 report</strong> — 90-day results</li>
+          </ul>
+        </div>
+        <div class="tl-cell">
+          <div class="tl-month tm-found">M04</div>
+          <ul class="tl-items">
+            <li><strong>Summer campaign</strong> — scooter and riding season</li>
+            <li><strong>Ad creative refresh</strong></li>
+            <li><strong>GBP content update</strong></li>
+          </ul>
+        </div>
+        <div class="tl-cell">
+          <div class="tl-month tm-found">M05</div>
+          <ul class="tl-items">
+            <li><strong>Retargeting push</strong> — warm audience</li>
+            <li><strong>Accessories promotion</strong></li>
+            <li><strong>Report + call</strong></li>
+          </ul>
+        </div>
+        <div class="tl-cell">
+          <div class="tl-month tm-found">M06</div>
+          <ul class="tl-items">
+            <li><strong>6-month full review</strong></li>
+            <li><strong>Q3 strategy plan</strong></li>
+            <li><strong>Upgrade or renewal</strong> conversation</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- GROWTH TIMELINE -->
+    <div style="margin-top:40px;">
+      <div class="tl-label tl-growth">Plan B — Growth</div>
+      <div class="tl-grid">
+        <div class="tl-cell">
+          <div class="tl-month tm-growth">M01</div>
+          <ul class="tl-items">
+            <li><strong>Full onboarding</strong> — brand direction, calendar</li>
+            <li><strong>GBP + SEO</strong> — all live</li>
+            <li><strong>Meta + Google Ads</strong> — live by week 2</li>
+            <li><strong>Photography shoot</strong></li>
+            <li><strong>PR release</strong> — new ownership</li>
+            <li><strong>Radio brief</strong> — script and station options</li>
+            <li><strong>OOH brief</strong> — creative and placement options</li>
+          </ul>
+        </div>
+        <div class="tl-cell">
+          <div class="tl-month tm-growth">M02</div>
+          <ul class="tl-items">
+            <li><strong>Radio live</strong> — pending airtime confirmation</li>
+            <li><strong>OOH / portals live</strong> — pending quotes</li>
+            <li><strong>Full social rhythm</strong> — 5x/week + TikTok</li>
+            <li><strong>Event concept</strong> — finalised and planned</li>
+            <li><strong>Mid-campaign optimisation</strong></li>
+            <li><strong>Report + call</strong></li>
+          </ul>
+        </div>
+        <div class="tl-cell">
+          <div class="tl-month tm-growth">M03</div>
+          <ul class="tl-items">
+            <li><strong>Event / Live Link</strong> — execution</li>
+            <li><strong>Retargeting push</strong> — warm audiences</li>
+            <li><strong>Summer campaign</strong> — riding season</li>
+            <li><strong>90-day full report</strong></li>
+          </ul>
+        </div>
+        <div class="tl-cell">
+          <div class="tl-month tm-growth">M04</div>
+          <ul class="tl-items">
+            <li><strong>Radio campaign 2</strong> — if performing</li>
+            <li><strong>Accessories push</strong> — dedicated campaign</li>
+            <li><strong>Content refresh</strong> — new shoot if needed</li>
+          </ul>
+        </div>
+        <div class="tl-cell">
+          <div class="tl-month tm-growth">M05</div>
+          <ul class="tl-items">
+            <li><strong>Event 2</strong> — community ride or showcase</li>
+            <li><strong>Portal refresh</strong> — new creative</li>
+            <li><strong>Full funnel review</strong> — all channels</li>
+          </ul>
+        </div>
+        <div class="tl-cell">
+          <div class="tl-month tm-growth">M06</div>
+          <ul class="tl-items">
+            <li><strong>6-month full review</strong> — all channels + ROI</li>
+            <li><strong>Q3–Q4 strategy plan</strong></li>
+            <li><strong>Renewal + expansion</strong> conversation</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WHY -->
+<div class="section">
+  <div class="inner">
+    <div class="eyebrow">Why Us</div>
+    <div class="s-title">What We Bring</div>
+    <div class="s-body">Boutique agency speed with full-service firepower.</div>
+    <div class="why-grid">
+      <div class="why-cell">
+        <div class="why-icon">🏍</div>
+        <div class="why-h">Lifestyle Brand Thinking</div>
+        <div class="why-p">A Vespa or a Moto Guzzi is an identity statement. We sell the feeling, not the spec sheet.</div>
+      </div>
+      <div class="why-cell">
+        <div class="why-icon">🇨🇾</div>
+        <div class="why-h">Cyprus Market Knowledge</div>
+        <div class="why-p">Local media relationships, understanding of island buyer behaviour, and full digital reach across all districts.</div>
+      </div>
+      <div class="why-cell">
+        <div class="why-icon">📊</div>
+        <div class="why-h">Performance-Driven</div>
+        <div class="why-p">Every campaign is tracked. You always know exactly what your budget is producing and where to double down.</div>
+      </div>
+      <div class="why-cell">
+        <div class="why-icon">🤝</div>
+        <div class="why-h">Full Cost Transparency</div>
+        <div class="why-p">Our retainer is our retainer. Media and third-party costs passed through at cost. No markups. No surprises.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NEXT STEPS -->
+<div id="next" class="section">
+  <div class="inner">
+    <div class="eyebrow">What Happens Next</div>
+    <div class="s-title">Four Steps to Live</div>
+    <div class="s-body">From this meeting to active campaigns in market.</div>
+    <div class="steps-grid">
+      <div class="step-cell">
+        <div class="step-num">01</div>
+        <div class="step-h">Choose your plan</div>
+        <div class="step-p">Foundation or Growth — or discuss a custom scope if neither is a perfect fit.</div>
+      </div>
+      <div class="step-cell">
+        <div class="step-num">02</div>
+        <div class="step-h">Confirm Piaggio assets</div>
+        <div class="step-p">Check what photography and video the Piaggio Group brand portal provides. Changes Month 1 production needs significantly.</div>
+      </div>
+      <div class="step-cell">
+        <div class="step-num">03</div>
+        <div class="step-h">Sign and onboard</div>
+        <div class="step-p">Service agreement signed. Social account access, any existing materials and ad accounts transferred to Wecomeone.</div>
+      </div>
+      <div class="step-cell">
+        <div class="step-num">04</div>
+        <div class="step-h">Week 1 — live</div>
+        <div class="step-p">Strategy brief complete, GBP live, content calendar approved, and first ad campaign in review — all within 7 days of signing.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-brand">Wecomeone · hello@wecomeone.me · +357 99007611</div>
+  <div class="footer-tagline">Prepared for Moto Italia · Confidential · June 2026</div>
+</footer>
+
+</body>
+</html>
