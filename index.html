@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RoundUp Sessions × Pilakoutas Group</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,600;0,700;0,800;1,600;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black: #0A0A0A;
+    --near-black: #111111;
+    --card: #161616;
+    --border: #222222;
+    --coral: #FF6B7A;
+    --white: #F0F0F0;
+    --mid: #888888;
+    --dim: #444444;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--black);
+    color: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* ── PROGRESS BAR ─────────────────────── */
+  #progress {
+    position: fixed;
+    top: 0; left: 0;
+    height: 2px;
+    width: 0%;
+    background: var(--coral);
+    z-index: 100;
+    transition: width 0.1s linear;
+  }
+
+  /* ── HERO ─────────────────────────────── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    padding: 0 64px 64px;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 80px;
+    max-width: 900px;
+  }
+
+  .hero-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 48px;
+  }
+
+  .eyebrow-dot {
+    width: 6px; height: 6px;
+    background: var(--coral);
+    border-radius: 50%;
+  }
+
+  .eyebrow-text {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--mid);
+  }
+
+  .hero-title {
+    font-family: 'Barlow', sans-serif;
+    font-size: clamp(48px, 7vw, 96px);
+    line-height: 1.0;
+    color: var(--white);
+    margin-bottom: 32px;
+    letter-spacing: -1px;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--coral);
+  }
+
+  .hero-sub {
+    font-size: clamp(15px, 1.8vw, 18px);
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--mid);
+    max-width: 580px;
+  }
+
+  .hero-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 48px;
+    border-top: 1px solid var(--border);
+  }
+
+  .hero-brands {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--dim);
+  }
+
+  .brand-sep {
+    color: var(--coral);
+    font-size: 16px;
+  }
+
+  .hero-stat {
+    text-align: right;
+  }
+
+  .hero-stat-num {
+    font-family: 'Barlow', sans-serif;
+    font-size: 36px;
+    color: var(--white);
+    line-height: 1;
+  }
+
+  .hero-stat-label {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-top: 4px;
+  }
+
+  /* ── REFRAME SECTION ──────────────────── */
+  .reframe {
+    padding: 120px 64px;
+    border-bottom: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .reframe-left { }
+
+  .section-eyebrow {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--coral);
+    margin-bottom: 20px;
+  }
+
+  .section-title {
+    font-family: 'Barlow', sans-serif;
+    font-size: clamp(28px, 3.5vw, 48px);
+    line-height: 1.15;
+    color: var(--white);
+    margin-bottom: 24px;
+    letter-spacing: -0.5px;
+  }
+
+  .section-body {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--mid);
+  }
+
+  .reframe-right {
+    padding: 48px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+  }
+
+  .reframe-quote {
+    font-family: 'Barlow', sans-serif;
+    font-size: clamp(20px, 2.5vw, 28px);
+    font-style: italic;
+    line-height: 1.5;
+    color: var(--white);
+    margin-bottom: 24px;
+  }
+
+  .reframe-quote-attr {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--coral);
+    font-weight: 500;
+  }
+
+  /* ── IDEAS SECTION ────────────────────── */
+  .ideas-header {
+    padding: 80px 64px 48px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .idea {
+    padding: 64px 64px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .idea-meta {
+    display: flex;
+    align-items: baseline;
+    gap: 24px;
+    margin-bottom: 20px;
+  }
+
+  .idea-index {
+    font-family: 'Barlow', sans-serif;
+    font-size: clamp(56px, 8vw, 100px);
+    font-weight: 800;
+    color: var(--border);
+    line-height: 1;
+    letter-spacing: -3px;
+    flex-shrink: 0;
+    user-select: none;
+  }
+
+  .idea-tag {
+    display: inline-block;
+    padding: 5px 12px;
+    border: 1px solid var(--coral);
+    color: var(--coral);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    border-radius: 2px;
+    width: fit-content;
+  }
+
+  .idea-rule {
+    height: 1px;
+    background: var(--border);
+    margin-bottom: 40px;
+  }
+
+  .idea-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .idea-title {
+    font-family: 'Barlow', sans-serif;
+    font-size: clamp(24px, 2.8vw, 38px);
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--white);
+    letter-spacing: -0.5px;
+    margin-bottom: 0;
+  }
+
+  .idea-body {
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--mid);
+    margin-bottom: 32px;
+  }
+
+  .idea-deliverable {
+    padding: 20px 24px;
+    background: rgba(255,107,122,0.05);
+    border-left: 2px solid var(--coral);
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--white);
+    line-height: 1.7;
+  }
+
+  .idea-deliverable span {
+    display: block;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--coral);
+    margin-bottom: 8px;
+  }
+
+  /* ── STATS STRIP ──────────────────────── */
+  .stats-strip {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .stat-item {
+    padding: 48px 40px;
+    border-right: 1px solid var(--border);
+    text-align: center;
+  }
+
+  .stat-item:last-child { border-right: none; }
+
+  .stat-platform {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--coral);
+    margin-bottom: 12px;
+  }
+
+  .stat-num {
+    font-family: 'Barlow', sans-serif;
+    font-size: clamp(24px, 3vw, 36px);
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .stat-detail {
+    font-size: 11px;
+    color: var(--dim);
+    line-height: 1.5;
+  }
+
+  /* ── CLOSING ──────────────────────────── */
+  .closing {
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 120px 64px;
+    position: relative;
+  }
+
+  .closing::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(255,107,122,0.06) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .closing-title {
+    font-family: 'Barlow', sans-serif;
+    font-size: clamp(32px, 5vw, 64px);
+    color: var(--white);
+    margin: 16px auto 32px;
+    max-width: 700px;
+    line-height: 1.1;
+    letter-spacing: -1px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .closing-title em {
+    font-style: italic;
+    color: var(--coral);
+  }
+
+  .closing-body {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--mid);
+    max-width: 500px;
+    line-height: 1.7;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 48px;
+  }
+
+  .closing-contact {
+    font-size: 13px;
+    color: var(--dim);
+    position: relative;
+    z-index: 1;
+    line-height: 2;
+  }
+
+  .closing-contact a {
+    color: var(--coral);
+    text-decoration: none;
+  }
+
+  /* ── FOOTER ───────────────────────────── */
+  footer {
+    padding: 28px 64px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  footer p {
+    font-size: 11px;
+    color: var(--dim);
+    letter-spacing: 1px;
+  }
+
+  .footer-dot {
+    width: 4px; height: 4px;
+    background: var(--coral);
+    border-radius: 50%;
+  }
+
+  /* ── FADE IN ──────────────────────────── */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── RESPONSIVE ───────────────────────── */
+  @media (max-width: 900px) {
+    .hero { padding: 0 32px 48px; }
+    .reframe { grid-template-columns: 1fr; padding: 80px 32px; gap: 40px; }
+    .ideas-header { padding: 60px 32px 40px; }
+    .idea { padding: 48px 32px; }
+    .idea-grid { grid-template-columns: 1fr; gap: 32px; }
+    .stats-strip { grid-template-columns: repeat(3, 1fr); }
+    .closing { padding: 80px 32px; }
+    footer { padding: 24px 32px; flex-direction: column; gap: 12px; text-align: center; }
+    .hero-footer { flex-direction: column; gap: 24px; align-items: flex-start; }
+  }
+
+  @media (max-width: 600px) {
+    .stats-strip { grid-template-columns: repeat(2, 1fr); }
+    .stat-item { padding: 32px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<!-- ── HERO ──────────────────────────────── -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow fade-in">
+      <div class="eyebrow-dot"></div>
+      <span class="eyebrow-text">A proposal for Pilakoutas Group</span>
+    </div>
+    <h1 class="hero-title fade-in">
+      Your brands.<br>
+      <em>Our table.</em><br>
+      Four ideas.
+    </h1>
+    <p class="hero-sub fade-in">RoundUp Sessions reaches 1.3 million impressions across five platforms in six months — without a single car ad. Here's how Pilakoutas Group fits into that story.</p>
+  </div>
+
+  <div class="hero-footer fade-in">
+    <div class="hero-brands">
+      <span>RoundUp Sessions</span>
+      <span class="brand-sep">×</span>
+      <span>Pilakoutas Group</span>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">1.3M+</div>
+      <div class="hero-stat-label">Impressions in 6 months</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── REFRAME ────────────────────────────── -->
+<section class="reframe">
+  <div class="reframe-left fade-in">
+    <p class="section-eyebrow">The reframe</p>
+    <h2 class="section-title">This isn't a car ad.<br>It's something better.</h2>
+    <p class="section-body">Every premium automotive brand in Cyprus runs the same glossy campaign. RoundUp Sessions offers something different — a presence that feels earned, not bought. Your brand alongside the most interesting professionals in Cyprus, episode after episode.</p>
+  </div>
+  <div class="reframe-right fade-in">
+    <p class="reframe-quote">"The people who buy BMWs and Land Rovers are the same people watching RoundUp Sessions. The format doesn't need to change. The frame does."</p>
+    <p class="reframe-quote-attr">RoundUp Sessions</p>
+  </div>
+</section>
+
+<!-- ── IDEAS HEADER ───────────────────────── -->
+<div class="ideas-header">
+  <p class="section-eyebrow fade-in">Four ideas</p>
+  <h2 class="section-title fade-in">Each one built around your brands.</h2>
+</div>
+
+<!-- ── IDEA 1 ─────────────────────────────── -->
+<div class="idea fade-in">
+  <div class="idea-meta">
+    <span class="idea-index">01</span>
+    <span class="idea-tag">Episode Sponsorship</span>
+  </div>
+  <div class="idea-rule"></div>
+  <div class="idea-grid">
+    <h3 class="idea-title">The "Driven by" Episode Partnership</h3>
+    <div>
+      <p class="idea-body">Sponsor a specific episode where the audience naturally overlaps with your customer. The Entrepreneurs episode positions BMW or Land Rover as the "Official Mobility Partner" — no hard sell, just a brand that belongs next to successful people. The Advertising Agency Owners episode is a natural fit for MINI — creative professionals, urban lifestyle, exactly that audience.</p>
+      <div class="idea-deliverable">
+        <span>What you get</span>
+        "Driven by [Brand]" credit across all episode assets. Logo in 14–18 short-form clips. 10-day paid campaign. ~1.3M impression reach.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── IDEA 2 ─────────────────────────────── -->
+<div class="idea fade-in">
+  <div class="idea-meta">
+    <span class="idea-index">02</span>
+    <span class="idea-tag">Value Exchange</span>
+  </div>
+  <div class="idea-rule"></div>
+  <div class="idea-grid">
+    <h3 class="idea-title">The Test Drive Giveaway</h3>
+    <div>
+      <p class="idea-body">No cash required. Pilakoutas provides a weekend test drive experience — a BMW X3, Land Rover Defender, or any model that fits — as a RoundUp giveaway prize. One competition post, one weekend of a demonstrator vehicle, your car in front of 1.3 million impressions of aspirational professionals who are exactly your buyers.</p>
+      <div class="idea-deliverable">
+        <span>What you get</span>
+        Dedicated giveaway post and story set across all RoundUp channels. Brand tagged across the full campaign. Zero cash outlay — product only.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── IDEA 3 ─────────────────────────────── -->
+<div class="idea fade-in">
+  <div class="idea-meta">
+    <span class="idea-index">03</span>
+    <span class="idea-tag">Co-Created Content</span>
+  </div>
+  <div class="idea-rule"></div>
+  <div class="idea-grid">
+    <h3 class="idea-title">Drive & Discuss</h3>
+    <div>
+      <p class="idea-body">A short-form branded content series that sits alongside RoundUp — not replacing it. Each episode, a guest is driven to the recording location in a Pilakoutas vehicle. The conversation starts in the car. 60 to 90 seconds, shot handheld, raw and real. Distributed across RoundUp's channels and yours. This is branded content that feels nothing like an ad — because it isn't one.</p>
+      <div class="idea-deliverable">
+        <span>What you get</span>
+        One co-produced short-form clip per episode. Distributed across both brands' channels. Your vehicles on screen in an editorial, aspirational context.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── IDEA 4 ─────────────────────────────── -->
+<div class="idea fade-in">
+  <div class="idea-meta">
+    <span class="idea-index">04</span>
+    <span class="idea-tag">Media Partnership</span>
+  </div>
+  <div class="idea-rule"></div>
+  <div class="idea-grid">
+    <h3 class="idea-title">CSR & Community Amplification</h3>
+    <div>
+      <p class="idea-body">Pilakoutas Group runs community and sustainability initiatives that deserve more than a press release. RoundUp Sessions can act as a media partner for those moments — covering, amplifying, and distributing content around events that matter to your brand's values. This gives you editorial credibility alongside advertising presence, a combination that's very hard to buy.</p>
+      <div class="idea-deliverable">
+        <span>What you get</span>
+        Content coverage of CSR events across all RoundUp platforms. Branded as a media partnership — not an ad. Reaches audiences that traditional automotive campaigns don't.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── STATS STRIP ─────────────────────────── -->
+<div class="stats-strip">
+  <div class="stat-item fade-in">
+    <div class="stat-platform">TikTok</div>
+    <div class="stat-num">244K</div>
+    <div class="stat-detail">video views</div>
+  </div>
+  <div class="stat-item fade-in">
+    <div class="stat-platform">Facebook</div>
+    <div class="stat-num">410K</div>
+    <div class="stat-detail">views</div>
+  </div>
+  <div class="stat-item fade-in">
+    <div class="stat-platform">Instagram</div>
+    <div class="stat-num">576K</div>
+    <div class="stat-detail">views · 85.9% non-followers</div>
+  </div>
+  <div class="stat-item fade-in">
+    <div class="stat-platform">YouTube</div>
+    <div class="stat-num">39K</div>
+    <div class="stat-detail">views · 816 watch hours</div>
+  </div>
+  <div class="stat-item fade-in">
+    <div class="stat-platform">LinkedIn</div>
+    <div class="stat-num">8.4K</div>
+    <div class="stat-detail">impressions · 360 reactions</div>
+  </div>
+</div>
+
+<!-- ── CLOSING ────────────────────────────── -->
+<section class="closing">
+  <p class="section-eyebrow fade-in">Next step</p>
+  <h2 class="closing-title fade-in">Let's find the one that<br><em>makes sense for you.</em></h2>
+  <p class="closing-body fade-in">These are starting points, not fixed packages. We're open to a conversation about what fits Pilakoutas Group best — whether that's one idea or a combination of all four.</p>
+  <div class="closing-contact fade-in">
+    <a href="mailto:welcome@roundupsessions.com">welcome@roundupsessions.com</a><br>
+    <a href="tel:+35799007611">99 007 611</a>
+  </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────── -->
+<footer>
+  <p>RoundUp Sessions · Produced by Wecomeone Marketing And Comms · Larnaka, Cyprus</p>
+  <div class="footer-dot"></div>
+  <p>Private & Confidential · Not for distribution</p>
+</footer>
+
+<script>
+  // Progress bar
+  window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY;
+    const total = document.body.scrollHeight - window.innerHeight;
+    document.getElementById('progress').style.width = (scrolled / total * 100) + '%';
+  });
+
+  // Fade in on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
