@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lavita Cafe & Bar — Marketing Strategy</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #F5F0E8;
+    --cream-dark: #EDE6D6;
+    --ink: #1A1612;
+    --ink-mid: #3D3530;
+    --ink-light: #7A6F66;
+    --gold: #C4A25A;
+    --gold-light: #E8D9B0;
+    --gold-pale: #F7F1E0;
+    --night: #1C1814;
+    --night-mid: #2E2820;
+    --accent: #8B4A2C;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .display { font-family: 'Cormorant Garamond', serif; }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 3rem;
+    height: 60px;
+    background: var(--cream);
+    border-bottom: 1px solid var(--cream-dark);
+  }
+
+  .nav-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--ink);
+  }
+
+  .nav-by {
+    font-size: 12px;
+    color: var(--ink-light);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--ink); }
+
+  /* SLIDES */
+  .slide {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 100px 3rem 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .slide-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  /* SLIDE 1 — COVER */
+  .slide-cover {
+    background: var(--night);
+    align-items: center;
+    text-align: center;
+  }
+
+  .slide-cover::before {
+    content: '';
+    position: absolute;
+    top: -40%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(196,162,90,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .cover-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 2rem;
+  }
+
+  .cover-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(52px, 7vw, 86px);
+    font-weight: 300;
+    color: #F5F0E8;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    margin-bottom: 1.5rem;
+  }
+
+  .cover-title em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .cover-sub {
+    font-size: 15px;
+    color: rgba(245,240,232,0.5);
+    letter-spacing: 0.04em;
+    margin-bottom: 3.5rem;
+  }
+
+  .cover-meta {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    padding-top: 3rem;
+    border-top: 1px solid rgba(196,162,90,0.2);
+  }
+
+  .cover-meta-item {
+    text-align: center;
+  }
+
+  .cover-meta-item .label {
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.35);
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .cover-meta-item .value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: rgba(245,240,232,0.8);
+  }
+
+  /* DIVIDER SLIDES */
+  .slide-divider {
+    background: var(--night-mid);
+    min-height: 30vh;
+    padding: 60px 3rem;
+  }
+
+  .divider-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .divider-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 80px;
+    font-weight: 300;
+    color: var(--gold);
+    line-height: 1;
+    opacity: 0.5;
+    flex-shrink: 0;
+  }
+
+  .divider-text h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+    font-weight: 400;
+    color: #F5F0E8;
+    line-height: 1.1;
+  }
+
+  .divider-text p {
+    font-size: 14px;
+    color: rgba(245,240,232,0.45);
+    margin-top: 6px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  /* SECTION LABELS */
+  .eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.2rem;
+    display: block;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 400;
+    color: var(--ink);
+    line-height: 1.1;
+    margin-bottom: 2rem;
+  }
+
+  .section-intro {
+    font-size: 17px;
+    color: var(--ink-mid);
+    line-height: 1.7;
+    max-width: 680px;
+    margin-bottom: 3rem;
+  }
+
+  /* OBSERVATION CARDS */
+  .obs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1px;
+    background: var(--cream-dark);
+    border: 1px solid var(--cream-dark);
+    margin-top: 2.5rem;
+  }
+
+  .obs-card {
+    background: var(--cream);
+    padding: 2rem;
+  }
+
+  .obs-icon {
+    font-size: 22px;
+    margin-bottom: 1rem;
+  }
+
+  .obs-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+
+  .obs-card p {
+    font-size: 14px;
+    color: var(--ink-light);
+    line-height: 1.6;
+  }
+
+  .obs-flag {
+    display: inline-block;
+    margin-top: 1rem;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+  }
+
+  .flag-gap { background: #FAEEDA; color: #633806; }
+  .flag-strength { background: #EAF3DE; color: #27500A; }
+  .flag-opp { background: #E1F5EE; color: #085041; }
+
+  /* PERSONA CARDS */
+  .persona-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+
+  .persona-card {
+    background: #fff;
+    border: 1px solid var(--cream-dark);
+    border-radius: 3px;
+    padding: 1.75rem;
+  }
+
+  .persona-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+
+  .persona-card h3 {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 0.25rem;
+  }
+
+  .persona-card .age {
+    font-size: 12px;
+    color: var(--ink-light);
+    margin-bottom: 1rem;
+  }
+
+  .persona-traits {
+    list-style: none;
+    font-size: 13px;
+    color: var(--ink-mid);
+    line-height: 1.7;
+  }
+
+  .persona-traits li::before {
+    content: '— ';
+    color: var(--gold);
+  }
+
+  /* PILLARS */
+  .pillar-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--cream-dark);
+    margin-top: 2.5rem;
+  }
+
+  .pillar {
+    background: var(--cream);
+    padding: 2.5rem;
+    position: relative;
+  }
+
+  .pillar::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--gold);
+    opacity: 0;
+  }
+
+  .pillar:hover::before { opacity: 1; }
+
+  .pillar-tag {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .pillar h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+  }
+
+  .pillar p {
+    font-size: 14px;
+    color: var(--ink-light);
+    line-height: 1.65;
+  }
+
+  .pillar-formats {
+    margin-top: 1.25rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .fmt-tag {
+    font-size: 11px;
+    padding: 3px 10px;
+    border: 1px solid var(--cream-dark);
+    color: var(--ink-mid);
+    border-radius: 2px;
+  }
+
+  /* ROADMAP */
+  .roadmap {
+    margin-top: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .phase {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    border-bottom: 1px solid var(--cream-dark);
+  }
+
+  .phase:last-child { border-bottom: none; }
+
+  .phase-label {
+    padding: 2rem;
+    background: var(--gold-pale);
+    border-right: 1px solid var(--cream-dark);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .phase-label .month-range {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .phase-label .phase-name {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-top: 6px;
+  }
+
+  .phase-content {
+    padding: 2rem;
+  }
+
+  .phase-content h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 0.75rem;
+  }
+
+  .phase-items {
+    list-style: none;
+    font-size: 14px;
+    color: var(--ink-mid);
+    columns: 2;
+    gap: 1rem;
+    line-height: 1.7;
+  }
+
+  .phase-items li {
+    padding-left: 1rem;
+    position: relative;
+    break-inside: avoid;
+  }
+
+  .phase-items li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.65em;
+    width: 5px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  /* CHANNEL STRATEGY */
+  .channel-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+
+  .channel-card {
+    border: 1px solid var(--cream-dark);
+    padding: 2rem;
+    background: #fff;
+  }
+
+  .channel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.25rem;
+  }
+
+  .channel-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink);
+    letter-spacing: 0.04em;
+  }
+
+  .priority-badge {
+    font-size: 10px;
+    padding: 3px 8px;
+    border-radius: 2px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .p-high { background: #FAEEDA; color: #633806; }
+  .p-med { background: #E1F5EE; color: #085041; }
+  .p-low { background: #F1EFE8; color: #444441; }
+
+  .channel-role {
+    font-size: 13px;
+    color: var(--ink-light);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .channel-tactics {
+    list-style: none;
+    font-size: 13px;
+    color: var(--ink-mid);
+  }
+
+  .channel-tactics li {
+    padding: 6px 0;
+    border-top: 1px solid var(--cream-dark);
+    padding-left: 14px;
+    position: relative;
+  }
+
+  .channel-tactics li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 5px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  /* KPI */
+  .kpi-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 2.5rem;
+    font-size: 14px;
+  }
+
+  .kpi-table th {
+    text-align: left;
+    padding: 10px 1.5rem;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    font-weight: 400;
+    border-bottom: 1px solid var(--cream-dark);
+    background: var(--gold-pale);
+  }
+
+  .kpi-table td {
+    padding: 14px 1.5rem;
+    border-bottom: 1px solid var(--cream-dark);
+    color: var(--ink-mid);
+    vertical-align: top;
+  }
+
+  .kpi-table tr:last-child td { border-bottom: none; }
+
+  .kpi-table .metric-name {
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  .kpi-table .target {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  /* CLOSE */
+  .slide-close {
+    background: var(--night);
+    text-align: center;
+    align-items: center;
+  }
+
+  .close-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-weight: 300;
+    color: #F5F0E8;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.04em;
+  }
+
+  .close-line {
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+    margin: 0 auto 1.5rem;
+  }
+
+  .close-sub {
+    font-size: 14px;
+    color: rgba(245,240,232,0.4);
+    letter-spacing: 0.08em;
+    max-width: 400px;
+    margin: 0 auto 3rem;
+    line-height: 1.7;
+  }
+
+  .close-contact {
+    font-size: 13px;
+    color: rgba(245,240,232,0.5);
+    letter-spacing: 0.06em;
+  }
+
+  .close-contact a {
+    color: var(--gold);
+    text-decoration: none;
+  }
+
+  /* QUOTE BLOCK */
+  .quote-block {
+    border-left: 2px solid var(--gold);
+    padding: 1.5rem 2rem;
+    margin: 2.5rem 0;
+    background: var(--gold-pale);
+  }
+
+  .quote-block p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--ink-mid);
+    line-height: 1.5;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 0 1.5rem; }
+    .nav-links { display: none; }
+    .slide { padding: 90px 1.5rem 60px; }
+    .pillar-row { grid-template-columns: 1fr; }
+    .phase { grid-template-columns: 90px 1fr; }
+    .phase-items { columns: 1; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div>
+    <span class="nav-brand">Lavita Cafe & Bar</span>
+    <span class="nav-by" style="display:block; font-size:10px;">Marketing strategy 2026</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#observations">Audit</a></li>
+    <li><a href="#audience">Audience</a></li>
+    <li><a href="#strategy">Strategy</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#channels">Channels</a></li>
+    <li><a href="#kpis">KPIs</a></li>
+  </ul>
+  <span class="nav-by">Wecomeone Marketing And Comms</span>
+</nav>
+
+<!-- SLIDE 1: COVER -->
+<section class="slide slide-cover">
+  <div class="slide-inner">
+    <p class="cover-eyebrow">Marketing Strategy — July 2026 to January 2027</p>
+    <h1 class="cover-title display">A Place Worth<br><em>Talking About</em></h1>
+    <p class="cover-sub">A 6-month strategy to build Lavita into the most loved<br>all-day venue in Larnaca.</p>
+    <div class="cover-meta">
+      <div class="cover-meta-item">
+        <span class="label">Client</span>
+        <span class="value display">Lavita Cafe & Bar</span>
+      </div>
+      <div class="cover-meta-item">
+        <span class="label">Prepared by</span>
+        <span class="value display">Wecomeone</span>
+      </div>
+      <div class="cover-meta-item">
+        <span class="label">Duration</span>
+        <span class="value display">6 Months</span>
+      </div>
+      <div class="cover-meta-item">
+        <span class="label">Date</span>
+        <span class="value display">July 3, 2026</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIVIDER: WHERE WE ARE -->
+<section class="slide slide-divider" id="observations">
+  <div class="divider-inner">
+    <div class="divider-num display">01</div>
+    <div class="divider-text">
+      <h2 class="display">Where Things Stand</h2>
+      <p>Current situation audit</p>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 2: AUDIT -->
+<section class="slide" style="min-height: auto; padding: 80px 3rem;">
+  <div class="slide-inner">
+    <span class="eyebrow">Honest Assessment</span>
+    <h2 class="section-title display">Lavita has all the ingredients.<br>The story just isn't being told.</h2>
+    <p class="section-intro">
+      A restored 1940s heritage home near Finikoudes. An all-day concept that moves from calm morning workspace to vibrant cocktail evening. Mediterranean food, specialty coffee, crafted drinks. The physical product is strong. The digital presence has not caught up.
+    </p>
+
+    <div class="obs-grid">
+      <div class="obs-card">
+        <div class="obs-icon">🌐</div>
+        <h3>Website</h3>
+        <p>Live on Odoo — functional but built on a platform not optimised for SEO or brand storytelling. Load speed and content depth will limit organic discoverability.</p>
+        <span class="obs-flag flag-gap">Gap</span>
+      </div>
+      <div class="obs-card">
+        <div class="obs-icon">📸</div>
+        <h3>Social Presence</h3>
+        <p>Lavita is active on Instagram, Facebook, TikTok, and LinkedIn. Presence exists. Content strategy and consistency appear early-stage — significant growth potential.</p>
+        <span class="obs-flag flag-opp">Opportunity</span>
+      </div>
+      <div class="obs-card">
+        <div class="obs-icon">⭐</div>
+        <h3>TripAdvisor</h3>
+        <p>Listed and linked from the website — a strong signal for tourist and traveller traffic. Review volume and recency will determine how high Lavita ranks in local searches.</p>
+        <span class="obs-flag flag-opp">Opportunity</span>
+      </div>
+      <div class="obs-card">
+        <div class="obs-icon">🏠</div>
+        <h3>The Space</h3>
+        <p>A 1940s listed building with cosy indoor rooms, a garden, and a mood that shifts from work haven to social evening. This is a rare, camera-ready differentiator in Larnaca.</p>
+        <span class="obs-flag flag-strength">Strength</span>
+      </div>
+      <div class="obs-card">
+        <div class="obs-icon">🌙</div>
+        <h3>Dual Identity</h3>
+        <p>Day and night offer two distinct experiences — specialty coffee / remote work culture by day, cocktails and shareable plates by night. Most venues don't own both moods clearly.</p>
+        <span class="obs-flag flag-strength">Strength</span>
+      </div>
+      <div class="obs-card">
+        <div class="obs-icon">📍</div>
+        <h3>Location</h3>
+        <p>Nikiforou Foka 5, steps from Finikoudes promenade. Walking distance for tourists, accessible for Larnaca locals. Google Maps presence and local SEO need to be maximised.</p>
+        <span class="obs-flag flag-opp">Opportunity</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIVIDER: AUDIENCE -->
+<section class="slide slide-divider" id="audience">
+  <div class="divider-inner">
+    <div class="divider-num display">02</div>
+    <div class="divider-text">
+      <h2 class="display">Who We're Talking To</h2>
+      <p>Audience definition</p>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 3: AUDIENCE -->
+<section class="slide" style="min-height: auto; padding: 80px 3rem;">
+  <div class="slide-inner">
+    <span class="eyebrow">Four Core Audiences</span>
+    <h2 class="section-title display">Lavita belongs to<br>more than one kind of person.</h2>
+    <p class="section-intro">
+      The dual day/night concept unlocks four distinct audience segments. Each has different motivations, different platforms, and different messages that resonate. Smart marketing speaks to each of them precisely — not with four separate identities, but with one brand that contains multitudes.
+    </p>
+
+    <div class="persona-grid">
+      <div class="persona-card">
+        <div class="persona-avatar" style="background:#EAF3DE; color:#27500A;">RL</div>
+        <h3>The Remote Local</h3>
+        <p class="age">28 to 42 &mdash; Larnaca resident</p>
+        <ul class="persona-traits">
+          <li>Works from cafes regularly</li>
+          <li>Cares about wifi, ambience, coffee quality</li>
+          <li>Becomes a loyal repeat visitor if the space feels right</li>
+          <li>Shares workspace spots on Instagram Stories</li>
+          <li>Active weekday mornings to afternoons</li>
+        </ul>
+      </div>
+      <div class="persona-card">
+        <div class="persona-avatar" style="background:#FAEEDA; color:#633806;">VS</div>
+        <h3>The Visiting Expat</h3>
+        <p class="age">30 to 55 &mdash; Tourist or short-stay visitor</p>
+        <ul class="persona-traits">
+          <li>Discovers via Google Maps and TripAdvisor</li>
+          <li>Seeking "authentic" and "local" experiences</li>
+          <li>Heritage architecture triggers stop decisions</li>
+          <li>Likely to post a review after a good experience</li>
+          <li>Drives weekend revenue significantly</li>
+        </ul>
+      </div>
+      <div class="persona-card">
+        <div class="persona-avatar" style="background:#E1F5EE; color:#085041;">SG</div>
+        <h3>The Social Group</h3>
+        <p class="age">24 to 38 &mdash; Friends, colleagues, couples</p>
+        <ul class="persona-traits">
+          <li>Plans evenings in advance or spontaneously</li>
+          <li>Influenced by Instagram Reels and TikTok</li>
+          <li>Venue atmosphere matters as much as menu</li>
+          <li>Drives weekday evening and weekend night revenue</li>
+          <li>High UGC potential if the experience delivers</li>
+        </ul>
+      </div>
+      <div class="persona-card">
+        <div class="persona-avatar" style="background:#EEEDFE; color:#3C3489;">CD</div>
+        <h3>The Corporate Daytime</h3>
+        <p class="age">28 to 50 &mdash; Business meetings, client lunches</p>
+        <ul class="persona-traits">
+          <li>Needs reliable wifi and a calm setting</li>
+          <li>Will bring clients and colleagues for food</li>
+          <li>Responds to LinkedIn presence and Google</li>
+          <li>Values proximity to the city centre</li>
+          <li>Untapped — a natural fit for Lavita's daytime offer</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIVIDER: STRATEGY -->
+<section class="slide slide-divider" id="strategy">
+  <div class="divider-inner">
+    <div class="divider-num display">03</div>
+    <div class="divider-text">
+      <h2 class="display">The Strategic Direction</h2>
+      <p>Content pillars and brand voice</p>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 4: STRATEGY -->
+<section class="slide" style="min-height: auto; padding: 80px 3rem;">
+  <div class="slide-inner">
+    <span class="eyebrow">Strategic Positioning</span>
+    <h2 class="section-title display">Own "the space that feels like home<br>but looks like a destination."</h2>
+
+    <div class="quote-block">
+      <p>"Lavita began with a feeling. We wanted to create the kind of place we would love to spend time in." — Zack & Roxane</p>
+    </div>
+
+    <p class="section-intro">
+      The founders' own words are the strategy. Marketing for Lavita should feel like an invitation, not a promotion. Every post, caption, and story should make someone feel that missing this place would be a genuine loss. The brand voice is warm, unhurried, and quietly confident. Never shouts. Never discounts. Never begs for attention.
+    </p>
+
+    <span class="eyebrow">Content Pillars</span>
+
+    <div class="pillar-row">
+      <div class="pillar">
+        <span class="pillar-tag">Pillar 01</span>
+        <h3>The Space Tells a Story</h3>
+        <p>The 1940s building is marketing that cannot be bought. Heritage details, architectural corners, the garden, the light at different times of day — show the space in ways that make people want to sit inside it.</p>
+        <div class="pillar-formats">
+          <span class="fmt-tag">Interior photography</span>
+          <span class="fmt-tag">Reels — ambience</span>
+          <span class="fmt-tag">Mood stories</span>
+        </div>
+      </div>
+      <div class="pillar">
+        <span class="pillar-tag">Pillar 02</span>
+        <h3>Two Worlds, One Address</h3>
+        <p>The day-to-night shift is a unique narrative hook. Morning light with specialty coffee. The same room at 9pm with candlelight and cocktails. This contrast is scroll-stopping when executed visually.</p>
+        <div class="pillar-formats">
+          <span class="fmt-tag">Before/after content</span>
+          <span class="fmt-tag">Timelapses</span>
+          <span class="fmt-tag">Dual-mood campaigns</span>
+        </div>
+      </div>
+      <div class="pillar">
+        <span class="pillar-tag">Pillar 03</span>
+        <h3>Craft on the Table</h3>
+        <p>Food and drink content that earns its place in a feed. Not the standard overhead shot — close, textured, human. A barista's hands, a cocktail mid-pour, the first bite of a shared plate.</p>
+        <div class="pillar-formats">
+          <span class="fmt-tag">Hero dish content</span>
+          <span class="fmt-tag">Cocktail creation reels</span>
+          <span class="fmt-tag">Menu season launches</span>
+        </div>
+      </div>
+      <div class="pillar">
+        <span class="pillar-tag">Pillar 04</span>
+        <h3>The People Behind It</h3>
+        <p>Zack and Roxane's founding story is an emotional asset. The team, the regulars, the faces of Lavita — humanising the brand builds loyalty that no ad spend can replicate.</p>
+        <div class="pillar-formats">
+          <span class="fmt-tag">Founder content</span>
+          <span class="fmt-tag">Team spotlights</span>
+          <span class="fmt-tag">Community moments</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIVIDER: ROADMAP -->
+<section class="slide slide-divider" id="roadmap">
+  <div class="divider-inner">
+    <div class="divider-num display">04</div>
+    <div class="divider-text">
+      <h2 class="display">Six-Month Roadmap</h2>
+      <p>Phase by phase plan</p>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 5: ROADMAP -->
+<section class="slide" style="min-height: auto; padding: 80px 3rem;">
+  <div class="slide-inner">
+    <span class="eyebrow">Three Phases</span>
+    <h2 class="section-title display">Build, amplify, own the room.</h2>
+    <p class="section-intro">
+      Six months structured in three distinct phases. Each phase builds on the one before it. We do not rush to paid media before the organic foundation is strong enough to amplify.
+    </p>
+
+    <div class="roadmap">
+      <div class="phase">
+        <div class="phase-label">
+          <span class="month-range display">M1–M2</span>
+          <span class="phase-name">Foundation</span>
+        </div>
+        <div class="phase-content">
+          <h3>Set the Stage</h3>
+          <ul class="phase-items">
+            <li>Full brand audit and photography brief</li>
+            <li>Planned content shoot — day scenes and night scenes</li>
+            <li>Instagram and TikTok content rhythm established</li>
+            <li>Google Business Profile fully optimised</li>
+            <li>TripAdvisor listing optimised, review strategy activated</li>
+            <li>Bio links and highlights restructured</li>
+            <li>Content calendar — 4 posts per week minimum</li>
+            <li>Reel series concept developed and launched</li>
+            <li>Website SEO audit and on-page improvements</li>
+            <li>Staff briefed on UGC and review encouragement</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="phase">
+        <div class="phase-label">
+          <span class="month-range display">M3–M4</span>
+          <span class="phase-name">Amplification</span>
+        </div>
+        <div class="phase-content">
+          <h3>Build Momentum</h3>
+          <ul class="phase-items">
+            <li>First paid social campaign — Lavita By Night</li>
+            <li>Influencer / content creator collaboration (local)</li>
+            <li>Seasonal campaign — late summer/early autumn offer</li>
+            <li>Email / WhatsApp list building campaign</li>
+            <li>Reservation-linked CTA push on all channels</li>
+            <li>Retargeting audience built via Meta pixel</li>
+            <li>Google Maps review milestone push</li>
+            <li>Cross-promote with nearby Larnaca businesses</li>
+            <li>Monthly performance review and content pivots</li>
+            <li>LinkedIn activation — target corporate daytime crowd</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="phase">
+        <div class="phase-label">
+          <span class="month-range display">M5–M6</span>
+          <span class="phase-name">Ownership</span>
+        </div>
+        <div class="phase-content">
+          <h3>Command the Space</h3>
+          <ul class="phase-items">
+            <li>Holiday and festive season campaign</li>
+            <li>Group bookings and events push</li>
+            <li>Loyalty / return-visit incentive mechanics</li>
+            <li>Website blog / journal activated for SEO depth</li>
+            <li>PR outreach — Cyprus lifestyle press and travel media</li>
+            <li>Second content shoot — winter mood and festive</li>
+            <li>6-month results review and Q1 2027 planning</li>
+            <li>Community event concept explored (pop-up, live music)</li>
+            <li>TikTok growth push — viral format testing</li>
+            <li>Paid retargeting scaled based on M3/M4 learnings</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIVIDER: CHANNELS -->
+<section class="slide slide-divider" id="channels">
+  <div class="divider-inner">
+    <div class="divider-num display">05</div>
+    <div class="divider-text">
+      <h2 class="display">Channel Strategy</h2>
+      <p>Where and how we show up</p>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 6: CHANNELS -->
+<section class="slide" style="min-height: auto; padding: 80px 3rem;">
+  <div class="slide-inner">
+    <span class="eyebrow">Platform by Platform</span>
+    <h2 class="section-title display">Every channel has a job to do.</h2>
+    <p class="section-intro">
+      We don't spread thin across every platform. Each channel is assigned a primary role and held accountable to it. Resources follow the platforms where Lavita's audiences actually live.
+    </p>
+
+    <div class="channel-grid">
+      <div class="channel-card">
+        <div class="channel-header">
+          <span class="channel-name">Instagram</span>
+          <span class="priority-badge p-high">Primary</span>
+        </div>
+        <p class="channel-role">Brand home. The main stage for Lavita's visual identity, mood, and story. Reels drive discovery; Stories drive daily connection; grid maintains brand coherence.</p>
+        <ul class="channel-tactics">
+          <li>4+ posts per week including 2 Reels</li>
+          <li>Daily Stories — behind-scenes and daily specials</li>
+          <li>Highlights: The Space / Food & Drink / Events / Reviews</li>
+          <li>Paid ads when seasonal campaigns launch</li>
+        </ul>
+      </div>
+
+      <div class="channel-card">
+        <div class="channel-header">
+          <span class="channel-name">TikTok</span>
+          <span class="priority-badge p-high">Primary</span>
+        </div>
+        <p class="channel-role">Discovery and reach. TikTok's algorithm rewards novelty — Lavita's architecture and mood-shift concept are tailor-made for the platform's viral content patterns.</p>
+        <ul class="channel-tactics">
+          <li>3+ short-form videos per week</li>
+          <li>Trending audio applied to venue content</li>
+          <li>Day-to-night transformation content</li>
+          <li>Seasonal food/drink hero content</li>
+        </ul>
+      </div>
+
+      <div class="channel-card">
+        <div class="channel-header">
+          <span class="channel-name">Google Business</span>
+          <span class="priority-badge p-high">Primary</span>
+        </div>
+        <p class="channel-role">The single most important touchpoint for anyone searching "cafe Larnaca" or "restaurant near Finikoudes." Often overlooked. Cannot be ignored.</p>
+        <ul class="channel-tactics">
+          <li>Complete all profile fields — menu, photos, hours</li>
+          <li>Weekly photo uploads to stay algorithmically fresh</li>
+          <li>Review response strategy — every review answered</li>
+          <li>Posts pushed weekly with seasonal content</li>
+        </ul>
+      </div>
+
+      <div class="channel-card">
+        <div class="channel-header">
+          <span class="channel-name">Facebook</span>
+          <span class="priority-badge p-med">Secondary</span>
+        </div>
+        <p class="channel-role">Reaches the 35+ demographic and tourist segment. Primary channel for event promotion and paid social to reach specific audience segments efficiently.</p>
+        <ul class="channel-tactics">
+          <li>2 posts per week — mirrored from Instagram</li>
+          <li>Events created for any special evenings</li>
+          <li>Paid campaigns targeting tourist visitors</li>
+        </ul>
+      </div>
+
+      <div class="channel-card">
+        <div class="channel-header">
+          <span class="channel-name">TripAdvisor</span>
+          <span class="priority-badge p-med">Secondary</span>
+        </div>
+        <p class="channel-role">Critical for tourist conversion. Visitors from abroad often commit to a venue based on TripAdvisor rankings before they land in Cyprus. Review volume matters.</p>
+        <ul class="channel-tactics">
+          <li>Review encouragement card left with the bill</li>
+          <li>QR code to TripAdvisor profile at tables</li>
+          <li>Prompt satisfied guests via WhatsApp follow-up</li>
+        </ul>
+      </div>
+
+      <div class="channel-card">
+        <div class="channel-header">
+          <span class="channel-name">LinkedIn</span>
+          <span class="priority-badge p-low">Supporting</span>
+        </div>
+        <p class="channel-role">Reaches the corporate and professional segment — the daytime meeting and client lunch crowd. Founder storytelling content performs well here.</p>
+        <ul class="channel-tactics">
+          <li>1 post per week — founder story or brand moment</li>
+          <li>Target B2B professionals in Larnaca area</li>
+          <li>Position Lavita as the default meetings venue</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIVIDER: KPIs -->
+<section class="slide slide-divider" id="kpis">
+  <div class="divider-inner">
+    <div class="divider-num display">06</div>
+    <div class="divider-text">
+      <h2 class="display">How We Measure Success</h2>
+      <p>KPIs and 6-month targets</p>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 7: KPIs -->
+<section class="slide" style="min-height: auto; padding: 80px 3rem;">
+  <div class="slide-inner">
+    <span class="eyebrow">Key Performance Indicators</span>
+    <h2 class="section-title display">Numbers that prove the strategy is working.</h2>
+    <p class="section-intro">
+      These targets assume a consistent content output and professional execution from month one. All targets are reviewed monthly. Underperforming metrics get diagnosed early — not at the 6-month mark.
+    </p>
+
+    <table class="kpi-table">
+      <thead>
+        <tr>
+          <th>Metric</th>
+          <th>Platform</th>
+          <th>Starting Point</th>
+          <th>6-Month Target</th>
+          <th>Why It Matters</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="metric-name">Instagram Followers</span></td>
+          <td>Instagram</td>
+          <td>Establish baseline</td>
+          <td class="target">+2,000 net</td>
+          <td>Builds owned audience that compounds over time</td>
+        </tr>
+        <tr>
+          <td><span class="metric-name">Reel Average Views</span></td>
+          <td>Instagram / TikTok</td>
+          <td>Establish baseline</td>
+          <td class="target">5,000+ per Reel</td>
+          <td>Signals content quality and algorithm trust</td>
+        </tr>
+        <tr>
+          <td><span class="metric-name">TikTok Followers</span></td>
+          <td>TikTok</td>
+          <td>Establish baseline</td>
+          <td class="target">+1,500 net</td>
+          <td>Discovery reach for 18–35 audience</td>
+        </tr>
+        <tr>
+          <td><span class="metric-name">Google Reviews</span></td>
+          <td>Google Business</td>
+          <td>Establish baseline</td>
+          <td class="target">+80 reviews</td>
+          <td>Direct driver of local search ranking and conversion</td>
+        </tr>
+        <tr>
+          <td><span class="metric-name">Google Profile Views</span></td>
+          <td>Google Business</td>
+          <td>Establish baseline</td>
+          <td class="target">+60% increase</td>
+          <td>Indicates growing local discoverability</td>
+        </tr>
+        <tr>
+          <td><span class="metric-name">TripAdvisor Ranking</span></td>
+          <td>TripAdvisor</td>
+          <td>Establish baseline</td>
+          <td class="target">Top 30 Larnaca</td>
+          <td>High-intent tourist discovery channel</td>
+        </tr>
+        <tr>
+          <td><span class="metric-name">Table Reservations</span></td>
+          <td>All channels</td>
+          <td>Establish baseline</td>
+          <td class="target">+40% vs month 1</td>
+          <td>Ultimate commercial signal of marketing effectiveness</td>
+        </tr>
+        <tr>
+          <td><span class="metric-name">Website Organic Traffic</span></td>
+          <td>Google Search</td>
+          <td>Establish baseline</td>
+          <td class="target">+80% sessions</td>
+          <td>Measures SEO and Google Business progress</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- SLIDE 8: CLOSE -->
+<section class="slide slide-close">
+  <div class="slide-inner">
+    <p class="cover-eyebrow">Prepared exclusively for Lavita Cafe & Bar</p>
+    <div class="close-logo display">Lavita</div>
+    <div class="close-line"></div>
+    <p class="close-sub">
+      A place this good deserves to be known. We're here to make sure it is.
+    </p>
+    <p style="font-family:'Cormorant Garamond',serif; font-size:32px; font-weight:300; color:rgba(245,240,232,0.6); font-style:italic; margin-bottom:3rem;">"Find your corner."</p>
+    <p class="close-contact">
+      Wecomeone Marketing And Comms &nbsp;&nbsp;|&nbsp;&nbsp; <a href="mailto:hello@wecomeone.me">hello@wecomeone.me</a> &nbsp;&nbsp;|&nbsp;&nbsp; <a href="https://www.wecomeone.me">wecomeone.me</a>
+    </p>
+  </div>
+</section>
+
+</body>
+</html>
