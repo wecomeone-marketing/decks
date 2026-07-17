@@ -1,0 +1,1557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>People Wise — A Marketing Proposal by Wecomeone</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --sage: #5C7A6B;
+    --sage-light: #8AA99A;
+    --sage-pale: #EAF0EC;
+    --terracotta: #C4714A;
+    --terracotta-light: #E8A080;
+    --mauve: #9B7E8B;
+    --mauve-pale: #F0EAF0;
+    --cream: #F7F4EF;
+    --cream-dark: #EDE9E0;
+    --charcoal: #2B2B2B;
+    --charcoal-mid: #4A4A4A;
+    --charcoal-light: #7A7A7A;
+    --white: #FFFFFF;
+    --font-display: 'Cormorant Garant', Georgia, serif;
+    --font-body: 'DM Sans', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--cream);
+    color: var(--charcoal);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 20px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: transparent;
+    transition: background 0.4s ease, padding 0.4s ease;
+  }
+  nav.scrolled {
+    background: rgba(247, 244, 239, 0.95);
+    backdrop-filter: blur(8px);
+    padding: 14px 48px;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.06);
+  }
+  .nav-logo {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--white);
+    transition: color 0.4s ease;
+  }
+  nav.scrolled .nav-logo { color: var(--charcoal); }
+  .nav-label {
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    color: rgba(255,255,255,0.7);
+    transition: color 0.4s ease;
+  }
+  nav.scrolled .nav-label { color: var(--charcoal-light); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: var(--sage);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 120px 80px 80px;
+    overflow: hidden;
+  }
+
+  .hero-blob {
+    position: absolute;
+    right: -80px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 680px;
+    height: 680px;
+    opacity: 0.12;
+  }
+
+  .hero-blob-2 {
+    position: absolute;
+    left: -120px;
+    bottom: -80px;
+    width: 420px;
+    height: 420px;
+    opacity: 0.08;
+  }
+
+  .hero-eyebrow {
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--terracotta-light);
+    margin-bottom: 28px;
+  }
+
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(52px, 7vw, 96px);
+    font-weight: 300;
+    line-height: 1.05;
+    color: var(--white);
+    max-width: 720px;
+    margin-bottom: 32px;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--terracotta-light);
+  }
+
+  .hero-subtitle {
+    font-size: 17px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.72);
+    max-width: 520px;
+    line-height: 1.75;
+    margin-bottom: 56px;
+  }
+
+  .hero-meta {
+    display: flex;
+    gap: 48px;
+    align-items: flex-start;
+  }
+
+  .hero-meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .hero-meta-label {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+  }
+
+  .hero-meta-value {
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.85);
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 40px;
+    left: 80px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+  }
+
+  .hero-scroll-line {
+    width: 40px;
+    height: 1px;
+    background: rgba(255,255,255,0.3);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-scroll-line::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: rgba(255,255,255,0.8);
+    animation: scanline 2s ease-in-out infinite;
+  }
+
+  @keyframes scanline {
+    0% { left: -100%; }
+    100% { left: 100%; }
+  }
+
+  /* SECTION BASE */
+  section {
+    padding: 96px 80px;
+  }
+
+  .section-eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 20px;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 4vw, 58px);
+    font-weight: 400;
+    line-height: 1.15;
+    color: var(--charcoal);
+    margin-bottom: 20px;
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--sage);
+  }
+
+  .section-lead {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--charcoal-mid);
+    max-width: 620px;
+    font-weight: 300;
+  }
+
+  /* UNDERSTANDING SECTION */
+  .understanding {
+    background: var(--white);
+  }
+
+  .understanding-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    margin-top: 56px;
+    align-items: start;
+  }
+
+  .understanding-text p {
+    font-size: 15px;
+    line-height: 1.9;
+    color: var(--charcoal-mid);
+    font-weight: 300;
+    margin-bottom: 20px;
+  }
+
+  .understanding-text p:last-child { margin-bottom: 0; }
+
+  .pillars {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .pillar {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px 24px;
+    background: var(--cream);
+    border-left: 3px solid var(--sage);
+    border-radius: 0 8px 8px 0;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .pillar:hover {
+    transform: translateX(4px);
+    box-shadow: -4px 0 0 var(--terracotta), 4px 4px 16px rgba(0,0,0,0.06);
+    border-left-color: var(--terracotta);
+  }
+
+  .pillar-icon {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--sage-pale);
+    border-radius: 50%;
+    font-size: 16px;
+  }
+
+  .pillar-text strong {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--charcoal);
+    margin-bottom: 2px;
+    letter-spacing: 0.02em;
+  }
+
+  .pillar-text span {
+    font-size: 13px;
+    color: var(--charcoal-light);
+    font-weight: 300;
+  }
+
+  /* STRATEGY SECTION */
+  .strategy {
+    background: var(--cream);
+  }
+
+  .strategy-intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    margin-bottom: 72px;
+  }
+
+  .strategy-statement {
+    font-family: var(--font-display);
+    font-size: clamp(22px, 2.5vw, 34px);
+    font-weight: 300;
+    line-height: 1.5;
+    color: var(--charcoal);
+    font-style: italic;
+  }
+
+  .strategy-statement span {
+    color: var(--sage);
+    font-style: normal;
+    font-weight: 500;
+  }
+
+  .phases {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .phase {
+    background: var(--white);
+    padding: 32px 28px;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+  }
+
+  .phase:hover {
+    box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+  }
+
+  .phase-accent {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: var(--sage);
+  }
+
+  .phase:nth-child(2) .phase-accent { background: var(--terracotta); }
+  .phase:nth-child(3) .phase-accent { background: var(--mauve); }
+
+  .phase-tag {
+    display: inline-block;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--sage);
+    background: var(--sage-pale);
+    padding: 4px 10px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+  }
+
+  .phase:nth-child(2) .phase-tag { color: var(--terracotta); background: #FAF0EB; }
+  .phase:nth-child(3) .phase-tag { color: var(--mauve); background: var(--mauve-pale); }
+
+  .phase-title {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--charcoal);
+    margin-bottom: 12px;
+  }
+
+  .phase-desc {
+    font-size: 13.5px;
+    color: var(--charcoal-light);
+    line-height: 1.75;
+    font-weight: 300;
+  }
+
+  .phase-timeline {
+    margin-top: 16px;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--charcoal-light);
+    border-top: 1px solid var(--cream-dark);
+    padding-top: 14px;
+  }
+
+  /* SERVICES SECTION */
+  .services {
+    background: var(--charcoal);
+    color: var(--white);
+  }
+
+  .services .section-title { color: var(--white); }
+  .services .section-title em { color: var(--terracotta-light); }
+  .services .section-eyebrow { color: var(--terracotta-light); }
+  .services .section-lead { color: rgba(255,255,255,0.6); }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(255,255,255,0.08);
+    margin-top: 56px;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .service-card {
+    background: var(--charcoal);
+    padding: 40px 32px;
+    transition: background 0.3s ease;
+  }
+
+  .service-card:hover { background: #363636; }
+
+  .service-card-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-size: 20px;
+  }
+
+  .service-card-title {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--white);
+    margin-bottom: 10px;
+  }
+
+  .service-card-desc {
+    font-size: 13.5px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.75;
+    font-weight: 300;
+    margin-bottom: 20px;
+  }
+
+  .service-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .service-tag {
+    font-size: 10.5px;
+    color: rgba(255,255,255,0.45);
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 3px 9px;
+    border-radius: 20px;
+  }
+
+  /* CONTENT SECTION */
+  .content-strategy {
+    background: var(--mauve-pale);
+  }
+
+  .content-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    margin-top: 56px;
+    align-items: start;
+  }
+
+  .content-theme {
+    padding: 24px;
+    background: var(--white);
+    border-radius: 10px;
+    margin-bottom: 16px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .content-theme-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--mauve);
+    margin-top: 7px;
+    flex-shrink: 0;
+  }
+
+  .content-theme strong {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--charcoal);
+    margin-bottom: 4px;
+  }
+
+  .content-theme p {
+    font-size: 13px;
+    color: var(--charcoal-light);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  .platform-card {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 28px;
+    margin-bottom: 16px;
+  }
+
+  .platform-name {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--mauve);
+    margin-bottom: 8px;
+  }
+
+  .platform-desc {
+    font-size: 13.5px;
+    color: var(--charcoal-mid);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  /* VISUAL IDENTITY SECTION */
+  .visual {
+    background: var(--sage-pale);
+  }
+
+  .visual-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+    margin-top: 56px;
+  }
+
+  .visual-card {
+    background: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .visual-preview {
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .visual-preview.photography { background: linear-gradient(135deg, #5C7A6B 0%, #8AA99A 100%); }
+  .visual-preview.video { background: linear-gradient(135deg, #C4714A 0%, #E8A080 100%); }
+  .visual-preview.website { background: linear-gradient(135deg, #9B7E8B 0%, #BEA8B5 100%); }
+
+  .visual-content { padding: 24px; }
+
+  .visual-title {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--charcoal);
+    margin-bottom: 8px;
+  }
+
+  .visual-desc {
+    font-size: 13px;
+    color: var(--charcoal-light);
+    line-height: 1.75;
+    font-weight: 300;
+  }
+
+  /* PRICING SECTION */
+  .pricing {
+    background: var(--white);
+  }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-top: 56px;
+    max-width: 960px;
+  }
+
+  .pricing-card {
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--cream-dark);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+
+  .pricing-card:hover {
+    box-shadow: 0 12px 48px rgba(0,0,0,0.1);
+    transform: translateY(-4px);
+  }
+
+  .pricing-card.featured {
+    border-color: var(--sage);
+    box-shadow: 0 4px 24px rgba(92,122,107,0.15);
+  }
+
+  .pricing-header {
+    padding: 36px 36px 28px;
+    background: var(--cream);
+    position: relative;
+  }
+
+  .pricing-card.featured .pricing-header { background: var(--sage); }
+
+  .pricing-badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.25);
+    color: var(--white);
+    margin-bottom: 16px;
+  }
+
+  .pricing-tier {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--charcoal-light);
+    margin-bottom: 12px;
+  }
+
+  .pricing-card.featured .pricing-tier { color: rgba(255,255,255,0.6); }
+
+  .pricing-name {
+    font-family: var(--font-display);
+    font-size: 32px;
+    font-weight: 500;
+    color: var(--charcoal);
+    margin-bottom: 8px;
+  }
+
+  .pricing-card.featured .pricing-name { color: var(--white); }
+
+  .pricing-tagline {
+    font-size: 13.5px;
+    color: var(--charcoal-light);
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  .pricing-card.featured .pricing-tagline { color: rgba(255,255,255,0.7); }
+
+  .pricing-price {
+    margin-top: 24px;
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+  }
+
+  .pricing-amount {
+    font-family: var(--font-display);
+    font-size: 52px;
+    font-weight: 300;
+    color: var(--charcoal);
+    line-height: 1;
+  }
+
+  .pricing-card.featured .pricing-amount { color: var(--white); }
+
+  .pricing-period {
+    font-size: 13px;
+    color: var(--charcoal-light);
+    font-weight: 300;
+  }
+
+  .pricing-card.featured .pricing-period { color: rgba(255,255,255,0.55); }
+
+  .pricing-setup {
+    margin-top: 8px;
+    font-size: 12px;
+    color: var(--charcoal-light);
+    font-weight: 300;
+  }
+
+  .pricing-card.featured .pricing-setup { color: rgba(255,255,255,0.5); }
+
+  .pricing-body {
+    padding: 32px 36px;
+  }
+
+  .pricing-section-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--charcoal-light);
+    margin-bottom: 16px;
+    margin-top: 24px;
+  }
+
+  .pricing-section-label:first-child { margin-top: 0; }
+
+  .pricing-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+
+  .pricing-check {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: var(--sage-pale);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+    font-size: 9px;
+    color: var(--sage);
+  }
+
+  .pricing-card.featured .pricing-check {
+    background: rgba(92,122,107,0.15);
+    color: var(--sage);
+  }
+
+  .pricing-item-text {
+    font-size: 13.5px;
+    color: var(--charcoal-mid);
+    line-height: 1.5;
+    font-weight: 300;
+  }
+
+  .pricing-divider {
+    height: 1px;
+    background: var(--cream-dark);
+    margin: 24px 0;
+  }
+
+  /* TIMELINE SECTION */
+  .timeline {
+    background: var(--cream);
+  }
+
+  .timeline-track {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin-top: 56px;
+    position: relative;
+  }
+
+  .timeline-track::before {
+    content: '';
+    position: absolute;
+    top: 24px;
+    left: calc(12.5% + 0px);
+    right: calc(12.5% + 0px);
+    height: 2px;
+    background: linear-gradient(to right, var(--sage), var(--terracotta), var(--mauve), var(--sage));
+    z-index: 0;
+  }
+
+  .timeline-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 16px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .timeline-dot {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--white);
+    border: 3px solid var(--sage);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    flex-shrink: 0;
+  }
+
+  .timeline-step:nth-child(2) .timeline-dot { border-color: var(--terracotta); }
+  .timeline-step:nth-child(3) .timeline-dot { border-color: var(--mauve); }
+  .timeline-step:nth-child(4) .timeline-dot { border-color: var(--sage); }
+
+  .timeline-month {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 8px;
+  }
+
+  .timeline-step:nth-child(2) .timeline-month { color: var(--terracotta); }
+  .timeline-step:nth-child(3) .timeline-month { color: var(--mauve); }
+
+  .timeline-step-title {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--charcoal);
+    margin-bottom: 10px;
+  }
+
+  .timeline-step-desc {
+    font-size: 13px;
+    color: var(--charcoal-light);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  /* CLOSING SECTION */
+  .closing {
+    background: var(--sage);
+    color: var(--white);
+    text-align: center;
+    padding: 120px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .closing-blob {
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 500px;
+    height: 500px;
+    opacity: 0.08;
+  }
+
+  .closing-blob-2 {
+    position: absolute;
+    bottom: -80px;
+    left: -60px;
+    width: 360px;
+    height: 360px;
+    opacity: 0.06;
+  }
+
+  .closing-title {
+    font-family: var(--font-display);
+    font-size: clamp(40px, 5vw, 72px);
+    font-weight: 300;
+    line-height: 1.15;
+    color: var(--white);
+    max-width: 700px;
+    margin: 0 auto 24px;
+  }
+
+  .closing-title em {
+    font-style: italic;
+    color: var(--terracotta-light);
+  }
+
+  .closing-text {
+    font-size: 16px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.65);
+    max-width: 500px;
+    margin: 0 auto 48px;
+    line-height: 1.8;
+  }
+
+  .closing-contact {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    flex-wrap: wrap;
+  }
+
+  .closing-contact-item {
+    text-align: center;
+  }
+
+  .closing-contact-label {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 6px;
+  }
+
+  .closing-contact-value {
+    font-size: 15px;
+    color: rgba(255,255,255,0.85);
+    font-weight: 400;
+  }
+
+  .closing-divider {
+    width: 1px;
+    height: 40px;
+    background: rgba(255,255,255,0.15);
+    align-self: center;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--charcoal);
+    padding: 32px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-logo {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+  }
+
+  .footer-note {
+    font-size: 12px;
+    color: rgba(255,255,255,0.25);
+    font-weight: 300;
+  }
+
+  /* ANIMATIONS */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .fade-up-delay-1 { transition-delay: 0.1s; }
+  .fade-up-delay-2 { transition-delay: 0.2s; }
+  .fade-up-delay-3 { transition-delay: 0.3s; }
+  .fade-up-delay-4 { transition-delay: 0.4s; }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    section { padding: 72px 32px; }
+    nav { padding: 20px 32px; }
+    nav.scrolled { padding: 14px 32px; }
+    .hero { padding: 120px 32px 72px; }
+    .hero-meta { flex-direction: column; gap: 20px; }
+    .hero-scroll { left: 32px; }
+    .understanding-grid,
+    .strategy-intro,
+    .content-cols { grid-template-columns: 1fr; gap: 40px; }
+    .phases,
+    .services-grid,
+    .visual-grid { grid-template-columns: 1fr; }
+    .timeline-track { grid-template-columns: 1fr 1fr; gap: 32px; }
+    .timeline-track::before { display: none; }
+    .pricing-grid { grid-template-columns: 1fr; }
+    .closing { padding: 80px 32px; }
+    footer { padding: 28px 32px; flex-direction: column; gap: 12px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <div class="nav-logo">People Wise</div>
+  <div class="nav-label">A Proposal by Wecomeone</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <svg class="hero-blob" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+    <path fill="#ffffff" d="M300,50 C420,50 530,120 550,240 C570,360 500,490 380,530 C260,570 120,510 70,390 C20,270 60,130 160,80 C210,55 255,50 300,50Z" opacity="1">
+      <animate attributeName="d" dur="12s" repeatCount="indefinite"
+        values="M300,50 C420,50 530,120 550,240 C570,360 500,490 380,530 C260,570 120,510 70,390 C20,270 60,130 160,80 C210,55 255,50 300,50Z;
+                M300,60 C410,40 540,130 555,260 C570,390 490,500 360,535 C230,570 100,500 65,380 C30,260 75,130 175,75 C220,50 260,60 300,60Z;
+                M300,50 C420,50 530,120 550,240 C570,360 500,490 380,530 C260,570 120,510 70,390 C20,270 60,130 160,80 C210,55 255,50 300,50Z"
+      />
+    </path>
+  </svg>
+  <svg class="hero-blob-2" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+    <path fill="#ffffff" d="M200,30 C300,30 370,110 375,200 C380,290 320,370 220,385 C120,400 40,340 20,240 C0,140 50,50 140,25 C160,18 180,30 200,30Z">
+      <animate attributeName="d" dur="9s" repeatCount="indefinite"
+        values="M200,30 C300,30 370,110 375,200 C380,290 320,370 220,385 C120,400 40,340 20,240 C0,140 50,50 140,25 C160,18 180,30 200,30Z;
+                M200,40 C295,20 375,105 378,210 C381,315 310,375 210,390 C110,405 35,335 18,235 C1,135 60,45 150,22 C170,15 185,40 200,40Z;
+                M200,30 C300,30 370,110 375,200 C380,290 320,370 220,385 C120,400 40,340 20,240 C0,140 50,50 140,25 C160,18 180,30 200,30Z"
+      />
+    </path>
+  </svg>
+
+  <div class="hero-eyebrow">Marketing Proposal — Prepared by Wecomeone</div>
+  <h1 class="hero-title">Building <em>People Wise</em> from the ground up</h1>
+  <p class="hero-subtitle">A holistic marketing strategy to establish Anastasia Flourentzou as the leading voice in people-centred coaching, mental health, and expressive arts in Cyprus and beyond.</p>
+  <div class="hero-meta">
+    <div class="hero-meta-item">
+      <span class="hero-meta-label">Prepared for</span>
+      <span class="hero-meta-value">Anastasia Flourentzou</span>
+    </div>
+    <div class="hero-meta-item">
+      <span class="hero-meta-label">Company</span>
+      <span class="hero-meta-value">People Wise</span>
+    </div>
+    <div class="hero-meta-item">
+      <span class="hero-meta-label">Date</span>
+      <span class="hero-meta-value">July 2025</span>
+    </div>
+    <div class="hero-meta-item">
+      <span class="hero-meta-label">Prepared by</span>
+      <span class="hero-meta-value">Wecomeone Marketing And Comms</span>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="hero-scroll-line"></div>
+    Scroll to explore
+  </div>
+</section>
+
+<!-- UNDERSTANDING -->
+<section class="understanding">
+  <div class="section-eyebrow">Our Understanding</div>
+  <h2 class="section-title">We hear <em>what you're building</em></h2>
+  <div class="understanding-grid">
+    <div class="understanding-text fade-up">
+      <p>People Wise is not a traditional HR consultancy. It is a space where professional growth and human wellbeing intersect. Anastasia brings years of experience from the private sector, ACC accreditation in coaching, and a vision that goes far beyond the transactional: helping people and organisations become genuinely healthier, more self-aware, and emotionally intelligent.</p>
+      <p>The challenge is not experience or credibility. The challenge is visibility. Right now, Anastasia exists within her network. Our job is to make People Wise visible to the right audiences, in the right places, with a presence that reflects the depth and distinction of the work.</p>
+      <p>This proposal outlines how we build that from zero, with precision and purpose.</p>
+    </div>
+    <div class="pillars fade-up fade-up-delay-1">
+      <div class="pillar">
+        <div class="pillar-icon">🧠</div>
+        <div class="pillar-text">
+          <strong>Coaching</strong>
+          <span>ACC-accredited, one-to-one and organisational coaching grounded in working psychology</span>
+        </div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">🌿</div>
+        <div class="pillar-text">
+          <strong>Mental Health in the Workplace</strong>
+          <span>Proactive wellbeing frameworks that keep professionals healthy and high-performing</span>
+        </div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">🔍</div>
+        <div class="pillar-text">
+          <strong>Self Awareness</strong>
+          <span>Tools and experiences that help individuals understand their patterns, values and potential</span>
+        </div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">💛</div>
+        <div class="pillar-text">
+          <strong>Emotional Intelligence</strong>
+          <span>Building the interpersonal and intrapersonal skills that drive lasting professional change</span>
+        </div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">🎨</div>
+        <div class="pillar-text">
+          <strong>Expressive Arts in Coaching</strong>
+          <span>A distinctive, holistic layer that separates People Wise from every other HR consultancy</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STRATEGY -->
+<section class="strategy">
+  <div class="section-eyebrow">The Strategy</div>
+  <h2 class="section-title">A presence built on <em>substance, not noise</em></h2>
+  <div class="strategy-intro">
+    <p class="section-lead">We build People Wise in three distinct phases: establishing the foundation, growing the audience, and converting that audience into clients. Each phase is purposeful and measurable.</p>
+    <p class="strategy-statement">The goal is not to be <span>everywhere</span>. It is to be unmistakable in the places that matter.</p>
+  </div>
+  <div class="phases">
+    <div class="phase fade-up">
+      <div class="phase-accent"></div>
+      <span class="phase-tag">Phase 1</span>
+      <div class="phase-title">Foundation</div>
+      <p class="phase-desc">Brand identity, visual language, website, professional photography session. Everything Anastasia needs to show up with confidence and credibility before a single post goes out.</p>
+      <div class="phase-timeline">Months 1 — 2</div>
+    </div>
+    <div class="phase fade-up fade-up-delay-1">
+      <div class="phase-accent"></div>
+      <span class="phase-tag">Phase 2</span>
+      <div class="phase-title">Presence</div>
+      <p class="phase-desc">Activate social media channels, publish the first wave of content, establish Anastasia's voice online. Begin positioning through thought leadership, topic authority, and community engagement.</p>
+      <div class="phase-timeline">Months 2 — 4</div>
+    </div>
+    <div class="phase fade-up fade-up-delay-2">
+      <div class="phase-accent"></div>
+      <span class="phase-tag">Phase 3</span>
+      <div class="phase-title">Growth</div>
+      <p class="phase-desc">Scale what is working. Introduce lead generation content, build corporate outreach, explore video, podcasting, and workshop promotion. Convert visibility into actual client enquiries.</p>
+      <div class="phase-timeline">Months 4 — 6+</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services">
+  <div class="section-eyebrow">What We Deliver</div>
+  <h2 class="section-title">Every service, <em>intentional</em></h2>
+  <p class="section-lead">Each deliverable is chosen because it serves a specific role in building People Wise. Nothing is filler.</p>
+  <div class="services-grid">
+    <div class="service-card fade-up">
+      <div class="service-card-icon">🌐</div>
+      <div class="service-card-title">Website</div>
+      <p class="service-card-desc">A bespoke, conversion-focused website that communicates the philosophy of People Wise before a visitor reads a single line of text. Clear service pages, contact pathways, and SEO foundations from day one.</p>
+      <div class="service-tags">
+        <span class="service-tag">Design</span>
+        <span class="service-tag">Development</span>
+        <span class="service-tag">SEO</span>
+        <span class="service-tag">Copywriting</span>
+      </div>
+    </div>
+    <div class="service-card fade-up fade-up-delay-1">
+      <div class="service-card-icon">📸</div>
+      <div class="service-card-title">Photography</div>
+      <p class="service-card-desc">A professional brand photography session that captures Anastasia authentically. Warm, human, credible imagery for the website, social media, and all future communications.</p>
+      <div class="service-tags">
+        <span class="service-tag">Brand shoot</span>
+        <span class="service-tag">Portraits</span>
+        <span class="service-tag">Environment</span>
+      </div>
+    </div>
+    <div class="service-card fade-up fade-up-delay-2">
+      <div class="service-card-icon">📱</div>
+      <div class="service-card-title">Social Media</div>
+      <p class="service-card-desc">Monthly management of Instagram and LinkedIn, the two platforms most relevant to Anastasia's audience. Strategic content planning, consistent posting, community engagement, and growth tracking.</p>
+      <div class="service-tags">
+        <span class="service-tag">Instagram</span>
+        <span class="service-tag">LinkedIn</span>
+        <span class="service-tag">Strategy</span>
+        <span class="service-tag">Management</span>
+      </div>
+    </div>
+    <div class="service-card fade-up">
+      <div class="service-card-icon">✍️</div>
+      <div class="service-card-title">Content Creation</div>
+      <p class="service-card-desc">Original, researched content that builds Anastasia's authority in coaching, mental health, and emotional intelligence. Articles, captions, stories, and educational material that attract and educate the right audience.</p>
+      <div class="service-tags">
+        <span class="service-tag">Captions</span>
+        <span class="service-tag">Articles</span>
+        <span class="service-tag">Carousels</span>
+        <span class="service-tag">Stories</span>
+      </div>
+    </div>
+    <div class="service-card fade-up fade-up-delay-1">
+      <div class="service-card-icon">🎥</div>
+      <div class="service-card-title">Video Content</div>
+      <p class="service-card-desc">Short-form video for Reels and LinkedIn. Talking-head content, thought-leadership moments, and behind-the-scenes glimpses that build the personal connection coaches need to win clients.</p>
+      <div class="service-tags">
+        <span class="service-tag">Reels</span>
+        <span class="service-tag">LinkedIn Video</span>
+        <span class="service-tag">Editing</span>
+      </div>
+    </div>
+    <div class="service-card fade-up fade-up-delay-2">
+      <div class="service-card-icon">📊</div>
+      <div class="service-card-title">Strategy & Reporting</div>
+      <p class="service-card-desc">Monthly strategy reviews, content calendar planning, performance reporting, and ongoing recommendations. We stay close to the numbers so every decision is informed.</p>
+      <div class="service-tags">
+        <span class="service-tag">Analytics</span>
+        <span class="service-tag">Planning</span>
+        <span class="service-tag">Reporting</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTENT STRATEGY -->
+<section class="content-strategy">
+  <div class="section-eyebrow">Content Direction</div>
+  <h2 class="section-title">What People Wise <em>talks about</em></h2>
+  <p class="section-lead">The content strategy is built around five thematic pillars that align directly with Anastasia's areas of expertise and her audience's interests.</p>
+  <div class="content-cols">
+    <div>
+      <div class="content-theme fade-up">
+        <div class="content-theme-dot"></div>
+        <div>
+          <strong>The Coaching Perspective</strong>
+          <p>Thought leadership on what modern coaching looks like, dispelling myths and positioning People Wise as the progressive alternative to traditional HR.</p>
+        </div>
+      </div>
+      <div class="content-theme fade-up fade-up-delay-1">
+        <div class="content-theme-dot"></div>
+        <div>
+          <strong>Mental Health at Work</strong>
+          <p>Practical, evidence-based insights on burnout, stress, psychological safety, and building workplaces where people genuinely thrive.</p>
+        </div>
+      </div>
+      <div class="content-theme fade-up fade-up-delay-2">
+        <div class="content-theme-dot"></div>
+        <div>
+          <strong>Know Yourself</strong>
+          <p>Self-awareness content: exercises, reflections, and challenges that invite the audience to engage actively and share. High-engagement, highly shareable.</p>
+        </div>
+      </div>
+      <div class="content-theme fade-up fade-up-delay-3">
+        <div class="content-theme-dot"></div>
+        <div>
+          <strong>Emotional Intelligence in Practice</strong>
+          <p>Real-world EQ application for leaders, managers, and professionals. Stories, case studies, and frameworks made accessible and actionable.</p>
+        </div>
+      </div>
+      <div class="content-theme fade-up fade-up-delay-4">
+        <div class="content-theme-dot"></div>
+        <div>
+          <strong>The Art of It</strong>
+          <p>Expressive arts as a coaching tool: introducing audiences to this distinctive approach through curiosity-driven content. This pillar is People Wise's signature differentiator.</p>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="platform-card fade-up">
+        <div class="platform-name">Instagram</div>
+        <p class="platform-desc">The visual and emotional home of People Wise. Carousel posts, Reels, reflective captions, and Stories that build a community of individuals invested in their own growth. Primary audience: professionals aged 28 to 45.</p>
+      </div>
+      <div class="platform-card fade-up fade-up-delay-1">
+        <div class="platform-name">LinkedIn</div>
+        <p class="platform-desc">The professional authority channel. Long-form articles, thought leadership posts, and corporate outreach that positions Anastasia as the go-to expert for organisations looking to invest in their people. Primary audience: HR managers, CEOs, and L&amp;D leaders.</p>
+      </div>
+      <div class="platform-card fade-up fade-up-delay-2">
+        <div class="platform-name">Website Blog</div>
+        <p class="platform-desc">SEO-optimised articles that build long-term organic search visibility and serve as the depth layer behind every social post. A library that grows in value over time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISUAL -->
+<section class="visual">
+  <div class="section-eyebrow">Visual Identity & Production</div>
+  <h2 class="section-title">Looking the part <em>from day one</em></h2>
+  <p class="section-lead">Anastasia's credibility is real. Her visual presence needs to match it immediately. We handle the full production pipeline.</p>
+  <div class="visual-grid">
+    <div class="visual-card fade-up">
+      <div class="visual-preview photography">📸</div>
+      <div class="visual-content">
+        <div class="visual-title">Brand Photography</div>
+        <p class="visual-desc">A dedicated brand shoot in a setting that reflects People Wise's warm, human philosophy. Portraits, environmental shots, and content-ready imagery across multiple looks. Delivered ready to use across all channels.</p>
+      </div>
+    </div>
+    <div class="visual-card fade-up fade-up-delay-1">
+      <div class="visual-preview video">🎥</div>
+      <div class="visual-content">
+        <div class="visual-title">Video Production</div>
+        <p class="visual-desc">Short-form video content including Reels and LinkedIn videos. Scripted, filmed, and edited by our team. Includes talking-head formats, ambient coaching content, and expressive arts teasers that set People Wise apart visually.</p>
+      </div>
+    </div>
+    <div class="visual-card fade-up fade-up-delay-2">
+      <div class="visual-preview website">🌐</div>
+      <div class="visual-content">
+        <div class="visual-title">Website Design</div>
+        <p class="visual-desc">A fully custom website that is warm, calm, and professional. Designed to convert visitors into enquiries, with clear service descriptions, Anastasia's story, testimonials space, and a seamless contact experience.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing">
+  <div class="section-eyebrow">Investment</div>
+  <h2 class="section-title">Two tiers, <em>one clear path forward</em></h2>
+  <p class="section-lead">Each tier includes a one-time setup investment to build the foundation, followed by a monthly retainer for ongoing delivery and growth. Tier 2 is our recommended starting point.</p>
+  <div class="pricing-grid" style="grid-template-columns: repeat(3,1fr); max-width: 1200px;">
+
+    <!-- TIER 1 -->
+    <div class="pricing-card fade-up">
+      <div class="pricing-header">
+        <div class="pricing-tier">Tier 1</div>
+        <div class="pricing-name">Essentials</div>
+        <p class="pricing-tagline">A solid digital foundation and consistent social presence to establish People Wise from day one.</p>
+        <div class="pricing-price">
+          <div class="pricing-amount">€650</div>
+          <div class="pricing-period">/ month</div>
+        </div>
+        <div class="pricing-setup">+ One-time setup fee: €1,800</div>
+      </div>
+      <div class="pricing-body">
+        <div class="pricing-section-label">Setup (One-time)</div>
+        <div class="pricing-item">
+          <div class="pricing-check">✓</div>
+          <div class="pricing-item-text">Brand identity: logo, colour palette, typography system</div>
+        </div>
+        <div class="pricing-item">
+          <div class="pricing-check">✓</div>
+          <div class="pricing-item-text">Website design and development (up to 5 pages)</div>
+        </div>
+        <div class="pricing-item">
+          <div class="pricing-check">✓</div>
+          <div class="pricing-item-text">Social media profile setup (Instagram and LinkedIn)</div>
+        </div>
+        <div class="pricing-item">
+          <div class="pricing-check">✓</div>
+          <div class="pricing-item-text">Brand photography session (half day, 40+ edited images)</div>
+        </div>
+        <div class="pricing-divider"></div>
+        <div class="pricing-section-label">Monthly Retainer</div>
+        <div class="pricing-item">
+          <div class="pricing-check">✓</div>
+          <div class="pricing-item-text">Social media management: Instagram and LinkedIn (10 posts/month)</div>
+        </div>
+        <div class="pricing-item">
+          <div class="pricing-check">✓</div>
+          <div class="pricing-item-text">Content creation: captions, graphics, and static posts</div>
+        </div>
+        <div class="pricing-item">
+          <div class="pricing-check">✓</div>
+          <div class="pricing-item-text">Monthly performance report</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TIER 2 -->
+    <div class="pricing-card featured fade-up fade-up-delay-1">
+      <div class="pricing-header">
+        <div class="pricing-badge">Recommended</div>
+        <div class="pricing-tier">Tier 2</div>
+        <div class="pricing-name">Growth</div>
+        <p class="pricing-tagline">The ideal balance: adds video content, blog authority, and corporate outreach to accelerate visibility.</p>
+        <div class="pricing-price">
+          <div class="pricing-amount">€900</div>
+          <div class="pricing-period">/ month</div>
+        </div>
+        <div class="pricing-setup">+ One-time setup fee: €2,100</div>
+      </div>
+      <div class="pricing-body">
+        <div class="pricing-section-label">Setup (One-time)</div>
+        <div class="pricing-item">
+          <div class="pricing-check">✓</div>
+          <div class="pricing-item-text">Everything in Tier 1 setup</div>
+        </div>
+        <div class="pricing-item">
+          <div class="pricing-check">✓</div>
+          <div class="pricing-item-text">Full content strategy document and editorial calendar</div>
+        </div>
+        <div class="pricing-item">
+          <div class="pricing-check">✓</div>
+          <div class="pricing-item-text">Email newsletter template design and setup</div>
+        </div>
+        <div class="pricing-divider"></div>
+        <div class="pricing-section-label">Monthly Retainer</div>
+        <div class="pricing-item">
+          <div class="pricing-check">✓</div>
+          <div class="pricing-item-text">Everything in Tier 1, scaled to 14 posts/month</div>
+        </div>
+        <div class="pricing-item">
+          <div class="pricing-check">✓</div>
+          <div class="pricing-item-text">2 Reels or LinkedIn short videos per month</div>
+        </div>
+        <div class="pricing-item">
+          <div class="pricing-check">✓</div>
+          <div class="pricing-item-text">1 SEO-optimised blog article per month</div>
+        </div>
+        <div class="pricing-item">
+          <div class="pricing-check">✓</div>
+          <div class="pricing-item-text">Monthly email newsletter</div>
+        </div>
+        <div class="pricing-item">
+          <div class="pricing-check">✓</div>
+          <div class="pricing-item-text">Corporate LinkedIn B2B content strategy</div>
+        </div>
+        <div class="pricing-item">
+          <div class="pricing-check">✓</div>
+          <div class="pricing-item-text">Monthly strategy call and performance report</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TIER 3 -->
+    <div class="pricing-card fade-up fade-up-delay-2">
+      <div class="pricing-header">
+        <div class="pricing-tier">Tier 3</div>
+        <div class="pricing-name">Authority</div>
+        <p class="pricing-tagline">The complete package for rapid market positioning, full production, and proactive business development.</p>
+        <div class="pricing-price">
+          <div class="pricing-amount">€1,400</div>
+          <div class="pricing-period">/ month</div>
+        </div>
+        <div class="pricing-setup">+ One-time setup fee: €2,800</div>
+      </div>
+      <div class="pricing-body">
+        <div class="pricing-section-label">Setup (One-time)</div>
+        <div class="pricing-item">
+          <div class="pricing-check">✓</div>
+          <div class="pricing-item-text">Everything in Tier 2 setup</div>
+        </div>
+        <div class="pricing-item">
+          <div class="pricing-check">✓</div>
+          <div class="pricing-item-text">Brand video: 60-second brand introduction reel</div>
+        </div>
+        <div class="pricing-item">
+          <div class="pricing-check">✓</div>
+          <div class="pricing-item-text">Extended website (up to 8 pages with blog infrastructure)</div>
+        </div>
+        <div class="pricing-item">
+          <div class="pricing-check">✓</div>
+          <div class="pricing-item-text">Extended photography session (full day, 80+ edited images)</div>
+        </div>
+        <div class="pricing-divider"></div>
+        <div class="pricing-section-label">Monthly Retainer</div>
+        <div class="pricing-item">
+          <div class="pricing-check">✓</div>
+          <div class="pricing-item-text">Everything in Tier 2, scaled to 18 posts/month</div>
+        </div>
+        <div class="pricing-item">
+          <div class="pricing-check">✓</div>
+          <div class="pricing-item-text">4 Reels or LinkedIn videos per month</div>
+        </div>
+        <div class="pricing-item">
+          <div class="pricing-check">✓</div>
+          <div class="pricing-item-text">2 SEO blog articles per month</div>
+        </div>
+        <div class="pricing-item">
+          <div class="pricing-check">✓</div>
+          <div class="pricing-item-text">Workshop and event promotion support</div>
+        </div>
+        <div class="pricing-item">
+          <div class="pricing-check">✓</div>
+          <div class="pricing-item-text">Monthly strategy session with detailed growth roadmap</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="timeline">
+  <div class="section-eyebrow">The Journey</div>
+  <h2 class="section-title">From <em>invisible</em> to established</h2>
+  <p class="section-lead">A realistic, milestone-driven timeline for the first six months of People Wise's public presence.</p>
+  <div class="timeline-track">
+    <div class="timeline-step fade-up">
+      <div class="timeline-dot">🌱</div>
+      <div class="timeline-month">Month 1</div>
+      <div class="timeline-step-title">Foundation</div>
+      <p class="timeline-step-desc">Brand identity, website build, photography session. People Wise gets its visual home and its story.</p>
+    </div>
+    <div class="timeline-step fade-up fade-up-delay-1">
+      <div class="timeline-dot">🚀</div>
+      <div class="timeline-month">Month 2</div>
+      <div class="timeline-step-title">Launch</div>
+      <p class="timeline-step-desc">Website goes live. Social channels activate. First content wave published. Anastasia's network is informed and engaged.</p>
+    </div>
+    <div class="timeline-step fade-up fade-up-delay-2">
+      <div class="timeline-dot">📈</div>
+      <div class="timeline-month">Months 3 — 4</div>
+      <div class="timeline-step-title">Momentum</div>
+      <p class="timeline-step-desc">Consistent content builds algorithmic reach. Engagement grows. First organic enquiries begin to arrive. Corporate outreach activates.</p>
+    </div>
+    <div class="timeline-step fade-up fade-up-delay-3">
+      <div class="timeline-dot">🌟</div>
+      <div class="timeline-month">Months 5 — 6</div>
+      <div class="timeline-step-title">Authority</div>
+      <p class="timeline-step-desc">People Wise is a recognisable name in its niche. Anastasia is publishing thought leadership. Conversion content drives bookings and B2B meetings.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<section class="closing">
+  <svg class="closing-blob" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+    <path fill="#ffffff" d="M250,40 C360,40 450,130 460,240 C470,350 390,440 270,455 C150,470 60,390 40,280 C20,170 80,70 180,45 C200,40 225,40 250,40Z">
+      <animate attributeName="d" dur="10s" repeatCount="indefinite"
+        values="M250,40 C360,40 450,130 460,240 C470,350 390,440 270,455 C150,470 60,390 40,280 C20,170 80,70 180,45 C200,40 225,40 250,40Z;
+                M250,50 C355,30 455,125 462,245 C469,365 385,445 265,458 C145,471 55,385 38,275 C21,165 85,65 185,42 C205,36 230,50 250,50Z;
+                M250,40 C360,40 450,130 460,240 C470,350 390,440 270,455 C150,470 60,390 40,280 C20,170 80,70 180,45 C200,40 225,40 250,40Z"
+      />
+    </path>
+  </svg>
+  <svg class="closing-blob-2" viewBox="0 0 360 360" xmlns="http://www.w3.org/2000/svg">
+    <path fill="#ffffff" d="M180,30 C270,30 340,105 345,190 C350,275 285,345 195,355 C105,365 30,300 20,215 C10,130 65,50 150,28 C160,25 170,30 180,30Z"/>
+  </svg>
+  <h2 class="closing-title">Ready to introduce People Wise <em>to the world?</em></h2>
+  <p class="closing-text">This is where years of experience, genuine expertise, and a truly distinctive approach get the visibility they deserve.</p>
+  <div class="closing-contact">
+    <div class="closing-contact-item">
+      <div class="closing-contact-label">Agency</div>
+      <div class="closing-contact-value">Wecomeone Marketing And Comms</div>
+    </div>
+    <div class="closing-divider"></div>
+    <div class="closing-contact-item">
+      <div class="closing-contact-label">Email</div>
+      <div class="closing-contact-value">hello@wecomeone.me</div>
+    </div>
+    <div class="closing-divider"></div>
+    <div class="closing-contact-item">
+      <div class="closing-contact-label">Website</div>
+      <div class="closing-contact-value">wecomeone.me</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Wecomeone Marketing And Comms</div>
+  <div class="footer-note">Confidential — Prepared for Anastasia Flourentzou, People Wise</div>
+</footer>
+
+<script>
+  // Nav scroll
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Fade in on scroll
+  const fadeEls = document.querySelectorAll('.fade-up');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.12 });
+
+  fadeEls.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
