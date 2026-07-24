@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -573,14 +574,111 @@
   }
 
   @media (max-width: 700px) {
-    nav, nav.scrolled { padding: 16px 24px; }
-    .hero { padding: 0 24px 72px; }
-    .hero-meta { gap: 24px; }
-    .section { padding: 64px 24px; }
-    .scope-grid { grid-template-columns: 1fr; }
-    .terms-grid { grid-template-columns: 1fr; }
-    footer, .close-section { padding: 64px 24px; }
-    .footer-inner { flex-direction: column; align-items: flex-start; }
+    nav, nav.scrolled { padding: 14px 20px; }
+    .nav-label { display: none; }
+
+    .hero { padding: 0 24px 60px; min-height: 100svh; }
+    .hero-title { font-size: 26px; }
+    .hero-subtitle { font-size: 14px; margin-bottom: 40px; }
+    .hero-meta { gap: 20px; }
+    .hero-meta-value { font-size: 13px; }
+
+    .section { padding: 56px 20px; }
+
+    .scope-grid { grid-template-columns: 1fr; gap: 12px; }
+
+    .highlight-callout { flex-direction: column; gap: 12px; padding: 20px; }
+
+    /* ── SCHEDULE TABLE → CARDS ── */
+    .schedule-table thead { display: none; }
+    .schedule-table,
+    .schedule-table tbody,
+    .schedule-table tr,
+    .schedule-table td { display: block; width: 100%; }
+    .schedule-table tr {
+      border: 1px solid var(--rule);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 10px;
+    }
+    .schedule-table tr:last-child { margin-bottom: 0; }
+    .schedule-table td {
+      border: none;
+      padding: 4px 0;
+      font-size: 13px;
+    }
+    .schedule-table td:first-child {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--rule);
+    }
+    .schedule-table td::before {
+      content: attr(data-label);
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-right: 8px;
+      min-width: 52px;
+    }
+    .schedule-table td:first-child::before { display: none; }
+
+    /* ── PRICING TABLE → CARDS ── */
+    .pricing-wrap { border-radius: 10px; }
+    .pricing-table thead { display: none; }
+    .pricing-table,
+    .pricing-table tbody,
+    .pricing-table tr,
+    .pricing-table td { display: block; width: 100%; }
+    .pricing-table tr {
+      border-bottom: 1px solid var(--rule);
+      padding: 16px 20px;
+    }
+    .pricing-table tr:last-child { border-bottom: none; }
+    .pricing-table td {
+      border: none;
+      padding: 3px 0;
+      text-align: left !important;
+      font-size: 13px;
+    }
+    .pricing-table td:first-child {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 8px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--rule);
+    }
+    .pricing-table td[data-label]::before {
+      content: attr(data-label) ": ";
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+    .pricing-table td:first-child::before { display: none; }
+    .pricing-table tr.total-row { padding: 18px 20px; }
+    .pricing-table tr.total-row td { padding: 3px 0; }
+    .pricing-table tr.total-row td:first-child {
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+      margin-bottom: 6px;
+      padding-bottom: 6px;
+    }
+    .pricing-table td.total-amount { font-size: 26px; }
+
+    .terms-grid { grid-template-columns: 1fr; gap: 12px; }
+
+    .close-section { padding: 64px 20px; }
+    .close-title { font-size: 24px; }
+
+    footer { padding: 40px 20px; }
+    .footer-inner { flex-direction: column; align-items: flex-start; gap: 16px; }
     .footer-confidential { text-align: left; }
   }
 </style>
@@ -680,28 +778,28 @@
     <tbody>
       <tr>
         <td>Camera 1 — Stage (Main)</td>
-        <td><span class="day-badge on">10:00 – 17:30</span></td>
-        <td><span class="day-badge on">10:00 – 17:30</span></td>
+        <td data-label="Day 1"><span class="day-badge on">10:00 – 17:30</span></td>
+        <td data-label="Day 2"><span class="day-badge on">10:00 – 17:30</span></td>
       </tr>
       <tr>
         <td>Camera 2 — Stage (Side Angle)</td>
-        <td><span class="day-badge on">10:00 – 17:30</span></td>
-        <td><span class="day-badge on">10:00 – 17:30</span></td>
+        <td data-label="Day 1"><span class="day-badge on">10:00 – 17:30</span></td>
+        <td data-label="Day 2"><span class="day-badge on">10:00 – 17:30</span></td>
       </tr>
       <tr>
         <td>Camera 3 — Free (Event Coverage)</td>
-        <td><span class="day-badge on">10:00 – 17:30</span></td>
-        <td><span class="day-badge on">10:00 – 17:30</span></td>
+        <td data-label="Day 1"><span class="day-badge on">10:00 – 17:30</span></td>
+        <td data-label="Day 2"><span class="day-badge on">10:00 – 17:30</span></td>
       </tr>
       <tr>
         <td>Full Editing</td>
-        <td><span class="day-badge">&mdash;</span></td>
-        <td><span class="day-badge on">Post-production</span></td>
+        <td data-label="Day 1"><span class="day-badge">&mdash;</span></td>
+        <td data-label="Day 2"><span class="day-badge on">Post-production</span></td>
       </tr>
       <tr>
         <td>Highlight Movie</td>
-        <td><span class="day-badge">&mdash;</span></td>
-        <td><span class="day-badge on">Post-production</span></td>
+        <td data-label="Day 1"><span class="day-badge">&mdash;</span></td>
+        <td data-label="Day 2"><span class="day-badge on">Post-production</span></td>
       </tr>
     </tbody>
   </table>
@@ -733,37 +831,55 @@
       <tbody>
         <tr>
           <td>Camera 1 — Stage (Main)</td>
-          <td><span class="price-val">€400</span></td>
-          <td><span class="price-val">€400</span></td>
-          <td><span class="price-val">€800</span></td>
+          <td data-label="Day 1"><span class="price-val">€400</span></td>
+          <td data-label="Day 2"><span class="price-val">€400</span></td>
+          <td data-label="Total"><span class="price-val">€800</span></td>
         </tr>
         <tr>
           <td>Camera 2 — Stage (Side Angle)</td>
-          <td><span class="price-val">€400</span></td>
-          <td><span class="price-val">€400</span></td>
-          <td><span class="price-val">€800</span></td>
+          <td data-label="Day 1"><span class="price-val">€400</span></td>
+          <td data-label="Day 2"><span class="price-val">€400</span></td>
+          <td data-label="Total"><span class="price-val">€800</span></td>
         </tr>
         <tr>
           <td>Camera 3 — Free Camera (Event Coverage)</td>
-          <td><span class="price-val">€400</span></td>
-          <td><span class="price-val">€400</span></td>
-          <td><span class="price-val">€800</span></td>
+          <td data-label="Day 1"><span class="price-val">€400</span></td>
+          <td data-label="Day 2"><span class="price-val">€400</span></td>
+          <td data-label="Total"><span class="price-val">€800</span></td>
         </tr>
         <tr>
           <td>Full Editing</td>
-          <td><span class="price-dash">&mdash;</span></td>
-          <td><span class="price-val">€600</span></td>
-          <td><span class="price-val">€600</span></td>
+          <td data-label="Day 1"><span class="price-dash">&mdash;</span></td>
+          <td data-label="Day 2"><span class="price-val">€600</span></td>
+          <td data-label="Total"><span class="price-val">€600</span></td>
         </tr>
         <tr>
           <td>Highlight Movie (up to 1 min 30 sec)</td>
-          <td><span class="price-dash">&mdash;</span></td>
-          <td><span class="price-val">€300</span></td>
-          <td><span class="price-val">€300</span></td>
+          <td data-label="Day 1"><span class="price-dash">&mdash;</span></td>
+          <td data-label="Day 2"><span class="price-val">€400</span></td>
+          <td data-label="Total"><span class="price-val">€400</span></td>
+        </tr>
+        <tr>
+          <td>2027 Summit Teaser</td>
+          <td data-label="Day 1"><span class="price-dash">&mdash;</span></td>
+          <td data-label="Day 2"><span class="price-dash">&mdash;</span></td>
+          <td data-label="Total" style="font-family: var(--font-display); font-weight: 600; color: var(--blue); font-size: 14px; text-align:center;">Complimentary</td>
+        </tr>
+        <tr>
+          <td style="color: var(--ink-muted); font-weight:400;">Subtotal</td>
+          <td data-label="Day 1"><span class="price-dash">&mdash;</span></td>
+          <td data-label="Day 2"><span class="price-dash">&mdash;</span></td>
+          <td data-label="Total" style="font-family: var(--font-display); font-weight: 600; color: var(--ink); font-size: 14px; text-align:center;">€3,400</td>
+        </tr>
+        <tr>
+          <td style="color: var(--ink-muted); font-weight:400;">Discount 10%</td>
+          <td data-label="Day 1"><span class="price-dash">&mdash;</span></td>
+          <td data-label="Day 2"><span class="price-dash">&mdash;</span></td>
+          <td data-label="Total" style="font-family: var(--font-display); font-weight: 600; color: var(--ink-muted); font-size: 14px; text-align:center;">- €340</td>
         </tr>
         <tr class="total-row">
           <td colspan="3">Total — Exclusive of VAT</td>
-          <td class="total-amount">€3,300</td>
+          <td class="total-amount">€3,060</td>
         </tr>
       </tbody>
     </table>
