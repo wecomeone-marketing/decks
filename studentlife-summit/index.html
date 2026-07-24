@@ -573,6 +573,125 @@
     transform: translateY(0);
   }
 
+  /* ── OUR WORK / VIDEOS ── */
+  .video-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 44px;
+  }
+
+  .video-card {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--rule);
+    background: var(--ink);
+    cursor: pointer;
+    position: relative;
+    transition: box-shadow 0.25s, transform 0.25s;
+  }
+  .video-card:hover {
+    box-shadow: 0 8px 32px rgba(33,48,196,0.18);
+    transform: translateY(-2px);
+  }
+
+  .video-thumb {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+    overflow: hidden;
+    background: #111;
+  }
+  .video-thumb img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease, opacity 0.3s ease;
+  }
+  .video-card:hover .video-thumb img { transform: scale(1.04); opacity: 0.8; }
+
+  .video-play-btn {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.25);
+    transition: background 0.25s;
+  }
+  .video-card:hover .video-play-btn { background: rgba(33,48,196,0.45); }
+  .video-play-btn svg {
+    width: 48px;
+    height: 48px;
+    filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));
+    transition: transform 0.2s;
+  }
+  .video-card:hover .video-play-btn svg { transform: scale(1.1); }
+
+  .video-label {
+    padding: 14px 16px;
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--white);
+    background: var(--ink);
+  }
+
+  /* Lightbox */
+  .lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    background: rgba(0,0,0,0.92);
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  .lightbox.open { display: flex; }
+  .lightbox-inner {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+  }
+  .lightbox-close {
+    position: absolute;
+    top: -44px;
+    right: 0;
+    background: none;
+    border: none;
+    color: var(--white);
+    font-size: 28px;
+    cursor: pointer;
+    line-height: 1;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+  .lightbox-close:hover { opacity: 1; }
+  .lightbox-frame {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+    background: #000;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .lightbox-frame iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  @media (max-width: 700px) {
+    .video-grid { grid-template-columns: 1fr; gap: 12px; }
+    .lightbox-close { top: -40px; }
+  }
+
   @media (max-width: 700px) {
     nav, nav.scrolled { padding: 14px 20px; }
     .nav-label { display: none; }
@@ -889,6 +1008,81 @@
 
 <hr class="divider">
 
+<!-- OUR WORK -->
+<div class="section reveal">
+  <div class="section-eyebrow">Our Work</div>
+  <h2 class="section-title">Aftermovies we've produced</h2>
+  <p class="section-body">A selection of highlight and aftermovie productions from previous events — click any to watch.</p>
+
+  <div class="video-grid" style="grid-template-columns: repeat(2, 1fr);">
+
+    <div class="video-card reveal" onclick="openLightbox('7WZtKqfVNUk')">
+      <div class="video-thumb">
+        <img src="https://img.youtube.com/vi/7WZtKqfVNUk/maxresdefault.jpg" alt="Aftermovie 1" loading="lazy">
+        <div class="video-play-btn">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="32" cy="32" r="32" fill="rgba(255,255,255,0.15)"/>
+            <polygon points="26,20 48,32 26,44" fill="white"/>
+          </svg>
+        </div>
+      </div>
+      <div class="video-label">Aftermovie — Event Production</div>
+    </div>
+
+    <div class="video-card reveal" onclick="openLightbox('RRWGgetUSM0')">
+      <div class="video-thumb">
+        <img src="https://img.youtube.com/vi/RRWGgetUSM0/maxresdefault.jpg" alt="Aftermovie 2" loading="lazy">
+        <div class="video-play-btn">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="32" cy="32" r="32" fill="rgba(255,255,255,0.15)"/>
+            <polygon points="26,20 48,32 26,44" fill="white"/>
+          </svg>
+        </div>
+      </div>
+      <div class="video-label">Aftermovie — Event Production</div>
+    </div>
+
+    <div class="video-card reveal" onclick="openLightbox('9rXe6-EPi5M')">
+      <div class="video-thumb">
+        <img src="https://img.youtube.com/vi/9rXe6-EPi5M/maxresdefault.jpg" alt="Aftermovie 3" loading="lazy">
+        <div class="video-play-btn">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="32" cy="32" r="32" fill="rgba(255,255,255,0.15)"/>
+            <polygon points="26,20 48,32 26,44" fill="white"/>
+          </svg>
+        </div>
+      </div>
+      <div class="video-label">Aftermovie — Event Production</div>
+    </div>
+
+    <div class="video-card reveal" onclick="openLightbox('W_I49tTvWho')">
+      <div class="video-thumb">
+        <img src="https://img.youtube.com/vi/W_I49tTvWho/maxresdefault.jpg" alt="Aftermovie 4" loading="lazy">
+        <div class="video-play-btn">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="32" cy="32" r="32" fill="rgba(255,255,255,0.15)"/>
+            <polygon points="26,20 48,32 26,44" fill="white"/>
+          </svg>
+        </div>
+      </div>
+      <div class="video-label">Aftermovie — Event Production</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+    <div class="lightbox-frame">
+      <iframe id="lightbox-iframe" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
 <!-- TERMS -->
 <div class="section reveal">
   <div class="section-eyebrow">Terms</div>
@@ -969,6 +1163,20 @@
     });
   }, { threshold: 0.08, rootMargin: '0px 0px -32px 0px' });
   reveals.forEach(el => obs.observe(el));
+
+  // Lightbox
+  function openLightbox(id) {
+    document.getElementById('lightbox-iframe').src = 'https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0';
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox(e) {
+    if (e && e.target !== document.getElementById('lightbox') && !e.target.classList.contains('lightbox-close')) return;
+    document.getElementById('lightbox-iframe').src = '';
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox({}); });
 </script>
 
 </body>
