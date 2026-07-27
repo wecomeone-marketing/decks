@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lavita — Scope & Budget Proposal</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #F5F0E8;
+    --cream-dark: #EDE6D6;
+    --ink: #1A1612;
+    --ink-mid: #3D3530;
+    --ink-light: #7A6F66;
+    --gold: #C4A25A;
+    --gold-light: #E8D9B0;
+    --gold-pale: #F7F1E0;
+    --night: #1C1814;
+    --night-mid: #2E2820;
+    --accent: #8B4A2C;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* HEADER */
+  header {
+    background: var(--night);
+    padding: 56px 64px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  header::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 64px; right: 64px;
+    height: 1px;
+    background: linear-gradient(to right, var(--gold), transparent);
+  }
+
+  header::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(196,162,90,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .header-eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.25rem;
+    display: block;
+  }
+
+  .header-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 5vw, 58px);
+    font-weight: 300;
+    color: #F5F0E8;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.5rem;
+  }
+
+  .header-title em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .header-meta {
+    display: flex;
+    gap: 2.5rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .meta-item .label {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.3);
+    display: block;
+    margin-bottom: 3px;
+  }
+
+  .meta-item .value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    color: rgba(245,240,232,0.75);
+  }
+
+  /* MAIN LAYOUT */
+  main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 56px 64px 80px;
+  }
+
+  /* PHASE BLOCKS */
+  .phases {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--cream-dark);
+    border: 1px solid var(--cream-dark);
+    margin-bottom: 48px;
+  }
+
+  .phase {
+    background: var(--cream);
+    padding: 0;
+  }
+
+  .phase-header {
+    background: var(--night-mid);
+    padding: 20px 28px;
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+  }
+
+  .phase-period {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 300;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .phase-name {
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.4);
+  }
+
+  .phase-body {
+    padding: 24px 28px;
+  }
+
+  .phase-body h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+
+  .phase-body .phase-desc {
+    font-size: 13px;
+    color: var(--ink-light);
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  /* BUDGET PILL */
+  .budget-pill {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 4px;
+    background: var(--gold-pale);
+    border: 1px solid var(--gold-light);
+    padding: 8px 16px;
+    margin-bottom: 20px;
+  }
+
+  .budget-amount {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--accent);
+  }
+
+  .budget-label {
+    font-size: 11px;
+    color: var(--ink-light);
+    letter-spacing: 0.08em;
+  }
+
+  /* BUDGET BREAKDOWN */
+  .breakdown {
+    border-top: 1px solid var(--cream-dark);
+    padding-top: 16px;
+  }
+
+  .breakdown-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px 0;
+    border-bottom: 1px solid var(--cream-dark);
+    font-size: 13px;
+  }
+
+  .breakdown-row:last-child { border-bottom: none; }
+
+  .breakdown-row .item { color: var(--ink-mid); }
+
+  .breakdown-row .amount {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .breakdown-row.total {
+    border-top: 1px solid var(--cream-dark);
+    margin-top: 4px;
+    padding-top: 10px;
+  }
+
+  .breakdown-row.total .item {
+    font-weight: 500;
+    color: var(--ink);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .breakdown-row.total .amount {
+    color: var(--accent);
+    font-size: 20px;
+  }
+
+  /* DELIVERABLES */
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.25rem;
+    display: block;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(26px, 3vw, 36px);
+    font-weight: 400;
+    color: var(--ink);
+    line-height: 1.1;
+    margin-bottom: 2rem;
+  }
+
+  .deliverables-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1px;
+    background: var(--cream-dark);
+    border: 1px solid var(--cream-dark);
+    margin-bottom: 48px;
+  }
+
+  .deliverable {
+    background: var(--cream);
+    padding: 20px 22px;
+  }
+
+  .deliverable-icon {
+    font-size: 18px;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .deliverable h4 {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+
+  .deliverable p {
+    font-size: 12px;
+    color: var(--ink-light);
+    line-height: 1.55;
+  }
+
+  /* NOT INCLUDED */
+  .exclusions {
+    background: var(--night);
+    padding: 28px 32px;
+    margin-bottom: 48px;
+    position: relative;
+  }
+
+  .exclusions::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 2px;
+    height: 100%;
+    background: var(--accent);
+  }
+
+  .exclusions h3 {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+
+  .exclusion-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    list-style: none;
+  }
+
+  .exclusion-list li {
+    font-size: 12px;
+    color: rgba(245,240,232,0.5);
+    padding: 5px 12px;
+    border: 1px solid rgba(245,240,232,0.1);
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--night-mid);
+    padding: 28px 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid rgba(196,162,90,0.15);
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 300;
+    color: rgba(245,240,232,0.6);
+  }
+
+  .footer-contact {
+    font-size: 12px;
+    color: rgba(245,240,232,0.3);
+    letter-spacing: 0.06em;
+  }
+
+  .footer-contact a {
+    color: var(--gold);
+    text-decoration: none;
+  }
+
+  /* DIVIDER */
+  .section-divider {
+    height: 1px;
+    background: var(--cream-dark);
+    margin: 40px 0;
+  }
+
+  @media (max-width: 700px) {
+    header { padding: 40px 24px 36px; }
+    main { padding: 40px 24px 60px; }
+    footer { padding: 24px; }
+    .phases { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <span class="header-eyebrow">Scope & Budget Proposal — Confidential</span>
+  <h1 class="header-title">Lavita Cafe & Bar<br><em>What €700 Builds</em></h1>
+  <div class="header-meta">
+    <div class="meta-item">
+      <span class="label">Prepared for</span>
+      <span class="value">Roxane — Lavita Cafe & Bar</span>
+    </div>
+    <div class="meta-item">
+      <span class="label">Prepared by</span>
+      <span class="value">Andreas — Wecomeone</span>
+    </div>
+    <div class="meta-item">
+      <span class="label">Engagement start</span>
+      <span class="value">August 2026</span>
+    </div>
+    <div class="meta-item">
+      <span class="label">Duration</span>
+      <span class="value">6 Months</span>
+    </div>
+  </div>
+</header>
+
+<!-- MAIN -->
+<main>
+
+  <!-- BUDGET STRUCTURE -->
+  <span class="section-label">Budget Structure</span>
+  <h2 class="section-title">Two phases. One clear investment.</h2>
+
+  <div class="phases">
+
+    <!-- MONTH 1 -->
+    <div class="phase">
+      <div class="phase-header">
+        <span class="phase-period">Month 1</span>
+        <span class="phase-name">Production</span>
+      </div>
+      <div class="phase-body">
+        <h3>Content Foundation</h3>
+        <p class="phase-desc">Before any marketing begins, Lavita needs a bank of professional visual assets that can sustain six months of content. This is a one-time investment that replaces the first month's retainer.</p>
+        <div class="budget-pill">
+          <span class="budget-amount">€800</span>
+          <span class="budget-label">one-time / replaces month 1 retainer</span>
+        </div>
+        <div class="breakdown">
+          <div class="breakdown-row">
+            <span class="item">Photography & videography shoot</span>
+            <span class="amount">€500</span>
+          </div>
+          <div class="breakdown-row">
+            <span class="item">Creative direction, shoot planning & setup</span>
+            <span class="amount">€300</span>
+          </div>
+          <div class="breakdown-row total">
+            <span class="item">Month 1 Total</span>
+            <span class="amount">€800</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MONTHS 2-6 -->
+    <div class="phase">
+      <div class="phase-header">
+        <span class="phase-period">M2 – M6</span>
+        <span class="phase-name">Ongoing</span>
+      </div>
+      <div class="phase-body">
+        <h3>Monthly Retainer</h3>
+        <p class="phase-desc">From month two, the full monthly budget is split between agency retainer and paid media. Consistent, disciplined execution across organic content and targeted ad spend.</p>
+        <div class="budget-pill">
+          <span class="budget-amount">€700</span>
+          <span class="budget-label">per month &times; 5 months</span>
+        </div>
+        <div class="breakdown">
+          <div class="breakdown-row">
+            <span class="item">Agency retainer — Wecomeone</span>
+            <span class="amount">€550</span>
+          </div>
+          <div class="breakdown-row">
+            <span class="item">Meta ad spend (Instagram / Facebook)</span>
+            <span class="amount">€150</span>
+          </div>
+          <div class="breakdown-row total">
+            <span class="item">Monthly Total</span>
+            <span class="amount">€700</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- DELIVERABLES -->
+  <span class="section-label">Monthly Deliverables</span>
+  <h2 class="section-title">What you receive every month.</h2>
+
+  <div class="deliverables-grid">
+    <div class="deliverable">
+      <span class="deliverable-icon">🖼️</span>
+      <h4>4 Static Posts</h4>
+      <p>Single-image posts drawn from the month one asset bank. Food, space, atmosphere, and team content rotated strategically.</p>
+    </div>
+    <div class="deliverable">
+      <span class="deliverable-icon">📖</span>
+      <h4>3 Carousel Posts</h4>
+      <p>Multi-slide carousels — menu features, venue stories, seasonal highlights. Higher save and share rates than single images.</p>
+    </div>
+    <div class="deliverable">
+      <span class="deliverable-icon">🎬</span>
+      <h4>2 Reels</h4>
+      <p>Short-form video content for Instagram and TikTok. Ambience, food and drink, and venue mood content produced in-house.</p>
+    </div>
+    <div class="deliverable">
+      <span class="deliverable-icon">📍</span>
+      <h4>Google Business</h4>
+      <p>Monthly photo upload, weekly post, and ongoing profile maintenance to support local search ranking and map discoverability.</p>
+    </div>
+    <div class="deliverable">
+      <span class="deliverable-icon">📣</span>
+      <h4>1 Meta Campaign</h4>
+      <p>One targeted boost or paid campaign per month using the €150 ad budget. Audience targeting aligned to Lavita's core segments.</p>
+    </div>
+    <div class="deliverable">
+      <span class="deliverable-icon">📊</span>
+      <h4>Monthly Snapshot</h4>
+      <p>A concise monthly performance report covering reach, engagement, follower growth, and ad results across all active channels.</p>
+    </div>
+  </div>
+
+  <!-- NOT INCLUDED -->
+  <div class="exclusions">
+    <h3>Not included in this scope</h3>
+    <ul class="exclusion-list">
+      <li>Community management</li>
+      <li>Google Ads</li>
+      <li>TikTok paid promotion</li>
+      <li>More than 1 paid campaign per month</li>
+      <li>Additional content shoots beyond month 1</li>
+      <li>PR & press outreach</li>
+      <li>Influencer management</li>
+      <li>Weekly reporting</li>
+      <li>Website management or updates</li>
+    </ul>
+  </div>
+
+  <!-- TOTAL INVESTMENT -->
+  <div class="section-divider"></div>
+  <span class="section-label">Total Engagement</span>
+  <h2 class="section-title">Six months, fully scoped.</h2>
+
+  <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap:1px; background:var(--cream-dark); border:1px solid var(--cream-dark);">
+    <div style="background:var(--cream); padding:24px 28px;">
+      <span style="font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-light); display:block; margin-bottom:6px;">Month 1</span>
+      <span style="font-family:'Cormorant Garamond',serif; font-size:32px; font-weight:400; color:var(--accent);">€800</span>
+      <span style="font-size:12px; color:var(--ink-light); display:block; margin-top:4px;">Production investment</span>
+    </div>
+    <div style="background:var(--cream); padding:24px 28px;">
+      <span style="font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-light); display:block; margin-bottom:6px;">Months 2 to 6</span>
+      <span style="font-family:'Cormorant Garamond',serif; font-size:32px; font-weight:400; color:var(--accent);">€3,500</span>
+      <span style="font-size:12px; color:var(--ink-light); display:block; margin-top:4px;">€700 &times; 5 months</span>
+    </div>
+    <div style="background:var(--gold-pale); padding:24px 28px; border-left:2px solid var(--gold);">
+      <span style="font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-light); display:block; margin-bottom:6px;">Total 6-Month Investment</span>
+      <span style="font-family:'Cormorant Garamond',serif; font-size:36px; font-weight:400; color:var(--ink);">€4,300</span>
+      <span style="font-size:12px; color:var(--ink-light); display:block; margin-top:4px;">All-inclusive</span>
+    </div>
+    <div style="background:var(--cream); padding:24px 28px;">
+      <span style="font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-light); display:block; margin-bottom:6px;">Total Ad Spend</span>
+      <span style="font-family:'Cormorant Garamond',serif; font-size:32px; font-weight:400; color:var(--accent);">€750</span>
+      <span style="font-size:12px; color:var(--ink-light); display:block; margin-top:4px;">€150 &times; 5 months</span>
+    </div>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-brand">Wecomeone Marketing And Comms</span>
+  <span class="footer-contact">
+    <a href="mailto:hello@wecomeone.me">hello@wecomeone.me</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp;
+    <a href="https://www.wecomeone.me">wecomeone.me</a>
+  </span>
+</footer>
+
+</body>
+</html>
