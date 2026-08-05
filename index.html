@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Έκθεση Χρηματοδοτικών Ευκαιριών | Celestial Arts &amp; Music Festival</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F6F7F7;
+  --card:#FFFFFF;
+  --ink:#11171C;
+  --slate:#5B6873;
+  --mute:#8A959E;
+  --rule:#DFE3E6;
+  --accent:#17466E;
+  --accent-soft:#EBF1F6;
+  --live:#1D6B4F;
+  --live-soft:#E6F1EC;
+  --pending:#8A6A1F;
+  --pending-soft:#F5EFDF;
+  --sans:"IBM Plex Sans","Helvetica Neue",Arial,sans-serif;
+  --mono:"IBM Plex Mono",Consolas,monospace;
+  --max:1180px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;line-height:1.6}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 32px}
+
+/* nav */
+#bar{position:fixed;top:0;left:0;right:0;height:2px;background:var(--accent);width:0;z-index:70}
+header{position:sticky;top:0;z-index:60;background:rgba(246,247,247,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px;gap:24px}
+.brandmark{display:flex;align-items:center;gap:11px;font-size:13px;font-weight:500;white-space:nowrap}
+.brandmark i{width:16px;height:16px;border:2px solid var(--accent);position:relative;display:block}
+.brandmark i::after{content:"";position:absolute;inset:3px 3px auto auto;width:5px;height:5px;background:var(--accent)}
+.brandmark span{color:var(--mute);font-weight:400}
+nav ul{display:flex;gap:22px;list-style:none}
+nav a{font-family:var(--mono);font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--mute);text-decoration:none;padding:4px 0;border-bottom:1px solid transparent}
+nav a:hover{color:var(--ink)}
+nav a.active{color:var(--accent);border-bottom-color:var(--accent)}
+@media(max-width:940px){nav{display:none}}
+
+/* hero */
+.hero{padding:96px 0 72px;border-bottom:1px solid var(--rule)}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+h1{font-size:clamp(34px,5.4vw,64px);font-weight:600;letter-spacing:-.028em;line-height:1.04;margin:20px 0 24px}
+.hero p.lead{font-size:clamp(16px,1.7vw,19px);font-weight:300;color:var(--slate);max-width:640px;line-height:1.55}
+.meta{display:flex;flex-wrap:wrap;gap:44px;margin-top:44px;padding-top:26px;border-top:1px solid var(--rule)}
+.meta div .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+.meta div .v{font-size:14.5px;font-weight:500;margin-top:5px}
+
+/* stat band */
+.band{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--rule)}
+.band div{padding:30px 26px 30px 0;border-right:1px solid var(--rule)}
+.band div:last-child{border-right:none}
+.band .n{font-size:clamp(26px,3.2vw,38px);font-weight:500;letter-spacing:-.03em;line-height:1}
+.band .l{font-size:13px;color:var(--slate);margin-top:9px;max-width:210px}
+
+/* sections */
+section{padding:78px 0;border-bottom:1px solid var(--rule)}
+.shead{display:flex;align-items:baseline;gap:18px;margin-bottom:34px}
+.shead .num{font-family:var(--mono);font-size:11px;color:var(--accent);letter-spacing:.1em}
+h2{font-size:clamp(23px,2.9vw,34px);font-weight:600;letter-spacing:-.02em;line-height:1.15}
+h3{font-size:11px;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:var(--accent);margin-bottom:11px}
+p{font-size:15px;color:var(--slate)}
+ul{list-style:none}
+li{font-size:14.5px;color:var(--slate);padding-left:16px;position:relative;margin-bottom:8px;line-height:1.5}
+li::before{content:"";position:absolute;left:0;top:10px;width:6px;height:1px;background:var(--accent)}
+strong{color:var(--ink);font-weight:500}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:52px}
+.note{background:var(--accent-soft);border-left:2px solid var(--accent);padding:16px 20px;margin-top:22px}
+.note p{color:var(--ink);font-size:14px}
+.tag{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:5px 9px;border:1px solid var(--rule);color:var(--mute)}
+.tag.live{color:var(--live);background:var(--live-soft);border-color:transparent}
+.tag.pending{color:var(--pending);background:var(--pending-soft);border-color:transparent}
+
+/* gantt */
+.gantt{background:var(--card);border:1px solid var(--rule);padding:26px 28px 22px;overflow-x:auto}
+.gg{min-width:720px}
+.grow{display:grid;grid-template-columns:190px repeat(13,1fr);align-items:center;gap:0}
+.months .m{font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);text-align:center;padding-bottom:10px;border-bottom:1px solid var(--rule)}
+.months .m.y{color:var(--ink)}
+.months .lbl{border-bottom:1px solid var(--rule)}
+.grow.item{border-bottom:1px solid var(--rule);position:relative}
+.grow.item .pname{font-size:13px;font-weight:500;padding:13px 16px 13px 0;line-height:1.3}
+.grow.item .pname em{display:block;font-style:normal;font-size:11px;color:var(--mute);font-weight:400;margin-top:2px}
+.cell{height:100%;border-left:1px solid #F0F2F3;min-height:46px}
+.bar{position:absolute;height:16px;border-radius:1px;top:50%;transform:translateY(-50%);display:flex;align-items:center;padding:0 8px;font-family:var(--mono);font-size:9.5px;letter-spacing:.05em;white-space:nowrap;color:#fff}
+.bar.open{background:var(--live)}
+.bar.ind{background:repeating-linear-gradient(135deg,var(--pending-soft),var(--pending-soft) 5px,#EDE3C8 5px,#EDE3C8 10px);color:var(--pending);border:1px dashed #C7AE72}
+.today{position:absolute;top:0;bottom:0;width:1px;background:var(--accent)}
+.today span{position:absolute;top:-1px;left:5px;font-family:var(--mono);font-size:9px;letter-spacing:.08em;color:var(--accent);white-space:nowrap}
+.legend{display:flex;gap:22px;flex-wrap:wrap;margin-top:16px;font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:var(--mute);text-transform:uppercase}
+.legend i{display:inline-block;width:16px;height:8px;margin-right:7px;vertical-align:middle}
+
+/* table */
+table{width:100%;border-collapse:collapse;font-size:14px;background:var(--card)}
+th{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);text-align:left;font-weight:400;padding:14px 16px;border-bottom:1px solid var(--ink)}
+td{padding:15px 16px;border-bottom:1px solid var(--rule);color:var(--slate);vertical-align:top;line-height:1.45}
+td.name{color:var(--ink);font-weight:500}
+td.amt{font-family:var(--mono);font-size:12.5px;color:var(--ink)}
+.tblwrap{border:1px solid var(--rule);overflow-x:auto}
+table{min-width:640px}
+
+/* programme cards */
+.prog{background:var(--card);border:1px solid var(--rule);padding:34px 36px;margin-bottom:20px;display:grid;grid-template-columns:264px 1fr;gap:44px}
+.prog .side .ptitle{font-size:20px;font-weight:600;letter-spacing:-.015em;line-height:1.25}
+.prog .side .psub{font-size:13px;color:var(--mute);margin-top:6px}
+.prog .side .tag{margin-top:16px}
+.facts{margin-top:22px;border-top:1px solid var(--rule)}
+.facts div{padding:11px 0;border-bottom:1px solid var(--rule);display:flex;justify-content:space-between;gap:14px;align-items:baseline}
+.facts .k{font-family:var(--mono);font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--mute)}
+.facts .v{font-size:13.5px;font-weight:500;text-align:right;letter-spacing:-.01em}
+.body .split{display:grid;grid-template-columns:1fr 1fr;gap:36px}
+.body h4{font-size:15px;font-weight:600;margin-bottom:8px;letter-spacing:-.01em}
+.blk+.blk{margin-top:26px}
+
+/* axes */
+.axes{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.axes article{background:var(--card);padding:28px 26px}
+.axes .n{font-family:var(--mono);font-size:11px;color:var(--accent);margin-bottom:14px;letter-spacing:.1em}
+.axes h4{font-size:17px;font-weight:600;margin-bottom:10px;letter-spacing:-.015em}
+
+/* steps */
+.steps{counter-reset:s;display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.steps li{counter-increment:s;background:var(--card);padding:20px 24px 20px 62px;margin:0;font-size:15px;color:var(--ink)}
+.steps li::before{content:counter(s,decimal-leading-zero);position:absolute;left:24px;top:20px;width:auto;height:auto;background:none;font-family:var(--mono);font-size:11px;color:var(--accent)}
+.steps li span{display:block;font-size:13.5px;color:var(--slate);margin-top:4px}
+
+/* fees */
+.fee{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:22px}
+.fee div{background:var(--card);padding:26px}
+.fee .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--mute)}
+.fee .v{font-size:24px;font-weight:500;letter-spacing:-.02em;margin-top:10px}
+.fee .v small{font-size:13px;color:var(--slate);font-weight:400}
+
+/* links */
+.res{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:24px}
+.res a{background:var(--card);padding:24px;text-decoration:none;color:var(--ink);display:block;transition:background .15s}
+.res a:hover{background:var(--accent-soft)}
+.res .t{font-size:15px;font-weight:500}
+.res .u{font-family:var(--mono);font-size:11.5px;color:var(--accent);margin-top:7px;word-break:break-all}
+
+footer{padding:44px 0 60px}
+.fnote{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px;font-size:12.5px;color:var(--mute)}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(14px);transition:opacity .55s ease,transform .55s ease}
+.rv.in{opacity:1;transform:none}
+
+@media(max-width:900px){
+  .wrap{padding:0 20px}
+  .two,.body .split,.axes,.res,.fee{grid-template-columns:1fr;gap:26px}
+  .axes,.res,.fee{gap:1px}
+  .prog{grid-template-columns:1fr;gap:26px;padding:26px 22px}
+  .band{grid-template-columns:1fr 1fr}
+  .band div{border-right:none;border-bottom:1px solid var(--rule);padding:22px 18px 22px 0}
+  .hero{padding:60px 0 48px}
+  section{padding:54px 0}
+}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+@media print{header,#bar{display:none}.rv{opacity:1;transform:none}section{page-break-inside:avoid}body{background:#fff}}
+</style>
+</head>
+<body>
+<div id="bar"></div>
+
+<header>
+  <div class="wrap nav">
+    <div class="brandmark"><i></i>Έκθεση Χρηματοδοτικών Ευκαιριών <span>· Celestial</span></div>
+    <nav><ul>
+      <li><a href="#timeline">Χρονοδιάγραμμα</a></li>
+      <li><a href="#summary">Σύνοψη</a></li>
+      <li><a href="#national">Εθνικά</a></li>
+      <li><a href="#european">Ευρωπαϊκά</a></li>
+      <li><a href="#strategy">Στρατηγική</a></li>
+      <li><a href="#next">Επόμενα βήματα</a></li>
+    </ul></nav>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="hero">
+    <p class="eyebrow">Έκθεση Χρηματοδοτικών Ευκαιριών</p>
+    <h1>Celestial Arts<br>&amp; Music Festival</h1>
+    <p class="lead">Εθνικά και ευρωπαϊκά προγράμματα χρηματοδότησης, προϋποθέσεις συμμετοχής, τρόποι αξιοποίησης και προτεινόμενη στρατηγική για τις επόμενες διοργανώσεις.</p>
+    <div class="meta">
+      <div><p class="k">Ετοιμάστηκε από</p><p class="v">GrantXpert Consulting</p></div>
+      <div><p class="k">Ημερομηνία</p><p class="v">Αύγουστος 2026</p></div>
+      <div><p class="k">Πεδίο</p><p class="v">Κύπρος και Creative Europe</p></div>
+      <div><p class="k">Κατάσταση</p><p class="v">Ενεργό έγγραφο εργασίας</p></div>
+    </div>
+  </div>
+
+  <div class="band rv">
+    <div><p class="n">7</p><p class="l">προγράμματα αξιολογήθηκαν ως κατάλληλα για το Celestial</p></div>
+    <div><p class="n">2</p><p class="l">προσκλήσεις είναι ανοικτές μέσα στο 2026</p></div>
+    <div><p class="n">€400k</p><p class="l">το ανώτατο μέγεθος έργου που εξετάζεται</p></div>
+    <div><p class="n">3</p><p class="l">άξονες στην προτεινόμενη στρατηγική</p></div>
+  </div>
+
+  <section id="scope">
+    <div class="shead"><span class="num">01</span><h2>Σκοπός και μεθοδολογία</h2></div>
+    <div class="two rv">
+      <div>
+        <p style="font-size:17px;font-weight:300;color:var(--ink);line-height:1.55">Η έκθεση βασίζεται σε έρευνα των διαθέσιμων εθνικών και ευρωπαϊκών προγραμμάτων, προσαρμοσμένη στις ανάγκες, στο στάδιο ανάπτυξης και στις μελλοντικές επιδιώξεις του Celestial.</p>
+        <div style="margin-top:26px">
+          <h3>Τι καλύπτει</h3>
+          <ul>
+            <li>Τις καταλληλότερες πηγές χρηματοδότησης</li>
+            <li>Τις βασικές προϋποθέσεις συμμετοχής</li>
+            <li>Τον τρόπο αξιοποίησης από το Celestial</li>
+            <li>Τα προτεινόμενα επόμενα βήματα</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <h3>Πώς διαβάζεται</h3>
+        <p>Οι πληροφορίες για προσκλήσεις του 2027 που δεν έχουν ακόμη δημοσιευτεί είναι ενδεικτικές και βασίζονται στους πιο πρόσφατους διαθέσιμους όρους. Τα ποσά, οι προθεσμίες και τα κριτήρια επιλεξιμότητας επιβεβαιώνονται μετά τη δημοσίευση των επίσημων προσκλήσεων.</p>
+        <div class="note"><p><strong>Δύο προσκλήσεις τρέχουν τώρα.</strong> Perform Europe με λήξη 22 Οκτωβρίου 2026 και EFFEA με λήξη 3 Νοεμβρίου 2026. Όλα τα υπόλοιπα είναι προετοιμασία για το 2027.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="timeline">
+    <div class="shead"><span class="num">02</span><h2>Χρονοδιάγραμμα προσκλήσεων</h2></div>
+    <div class="gantt rv">
+      <div class="gg">
+        <div class="grow months">
+          <div class="lbl"></div>
+          <div class="m y">Ιουν 26</div><div class="m">Ιουλ</div><div class="m">Αυγ</div><div class="m">Σεπ</div><div class="m">Οκτ</div><div class="m">Νοε</div><div class="m">Δεκ</div>
+          <div class="m y">Ιαν 27</div><div class="m">Φεβ</div><div class="m">Μαρ</div><div class="m">Απρ</div><div class="m">Μαι</div><div class="m">Ιουν</div>
+        </div>
+
+        <div class="grow item">
+          <div class="pname">Perform Europe<em>Ανοικτή, λήξη 22/10/2026</em></div>
+          <div class="cell" style="grid-column:2"></div><div class="cell" style="grid-column:3"></div><div class="cell" style="grid-column:4"></div><div class="cell" style="grid-column:5"></div><div class="cell" style="grid-column:6"></div><div class="cell" style="grid-column:7"></div><div class="cell" style="grid-column:8"></div><div class="cell" style="grid-column:9"></div><div class="cell" style="grid-column:10"></div><div class="cell" style="grid-column:11"></div><div class="cell" style="grid-column:12"></div><div class="cell" style="grid-column:13"></div><div class="cell" style="grid-column:14"></div>
+          <div class="bar open" style="left:14.5%;width:32%">Ανοικτή έως 22 Οκτ</div>
+        </div>
+
+        <div class="grow item">
+          <div class="pname">EFFEA Call #5<em>Ανοίγει 1/9, λήξη 3/11/2026</em></div>
+          <div class="cell" style="grid-column:2"></div><div class="cell" style="grid-column:3"></div><div class="cell" style="grid-column:4"></div><div class="cell" style="grid-column:5"></div><div class="cell" style="grid-column:6"></div><div class="cell" style="grid-column:7"></div><div class="cell" style="grid-column:8"></div><div class="cell" style="grid-column:9"></div><div class="cell" style="grid-column:10"></div><div class="cell" style="grid-column:11"></div><div class="cell" style="grid-column:12"></div><div class="cell" style="grid-column:13"></div><div class="cell" style="grid-column:14"></div>
+          <div class="bar open" style="left:32%;width:22%">1 Σεπ έως 3 Νοε</div>
+        </div>
+
+        <div class="grow item">
+          <div class="pname">Erasmus+ Partnerships<em>Ενδεικτικά, βάσει 2026</em></div>
+          <div class="cell" style="grid-column:2"></div><div class="cell" style="grid-column:3"></div><div class="cell" style="grid-column:4"></div><div class="cell" style="grid-column:5"></div><div class="cell" style="grid-column:6"></div><div class="cell" style="grid-column:7"></div><div class="cell" style="grid-column:8"></div><div class="cell" style="grid-column:9"></div><div class="cell" style="grid-column:10"></div><div class="cell" style="grid-column:11"></div><div class="cell" style="grid-column:12"></div><div class="cell" style="grid-column:13"></div><div class="cell" style="grid-column:14"></div>
+          <div class="bar ind" style="left:60%;width:14%">Προθεσμία Μαρ</div>
+        </div>
+
+        <div class="grow item">
+          <div class="pname">ΚΥΠΡΙΑ<em>Ενδεικτικά, βάσει 2026</em></div>
+          <div class="cell" style="grid-column:2"></div><div class="cell" style="grid-column:3"></div><div class="cell" style="grid-column:4"></div><div class="cell" style="grid-column:5"></div><div class="cell" style="grid-column:6"></div><div class="cell" style="grid-column:7"></div><div class="cell" style="grid-column:8"></div><div class="cell" style="grid-column:9"></div><div class="cell" style="grid-column:10"></div><div class="cell" style="grid-column:11"></div><div class="cell" style="grid-column:12"></div><div class="cell" style="grid-column:13"></div><div class="cell" style="grid-column:14"></div>
+          <div class="bar ind" style="left:60%;width:21%">Προθεσμία Απρ</div>
+        </div>
+
+        <div class="grow item">
+          <div class="pname">Creative Europe<em>Ενδεικτικά, βάσει 2026</em></div>
+          <div class="cell" style="grid-column:2"></div><div class="cell" style="grid-column:3"></div><div class="cell" style="grid-column:4"></div><div class="cell" style="grid-column:5"></div><div class="cell" style="grid-column:6"></div><div class="cell" style="grid-column:7"></div><div class="cell" style="grid-column:8"></div><div class="cell" style="grid-column:9"></div><div class="cell" style="grid-column:10"></div><div class="cell" style="grid-column:11"></div><div class="cell" style="grid-column:12"></div><div class="cell" style="grid-column:13"></div><div class="cell" style="grid-column:14"></div>
+          <div class="bar ind" style="left:67%;width:21%">Μαρ έως Μαι</div>
+        </div>
+
+        <div class="grow item">
+          <div class="pname">ΠΟΛΙΤΙΣΜΟΣ ΙΙΙ<em>Ημερομηνίες σε αναμονή</em></div>
+          <div class="cell" style="grid-column:2"></div><div class="cell" style="grid-column:3"></div><div class="cell" style="grid-column:4"></div><div class="cell" style="grid-column:5"></div><div class="cell" style="grid-column:6"></div><div class="cell" style="grid-column:7"></div><div class="cell" style="grid-column:8"></div><div class="cell" style="grid-column:9"></div><div class="cell" style="grid-column:10"></div><div class="cell" style="grid-column:11"></div><div class="cell" style="grid-column:12"></div><div class="cell" style="grid-column:13"></div><div class="cell" style="grid-column:14"></div>
+          <div class="bar ind" style="left:60%;width:28%">Αναμένεται εντός 2027</div>
+        </div>
+
+        <div class="grow item">
+          <div class="pname">Culture Moves Europe<em>Χωρίς ανακοινωμένη ημερομηνία</em></div>
+          <div class="cell" style="grid-column:2"></div><div class="cell" style="grid-column:3"></div><div class="cell" style="grid-column:4"></div><div class="cell" style="grid-column:5"></div><div class="cell" style="grid-column:6"></div><div class="cell" style="grid-column:7"></div><div class="cell" style="grid-column:8"></div><div class="cell" style="grid-column:9"></div><div class="cell" style="grid-column:10"></div><div class="cell" style="grid-column:11"></div><div class="cell" style="grid-column:12"></div><div class="cell" style="grid-column:13"></div><div class="cell" style="grid-column:14"></div>
+          <div class="bar ind" style="left:16%;width:80%;opacity:.55">Δεύτερη πρόσκληση της περιόδου 2025 έως 2028, χωρίς ημερομηνία</div>
+        </div>
+
+        <div class="today" style="left:calc(190px + (100% - 190px) * 0.175)"><span>Σήμερα</span></div>
+      </div>
+      <div class="legend">
+        <span><i style="background:var(--live)"></i>Επιβεβαιωμένη πρόσκληση</span>
+        <span><i style="background:repeating-linear-gradient(135deg,var(--pending-soft),var(--pending-soft) 4px,#EDE3C8 4px,#EDE3C8 8px);border:1px dashed #C7AE72"></i>Ενδεικτικό παράθυρο, προς επιβεβαίωση</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="summary">
+    <div class="shead"><span class="num">03</span><h2>Συνοπτικός πίνακας</h2></div>
+    <div class="tblwrap rv">
+      <table>
+        <thead><tr><th>Πρόγραμμα</th><th>Επίπεδο</th><th>Χρονοδιάγραμμα</th><th>Ενδεικτική χρηματοδότηση</th></tr></thead>
+        <tbody>
+          <tr><td class="name">ΠΟΛΙΤΙΣΜΟΣ ΙΙΙ, Σχέδιο Μουσική</td><td>Εθνικό</td><td>Πρόσκληση 2027 σε αναμονή</td><td class="amt">Έως €15.000 στο 80%</td></tr>
+          <tr><td class="name">Φεστιβάλ Τεχνών ΚΥΠΡΙΑ</td><td>Εθνικό</td><td>Πρόσκληση 2027 σε αναμονή</td><td class="amt">Κατ. Β: €9.500 έως €19.500</td></tr>
+          <tr><td class="name">EFFEA</td><td>Ευρωπαϊκό</td><td>Ανοίγει 1/9/2026, λήξη 3/11/2026</td><td class="amt">€8.000 ή €15.000</td></tr>
+          <tr><td class="name">Perform Europe</td><td>Ευρωπαϊκό</td><td>Ανοικτό, λήξη 22/10/2026</td><td class="amt">€15.000, €25.000 ή €55.000</td></tr>
+          <tr><td class="name">Culture Moves Europe</td><td>Ευρωπαϊκό</td><td>Επόμενη πρόσκληση σε αναμονή</td><td class="amt">Έως €55.000 ή €60.000</td></tr>
+          <tr><td class="name">Creative Europe, Cooperation Projects</td><td>Ευρωπαϊκό</td><td>Πρόσκληση 2027 σε αναμονή</td><td class="amt">Έως €200.000 στο 80%</td></tr>
+          <tr><td class="name">Erasmus+ Cooperation Partnerships</td><td>Ευρωπαϊκό</td><td>Πρόσκληση 2027 σε αναμονή</td><td class="amt">€120.000, €250.000 ή €400.000</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="national">
+    <div class="shead"><span class="num">04</span><h2>Εθνικά προγράμματα</h2></div>
+
+    <article class="prog rv">
+      <div class="side">
+        <p class="ptitle">ΠΟΛΙΤΙΣΜΟΣ ΙΙΙ, Σχέδιο Μουσική</p>
+        <p class="psub">Υφυπουργείο Πολιτισμού</p>
+        <span class="tag pending">Πρόσκληση 2027 σε αναμονή</span>
+        <div class="facts">
+          <div><span class="k">Ανώτατη χορηγία</span><span class="v">€15.000</span></div>
+          <div><span class="k">Ποσοστό</span><span class="v">έως 80%</span></div>
+          <div><span class="k">Ίδια συμμετοχή</span><span class="v">από 20%</span></div>
+          <div><span class="k">Υποβολή</span><span class="v">Grants4Arts</span></div>
+        </div>
+      </div>
+      <div class="body">
+        <div class="blk">
+          <h4>Τι χρηματοδοτεί</h4>
+          <p>Οργανωμένες μουσικές δραστηριότητες που συμβάλλουν στην ανάπτυξη της μουσικής, στην ανάδειξη της σύγχρονης κυπριακής δημιουργίας και στην κινητικότητα μουσικών. Καλύπτει μουσικά φεστιβάλ, κύκλους συναυλιών, συνέδρια και εκπαιδευτικές δράσεις.</p>
+        </div>
+        <div class="blk split">
+          <div>
+            <h3>Επιλέξιμοι αιτητές</h3>
+            <ul>
+              <li>Πολιτιστικοί φορείς στον τομέα της μουσικής</li>
+              <li>Οργανωμένες ομάδες φυσικών προσώπων με Κύπριους ή μόνιμους κατοίκους, με ορισμένο επικεφαλής</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Αξιοποίηση από το Celestial</h3>
+            <ul>
+              <li>Αυτοτελές τριήμερο μουσικό πρόγραμμα με Κύπριους και διεθνείς καλλιτέχνες</li>
+              <li>Πρωτότυπες συνεργασίες και artist talks</li>
+              <li>Workshops για νέους μουσικούς</li>
+              <li>Σαφή και μετρήσιμα αποτελέσματα</li>
+            </ul>
+          </div>
+        </div>
+        <div class="note"><p>Ο προϋπολογισμός αφορά αποκλειστικά το μουσικό σκέλος. Εικαστικά, χορός, θέατρο και vendors μένουν διαχωρισμένα. Το 2026 χρηματοδοτήθηκαν 49 δράσεις, άρα απαιτείται ιδιαίτερα ανταγωνιστική πρόταση.</p></div>
+      </div>
+    </article>
+
+    <article class="prog rv">
+      <div class="side">
+        <p class="ptitle">Πρόγραμμα Στήριξης Φεστιβάλ Τεχνών ΚΥΠΡΙΑ</p>
+        <p class="psub">Υφυπουργείο Πολιτισμού</p>
+        <span class="tag pending">Πρόσκληση 2027 σε αναμονή</span>
+        <div class="facts">
+          <div><span class="k">Κατηγορία Α</span><span class="v">€24.500 έως €49.500</span></div>
+          <div><span class="k">Κατηγορία Β</span><span class="v">€9.500 έως €19.500</span></div>
+          <div><span class="k">Ποσοστό</span><span class="v">70% έως 90%</span></div>
+          <div><span class="k">Ελάχιστη βαθμολογία</span><span class="v">70/100</span></div>
+        </div>
+      </div>
+      <div class="body">
+        <div class="blk">
+          <h4>Τι χρηματοδοτεί</h4>
+          <p>Μονοθεματικά και πολυθεματικά φεστιβάλ τεχνών στην Κύπρο, με στόχο την καλλιτεχνική ποιότητα, την οργανωτική υποδομή, τη βιωσιμότητα και την ανάπτυξη κοινού. Με μία διοργάνωση ολοκληρωμένη, το Celestial εντάσσεται στην <strong>Κατηγορία Β</strong>, εφόσον διατηρηθούν οι όροι του 2026.</p>
+        </div>
+        <div class="blk split">
+          <div>
+            <h3>Άξονες της πρότασης</h3>
+            <ul>
+              <li>Δωρεάν και συμπεριληπτική πρόσβαση στον πολιτισμό</li>
+              <li>Αξιοποίηση δημόσιων χώρων της Λάρνακας</li>
+              <li>Συμμετοχή νέων, οικογενειών, Κυπρίων και ξένων κατοίκων</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Τι πρέπει να τεκμηριωθεί</h3>
+            <ul>
+              <li>Συνεργασία με τον Δήμο Λάρνακας και τοπικούς φορείς</li>
+              <li>Ενίσχυση της οργανωτικής δομής και της βιωσιμότητας</li>
+              <li>Μετρήσιμα αποτελέσματα, επισκέπτες, καλλιτέχνες, δράσεις</li>
+            </ul>
+          </div>
+        </div>
+        <div class="note"><p><strong>Κρίσιμη προϋπόθεση.</strong> Ο αιτητής πρέπει να είναι νομικό πρόσωπο δημοσίου δικαίου ή μη κερδοσκοπικός οργανισμός με έδρα στην Κυπριακή Δημοκρατία. Η σύσταση του φορέα προηγείται της αίτησης.</p></div>
+      </div>
+    </article>
+  </section>
+
+  <section id="european">
+    <div class="shead"><span class="num">05</span><h2>Ευρωπαϊκά προγράμματα</h2></div>
+    <p class="rv" style="max-width:640px;margin-bottom:32px">Και τα πέντε απαιτούν εταιρική σχέση με οργανισμούς από άλλες χώρες. Κανένα δεν χρηματοδοτεί τη γενική λειτουργία του φεστιβάλ, αλλά ένα διακριτό έργο που συνδέεται με αυτό.</p>
+
+    <article class="prog rv">
+      <div class="side">
+        <p class="ptitle">EFFEA</p>
+        <p class="psub">European Festivals Fund for Emerging Artists</p>
+        <span class="tag live">Ανοίγει 1 Σεπτεμβρίου 2026</span>
+        <div class="facts">
+          <div><span class="k">Discovery</span><span class="v">€8.000</span></div>
+          <div><span class="k">Springboard</span><span class="v">€15.000</span></div>
+          <div><span class="k">Προθεσμία</span><span class="v">3 Νοε 2026</span></div>
+          <div><span class="k">Υλοποίηση</span><span class="v">εντός 2027</span></div>
+        </div>
+      </div>
+      <div class="body">
+        <div class="blk">
+          <h4>Τι χρηματοδοτεί</h4>
+          <p>Μια οργανωμένη διαδικασία residency, mentoring και παρουσίασης ανερχόμενων καλλιτεχνών μεταξύ συνεργαζόμενων φεστιβάλ, όχι μια απλή πρόσκληση καλλιτέχνη για εμφάνιση.</p>
+        </div>
+        <div class="blk split">
+          <div>
+            <h3>Δομή εταιρικής σχέσης</h3>
+            <ul>
+              <li>Ένα leading festival, ο αιτητής</li>
+              <li>Τουλάχιστον δύο partner festivals</li>
+              <li>Τρία φεστιβάλ από τρεις επιλέξιμες χώρες</li>
+              <li>Ένας emerging artist ή collective</li>
+              <li>Εγγραφή όλων στο FestivalFinder.eu</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Αξιοποίηση από το Celestial</h3>
+            <ul>
+              <li>Το Celestial ως leading festival με δύο ευρωπαϊκούς εταίρους</li>
+              <li>Discovery: mentoring και παρουσίαση work in progress στη Λάρνακα</li>
+              <li>Springboard: ολοκληρωμένο έργο και masterclass και στα τρία φεστιβάλ</li>
+            </ul>
+          </div>
+        </div>
+        <div class="note"><p>Η αίτηση εστιάζει αποκλειστικά στην πορεία του καλλιτέχνη, όχι στη χρηματοδότηση του προγράμματος ή των λειτουργικών εξόδων. Αναμένονται περίπου 40 Discovery και 10 Springboard residencies.</p></div>
+      </div>
+    </article>
+
+    <article class="prog rv">
+      <div class="side">
+        <p class="ptitle">Perform Europe</p>
+        <p class="psub">Περίοδος 2026 έως 2028</p>
+        <span class="tag live">Ανοικτή πρόσκληση</span>
+        <div class="facts">
+          <div><span class="k">Small</span><span class="v">€15.000</span></div>
+          <div><span class="k">Medium</span><span class="v">€25.000</span></div>
+          <div><span class="k">Large</span><span class="v">€55.000</span></div>
+          <div><span class="k">Κάλυψη</span><span class="v">έως 100%</span></div>
+          <div><span class="k">Προθεσμία</span><span class="v">22 Οκτ 2026</span></div>
+        </div>
+      </div>
+      <div class="body">
+        <div class="blk">
+          <h4>Τι χρηματοδοτεί</h4>
+          <p>Συνεργασίες που αναπτύσσουν πιο βιώσιμους και συμπεριληπτικούς τρόπους διεθνούς περιοδείας ενός ήδη ολοκληρωμένου έργου παραστατικών τεχνών. Κύρια προτεραιότητα είτε η συμπερίληψη και διαφορετικότητα είτε η κλιματική αλλαγή. Υλοποίηση από 1 Μαρτίου 2027 έως 31 Ιανουαρίου 2028.</p>
+        </div>
+        <div class="blk split">
+          <div>
+            <h3>Δομή εταιρικής σχέσης</h3>
+            <ul>
+              <li>Τρεις εταίροι από τρεις χώρες με ορισμένο lead partner</li>
+              <li>Ένα ολοκληρωμένο έργο παραστατικών τεχνών</li>
+              <li>Τρεις παρουσιάσεις σε τρεις χώρες</li>
+              <li>Υπογεγραμμένο cooperation agreement</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Αξιοποίηση από το Celestial</h3>
+            <ul>
+              <li>Ρόλος κυπριακού presenting partner</li>
+              <li>Φιλοξενία υφιστάμενου έργου outdoor dance, physical theatre ή circus</li>
+              <li>Workshops, συμμετοχή κοινοτήτων, αξιοποίηση δημόσιου χώρου</li>
+              <li>Πρόσθετα top ups έως €5.000 για πράσινη κινητικότητα και προσβασιμότητα</li>
+            </ul>
+          </div>
+        </div>
+        <div class="note"><p><strong>Περιορισμός πεδίου.</strong> Καλύπτονται θέατρο, χορός, performance art, circus και outdoor arts. Εξαιρούνται standalone concerts, opera, live electronic music και περιοδείες με κύριο αντικείμενο τη ζωντανή μουσική. Δεν χρηματοδοτείται νέα παραγωγή από την αρχή.</p></div>
+      </div>
+    </article>
+
+    <article class="prog rv">
+      <div class="side">
+        <p class="ptitle">Culture Moves Europe</p>
+        <p class="psub">Call for Residency Hosts</p>
+        <span class="tag pending">Επόμενη πρόσκληση σε αναμονή</span>
+        <div class="facts">
+          <div><span class="k">Προς τον φορέα</span><span class="v">€50 ανά ημέρα</span></div>
+          <div><span class="k">Διαβίωση resident</span><span class="v">€30 ανά ημέρα</span></div>
+          <div><span class="k">Ταξίδι</span><span class="v">€400 ή €800</span></div>
+          <div><span class="k">Μέγιστη χορηγία</span><span class="v">€55.000 ή €60.000</span></div>
+        </div>
+      </div>
+      <div class="body">
+        <div class="blk">
+          <h4>Τι χρηματοδοτεί</h4>
+          <p>Οργανισμούς που φιλοξενούν καλλιτέχνες από άλλες χώρες του Creative Europe για δομημένη περίοδο έρευνας, δημιουργίας, μάθησης ή δικτύωσης. Η πρόσκληση 2025 και 2026 έκλεισε στις 16 Μαρτίου 2026 και προβλέπεται δεύτερη μέσα στην περίοδο 2025 έως 2028.</p>
+        </div>
+        <div class="blk split">
+          <div>
+            <h3>Προϋποθέσεις αιτητή</h3>
+            <ul>
+              <li>Νομική οντότητα σε χώρα του Creative Europe</li>
+              <li>Φιλοξενία 1 έως 5 καλλιτεχνών από άλλη χώρα</li>
+              <li>Κατάλληλος χώρος εργασίας και διαμονής</li>
+              <li>Τουλάχιστον ένας ορισμένος mentor</li>
+              <li>Residency 21 έως 90 συνεχόμενων ημερών</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Αξιοποίηση από το Celestial</h3>
+            <ul>
+              <li>Φιλοξενία διεθνών καλλιτεχνών στη Λάρνακα</li>
+              <li>Ανάπτυξη νέου site specific έργου με Κύπριους δημιουργούς</li>
+              <li>Workshops με νέους ή τοπικές κοινότητες</li>
+              <li>Τελική παρουσίαση κατά τη διάρκεια του φεστιβάλ</li>
+            </ul>
+          </div>
+        </div>
+        <div class="note"><p>Δεν είναι επιλέξιμη residency που περιορίζεται στην παρουσίαση ολοκληρωμένου έργου. Απαιτείται ουσιαστική διαδικασία ανάπτυξης και ανταλλαγής.</p></div>
+      </div>
+    </article>
+
+    <article class="prog rv">
+      <div class="side">
+        <p class="ptitle">Creative Europe</p>
+        <p class="psub">European Cooperation Projects 2027</p>
+        <span class="tag pending">Πρόσκληση 2027 σε αναμονή</span>
+        <div class="facts">
+          <div><span class="k">Μέγιστη χορηγία</span><span class="v">€200.000</span></div>
+          <div><span class="k">Ποσοστό</span><span class="v">έως 80%</span></div>
+          <div><span class="k">Ελάχ. προϋπολογισμός</span><span class="v">€250.000</span></div>
+          <div><span class="k">Διάρκεια</span><span class="v">έως 48 μήνες</span></div>
+        </div>
+      </div>
+      <div class="body">
+        <div class="blk">
+          <h4>Τι χρηματοδοτεί</h4>
+          <p>Διακρατικές συνεργασίες πολιτιστικών οργανισμών: συμπαραγωγή και κυκλοφορία έργων, κινητικότητα καλλιτεχνών, ανάπτυξη κοινού και ανταλλαγή τεχνογνωσίας. Η πρόσκληση του 2026 άνοιξε 5 Μαρτίου και έκλεισε 5 Μαΐου, άρα η εταιρική σχέση χτίζεται πριν από την προκήρυξη.</p>
+        </div>
+        <div class="blk split">
+          <div>
+            <h3>Απαιτήσεις Small Scale</h3>
+            <ul>
+              <li>Τρεις ανεξάρτητες νομικές οντότητες από τρεις χώρες</li>
+              <li>Δραστηριοποίηση στους πολιτιστικούς και δημιουργικούς τομείς</li>
+              <li>Συντονιστής με δύο χρόνια νομικής ύπαρξης κατά την υποβολή</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Προτεινόμενο έργο</h3>
+            <p><strong>CELESTIAL EUROPE, Emerging Artists, Public Spaces and Sustainable Festivals.</strong> Συνεργασία 30 έως 36 μηνών με δύο ή τρεις ευρωπαϊκούς οργανισμούς: residencies, κοινά open calls, συμπαραγωγές, δράσεις για νέους, προσβασιμότητα και ένα toolkit για μικρά ευρωπαϊκά φεστιβάλ.</p>
+          </div>
+        </div>
+        <div class="note"><p>Εάν ο φορέας του Celestial δεν έχει ακόμη δύο χρόνια νομικής ύπαρξης, η ρεαλιστική διαδρομή είναι η συμμετοχή ως partner, με πιο έμπειρο οργανισμό ως coordinator.</p></div>
+      </div>
+    </article>
+
+    <article class="prog rv">
+      <div class="side">
+        <p class="ptitle">Erasmus+</p>
+        <p class="psub">Cooperation Partnerships, School Education ή Youth</p>
+        <span class="tag pending">Πρόσκληση 2027 σε αναμονή</span>
+        <div class="facts">
+          <div><span class="k">Μικρότερο έργο</span><span class="v">€120.000</span></div>
+          <div><span class="k">Μεσαίο έργο</span><span class="v">€250.000</span></div>
+          <div><span class="k">Μεγαλύτερο έργο</span><span class="v">€400.000</span></div>
+          <div><span class="k">Διάρκεια</span><span class="v">12 έως 36 μήνες</span></div>
+        </div>
+      </div>
+      <div class="body">
+        <div class="blk">
+          <h4>Τι χρηματοδοτεί</h4>
+          <p>Πολυετή εκπαιδευτικά έργα μεταξύ οργανισμών από διαφορετικές χώρες, με λογική lump sum που συνδέεται με την ολοκλήρωση των συμφωνημένων δραστηριοτήτων και όχι με την επιστροφή κάθε εξόδου.</p>
+        </div>
+        <div class="blk split">
+          <div>
+            <h3>Απαιτήσεις</h3>
+            <ul>
+              <li>Τρεις οργανισμοί από τρεις χώρες Erasmus+</li>
+              <li>Ένας coordinator με δύο χρόνια νομικής ύπαρξης</li>
+              <li>Υποβολή σε συγκεκριμένο τομέα, με πιθανότερους το Youth ή το School Education</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Αξιοποίηση από το Celestial</h3>
+            <ul>
+              <li>Εκπαιδευτικό project για νέους ή ανερχόμενους καλλιτέχνες</li>
+              <li>Διεθνή workshops, mentoring και ανταλλαγές</li>
+              <li>Ανάπτυξη εκπαιδευτικού υλικού και toolkits</li>
+              <li>Το φεστιβάλ ως χώρος παρουσίασης των αποτελεσμάτων</li>
+            </ul>
+          </div>
+        </div>
+        <div class="note"><p>Σκοπός του έργου παραμένει η μάθηση και η διεθνής συνεργασία. Η διοργάνωση του φεστιβάλ δεν μπορεί να είναι ο κύριος στόχος.</p></div>
+      </div>
+    </article>
+  </section>
+
+  <section id="strategy">
+    <div class="shead"><span class="num">06</span><h2>Προτεινόμενη στρατηγική</h2></div>
+    <p class="rv" style="max-width:620px;margin-bottom:30px;font-size:17px;font-weight:300;color:var(--ink)">Τρεις άξονες: κρατική χρηματοδότηση, ιδιωτικές χορηγίες και συμμετοχή σε ευρωπαϊκά εκπαιδευτικά έργα.</p>
+    <div class="axes rv">
+      <article>
+        <p class="n">01</p>
+        <h4>Υφυπουργείο Πολιτισμού</h4>
+        <p>Πρώτη προτεραιότητα η προετοιμασία για τα εθνικά προγράμματα.</p>
+        <ul style="margin-top:14px">
+          <li>ΚΥΠΡΙΑ για τη συνολική στήριξη του Celestial ως πολυθεματικού φεστιβάλ</li>
+          <li>ΠΟΛΙΤΙΣΜΟΣ ΙΙΙ για αυτοτελές μουσικό πρόγραμμα</li>
+        </ul>
+      </article>
+      <article>
+        <p class="n">02</p>
+        <h4>Ιδιωτικές χορηγίες</h4>
+        <p>Χορηγοί και συνεργάτες που συνδέονται με το κοινό και το περιεχόμενο του φεστιβάλ.</p>
+        <ul style="margin-top:14px">
+          <li>Τρόφιμα και ποτά, εστίαση, κάβες και εισαγωγείς</li>
+          <li>Καταστήματα μουσικών οργάνων και εξοπλισμού</li>
+          <li>Μουσικές και χορευτικές σχολές, ωδεία, ακαδημίες</li>
+          <li>Ξενοδοχεία, τουριστικές επιχειρήσεις, μεταφορές</li>
+          <li>Τοπικές επιχειρήσεις της Λάρνακας</li>
+        </ul>
+      </article>
+      <article>
+        <p class="n">03</p>
+        <h4>Έργα Erasmus+</h4>
+        <p>Συμμετοχή ως εταίρος και, σε μεταγενέστερο στάδιο, ως συντονιστής.</p>
+        <ul style="margin-top:14px">
+          <li>Δεξιότητες νέων καλλιτεχνών μέσω καινοτόμου προγράμματος</li>
+          <li>Workshops και mentoring</li>
+          <li>Youth participation στον σχεδιασμό δράσεων</li>
+          <li>Inclusion, sustainability, cultural entrepreneurship</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section id="next">
+    <div class="shead"><span class="num">07</span><h2>Επόμενα βήματα</h2></div>
+    <ol class="steps rv">
+      <li>Σύσταση του νομικού φορέα<span>Μη κερδοσκοπικός οργανισμός με έδρα στην Κυπριακή Δημοκρατία, προϋπόθεση για το ΚΥΠΡΙΑ και βάση για τα ευρωπαϊκά προγράμματα.</span></li>
+      <li>Απόφαση για τις δύο ανοικτές προσκλήσεις<span>Perform Europe έως 22 Οκτωβρίου και EFFEA έως 3 Νοεμβρίου 2026.</span></li>
+      <li>Εγγραφή στο FestivalFinder.eu<span>Απαιτείται για όλα τα φεστιβάλ της εταιρικής σχέσης στο EFFEA.</span></li>
+      <li>Έναρξη επαφών με ευρωπαϊκά φεστιβάλ εταίρους<span>Η εταιρική σχέση χτίζεται μήνες πριν από κάθε προκήρυξη.</span></li>
+      <li>Προετοιμασία υλικού για τις εθνικές προσκλήσεις του 2027<span>Καλλιτεχνικό πρόγραμμα, προϋπολογισμός, μετρήσιμα αποτελέσματα και επιστολές συνεργασίας.</span></li>
+    </ol>
+    <div class="res rv">
+      <a href="https://www.fundingprogrammesportal.gov.cy/" target="_blank" rel="noopener"><span class="t">Πύλη Χρηματοδοτικών Προγραμμάτων Κύπρου</span><span class="u">fundingprogrammesportal.gov.cy</span></a>
+      <a href="https://www.grants4arts.cy/" target="_blank" rel="noopener"><span class="t">Grants4Arts</span><span class="u">grants4arts.cy</span></a>
+      <a href="https://erasmus-plus.ec.europa.eu/projects" target="_blank" rel="noopener"><span class="t">Erasmus+ Project Results Platform</span><span class="u">erasmus-plus.ec.europa.eu/projects</span></a>
+    </div>
+  </section>
+
+  <section id="fees">
+    <div class="shead"><span class="num">08</span><h2>Υποστήριξη ετοιμασίας αιτήσεων</h2></div>
+    <div class="two rv">
+      <div>
+        <h3>Τι περιλαμβάνει</h3>
+        <ul>
+          <li>Έλεγχο επιλεξιμότητας και καταλληλότητας προγράμματος</li>
+          <li>Ανάπτυξη και δομή της προτεινόμενης ιδέας</li>
+          <li>Συγγραφή και επιμέλεια της αίτησης</li>
+          <li>Ευθυγράμμιση με τους στόχους και τα κριτήρια αξιολόγησης</li>
+          <li>Προετοιμασία του προϋπολογισμού</li>
+          <li>Καθοδήγηση για δικαιολογητικά και επιστολές συνεργασίας</li>
+          <li>Συντονισμό με εταίρους όπου απαιτείται</li>
+          <li>Συμπλήρωση εντύπων και ηλεκτρονική υποβολή</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Ενδεικτικές αμοιβές</h3>
+        <div class="fee" style="margin-top:12px">
+          <div><p class="k">Μικρότερα, στοχευμένα προγράμματα</p><p class="v">€2.000 έως €4.000 <small>πλέον ΦΠΑ</small></p></div>
+          <div><p class="k">Μεγαλύτερες, απαιτητικές αιτήσεις</p><p class="v">€4.000 έως €8.000 <small>πλέον ΦΠΑ</small></p></div>
+        </div>
+        <p style="margin-top:18px">Η τελική αμοιβή καθορίζεται από την πολυπλοκότητα της πρόσκλησης, το ύψος και τη διάρκεια του έργου, τον αριθμό των εταίρων και το επίπεδο προετοιμασίας του υφιστάμενου υλικού. Συμφωνείται πριν από την έναρξη κάθε αίτησης.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="fnote">
+      <span>Έκθεση Χρηματοδοτικών Ευκαιριών, Celestial Arts &amp; Music Festival</span>
+      <span>GrantXpert Consulting · Αύγουστος 2026</span>
+    </div>
+  </footer>
+</div>
+
+<script>
+(function(){
+  var bar=document.getElementById('bar');
+  function prog(){
+    var h=document.documentElement.scrollHeight-window.innerHeight;
+    bar.style.width=(h>0?(window.scrollY/h*100):0)+'%';
+  }
+  window.addEventListener('scroll',prog,{passive:true});prog();
+
+  var rv=[].slice.call(document.querySelectorAll('.rv'));
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+    },{rootMargin:'0px 0px -8% 0px',threshold:.05});
+    rv.forEach(function(el){io.observe(el);});
+  } else {rv.forEach(function(el){el.classList.add('in');});}
+
+  var links=[].slice.call(document.querySelectorAll('nav a'));
+  var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'));});
+  if('IntersectionObserver' in window){
+    var so=new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(e.isIntersecting){
+          links.forEach(function(a){a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id);});
+        }
+      });
+    },{rootMargin:'-64px 0px -70% 0px'});
+    secs.forEach(function(s){if(s)so.observe(s);});
+  }
+})();
+</script>
+</body>
+</html>
