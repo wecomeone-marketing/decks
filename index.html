@@ -1,0 +1,1410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moto Italia Proposal | Wecomeone</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black: #0D0D0D;
+    --white: #F5F3EF;
+    --red: #C0211A;
+    --steel: #1A1A1A;
+    --rule: #262626;
+    --mid: #555;
+    --light: #888;
+    --gold: #C8943A;
+    --green: #4A9B6F;
+    --brand: #C0211A;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(13,13,13,0.96);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--rule);
+    padding: 0 56px;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    height: 50px;
+  }
+  .nav-brand {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-right: auto;
+  }
+  .nav-link {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--light);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-link:hover { color: var(--white); }
+
+  /* COVER */
+  .cover {
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    padding: 52px 56px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 55% 60% at 90% 40%, rgba(192,33,26,0.11) 0%, transparent 65%),
+      repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(255,255,255,0.022) 79px, rgba(255,255,255,0.022) 80px);
+    pointer-events: none;
+  }
+  .cover-logo {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--light);
+  }
+  .cover-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px 0 40px;
+  }
+  .cover-eyebrow {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 22px;
+  }
+  .cover-headline {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(70px, 12vw, 148px);
+    line-height: 0.88;
+    letter-spacing: 0.02em;
+  }
+  .cover-headline span { color: var(--red); }
+  .cover-sub {
+    font-size: clamp(13px, 1.4vw, 16px);
+    color: var(--light);
+    margin-top: 24px;
+    max-width: 520px;
+    line-height: 1.75;
+    font-weight: 300;
+  }
+  .cover-services {
+    display: flex;
+    gap: 10px;
+    margin-top: 36px;
+    flex-wrap: wrap;
+  }
+  .svc-pill {
+    padding: 8px 18px;
+    border: 1px solid rgba(255,255,255,0.12);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--light);
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .svc-pill:hover { border-color: var(--red); color: var(--white); }
+  .cover-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-size: 10px;
+    color: var(--mid);
+    letter-spacing: 0.1em;
+  }
+
+  /* SECTION */
+  .section {
+    padding: 72px 56px;
+    border-top: 1px solid var(--rule);
+  }
+  .inner { max-width: 1080px; margin: 0 auto; }
+
+  .eyebrow {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--light);
+    margin-bottom: 12px;
+  }
+  .s-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(34px, 5vw, 58px);
+    line-height: 1;
+    letter-spacing: 0.03em;
+    margin-bottom: 16px;
+  }
+  .s-body {
+    font-size: 14px;
+    color: var(--light);
+    max-width: 620px;
+    line-height: 1.75;
+  }
+
+  /* CONTEXT */
+  .ctx-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--rule);
+    margin-top: 36px;
+  }
+  .ctx-cell {
+    background: var(--black);
+    padding: 26px 22px;
+  }
+  .ctx-label {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 10px;
+  }
+  .ctx-val {
+    font-size: 13px;
+    color: var(--white);
+    line-height: 1.65;
+  }
+
+  /* SERVICE BLOCKS */
+  .service-block {
+    margin-top: 1px;
+    background: var(--black);
+    border-top: 1px solid var(--rule);
+  }
+
+  .service-header {
+    padding: 48px 56px 0;
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+
+  .phase-tag {
+    display: inline-block;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border: 1px solid var(--red);
+    color: var(--red);
+    margin-bottom: 18px;
+  }
+
+  .service-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(38px, 5vw, 62px);
+    line-height: 1;
+    letter-spacing: 0.03em;
+    margin-bottom: 8px;
+  }
+
+  .service-desc {
+    font-size: 14px;
+    color: var(--light);
+    max-width: 580px;
+    line-height: 1.75;
+    margin-bottom: 40px;
+  }
+
+  .service-body {
+    padding: 0 56px 56px;
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--rule);
+  }
+
+  .col-block {
+    background: var(--black);
+    padding: 32px 28px;
+  }
+
+  .col-title {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--light);
+    margin-bottom: 18px;
+  }
+
+  /* DELIVERABLE ITEMS */
+  .del-item {
+    display: flex;
+    gap: 13px;
+    align-items: flex-start;
+    padding: 9px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.045);
+    font-size: 13px;
+  }
+  .del-item:last-child { border-bottom: none; }
+  .del-dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--red);
+    flex-shrink: 0;
+    margin-top: 7px;
+  }
+  .del-main { color: var(--white); line-height: 1.4; }
+  .del-sub { font-size: 11px; color: var(--light); margin-top: 2px; line-height: 1.4; }
+
+  /* PRICING CELL */
+  .price-cell {
+    background: var(--steel);
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .price-type {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--light);
+    margin-bottom: 8px;
+  }
+
+  .price-amount {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 58px;
+    line-height: 1;
+    letter-spacing: 0.03em;
+    color: var(--white);
+  }
+
+  .price-period {
+    font-size: 12px;
+    color: var(--light);
+    margin-top: 4px;
+  }
+
+  .price-note {
+    font-size: 11px;
+    color: var(--light);
+    line-height: 1.6;
+    margin-top: 20px;
+    padding-top: 18px;
+    border-top: 1px solid var(--rule);
+  }
+
+  .price-note strong { color: var(--white); font-weight: 500; }
+
+  /* NOTE BOX */
+  .note-box {
+    background: rgba(200,148,58,0.06);
+    border: 1px solid rgba(200,148,58,0.22);
+    padding: 20px 24px;
+    margin-top: 1px;
+  }
+  .note-label {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+  .note-text {
+    font-size: 12px;
+    color: var(--light);
+    line-height: 1.7;
+  }
+  .note-text strong { color: var(--white); font-weight: 500; }
+
+  /* PHASE LABEL ACCENT */
+  .accent-line {
+    height: 3px;
+    background: var(--red);
+    width: 40px;
+    margin-bottom: 32px;
+  }
+
+  /* AD SPEND TABLE */
+  .spend-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin-top: 4px;
+  }
+  .spend-table th {
+    text-align: left;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--light);
+    padding: 8px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .spend-table td {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    vertical-align: top;
+  }
+  .spend-table tr:last-child td { border-bottom: none; }
+  .sp-item { color: var(--white); }
+  .sp-note { font-size: 11px; color: var(--light); margin-top: 2px; }
+  .sp-val { color: var(--gold); font-weight: 500; }
+
+  /* TOTALS BAR */
+  .totals-bar {
+    background: var(--steel);
+    border-top: 1px solid var(--rule);
+    padding: 28px 56px;
+  }
+  .totals-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--rule);
+  }
+  .total-cell {
+    background: var(--steel);
+    padding: 22px 20px;
+  }
+  .total-label {
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--light);
+    margin-bottom: 8px;
+  }
+  .total-val {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    line-height: 1;
+    color: var(--white);
+    letter-spacing: 0.03em;
+  }
+  .total-sub {
+    font-size: 11px;
+    color: var(--mid);
+    margin-top: 4px;
+  }
+  .total-cell.highlight .total-val { color: var(--gold); }
+
+  /* TIMELINE */
+  .tl-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--rule);
+    margin-top: 36px;
+  }
+  .tl-cell {
+    background: var(--black);
+    padding: 26px 22px;
+  }
+  .tl-phase {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 6px;
+  }
+  .tl-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    letter-spacing: 0.04em;
+    line-height: 1;
+    margin-bottom: 14px;
+    color: var(--white);
+  }
+  .tl-items { list-style: none; }
+  .tl-items li {
+    font-size: 12px;
+    color: var(--light);
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    line-height: 1.4;
+  }
+  .tl-items li:last-child { border-bottom: none; }
+  .tl-items li strong { color: var(--white); font-weight: 500; }
+
+  /* NEXT STEPS */
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--rule);
+    margin-top: 36px;
+  }
+  .step-cell {
+    background: var(--steel);
+    padding: 26px 20px;
+  }
+  .step-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 44px;
+    line-height: 1;
+    color: var(--rule);
+    margin-bottom: 10px;
+  }
+  .step-h { font-size: 12px; font-weight: 600; color: var(--white); margin-bottom: 6px; }
+  .step-p { font-size: 11px; color: var(--light); line-height: 1.5; }
+
+  /* FOOTER */
+  .footer {
+    padding: 44px 56px;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-brand { font-size: 10px; font-weight: 500; letter-spacing: 0.26em; text-transform: uppercase; color: var(--light); }
+  .footer-right { font-size: 11px; color: var(--mid); }
+
+  /* DIVIDER */
+  .divider { height: 1px; background: var(--rule); margin: 24px 0; }
+
+  /* RESPONSIVE */
+  /* HAMBURGER */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    margin-left: auto;
+  }
+  .hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--white);
+    transition: all 0.25s;
+    transform-origin: center;
+  }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+
+  @media (max-width: 860px) {
+    .nav, .cover, .section, .service-header, .service-body, .totals-bar, .footer { padding-left: 20px; padding-right: 20px; }
+    .ctx-grid, .two-col, .totals-inner, .tl-grid, .steps-grid { grid-template-columns: 1fr; }
+    .footer { flex-direction: column; gap: 10px; text-align: center; }
+
+    /* NAV MOBILE */
+    .hamburger { display: flex; }
+    .nav { flex-wrap: wrap; height: auto; min-height: 50px; padding-top: 0; padding-bottom: 0; align-items: center; }
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0;
+      width: 100%;
+      padding: 12px 0 16px;
+      border-top: 1px solid var(--rule);
+    }
+    .nav-links.open { display: flex; }
+    .nav-link {
+      padding: 10px 0;
+      font-size: 12px;
+      width: 100%;
+      border-bottom: 1px solid var(--rule);
+    }
+    .nav-link:last-child { border-bottom: none; }
+
+    /* COVER */
+    .cover { min-height: auto; padding-top: 48px; padding-bottom: 40px; }
+    .cover-headline { font-size: 18vw; }
+    .cover-sub { font-size: 14px; }
+    .cover-services { flex-direction: column; gap: 8px; }
+    .svc-pill { text-align: center; }
+
+    /* CONTEXT */
+    .ctx-grid { margin-top: 24px; }
+
+    /* SERVICE */
+    .service-header { padding-top: 40px; }
+    .service-body { padding-bottom: 40px; }
+    .price-amount { font-size: 42px; }
+    .price-cell { padding: 28px 22px; }
+    .col-block { padding: 28px 22px; }
+
+    /* SPEND TABLE */
+    .spend-table th:last-child,
+    .spend-table td:last-child { display: none; }
+
+    /* TOTALS */
+    .totals-bar { padding: 0; }
+
+    /* STEPS */
+    .steps-grid { grid-template-columns: 1fr 1fr; }
+
+    /* FOOTER */
+    .footer { padding-top: 32px; padding-bottom: 32px; }
+  }
+
+  @media (max-width: 480px) {
+    .steps-grid { grid-template-columns: 1fr; }
+    .cover-headline { font-size: 22vw; }
+  }
+
+  /* CALENDAR */
+  .cal-wrap {
+    margin-top: 36px;
+    overflow-x: auto;
+  }
+  .cal-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 680px;
+    font-size: 12px;
+  }
+  .cal-table thead tr {
+    background: var(--steel);
+  }
+  .cal-table th {
+    padding: 11px 14px;
+    text-align: left;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--light);
+    border-bottom: 1px solid var(--rule);
+    white-space: nowrap;
+  }
+  .cal-table th.week-col { color: var(--red); }
+  .cal-table td {
+    padding: 11px 14px;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    vertical-align: top;
+    line-height: 1.5;
+  }
+  .cal-table tr:last-child td { border-bottom: none; }
+  .cal-table tr:hover td { background: rgba(255,255,255,0.02); }
+  .cal-week {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    color: var(--red);
+    white-space: nowrap;
+  }
+  .cal-phase {
+    display: inline-block;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    margin-bottom: 5px;
+  }
+  .phase-brand { background: rgba(192,33,26,0.15); color: var(--red); }
+  .phase-web { background: rgba(74,159,224,0.12); color: #4A9FE0; }
+  .phase-social { background: rgba(74,155,111,0.12); color: #4A9B6F; }
+  .phase-all { background: rgba(200,148,58,0.12); color: var(--gold); }
+  .cal-action { color: var(--white); font-weight: 500; }
+  .cal-sub { font-size: 11px; color: var(--light); margin-top: 2px; }
+  .cal-owner-we { color: var(--white); font-size: 11px; font-weight: 500; }
+  .cal-owner-client { color: var(--gold); font-size: 11px; font-weight: 500; }
+  .cal-owner-both { color: #4A9FE0; font-size: 11px; font-weight: 500; }
+  .dep-flag {
+    display: inline-block;
+    font-size: 9px;
+    padding: 2px 7px;
+    background: rgba(200,148,58,0.1);
+    border: 1px solid rgba(200,148,58,0.25);
+    color: var(--gold);
+    margin-top: 4px;
+  }
+  .cal-legend {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+  .leg-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    color: var(--light);
+  }
+  .leg-dot {
+    width: 8px; height: 8px;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <span class="nav-brand">Moto Italia</span>
+  <div class="nav-links" id="navLinks">
+    <a href="#context" class="nav-link" onclick="closeMenu()">Overview</a>
+    <a href="#brand" class="nav-link" onclick="closeMenu()">Brand ID</a>
+    <a href="#website" class="nav-link" onclick="closeMenu()">Website</a>
+    <a href="#social" class="nav-link" onclick="closeMenu()">Social</a>
+    <a href="#summary" class="nav-link" onclick="closeMenu()">Summary</a>
+    <a href="#calendar" class="nav-link" onclick="closeMenu()">Calendar</a>
+    <a href="#next" class="nav-link" onclick="closeMenu()">Next Steps</a>
+  </div>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-logo">Wecomeone Marketing &amp; Communications</div>
+  <div class="cover-center">
+    <div class="cover-eyebrow">Marketing &amp; Brand Proposal</div>
+    <div class="cover-headline">MOTO<br><span>ITALIA</span></div>
+    <div class="cover-sub">A phased engagement covering brand identity, digital presence, and ongoing social media growth built to position Moto Italia as Cyprus's leading motorcycle destination.</div>
+    <div class="cover-services">
+      <a href="#brand" class="svc-pill">01 Brand Identity</a>
+      <a href="#website" class="svc-pill">02 Website</a>
+      <a href="#social" class="svc-pill">03 Social Media</a>
+    </div>
+  </div>
+  <div class="cover-footer">
+    <span>Prepared by Andreas Andronikou Wecomeone</span>
+    <span>Confidential · August 2026</span>
+  </div>
+</div>
+
+<!-- CONTEXT -->
+<div id="context" class="section">
+  <div class="inner">
+    <div class="eyebrow">Situation Overview</div>
+    <div class="s-title">Starting Point</div>
+    <div class="s-body">New ownership. Strong location. One of the most desirable brand portfolios in European motorcycling. The task now is to build the identity and infrastructure that matches the product.</div>
+
+    <div class="ctx-grid">
+      <div class="ctx-cell">
+        <div class="ctx-label">Brand Portfolio</div>
+        <div class="ctx-val">Piaggio · Vespa · Moto Guzzi · Aprilia four of Europe's most recognised and aspirational motorcycle and scooter brands under one roof</div>
+      </div>
+      <div class="ctx-cell">
+        <div class="ctx-label">Current Status</div>
+        <div class="ctx-val">No brand identity · No website · Weak social media presence · No professional photography · Zero Google discoverability</div>
+      </div>
+      <div class="ctx-cell">
+        <div class="ctx-label">Opportunity</div>
+        <div class="ctx-val">Cyprus's motorcycle market is digitally underserved. A strong brand, a cinematic website, and consistent social presence creates category ownership fast</div>
+      </div>
+      <div class="ctx-cell">
+        <div class="ctx-label">Target Audience</div>
+        <div class="ctx-val">Males 25–50, lifestyle-driven commuters and enthusiasts, island-wide · Secondary: tourists and expats interested in Vespa or scooter acquisition</div>
+      </div>
+      <div class="ctx-cell">
+        <div class="ctx-label">Geographic Reach</div>
+        <div class="ctx-val">Walk-in priority: Larnaka · Digital reach: All of Cyprus Nicosia, Limassol, Paphos, Famagusta</div>
+      </div>
+      <div class="ctx-cell">
+        <div class="ctx-label">Phased Approach</div>
+        <div class="ctx-val">Brand identity first then website built on that identity then social campaigns that drive traffic to both. Each phase reinforces the next</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICE 01: BRAND ID -->
+<div id="brand" class="service-block">
+  <div class="service-header">
+    <div class="accent-line"></div>
+    <div class="phase-tag">Service 01 Once-Off</div>
+    <div class="service-name">BRAND IDENTITY</div>
+    <div class="service-desc">Before a website is built or a single post goes live, Moto Italia needs a visual identity that holds its own alongside Aprilia, Vespa, and Moto Guzzi. This is that foundation.</div>
+  </div>
+  <div class="service-body">
+    <div class="two-col">
+      <div class="col-block">
+        <div class="col-title">What's Included</div>
+
+        <div class="del-item">
+          <div class="del-dot"></div>
+          <div>
+            <div class="del-main">Logo Design 3 Concepts</div>
+            <div class="del-sub">Three distinct directions presented. Client selects one for full development. Each concept delivered with rationale and brand thinking behind it</div>
+          </div>
+        </div>
+        <div class="del-item">
+          <div class="del-dot"></div>
+          <div>
+            <div class="del-main">Colour Palette</div>
+            <div class="del-sub">Primary and secondary colours defined with HEX, RGB, and CMYK values ready for digital and print use</div>
+          </div>
+        </div>
+        <div class="del-item">
+          <div class="del-dot"></div>
+          <div>
+            <div class="del-main">Typography System</div>
+            <div class="del-sub">Primary and secondary typefaces selected and specified for headings, body copy, and UI consistent across web and print</div>
+          </div>
+        </div>
+        <div class="del-item">
+          <div class="del-dot"></div>
+          <div>
+            <div class="del-main">Logo Variations</div>
+            <div class="del-sub">Primary logo, horizontal version, icon/mark only, and reversed (white on dark) all formats covered</div>
+          </div>
+        </div>
+        <div class="del-item">
+          <div class="del-dot"></div>
+          <div>
+            <div class="del-main">Brand Guidelines Document</div>
+            <div class="del-sub">Single-page or short PDF covering correct usage, spacing, colour application, and what not to do handed to any future supplier</div>
+          </div>
+        </div>
+        <div class="del-item">
+          <div class="del-dot"></div>
+          <div>
+            <div class="del-main">Final File Delivery</div>
+            <div class="del-sub">AI, EPS, SVG, PNG, and PDF formats print and digital ready. Client owns all files outright</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="price-cell">
+        <div>
+          <div class="price-type">Once-Off Project Fee</div>
+          <div class="price-amount">€900 <span style="text-decoration:line-through;color:var(--mid);font-size:32px;vertical-align:middle;">€1,300</span></div>
+          <div class="price-period">Fixed price · excl. VAT · 50% deposit to begin</div>
+        </div>
+        <div class="price-note">
+          <strong>Process:</strong> Discovery call to align on direction. Three logo concepts presented at milestone 1. Client selects a direction. Final development and file delivery at milestone 2.<br><br>
+          <strong>Timeline:</strong> 2–3 weeks from signed agreement and deposit received.<br><br>
+          <strong>Revisions:</strong> Two rounds of revisions included on the selected concept. Additional rounds quoted separately.<br><br>
+          <strong>Note:</strong> Brand identity is completed before the website build begins. The website inherits all colours, fonts, and logo assets from this phase.
+        </div>
+      </div>
+    </div>
+
+    <div class="note-box">
+      <div class="note-label">Why this comes first</div>
+      <div class="note-text">Building a website before the brand identity is defined means rebuilding it later. Getting the logo, colours, and fonts locked in Week 1 means every deliverable after website, social templates, signage, ads is consistent from day one. <strong>This is not optional groundwork. It is the most important thing we do first.</strong></div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICE 02: WEBSITE -->
+<div id="website" class="service-block">
+  <div class="service-header">
+    <div class="accent-line"></div>
+    <div class="phase-tag">Service 02 Once-Off</div>
+    <div class="service-name">WEBSITE</div>
+    <div class="service-desc">A cinematic, mobile-first information site that showcases all four brands Piaggio, Vespa, Moto Guzzi, and Aprilia and positions Moto Italia as a premium destination, not just a shop. Built to grow into an e-commerce platform when the time comes.</div>
+  </div>
+  <div class="service-body">
+    <div class="two-col">
+      <div class="col-block">
+        <div class="col-title">Phase 1 Information Site (This Proposal)</div>
+
+        <div class="del-item">
+          <div class="del-dot"></div>
+          <div>
+            <div class="del-main">Custom Design No Templates</div>
+            <div class="del-sub">Cinematic aesthetic inspired by aprilia.com full-width imagery, bold typography, dark palette. Built around Moto Italia's brand identity from Phase 1</div>
+          </div>
+        </div>
+        <div class="del-item">
+          <div class="del-dot"></div>
+          <div>
+            <div class="del-main">Mobile-First Build</div>
+            <div class="del-sub">Designed for Cyprus mobile users first. Fast-loading, touch-optimised, Google Core Web Vitals compliant</div>
+          </div>
+        </div>
+        <div class="del-item">
+          <div class="del-dot"></div>
+          <div>
+            <div class="del-main">Four Brand Sections</div>
+            <div class="del-sub">Dedicated pages or sections for Piaggio, Vespa, Moto Guzzi, and Aprilia each with brand identity, model highlights, and imagery</div>
+          </div>
+        </div>
+        <div class="del-item">
+          <div class="del-dot"></div>
+          <div>
+            <div class="del-main">Accessories Section</div>
+            <div class="del-sub">Showcase page for accessories range structured to convert into a full e-shop in Phase 2 without a rebuild</div>
+          </div>
+        </div>
+        <div class="del-item">
+          <div class="del-dot"></div>
+          <div>
+            <div class="del-main">Contact, Location &amp; Directions</div>
+            <div class="del-sub">Google Maps integration, WhatsApp click-to-chat, contact form, and opening hours</div>
+          </div>
+        </div>
+        <div class="del-item">
+          <div class="del-dot"></div>
+          <div>
+            <div class="del-main">SEO Foundation Built In</div>
+            <div class="del-sub">Meta tags, schema markup, XML sitemap, Google Analytics 4, and Google Search Console setup</div>
+          </div>
+        </div>
+        <div class="del-item">
+          <div class="del-dot"></div>
+          <div>
+            <div class="del-main">Hosting, Maintenance &amp; Support</div>
+            <div class="del-sub">Domain pointing, hosting configuration, SSL certificate, and minor update support included for the first 12 months. <strong style="color:var(--gold)">€500/year</strong> charged in advance. Average figure for a standard informational site; subject to adjustment depending on complexity, integrations, or e-commerce activation</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="price-cell">
+        <div>
+          <div class="price-type">Once-Off Project Fee</div>
+          <div class="price-amount">€2,100</div>
+          <div class="price-period">Fixed price · excl. VAT</div>
+          <div style="margin-top:14px;font-size:11px;color:var(--light);line-height:1.6;">
+            Fixed price at <span style="color:var(--white);font-weight:500;">€2,100</span>. Final scope to be confirmed following brand identity delivery and collection of Piaggio Group photography, video, and brand guideline assets.
+          </div>
+        </div>
+        <div class="price-note">
+          <strong>Payment:</strong> 50% deposit to begin · 50% on launch.<br><br>
+          <strong>Timeline:</strong> 4–6 weeks from brand identity delivery and content assets received.<br><br>
+          <strong>Content:</strong> Client is liaising directly with Piaggio, Vespa, Moto Guzzi, and Aprilia to obtain official brand guidelines, photography, and video assets. These will be used across the website and all social content.<br><br>
+          <strong>Phase 2 E-commerce:</strong> Accessories shop and product catalogue quoted separately when ready. Site is built now to make that transition clean and cost-effective.
+        </div>
+      </div>
+    </div>
+
+    <div class="note-box">
+      <div class="note-label">Reference</div>
+      <div class="note-text">The client has indicated <strong>aprilia.com</strong> as the visual benchmark cinematic full-width photography, minimal UI, strong brand presence. This is the aesthetic direction. The Moto Italia site will match that energy while being scoped and priced realistically for a Phase 1 information build.</div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICE 03: SOCIAL MEDIA -->
+<div id="social" class="service-block">
+  <div class="service-header">
+    <div class="accent-line"></div>
+    <div class="phase-tag">Service 03 Monthly Retainer</div>
+    <div class="service-name">SOCIAL MEDIA</div>
+    <div class="service-desc">Ongoing management of Moto Italia's social presence content, campaigns, community, and paid advertising to build an audience and drive footfall and enquiries consistently month on month.</div>
+  </div>
+  <div class="service-body">
+    <div class="two-col">
+      <div class="col-block">
+        <div class="col-title">What's Included</div>
+
+        <div class="del-item">
+          <div class="del-dot"></div>
+          <div>
+            <div class="del-main">Instagram &amp; Facebook Management</div>
+            <div class="del-sub">Content calendar, caption writing, hashtag strategy, scheduling and posting consistent brand voice across both platforms</div>
+          </div>
+        </div>
+        <div class="del-item">
+          <div class="del-dot"></div>
+          <div>
+            <div class="del-main">Content Creation</div>
+            <div class="del-sub">Using Piaggio Group brand assets and Moto Italia photography. Wecomeone produces graphics, carousel posts, and Stories creative</div>
+          </div>
+        </div>
+        <div class="del-item">
+          <div class="del-dot"></div>
+          <div>
+            <div class="del-main">Meta Ads Management 1 Active Campaign</div>
+            <div class="del-sub">Campaign setup, audience targeting, creative, monitoring and optimisation. Ad spend billed separately and advised below</div>
+          </div>
+        </div>
+        <div class="del-item">
+          <div class="del-dot"></div>
+          <div>
+            <div class="del-main">Google Business Profile</div>
+            <div class="del-sub">Weekly updates, photo uploads, review management, and Q&amp;A monitoring</div>
+          </div>
+        </div>
+        <div class="del-item">
+          <div class="del-dot"></div>
+          <div>
+            <div class="del-main">Campaign Strategy &amp; Calendar</div>
+            <div class="del-sub">Seasonal planning, promotional moments, and brand campaign themes aligned to Piaggio Group events and Cyprus riding calendar</div>
+          </div>
+        </div>
+        <div class="del-item">
+          <div class="del-dot"></div>
+          <div>
+            <div class="del-main">Monthly Reporting</div>
+            <div class="del-sub">Reach, engagement, follower growth, and ad performance summary. One strategy call per month</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="price-cell">
+        <div>
+          <div class="price-type">Monthly Agency Retainer</div>
+          <div class="price-amount">€650</div>
+          <div class="price-period">per month · excl. VAT · 6-month minimum commitment</div>
+        </div>
+        <div class="price-note">
+          <strong>Ad spend</strong> is separate and paid directly by the client. See the recommendation below.<br><br>
+          <strong>VAT:</strong> 19% VAT applicable on agency retainer as per Cyprus regulations.<br><br>
+          <strong>Start date:</strong> Social management begins once brand identity is approved ensuring all content is on-brand from the first post.
+        </div>
+      </div>
+    </div>
+
+    <!-- AD SPEND RECOMMENDATION -->
+    <div style="margin-top:1px;background:var(--steel);padding:32px 28px;">
+      <div class="col-title" style="color:var(--gold);margin-bottom:18px;">Ad Spend Recommendation 1 Active Campaign</div>
+      <table class="spend-table">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Recommended Range</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="sp-item">Meta Ads Monthly Spend</div>
+              <div class="sp-note">Facebook &amp; Instagram combined, 1 active campaign</div>
+            </td>
+            <td><span class="sp-val">€300 – €500/mo</span></td>
+            <td style="font-size:11px;color:var(--light);">Lower end for awareness; upper end when running lead generation or a promotional push</td>
+          </tr>
+          <tr>
+            <td>
+              <div class="sp-item">Suggested Starting Point</div>
+              <div class="sp-note">Month 1–2 while audiences are being built</div>
+            </td>
+            <td><span class="sp-val">€300/mo</span></td>
+            <td style="font-size:11px;color:var(--light);">Scale up from Month 3 based on what the data shows is working</td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="margin-top:16px;font-size:11px;color:var(--light);line-height:1.7;">
+        Ad spend is paid directly to Meta (Facebook/Instagram) by the client. Wecomeone manages the account, strategy, targeting, creative, and optimisation all included in the monthly retainer. No markup on ad spend.
+      </div>
+    </div>
+
+    <div class="note-box">
+      <div class="note-label">On Timing</div>
+      <div class="note-text">Social management starts <strong>after brand identity is approved</strong> not before. Running social content without a defined visual identity produces inconsistent, low-impact output. The two-to-three week brand phase is the right setup time before the first post goes live.</div>
+    </div>
+  </div>
+</div>
+
+<!-- INVESTMENT SUMMARY -->
+<div id="summary" class="section">
+  <div class="inner">
+    <div class="eyebrow">Investment Summary</div>
+    <div class="s-title">Full Picture</div>
+    <div class="s-body">All three services, clearly separated between once-off project fees and ongoing monthly costs.</div>
+  </div>
+
+  <div class="totals-bar" style="margin-top:36px;padding-top:0;padding-bottom:0;">
+    <div class="totals-inner" style="padding:0;">
+      <div class="total-cell">
+        <div class="total-label">Brand Identity</div>
+        <div class="total-val">€900</div>
+        <div class="total-sub">Once-off · excl. VAT</div>
+      </div>
+      <div class="total-cell">
+        <div class="total-label">Website Phase 1</div>
+        <div class="total-val">€2,100</div>
+        <div class="total-sub">Once-off · from · excl. VAT · final quote after scope</div>
+      </div>
+      <div class="total-cell">
+        <div class="total-label">Social Media Retainer</div>
+        <div class="total-val">€650</div>
+        <div class="total-sub">Per month · excl. VAT · 6-month minimum</div>
+      </div>
+      <div class="total-cell highlight">
+        <div class="total-label">Recommended Ad Spend</div>
+        <div class="total-val">€300–500</div>
+        <div class="total-sub">Per month · paid to Meta directly · not marked up</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="inner" style="margin-top:24px;">
+    <div class="note-box">
+      <div class="note-label">Hosting &amp; Maintenance</div>
+      <div class="note-text"><strong>€500/year</strong> charged in advance. Average figure based on a standard informational website; subject to adjustment depending on website complexity, third-party integrations, or activation of e-commerce functionality in Phase 2.</div>
+    </div>
+
+    <div class="note-box" style="margin-top:1px;">
+      <div class="note-label">VAT Note</div>
+      <div class="note-text">All fees above are quoted exclusive of VAT. <strong>19% Cyprus VAT</strong> is applicable on agency services. VAT will be itemised separately on all invoices.</div>
+    </div>
+
+    <div class="note-box" style="margin-top:1px;border-color:rgba(255,255,255,0.12);">
+      <div class="note-label" style="color:var(--light);">Store Signage Pending Quote</div>
+      <div class="note-text">The client has requested a quotation for a new store sign. Wecomeone will obtain supplier quotes once the logo is finalised sign design must be based on the approved brand identity to ensure consistency. <strong>Signage is a separate, once-off cost not included in any of the above fees.</strong> Quote to be presented following brand identity delivery.</div>
+    </div>
+  </div>
+</div>
+
+<!-- TIMELINE -->
+<div class="section">
+  <div class="inner">
+    <div class="eyebrow">Delivery Roadmap</div>
+    <div class="s-title">How It Unfolds</div>
+    <div class="s-body">Each phase builds on the previous one. Brand first, then website, then full social launch in the right order.</div>
+
+    <div class="tl-grid">
+      <div class="tl-cell">
+        <div class="tl-phase">Weeks 1–3</div>
+        <div class="tl-title">BRAND IDENTITY</div>
+        <ul class="tl-items">
+          <li><strong>Discovery call</strong> direction, references, preferences</li>
+          <li><strong>Week 2</strong> 3 logo concepts presented</li>
+          <li><strong>Client selects direction</strong></li>
+          <li><strong>Week 3</strong> final logo developed, colours, fonts locked</li>
+          <li><strong>File delivery</strong> all formats, brand guidelines doc</li>
+        </ul>
+      </div>
+      <div class="tl-cell">
+        <div class="tl-phase">Weeks 4–10</div>
+        <div class="tl-title">WEBSITE</div>
+        <ul class="tl-items">
+          <li><strong>Week 4</strong> sitemap, wireframes, content brief</li>
+          <li><strong>Piaggio Group assets</strong> client collecting brand guidelines, photography, and video from brands</li>
+          <li><strong>Week 5–6</strong> design mockups, client review</li>
+          <li><strong>Week 7–9</strong> development, brand sections, SEO setup</li>
+          <li><strong>Week 10</strong> testing, final review, launch</li>
+        </ul>
+      </div>
+      <div class="tl-cell">
+        <div class="tl-phase">Week 4 Onwards</div>
+        <div class="tl-title">SOCIAL MEDIA</div>
+        <ul class="tl-items">
+          <li><strong>Week 4</strong> social audit, account access, strategy brief</li>
+          <li><strong>Content calendar</strong> first month planned and approved</li>
+          <li><strong>Meta Ads</strong> account setup, first campaign live</li>
+          <li><strong>GBP</strong> fully optimised and active</li>
+          <li><strong>Month 2+</strong> full content rhythm, reporting, optimisation</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ACTIVATION CALENDAR -->
+<div id="calendar" class="section">
+  <div class="inner">
+    <div class="eyebrow">Activation Calendar</div>
+    <div class="s-title">Week by Week</div>
+    <div class="s-body">A clear picture of who does what and when, from signing through to full activation. Client actions are highlighted in gold — these are the dependencies that keep everything on schedule.</div>
+
+    <div class="cal-legend">
+      <div class="leg-item"><div class="leg-dot" style="background:var(--red);"></div>Brand Identity</div>
+      <div class="leg-item"><div class="leg-dot" style="background:#4A9FE0;"></div>Website</div>
+      <div class="leg-item"><div class="leg-dot" style="background:#4A9B6F;"></div>Social Media</div>
+      <div class="leg-item"><div class="leg-dot" style="background:var(--gold);"></div>All Services</div>
+      <div class="leg-item" style="margin-left:auto;"><span style="color:var(--white);font-weight:500;">Wecomeone</span></div>
+      <div class="leg-item"><span style="color:var(--gold);font-weight:500;">Client action</span></div>
+      <div class="leg-item"><span style="color:#4A9FE0;font-weight:500;">Both</span></div>
+    </div>
+
+    <div class="cal-wrap">
+      <table class="cal-table">
+        <thead>
+          <tr>
+            <th class="week-col">Week</th>
+            <th>Service</th>
+            <th>Action</th>
+            <th>Owner</th>
+            <th>Output / Gate</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <!-- WEEK 1 -->
+          <tr>
+            <td rowspan="4"><div class="cal-week">W01</div></td>
+            <td><span class="cal-phase phase-all">All</span></td>
+            <td><div class="cal-action">Agreement signed, deposits received</div><div class="cal-sub">Service agreement countersigned. Brand ID 50% deposit (€450) and Website 50% deposit (€1,050) received</div></td>
+            <td><span class="cal-owner-both">Both</span></td>
+            <td><span style="color:var(--white);font-size:11px;">Project kickoff confirmed</span></td>
+          </tr>
+          <tr>
+            <td><span class="cal-phase phase-brand">Brand</span></td>
+            <td><div class="cal-action">Brand discovery call</div><div class="cal-sub">Direction, references, competitor landscape, preferences, naming</div></td>
+            <td><span class="cal-owner-both">Both</span></td>
+            <td><span style="color:var(--white);font-size:11px;">Creative brief locked</span></td>
+          </tr>
+          <tr>
+            <td><span class="cal-phase phase-social">Social</span></td>
+            <td><div class="cal-action">Social account access transferred</div><div class="cal-sub">Admin access to Facebook Page and Instagram. Meta Business account setup or transfer</div></td>
+            <td><span class="cal-owner-client">Client</span></td>
+            <td><span style="color:var(--white);font-size:11px;">Accounts live with Wecomeone</span></td>
+          </tr>
+          <tr>
+            <td><span class="cal-phase phase-all">All</span></td>
+            <td><div class="cal-action">Piaggio Group brand request initiated</div><div class="cal-sub">Client contacts Piaggio, Vespa, Moto Guzzi, and Aprilia for brand guidelines, photography, and video assets</div></td>
+            <td><span class="cal-owner-client">Client</span></td>
+            <td><div class="dep-flag">Dependency: Website + Social content</div></td>
+          </tr>
+
+          <!-- WEEK 2 -->
+          <tr>
+            <td rowspan="3"><div class="cal-week">W02</div></td>
+            <td><span class="cal-phase phase-brand">Brand</span></td>
+            <td><div class="cal-action">3 logo concepts presented</div><div class="cal-sub">Full presentation of three distinct directions with rationale and colour/font pairings for each</div></td>
+            <td><span class="cal-owner-we">Wecomeone</span></td>
+            <td><span style="color:var(--white);font-size:11px;">Client selects direction</span></td>
+          </tr>
+          <tr>
+            <td><span class="cal-phase phase-brand">Brand</span></td>
+            <td><div class="cal-action">Logo direction approved</div><div class="cal-sub">Client confirms preferred concept. Feedback consolidated into one clear brief for final development</div></td>
+            <td><span class="cal-owner-client">Client</span></td>
+            <td><div class="dep-flag">Dependency: All other deliverables</div></td>
+          </tr>
+          <tr>
+            <td><span class="cal-phase phase-social">Social</span></td>
+            <td><div class="cal-action">Social audit and strategy brief</div><div class="cal-sub">Existing accounts audited. Content pillars, tone of voice, and first month calendar drafted</div></td>
+            <td><span class="cal-owner-we">Wecomeone</span></td>
+            <td><span style="color:var(--white);font-size:11px;">Strategy brief for client review</span></td>
+          </tr>
+
+          <!-- WEEK 3 -->
+          <tr>
+            <td rowspan="3"><div class="cal-week">W03</div></td>
+            <td><span class="cal-phase phase-brand">Brand</span></td>
+            <td><div class="cal-action">Final logo development</div><div class="cal-sub">Selected concept refined. Colour palette, typography system, and logo variations developed</div></td>
+            <td><span class="cal-owner-we">Wecomeone</span></td>
+            <td><span style="color:var(--white);font-size:11px;">Final brand identity ready for approval</span></td>
+          </tr>
+          <tr>
+            <td><span class="cal-phase phase-brand">Brand</span></td>
+            <td><div class="cal-action">Brand identity approved and delivered</div><div class="cal-sub">All files delivered: AI, EPS, SVG, PNG, PDF. Brand guidelines document handed over</div></td>
+            <td><span class="cal-owner-both">Both</span></td>
+            <td><span style="color:var(--white);font-size:11px;">Brand identity complete. Phase 1 closed</span></td>
+          </tr>
+          <tr>
+            <td><span class="cal-phase phase-social">Social</span></td>
+            <td><div class="cal-action">Strategy brief approved by client</div><div class="cal-sub">Content calendar, tone, and campaign structure signed off. Social templates begin once brand is approved</div></td>
+            <td><span class="cal-owner-client">Client</span></td>
+            <td><div class="dep-flag">Dependency: Social content launch</div></td>
+          </tr>
+
+          <!-- WEEK 4 -->
+          <tr>
+            <td rowspan="4"><div class="cal-week">W04</div></td>
+            <td><span class="cal-phase phase-web">Website</span></td>
+            <td><div class="cal-action">Website sitemap and wireframes</div><div class="cal-sub">Page structure, content hierarchy, and section layout defined. Piaggio Group asset inventory reviewed</div></td>
+            <td><span class="cal-owner-we">Wecomeone</span></td>
+            <td><span style="color:var(--white);font-size:11px;">Sitemap and wireframes for client approval</span></td>
+          </tr>
+          <tr>
+            <td><span class="cal-phase phase-web">Website</span></td>
+            <td><div class="cal-action">Content brief issued to client</div><div class="cal-sub">List of all text, images, and brand assets required from client and Piaggio Group brands</div></td>
+            <td><span class="cal-owner-we">Wecomeone</span></td>
+            <td><div class="dep-flag">Dependency: Client content delivery</div></td>
+          </tr>
+          <tr>
+            <td><span class="cal-phase phase-social">Social</span></td>
+            <td><div class="cal-action">Social templates designed</div><div class="cal-sub">Post templates, Stories templates, and profile assets built on approved brand identity</div></td>
+            <td><span class="cal-owner-we">Wecomeone</span></td>
+            <td><span style="color:var(--white);font-size:11px;">Templates ready</span></td>
+          </tr>
+          <tr>
+            <td><span class="cal-phase phase-social">Social</span></td>
+            <td><div class="cal-action">Meta Ads account setup</div><div class="cal-sub">Business Manager configured, pixel installed, first awareness campaign built and submitted for review</div></td>
+            <td><span class="cal-owner-we">Wecomeone</span></td>
+            <td><span style="color:var(--white);font-size:11px;">Campaign ready to launch</span></td>
+          </tr>
+
+          <!-- WEEK 5 -->
+          <tr>
+            <td rowspan="3"><div class="cal-week">W05</div></td>
+            <td><span class="cal-phase phase-social">Social</span></td>
+            <td><div class="cal-action">First social posts go live</div><div class="cal-sub">Content calendar begins. 3 posts/week rhythm established across Instagram and Facebook</div></td>
+            <td><span class="cal-owner-we">Wecomeone</span></td>
+            <td><span style="color:var(--white);font-size:11px;">Moto Italia social presence live</span></td>
+          </tr>
+          <tr>
+            <td><span class="cal-phase phase-social">Social</span></td>
+            <td><div class="cal-action">Meta Ads campaign live</div><div class="cal-sub">Awareness campaign active. Cyprus-wide targeting. Ad spend at €300/month to start</div></td>
+            <td><span class="cal-owner-we">Wecomeone</span></td>
+            <td><span style="color:var(--white);font-size:11px;">Paid reach begins</span></td>
+          </tr>
+          <tr>
+            <td><span class="cal-phase phase-web">Website</span></td>
+            <td><div class="cal-action">Website design mockups</div><div class="cal-sub">Full visual design presented for homepage, brand pages, accessories section, and contact page</div></td>
+            <td><span class="cal-owner-we">Wecomeone</span></td>
+            <td><span style="color:var(--white);font-size:11px;">Design approval required</span></td>
+          </tr>
+
+          <!-- WEEK 6 -->
+          <tr>
+            <td rowspan="2"><div class="cal-week">W06</div></td>
+            <td><span class="cal-phase phase-web">Website</span></td>
+            <td><div class="cal-action">Website design approved</div><div class="cal-sub">Client reviews and approves visual design. Feedback consolidated. Development begins</div></td>
+            <td><span class="cal-owner-client">Client</span></td>
+            <td><div class="dep-flag">Dependency: Development start</div></td>
+          </tr>
+          <tr>
+            <td><span class="cal-phase phase-web">Website</span></td>
+            <td><div class="cal-action">All website content received from client</div><div class="cal-sub">Brand assets from Piaggio Group, store photography, and any additional copy provided</div></td>
+            <td><span class="cal-owner-client">Client</span></td>
+            <td><div class="dep-flag">Dependency: Website development</div></td>
+          </tr>
+
+          <!-- WEEKS 7–9 -->
+          <tr>
+            <td rowspan="2"><div class="cal-week">W07–09</div></td>
+            <td><span class="cal-phase phase-web">Website</span></td>
+            <td><div class="cal-action">Website development</div><div class="cal-sub">Full build: four brand sections, accessories page, contact and directions, SEO foundation, Google Analytics, WhatsApp integration</div></td>
+            <td><span class="cal-owner-we">Wecomeone</span></td>
+            <td><span style="color:var(--white);font-size:11px;">Staging site live for review</span></td>
+          </tr>
+          <tr>
+            <td><span class="cal-phase phase-social">Social</span></td>
+            <td><div class="cal-action">Social Month 1 reporting</div><div class="cal-sub">Reach, engagement, follower growth, and ad performance. Strategy call to review and plan Month 2</div></td>
+            <td><span class="cal-owner-we">Wecomeone</span></td>
+            <td><span style="color:var(--white);font-size:11px;">Month 2 campaign direction agreed</span></td>
+          </tr>
+
+          <!-- WEEK 10 -->
+          <tr>
+            <td rowspan="3"><div class="cal-week">W10</div></td>
+            <td><span class="cal-phase phase-web">Website</span></td>
+            <td><div class="cal-action">Client website review on staging</div><div class="cal-sub">Full walkthrough of staging site. Feedback collected and final amends applied</div></td>
+            <td><span class="cal-owner-both">Both</span></td>
+            <td><span style="color:var(--white);font-size:11px;">Final approval for launch</span></td>
+          </tr>
+          <tr>
+            <td><span class="cal-phase phase-web">Website</span></td>
+            <td><div class="cal-action">Website goes live</div><div class="cal-sub">Domain pointed, SSL active, Google Search Console submitted, hosting live. Annual hosting fee (€500) invoiced in advance</div></td>
+            <td><span class="cal-owner-we">Wecomeone</span></td>
+            <td><span style="color:var(--white);font-size:11px;">Moto Italia website live</span></td>
+          </tr>
+          <tr>
+            <td><span class="cal-phase phase-brand">Brand</span></td>
+            <td><div class="cal-action">Signage quote presented</div><div class="cal-sub">Supplier quotes for new store sign obtained and presented to client for selection. Based on approved logo</div></td>
+            <td><span class="cal-owner-we">Wecomeone</span></td>
+            <td><span style="color:var(--white);font-size:11px;">Client selects supplier</span></td>
+          </tr>
+
+          <!-- WEEK 12 -->
+          <tr>
+            <td><div class="cal-week">W12</div></td>
+            <td><span class="cal-phase phase-social">Social</span></td>
+            <td><div class="cal-action">Month 2 report and Month 3 planning</div><div class="cal-sub">Full performance review. Ad spend scale-up recommendation based on data. Month 3 content calendar approved</div></td>
+            <td><span class="cal-owner-we">Wecomeone</span></td>
+            <td><span style="color:var(--white);font-size:11px;">Optimised campaign into Month 3</span></td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note-box" style="margin-top:24px;">
+      <div class="note-label">Important</div>
+      <div class="note-text">Dates marked as <strong style="color:var(--gold);">Client</strong> actions are dependencies. Delays on client approvals, asset delivery, or access transfers will push subsequent milestones accordingly. Wecomeone will flag any risk to the schedule as soon as it is identified.</div>
+    </div>
+  </div>
+</div>
+
+<!-- NEXT STEPS -->
+<div id="next" class="section">
+  <div class="inner">
+    <div class="eyebrow">What Happens Next</div>
+    <div class="s-title">Ready to Move</div>
+    <div class="s-body">Four things needed to get started.</div>
+
+    <div class="steps-grid">
+      <div class="step-cell">
+        <div class="step-num">01</div>
+        <div class="step-h">Sign the agreement</div>
+        <div class="step-p">Service agreement covering all three engagements. Brand ID and website as once-off projects, social as a 6-month retainer.</div>
+      </div>
+      <div class="step-cell">
+        <div class="step-num">02</div>
+        <div class="step-h">Deposits</div>
+        <div class="step-p">Brand ID 50% deposit (€450) and Website 50% deposit (€1,050) received. Discovery call booked. Brand work begins immediately — this is the critical path for everything else.</div>
+      </div>
+      <div class="step-cell">
+        <div class="step-num">03</div>
+        <div class="step-h">Piaggio Group content &amp; guidelines</div>
+        <div class="step-p">Client has agreed to contact Piaggio, Vespa, Moto Guzzi, and Aprilia directly to request brand guidelines, photography, and video content. Assets received will be used across the website and social media.</div>
+      </div>
+      <div class="step-cell">
+        <div class="step-num">04</div>
+        <div class="step-h">Social account access</div>
+        <div class="step-p">Admin access to Facebook Page, Instagram account, and any existing Meta Ads account transferred to Wecomeone. Can happen in parallel with brand work.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-brand">Wecomeone · hello@wecomeone.me · +357 99007611</div>
+  <div class="footer-right">Prepared for Moto Italia · Confidential · August 2026</div>
+</footer>
+
+<script>
+  function toggleMenu() {
+    const nav = document.getElementById('navLinks');
+    const btn = document.getElementById('hamburger');
+    nav.classList.toggle('open');
+    btn.classList.toggle('open');
+  }
+  function closeMenu() {
+    const nav = document.getElementById('navLinks');
+    const btn = document.getElementById('hamburger');
+    nav.classList.remove('open');
+    btn.classList.remove('open');
+  }
+</script>
+</body>
+</html>
