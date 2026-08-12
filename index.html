@@ -1,0 +1,611 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HostBuddy AI — Greece &amp; Cyprus Marketing Strategy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FAFBFF;
+    --surface:#FFFFFF;
+    --tint:#EEF4FE;
+    --tint2:#E7F8FE;
+    --ink:#10162B;
+    --muted:#5B6486;
+    --mutelight:#8891B0;
+    --line:#E4E9F5;
+    --blue:#1877EE;
+    --blue2:#22A9F2;
+    --dark:#0A0D18;
+    --dark2:#141A30;
+    --white:#FFFFFF;
+    --radius:20px;
+    --maxw:900px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--blue2);color:#fff;}
+
+  a{color:var(--blue);}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px;}
+
+  /* ---------- top nav ---------- */
+  .topbar{
+    position:sticky;top:0;z-index:50;
+    background:rgba(250,251,255,.88);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .topbar-inner{
+    max-width:var(--maxw);margin:0 auto;padding:14px 32px;
+    display:flex;align-items:center;justify-content:space-between;gap:16px;
+  }
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Sora';font-weight:700;font-size:15px;color:var(--ink);}
+  .brand .dot{width:9px;height:9px;border-radius:50%;background:linear-gradient(135deg,var(--blue2),var(--blue));box-shadow:0 0 10px rgba(24,119,238,.5);}
+  .topnav{display:flex;gap:22px;flex-wrap:wrap;}
+  .topnav a{font-size:13px;font-weight:600;color:var(--muted);text-decoration:none;letter-spacing:.2px;}
+  .topnav a:hover{color:var(--blue);}
+  @media (max-width:760px){ .topnav{display:none;} }
+
+  /* ---------- hero ---------- */
+  .hero{padding:88px 0 64px;position:relative;overflow:hidden;}
+  .hero::before{
+    content:"";position:absolute;top:-220px;right:-160px;width:620px;height:620px;border-radius:50%;
+    background:radial-gradient(circle,rgba(34,169,242,.16),transparent 70%);pointer-events:none;
+  }
+  .eyebrow-pill{
+    display:inline-flex;align-items:center;gap:9px;
+    font-size:12.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--blue);
+    background:var(--tint);border:1px solid #D7E7FD;padding:9px 16px;border-radius:100px;margin-bottom:28px;
+  }
+  .eyebrow-pill .dot{width:7px;height:7px;border-radius:50%;background:linear-gradient(135deg,var(--blue2),var(--blue));}
+  h1.title{
+    font-family:'Sora';font-weight:800;font-size:52px;line-height:1.06;letter-spacing:-1.6px;margin:0 0 22px;
+    max-width:760px;
+  }
+  h1.title .g{background:linear-gradient(97deg,var(--blue2),var(--blue));-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .hero-sub{font-size:19px;line-height:1.55;color:var(--muted);max-width:600px;margin:0 0 34px;}
+  .hero-meta{display:flex;gap:28px;flex-wrap:wrap;padding-top:26px;border-top:1px solid var(--line);}
+  .hero-meta div{display:flex;flex-direction:column;gap:4px;}
+  .hero-meta span.k{font-size:11.5px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--mutelight);}
+  .hero-meta span.v{font-size:15px;font-weight:600;color:var(--ink);font-family:'Sora';}
+
+  @media (max-width:640px){
+    h1.title{font-size:36px;}
+    .hero{padding:56px 0 40px;}
+  }
+
+  /* ---------- section shell ---------- */
+  section{padding:64px 0;border-top:1px solid var(--line);}
+  section.tint-block{background:var(--tint);border-top:none;border-bottom:1px solid var(--line);}
+  section.dark-block{background:var(--dark);border-top:none;color:#EEF1FF;}
+  .sec-head{margin-bottom:40px;}
+  .sec-num{
+    display:inline-block;font-family:'Sora';font-weight:700;font-size:13px;letter-spacing:2px;color:var(--blue);
+    margin-bottom:14px;
+  }
+  .dark-block .sec-num{color:var(--blue2);}
+  h2.sec-title{font-family:'Sora';font-weight:800;font-size:34px;letter-spacing:-1px;margin:0 0 14px;line-height:1.15;}
+  .sec-dek{font-size:17px;color:var(--muted);max-width:640px;line-height:1.6;}
+  .dark-block .sec-dek{color:#AEB6D6;}
+
+  p{margin:0 0 16px;}
+  .lede{font-size:18px;line-height:1.7;color:var(--ink);}
+
+  h3{font-family:'Sora';font-weight:700;font-size:20px;letter-spacing:-.3px;margin:0 0 10px;}
+
+  /* ---------- cards ---------- */
+  .grid{display:grid;gap:20px;}
+  .grid-3{grid-template-columns:repeat(3,1fr);}
+  .grid-2{grid-template-columns:repeat(2,1fr);}
+  @media (max-width:760px){ .grid-3,.grid-2{grid-template-columns:1fr;} }
+
+  .card{
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    padding:28px;
+  }
+  .card h3{margin-bottom:8px;}
+  .card p{color:var(--muted);font-size:14.5px;margin-bottom:0;}
+  .card .tag{
+    display:inline-block;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;
+    color:var(--blue);background:var(--tint);padding:5px 11px;border-radius:100px;margin-bottom:14px;
+  }
+
+  /* ---------- stat row ---------- */
+  .stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:8px;}
+  @media (max-width:760px){ .stat-row{grid-template-columns:repeat(2,1fr);} }
+  .stat{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px 20px;}
+  .stat .num{font-family:'Sora';font-weight:800;font-size:30px;letter-spacing:-1px;
+    background:linear-gradient(97deg,var(--blue2),var(--blue));-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .stat .lbl{font-size:13px;color:var(--muted);margin-top:4px;line-height:1.4;}
+
+  /* ---------- tailwind table ---------- */
+  table{width:100%;border-collapse:collapse;background:var(--surface);border-radius:16px;overflow:hidden;border:1px solid var(--line);}
+  table.plain{background:transparent;border:none;}
+  th,td{text-align:left;padding:14px 18px;font-size:14.5px;border-bottom:1px solid var(--line);vertical-align:top;}
+  th{font-family:'Sora';font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--mutelight);font-weight:700;background:var(--tint);}
+  tr:last-child td{border-bottom:none;}
+  td.num,th.num{font-family:'Sora';font-weight:700;color:var(--blue);white-space:nowrap;}
+  .dark-block table{background:var(--dark2);border-color:#232B48;}
+  .dark-block th{background:#182040;color:#8FA0D8;}
+  .dark-block td{border-color:#232B48;color:#DDE3FA;}
+  .dark-block td.num{color:var(--blue2);}
+
+  /* ---------- persona table ---------- */
+  .persona-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:0;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--surface);}
+  .persona-grid > div{padding:16px 18px;border-bottom:1px solid var(--line);font-size:14px;}
+  .persona-grid > div.h{background:var(--tint);font-family:'Sora';font-weight:700;font-size:12.5px;letter-spacing:.5px;color:var(--blue);}
+  .persona-grid > div.rowlabel{font-family:'Sora';font-weight:700;font-size:12.5px;letter-spacing:.5px;color:var(--mutelight);background:#FAFBFF;}
+  @media (max-width:760px){
+    .persona-grid{grid-template-columns:1fr;}
+    .persona-grid > div.h:not(:first-child){display:none;}
+  }
+
+  /* ---------- funnel signature ---------- */
+  .funnel{display:flex;gap:0;align-items:stretch;margin:44px 0 8px;}
+  .funnel-step{
+    flex:1;position:relative;padding:30px 26px;border-radius:18px;
+  }
+  .funnel-step:nth-child(1){background:var(--tint2);}
+  .funnel-step:nth-child(2){background:linear-gradient(160deg,#EAF3FF,#DCEBFE);}
+  .funnel-step:nth-child(3){background:linear-gradient(150deg,var(--blue2),var(--blue));color:#fff;}
+  .funnel-step .fn{font-family:'Sora';font-weight:800;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;opacity:.65;margin-bottom:10px;}
+  .funnel-step h4{font-family:'Sora';font-weight:700;font-size:19px;margin:0 0 8px;}
+  .funnel-step p{font-size:13.8px;margin:0;opacity:.85;line-height:1.5;}
+  .funnel-arrow{display:flex;align-items:center;justify-content:center;width:34px;flex:none;color:var(--mutelight);font-size:20px;}
+  @media (max-width:760px){
+    .funnel{flex-direction:column;}
+    .funnel-arrow{width:auto;height:24px;transform:rotate(90deg);}
+  }
+
+  /* ---------- budget split ---------- */
+  .budget-cols{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:8px;}
+  @media (max-width:760px){ .budget-cols{grid-template-columns:1fr;} }
+  .budget-card{border-radius:18px;padding:28px;border:1px solid var(--line);background:var(--surface);}
+  .budget-card .flag{font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--mutelight);margin-bottom:6px;}
+  .budget-card .amount{font-family:'Sora';font-weight:800;font-size:38px;letter-spacing:-1px;margin-bottom:2px;}
+  .budget-card .per{font-size:13px;color:var(--mutelight);margin-bottom:18px;}
+  .bar{height:10px;border-radius:6px;background:var(--tint);overflow:hidden;margin-bottom:6px;}
+  .bar > div{height:100%;background:linear-gradient(90deg,var(--blue2),var(--blue));}
+
+  /* ---------- roadmap ---------- */
+  .roadmap{display:flex;flex-direction:column;gap:0;margin-top:8px;}
+  .rstep{display:grid;grid-template-columns:64px 1fr;gap:22px;padding:26px 0;border-top:1px solid var(--line);}
+  .rstep:first-child{border-top:none;}
+  .rstep .rn{font-family:'Sora';font-weight:800;font-size:22px;color:var(--blue2);opacity:.5;}
+  .rstep h4{font-family:'Sora';font-weight:700;font-size:17px;margin:0 0 6px;}
+  .rstep .rwhen{font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--mutelight);margin-bottom:8px;}
+  .rstep p{font-size:14.5px;color:var(--muted);margin:0;}
+
+  /* ---------- video script block ---------- */
+  .script-block{
+    background:var(--dark2);border-radius:20px;padding:34px 34px;color:#fff;margin-top:8px;
+    border:1px solid #232B48;
+  }
+  .script-line{
+    display:grid;grid-template-columns:120px 1fr;gap:18px;padding:16px 0;border-top:1px solid #232B48;
+  }
+  .script-line:first-child{border-top:none;padding-top:0;}
+  .script-line .beat{font-size:11px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--blue2);padding-top:2px;}
+  .script-line .gr{font-family:'Sora';font-weight:600;font-size:17px;line-height:1.5;color:#fff;margin-bottom:4px;}
+  .script-line .en{font-size:13.5px;color:#8FA0D8;font-style:italic;}
+
+  .note{
+    display:flex;gap:12px;background:var(--tint);border:1px solid #D7E7FD;border-radius:14px;padding:16px 18px;font-size:14px;color:var(--ink);margin-top:20px;
+  }
+  .note .ic{flex:none;font-size:16px;}
+  .note b{color:var(--blue);}
+
+  /* ---------- checklist ---------- */
+  ul.check{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;}
+  ul.check li{display:flex;gap:12px;font-size:14.5px;color:var(--ink);align-items:flex-start;}
+  ul.check li::before{
+    content:"";flex:none;width:19px;height:19px;margin-top:2px;border-radius:6px;
+    background:linear-gradient(135deg,var(--blue2),var(--blue));
+  }
+
+  /* ---------- footer ---------- */
+  footer{padding:56px 0 80px;}
+  footer .fline{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;
+    padding-top:28px;border-top:1px solid var(--line);font-size:13px;color:var(--mutelight);}
+
+  .pill-list{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px;}
+  .pill-list span{
+    font-size:13px;font-weight:600;color:var(--blue);background:var(--tint);border:1px solid #D7E7FD;
+    padding:7px 14px;border-radius:100px;
+  }
+
+  @media print{
+    .topbar{display:none;}
+    section{padding:28px 0;}
+    .hero{padding:20px 0;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="brand"><span class="dot"></span> HostBuddy AI — GR/CY Strategy</div>
+    <nav class="topnav">
+      <a href="#opportunity">Opportunity</a>
+      <a href="#segments">Segments</a>
+      <a href="#model">Model</a>
+      <a href="#budget">Budget</a>
+      <a href="#creative">Creative</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#next">Next steps</a>
+    </nav>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow-pill"><span class="dot"></span> Prepared by Wecomeone</div>
+    <h1 class="title">HostBuddy AI<br><span class="g">Greece &amp; Cyprus</span> marketing strategy</h1>
+    <p class="hero-sub">A lead generation campaign to educate short term rental owners and hotel owners about HostBuddy AI, and capture leads for direct follow up — built for a €800/month combined budget.</p>
+    <div class="hero-meta">
+      <div><span class="k">Markets</span><span class="v">Greece &amp; Cyprus</span></div>
+      <div><span class="k">Audience</span><span class="v">STR owners &amp; hotel owners</span></div>
+      <div><span class="k">Goal</span><span class="v">Educate → capture leads → inform</span></div>
+      <div><span class="k">Monthly budget</span><span class="v">€500 GR + €300 CY</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- 01 OPPORTUNITY -->
+<section id="opportunity">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">01 — THE OPPORTUNITY</span>
+      <h2 class="sec-title">Why now, why these two markets</h2>
+      <p class="sec-dek">Both markets are at record tourism levels, and two forces make HostBuddy an unusually easy sell right now: owners can't hire the staff they need, and regulators are pushing casual hosts to run their properties like real businesses.</p>
+    </div>
+
+    <div class="stat-row">
+      <div class="stat"><div class="num">~160K</div><div class="lbl">active short-term rental listings in Greece (2025)</div></div>
+      <div class="stat"><div class="num">€12.5B</div><div class="lbl">Greek hotel sector turnover in 2025, up 8.7%</div></div>
+      <div class="stat"><div class="num">14–20%</div><div class="lbl">of Greek hospitality jobs unfilled — a structural gap</div></div>
+      <div class="stat"><div class="num">4.5M</div><div class="lbl">visitor arrivals to Cyprus in 2025, a record year</div></div>
+    </div>
+
+    <div style="height:36px"></div>
+
+    <h3>The tailwinds pushing owners toward tools like HostBuddy</h3>
+    <table>
+      <tr><th>Tailwind</th><th>Why it helps HostBuddy</th></tr>
+      <tr><td>Record tourism volumes in both markets</td><td>More guests, more messages, more pressure on owners</td></tr>
+      <tr><td>Severe hospitality labour shortage (Greece)</td><td>Automation replaces staff owners simply cannot hire</td></tr>
+      <tr><td>Registry enforcement (both markets)</td><td>Casual hosts professionalise or exit; professionals adopt tools</td></tr>
+      <tr><td>Many small, seasonal, family-run properties</td><td>Owner-operators feel the messaging load personally</td></tr>
+      <tr><td>Booking.com and Airbnb both dominant</td><td>HostBuddy's multichannel inbox is a direct fit</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 02 SEGMENTS -->
+<section id="segments" class="tint-block">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">02 — WHO WE'RE TALKING TO</span>
+      <h2 class="sec-title">Three segments, one campaign</h2>
+      <p class="sec-dek">Prioritised by ease of reach and speed to a lead. The campaign creative speaks primarily to Segment A — they're the volume engine and the easiest to reach on Meta.</p>
+    </div>
+
+    <div class="grid grid-3">
+      <div class="card">
+        <span class="tag">Segment A · Priority</span>
+        <h3>Solo &amp; small hosts</h3>
+        <p>1–3 listings, often alongside a day job. Feels every late-night message personally. Price sensitive, reached on social, converts on a free guide or demo.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Segment B</span>
+        <h3>Property managers</h3>
+        <p>5–100+ listings, already using a PMS (Hostaway, Guesty, OwnerRez, Hostfully). Thinks in cost per unit and hours saved. Higher value, longer cycle.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Segment C</span>
+        <h3>Boutique hotels</h3>
+        <p>10–60 rooms, family run, hit hardest by the staffing crunch. Wants 24/7 service with a thin front desk. Needs reassurance and a human touch.</p>
+      </div>
+    </div>
+
+    <div style="height:32px"></div>
+
+    <h3>At a glance</h3>
+    <div class="persona-grid">
+      <div class="h">&nbsp;</div><div class="h">Maria — solo host (A)</div><div class="h">Andreas — property manager (B)</div><div class="h">Elena — boutique hotelier (C)</div>
+      <div class="rowlabel">Top pain</div><div>Late night messages, no time</div><div>Staff cost per unit, review consistency</div><div>Can't staff the front desk 24/7</div>
+      <div class="rowlabel">Buys because</div><div>Wins back evenings, more reviews</div><div>Saves hours, scales without hiring</div><div>Keeps service high with fewer staff</div>
+      <div class="rowlabel">Reached via</div><div>Social, guide download, free trial</div><div>LinkedIn, PMS partners, demo</div><div>Events, associations, referral</div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 MODEL -->
+<section id="model">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">03 — THE MODEL</span>
+      <h2 class="sec-title">Educate → capture → inform</h2>
+      <p class="sec-dek">This is the mechanism the whole campaign runs on. The goal isn't to sell inside the ad — it's to educate enough that someone hands over their contact, so your team can inform and convert them directly.</p>
+    </div>
+
+    <div class="funnel">
+      <div class="funnel-step">
+        <div class="fn">Stage 1</div>
+        <h4>Educate</h4>
+        <p>The organic 27-post calendar plus the video explain the problem and the fix. No hard sell — just recognisable pain and a clear demonstration of the product working.</p>
+      </div>
+      <div class="funnel-arrow">→</div>
+      <div class="funnel-step">
+        <div class="fn">Stage 2</div>
+        <h4>Capture</h4>
+        <p>A single Meta lead ad per country offers a free guide and a soft callback request via an instant form. Low friction, low cost per lead, built for volume.</p>
+      </div>
+      <div class="funnel-arrow">→</div>
+      <div class="funnel-step">
+        <div class="fn">Stage 3</div>
+        <h4>Inform</h4>
+        <p>Leads land in a sheet or CRM and get the guide instantly, a short demo video, then a personal call or WhatsApp message from the team — this is where HostBuddy is actually sold.</p>
+      </div>
+    </div>
+
+    <div class="note"><span class="ic">💡</span><div><b>Why this shape fits an €800 budget:</b> a full multi-stage paid funnel would starve every part of it at this spend. Concentrating paid budget on one lead objective per country, while organic content does the educating, is what makes €800/month workable.</div></div>
+  </div>
+</section>
+
+<!-- 04 BUDGET -->
+<section id="budget" class="tint-block">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">04 — CAMPAIGN STRUCTURE &amp; BUDGET</span>
+      <h2 class="sec-title">One lead campaign per country</h2>
+      <p class="sec-dek">Separate campaigns because language, audience and creative differ. One prospecting ad set per country to start — fragmenting the budget further would stop Meta from optimising properly.</p>
+    </div>
+
+    <div class="budget-cols">
+      <div class="budget-card">
+        <div class="flag">Greece</div>
+        <div class="amount">€500<span style="font-size:16px;font-weight:600;color:var(--mutelight)">/mo</span></div>
+        <div class="per">~€16 per day · Meta lead campaign · Greek creative</div>
+        <div class="bar"><div style="width:100%"></div></div>
+      </div>
+      <div class="budget-card">
+        <div class="flag">Cyprus</div>
+        <div class="amount">€300<span style="font-size:16px;font-weight:600;color:var(--mutelight)">/mo</span></div>
+        <div class="per">~€10 per day · Meta lead campaign · English creative</div>
+        <div class="bar"><div style="width:60%"></div></div>
+      </div>
+    </div>
+
+    <div style="height:32px"></div>
+
+    <h3>Campaign map</h3>
+    <table>
+      <tr><th>Country</th><th>Objective</th><th>Audience</th><th>Offer</th><th>Conversion</th></tr>
+      <tr><td>Greece</td><td>Leads (instant form)</td><td>Airbnb/Booking hosts, property management &amp; tourism SMB interests</td><td>Free guide + callback</td><td>Meta instant form</td></tr>
+      <tr><td>Cyprus</td><td>Leads (instant form)</td><td>Same interest set, English audience</td><td>Free guide + callback</td><td>Meta instant form</td></tr>
+    </table>
+
+    <div style="height:28px"></div>
+
+    <h3>Phasing within each country</h3>
+    <div class="roadmap">
+      <div class="rstep">
+        <div class="rn">01</div>
+        <div><div class="rwhen">Weeks 1–2</div><h4>100% prospecting</h4><p>One broad ad set per country targeting Airbnb/Booking hosts and property management interests. Let Meta's algorithm find the buyers before we narrow anything.</p></div>
+      </div>
+      <div class="rstep">
+        <div class="rn">02</div>
+        <div><div class="rwhen">Week 3 onward — Greece only</div><h4>Add a small retargeting slice</h4><p>Peel off ~€3–4/day into a retargeting ad set aimed at video viewers, post engagers, and people who opened but didn't submit the form. Cyprus stays single ad set unless it's clearly performing.</p></div>
+      </div>
+    </div>
+
+    <div style="height:12px"></div>
+    <h3>Planning ranges — validate, don't promise</h3>
+    <table>
+      <tr><th>Country</th><th>Monthly spend</th><th class="num">Est. leads / month</th></tr>
+      <tr><td>Greece</td><td>€500</td><td class="num">~60–150</td></tr>
+      <tr><td>Cyprus</td><td>€300</td><td class="num">~35–90</td></tr>
+    </table>
+    <p style="font-size:13.5px;color:var(--mutelight);margin-top:10px">Based on typical €3–8 cost-per-lead for educational instant-form offers in these markets. Cyprus is a smaller, English-speaking pool and may run pricier — the first 3–4 weeks of real data should confirm or correct this, and budget should shift toward whichever country delivers the better cost per quality lead.</p>
+  </div>
+</section>
+
+<!-- 05 CREATIVE -->
+<section id="creative">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">05 — CREATIVE</span>
+      <h2 class="sec-title">The video: one person, talking straight to camera</h2>
+      <p class="sec-dek">Plain and direct outperforms polished for this audience — a real property owner talking to another property owner. One shot, one location, no cuts, no screen recording. Filmed vertically, ideally on a phone, which reads as more native and trustworthy on Instagram and Facebook than something over-produced.</p>
+    </div>
+
+    <div class="grid grid-2">
+      <div class="card">
+        <h3>Format</h3>
+        <ul class="check">
+          <li>9:16 vertical, ~28–30 seconds spoken</li>
+          <li>Natural light, quiet room, plain background</li>
+          <li>Phone at eye level, small tripod or propped</li>
+          <li>Burned-in Greek captions (most people watch muted)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Delivery notes</h3>
+        <ul class="check">
+          <li>Talk to one person — "εσύ," not a crowd</li>
+          <li>Say it, don't perform it — imperfect &gt; scripted-sounding</li>
+          <li>Look at the lens, not off-camera notes</li>
+          <li>One clear ask at the end, nothing more</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="height:8px"></div>
+    <h3 style="margin-top:36px">Final script — Greek, as approved</h3>
+    <div class="script-block">
+      <div class="script-line">
+        <div class="beat">Hook</div>
+        <div><div class="gr">Ενοικιάζεις διαμερίσματα στο Airbnb ή στο Booking.com;</div><div class="en">Do you rent out apartments on Airbnb or Booking.com?</div></div>
+      </div>
+      <div class="script-line">
+        <div class="beat">Recognition</div>
+        <div><div class="gr">Τότε ξέρεις πώς είναι να απαντάς μηνύματα στις 10 η ώρα το βράδυ...</div><div class="en">Then you know what it's like answering messages at 10pm at night...</div></div>
+      </div>
+      <div class="script-line">
+        <div class="beat">Beat</div>
+        <div><div class="gr">...ή ακόμα και πιο αργά.</div><div class="en">...or even later.</div></div>
+      </div>
+      <div class="script-line">
+        <div class="beat">Specifics</div>
+        <div><div class="gr">Κωδικός για την πόρτα, το Wi-Fi, τι ώρα είναι το check-in.</div><div class="en">Door code, Wi-Fi, what time is check-in.</div></div>
+      </div>
+      <div class="script-line">
+        <div class="beat">Stakes</div>
+        <div><div class="gr">Κι αν αργήσεις να απαντήσεις, χάνεις κράτηση, ή χειρότερα, χάνεις μια καλή κριτική.</div><div class="en">And if you're slow to reply, you lose a booking, or worse, a good review.</div></div>
+      </div>
+      <div class="script-line">
+        <div class="beat">The fix</div>
+        <div><div class="gr">Το HostBuddy AI απαντάει αυτόματα, αμέσως, όλο το 24ωρο, σαν να απαντάς εσύ.</div><div class="en">HostBuddy AI replies automatically, instantly, around the clock — as if it were you.</div></div>
+      </div>
+      <div class="script-line">
+        <div class="beat">Relief</div>
+        <div><div class="gr">Δεν χρειάζεται να είσαι κολλημένος στο κινητό όλη μέρα.</div><div class="en">You don't need to be glued to your phone all day.</div></div>
+      </div>
+      <div class="script-line">
+        <div class="beat">CTA</div>
+        <div><div class="gr">Κατέβασε τον δωρεάν οδηγό και μάθε πώς λειτουργεί.</div><div class="en">Download the free guide and learn how it works.</div></div>
+      </div>
+    </div>
+
+    <div class="note"><span class="ic">🇨🇾</span><div><b>Cyprus creative:</b> hold the existing static post visuals for Cyprus while the Greek video is being tested. Once it's proven, decide whether to dub it, re-subtitle it in English, or shoot a short English pass with the same structure.</div></div>
+  </div>
+</section>
+
+<!-- 06 LEAD FOLLOW UP -->
+<section class="tint-block">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">06 — LEAD FOLLOW-UP</span>
+      <h2 class="sec-title">Where "inform" actually happens</h2>
+      <p class="sec-dek">A cheap lead that goes cold is wasted spend. This sequence is what turns a form submission into an actual HostBuddy conversation — and it costs nothing to run.</p>
+    </div>
+
+    <div class="roadmap">
+      <div class="rstep">
+        <div class="rn">01</div>
+        <div><div class="rwhen">Instant</div><h4>Deliver the guide</h4><p>Automated email fulfilling the offer immediately — this keeps trust and sets up the next touch.</p></div>
+      </div>
+      <div class="rstep">
+        <div class="rn">02</div>
+        <div><div class="rwhen">Day 2</div><h4>Show, don't tell</h4><p>Short email with the 60-second product demo and a link to book a call or reply on WhatsApp.</p></div>
+      </div>
+      <div class="rstep">
+        <div class="rn">03</div>
+        <div><div class="rwhen">Day 4–5</div><h4>Personal outreach</h4><p>A real WhatsApp message or call from the team — this is where HostBuddy is actually explained and sold.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 MEASUREMENT -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">07 — MEASUREMENT</span>
+      <h2 class="sec-title">Three numbers to watch weekly</h2>
+      <p class="sec-dek">Keep it simple at this budget. Review weekly, and after about a month, shift spend toward whichever country and creative deliver the best cost per lead that actually books a conversation.</p>
+    </div>
+    <div class="grid grid-3">
+      <div class="card"><h3>Cost per lead</h3><p>By country — the primary lever for reallocating the €800 budget between Greece and Cyprus.</p></div>
+      <div class="card"><h3>Form completion rate</h3><p>How many people who open the instant form actually submit it — an early signal on offer and targeting fit.</p></div>
+      <div class="card"><h3>Leads → calls</h3><p>How many captured leads actually take a call or reply to WhatsApp — the real test of lead quality.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 ROADMAP -->
+<section id="roadmap" class="dark-block">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">08 — 90-DAY ROADMAP</span>
+      <h2 class="sec-title" style="color:#fff">From launch to first real data</h2>
+      <p class="sec-dek">Three phases, each about a month, moving from "get it live" to "know what works" to "put budget behind the winner."</p>
+    </div>
+    <div class="roadmap">
+      <div class="rstep" style="border-color:#232B48">
+        <div class="rn">01</div>
+        <div><div class="rwhen" style="color:#8FA0D8">Weeks 1–3</div><h4 style="color:#fff">Launch</h4><p style="color:#AEB6D6">Turn on the Greek and Cypriot lead campaigns. Publish the guide and landing page. Film and launch the Greek video. Start capturing leads and learn which audiences are cheapest to convert.</p></div>
+      </div>
+      <div class="rstep" style="border-color:#232B48">
+        <div class="rn">02</div>
+        <div><div class="rwhen" style="color:#8FA0D8">Weeks 4–8</div><h4 style="color:#fff">Learn</h4><p style="color:#AEB6D6">Add the Greece retargeting slice. Get the 3-step follow-up sequence fully running so leads are actually informed. Review cost per lead weekly and start correcting targeting and creative.</p></div>
+      </div>
+      <div class="rstep" style="border-color:#232B48">
+        <div class="rn">03</div>
+        <div><div class="rwhen" style="color:#8FA0D8">Weeks 9–12</div><h4 style="color:#fff">Decide</h4><p style="color:#AEB6D6">Compare Greece vs. Cyprus performance and shift budget toward the stronger market. Decide on a Cyprus creative refresh. Set the next quarter's target based on real cost-per-lead data.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 09 NEXT STEPS -->
+<section id="next">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">09 — WHAT WE NEED TO LAUNCH</span>
+      <h2 class="sec-title">Open items before we switch this on</h2>
+    </div>
+    <div class="grid grid-2">
+      <div class="card">
+        <h3>From the client</h3>
+        <ul class="check">
+          <li>Confirm the lead magnet topic (compliance guide vs. messaging playbook)</li>
+          <li>Sign off the Meta instant form questions (name, email, WhatsApp, # of properties)</li>
+          <li>Confirm HostBuddy pricing so follow-up calls can quote confidently</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>From Wecomeone</h3>
+        <ul class="check">
+          <li>Film and edit the Greek video from the approved script</li>
+          <li>Build the guide, landing page, and instant form in both languages</li>
+          <li>Set up tracking and the lead sheet/CRM, and launch both campaigns</li>
+        </ul>
+      </div>
+    </div>
+    <div class="pill-list">
+      <span>Greece — Greek creative</span>
+      <span>Cyprus — English creative</span>
+      <span>€800/month combined</span>
+      <span>Meta instant form leads</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fline">
+      <span>HostBuddy AI — Greece &amp; Cyprus Marketing Strategy</span>
+      <span>Prepared by Wecomeone · August 2026</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
