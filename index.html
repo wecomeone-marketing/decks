@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>People Wise — Quotation by Wecomeone</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --sage: #5C7A6B;
+    --sage-light: #8AA99A;
+    --sage-pale: #EAF0EC;
+    --terracotta: #C4714A;
+    --terracotta-light: #E8A080;
+    --mauve: #9B7E8B;
+    --mauve-pale: #F0EAF0;
+    --cream: #F7F4EF;
+    --cream-dark: #EDE9E0;
+    --charcoal: #2B2B2B;
+    --charcoal-mid: #4A4A4A;
+    --charcoal-light: #7A7A7A;
+    --white: #FFFFFF;
+    --font-display: 'Cormorant Garant', Georgia, serif;
+    --font-body: 'DM Sans', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--cream);
+    color: var(--charcoal);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 20px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: transparent;
+    transition: background 0.4s ease, padding 0.4s ease;
+  }
+  nav.scrolled {
+    background: rgba(247, 244, 239, 0.95);
+    backdrop-filter: blur(8px);
+    padding: 14px 48px;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.06);
+  }
+  .nav-logo {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--white);
+    transition: color 0.4s ease;
+  }
+  nav.scrolled .nav-logo { color: var(--charcoal); }
+  .nav-label {
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    color: rgba(255,255,255,0.7);
+    transition: color 0.4s ease;
+  }
+  nav.scrolled .nav-label { color: var(--charcoal-light); }
+
+  /* HERO */
+  .hero {
+    min-height: 60vh;
+    background: var(--sage);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 140px 80px 80px;
+    overflow: hidden;
+  }
+
+  .hero-blob {
+    position: absolute;
+    right: -80px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 520px;
+    height: 520px;
+    opacity: 0.1;
+  }
+
+  .hero-eyebrow {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--terracotta-light);
+    margin-bottom: 20px;
+  }
+
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(44px, 6vw, 80px);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--white);
+    max-width: 680px;
+    margin-bottom: 28px;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--terracotta-light);
+  }
+
+  .hero-meta {
+    display: flex;
+    gap: 48px;
+    align-items: flex-start;
+    margin-top: 16px;
+  }
+
+  .hero-meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .hero-meta-label {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+  }
+
+  .hero-meta-value {
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.85);
+  }
+
+  /* SECTIONS */
+  section { padding: 80px 80px; }
+
+  .section-eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(32px, 3.5vw, 52px);
+    font-weight: 400;
+    line-height: 1.15;
+    color: var(--charcoal);
+    margin-bottom: 16px;
+  }
+
+  .section-title em { font-style: italic; color: var(--sage); }
+
+  .section-lead {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--charcoal-mid);
+    max-width: 600px;
+    font-weight: 300;
+    margin-bottom: 48px;
+  }
+
+  /* SCOPE SECTION */
+  .scope { background: var(--white); }
+
+  .scope-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .scope-card {
+    background: var(--cream);
+    border-radius: 14px;
+    overflow: hidden;
+  }
+
+  .scope-card-header {
+    padding: 28px 32px 20px;
+    border-bottom: 1px solid var(--cream-dark);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .scope-card-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+
+  .scope-card-icon.branding { background: var(--sage-pale); }
+  .scope-card-icon.website { background: #FAF0EB; }
+
+  .scope-card-title {
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 500;
+    color: var(--charcoal);
+  }
+
+  .scope-card-subtitle {
+    font-size: 12px;
+    color: var(--charcoal-light);
+    font-weight: 300;
+    margin-top: 2px;
+  }
+
+  .scope-card-body { padding: 24px 32px 32px; }
+
+  .scope-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+
+  .scope-item:last-child { margin-bottom: 0; }
+
+  .scope-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--sage);
+    margin-top: 8px;
+    flex-shrink: 0;
+  }
+
+  .scope-card:nth-child(2) .scope-dot { background: var(--terracotta); }
+
+  .scope-item-text {
+    font-size: 14px;
+    color: var(--charcoal-mid);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  .scope-item-text strong {
+    font-weight: 500;
+    color: var(--charcoal);
+    display: block;
+    font-size: 13.5px;
+  }
+
+  /* DELIVERABLES TIMELINE */
+  .deliverables { background: var(--cream); }
+
+  .deliverables-track {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 8px;
+  }
+
+  .deliverable-step {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 28px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .deliverable-accent {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+
+  .deliverable-step:nth-child(1) .deliverable-accent { background: var(--sage); }
+  .deliverable-step:nth-child(2) .deliverable-accent { background: var(--terracotta); }
+  .deliverable-step:nth-child(3) .deliverable-accent { background: var(--mauve); }
+
+  .deliverable-week {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 10px;
+  }
+
+  .deliverable-step:nth-child(2) .deliverable-week { color: var(--terracotta); }
+  .deliverable-step:nth-child(3) .deliverable-week { color: var(--mauve); }
+
+  .deliverable-title {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--charcoal);
+    margin-bottom: 14px;
+  }
+
+  .deliverable-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .deliverable-list li {
+    font-size: 13px;
+    color: var(--charcoal-light);
+    line-height: 1.6;
+    font-weight: 300;
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+  }
+
+  .deliverable-list li::before {
+    content: '→';
+    color: var(--sage);
+    font-size: 11px;
+    margin-top: 3px;
+    flex-shrink: 0;
+  }
+
+  .deliverable-step:nth-child(2) .deliverable-list li::before { color: var(--terracotta); }
+  .deliverable-step:nth-child(3) .deliverable-list li::before { color: var(--mauve); }
+
+  /* QUOTATION TABLE */
+  .quotation { background: var(--white); }
+
+  .quote-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 8px;
+  }
+
+  .quote-table thead tr {
+    background: var(--charcoal);
+    color: var(--white);
+  }
+
+  .quote-table thead th {
+    padding: 14px 20px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-align: left;
+  }
+
+  .quote-table thead th:last-child { text-align: right; }
+
+  .quote-table tbody tr {
+    border-bottom: 1px solid var(--cream-dark);
+    transition: background 0.15s ease;
+  }
+
+  .quote-table tbody tr:hover { background: var(--cream); }
+
+  .quote-table tbody td {
+    padding: 16px 20px;
+    font-size: 14px;
+    color: var(--charcoal-mid);
+    font-weight: 300;
+    vertical-align: top;
+  }
+
+  .quote-table tbody td:first-child {
+    font-weight: 500;
+    color: var(--charcoal);
+    width: 28%;
+  }
+
+  .quote-table tbody td:last-child {
+    text-align: right;
+    font-weight: 500;
+    color: var(--charcoal);
+    white-space: nowrap;
+  }
+
+  .quote-table tbody td.sub-item {
+    padding-left: 36px;
+    font-size: 13px;
+    color: var(--charcoal-light);
+  }
+
+  .quote-table tbody tr.group-header td {
+    background: var(--sage-pale);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--sage);
+    padding: 10px 20px;
+    border-bottom: none;
+  }
+
+  .quote-table tbody tr.group-header:nth-of-type(2n) td { background: #FAF0EB; color: var(--terracotta); }
+
+  .quote-total {
+    margin-top: 0;
+    border-top: 2px solid var(--charcoal);
+  }
+
+  .quote-total td {
+    padding: 20px 20px !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    color: var(--charcoal) !important;
+  }
+
+  .quote-total td:last-child {
+    font-family: var(--font-display);
+    font-size: 28px !important;
+    color: var(--sage) !important;
+  }
+
+  .quote-note {
+    margin-top: 20px;
+    padding: 18px 24px;
+    background: var(--sage-pale);
+    border-left: 3px solid var(--sage);
+    border-radius: 0 8px 8px 0;
+    font-size: 13px;
+    color: var(--charcoal-mid);
+    font-weight: 300;
+    line-height: 1.7;
+    max-width: 720px;
+  }
+
+  .quote-note strong {
+    font-weight: 600;
+    color: var(--charcoal);
+  }
+
+  /* TERMS */
+  .terms { background: var(--cream); }
+
+  .terms-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .term-card {
+    background: var(--white);
+    border-radius: 10px;
+    padding: 24px 26px;
+  }
+
+  .term-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 10px;
+  }
+
+  .term-value {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--charcoal);
+    margin-bottom: 6px;
+  }
+
+  .term-desc {
+    font-size: 13px;
+    color: var(--charcoal-light);
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  /* CLOSING */
+  .closing {
+    background: var(--sage);
+    color: var(--white);
+    text-align: center;
+    padding: 100px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .closing-blob {
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 400px; height: 400px;
+    opacity: 0.08;
+  }
+
+  .closing-title {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 4.5vw, 62px);
+    font-weight: 300;
+    color: var(--white);
+    max-width: 600px;
+    margin: 0 auto 20px;
+    line-height: 1.2;
+  }
+
+  .closing-title em { font-style: italic; color: var(--terracotta-light); }
+
+  .closing-text {
+    font-size: 15px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.6);
+    max-width: 440px;
+    margin: 0 auto 48px;
+    line-height: 1.8;
+  }
+
+  .closing-contact {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    flex-wrap: wrap;
+  }
+
+  .closing-contact-item { text-align: center; }
+
+  .closing-contact-label {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 6px;
+  }
+
+  .closing-contact-value {
+    font-size: 14px;
+    color: rgba(255,255,255,0.85);
+  }
+
+  .closing-divider {
+    width: 1px; height: 40px;
+    background: rgba(255,255,255,0.15);
+    align-self: center;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--charcoal);
+    padding: 28px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-logo {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+  }
+
+  .footer-note {
+    font-size: 12px;
+    color: rgba(255,255,255,0.25);
+    font-weight: 300;
+  }
+
+  /* ANIMATIONS */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+  .fade-up-delay-1 { transition-delay: 0.1s; }
+  .fade-up-delay-2 { transition-delay: 0.2s; }
+
+  @media (max-width: 900px) {
+    section { padding: 60px 28px; }
+    nav, nav.scrolled { padding: 16px 28px; }
+    .hero { padding: 120px 28px 60px; }
+    .hero-meta { flex-direction: column; gap: 16px; }
+    .scope-grid, .deliverables-track, .terms-grid { grid-template-columns: 1fr; }
+    .closing { padding: 72px 28px; }
+    footer { padding: 24px 28px; flex-direction: column; gap: 10px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <div class="nav-logo">People Wise</div>
+  <div class="nav-label">Quotation by Wecomeone</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <svg class="hero-blob" viewBox="0 0 520 520" xmlns="http://www.w3.org/2000/svg">
+    <path fill="#ffffff" d="M260,45 C370,45 460,135 465,250 C470,365 390,450 270,460 C150,470 55,385 45,265 C35,145 110,55 220,45 C233,44 246,45 260,45Z">
+      <animate attributeName="d" dur="11s" repeatCount="indefinite"
+        values="M260,45 C370,45 460,135 465,250 C470,365 390,450 270,460 C150,470 55,385 45,265 C35,145 110,55 220,45 C233,44 246,45 260,45Z;
+                M260,55 C365,35 462,130 468,255 C474,380 385,455 265,463 C145,471 50,380 42,260 C34,140 115,50 225,43 C237,41 248,55 260,55Z;
+                M260,45 C370,45 460,135 465,250 C470,365 390,450 270,460 C150,470 55,385 45,265 C35,145 110,55 220,45 C233,44 246,45 260,45Z"
+      />
+    </path>
+  </svg>
+
+  <div class="hero-eyebrow">Quotation — Prepared by Wecomeone</div>
+  <h1 class="hero-title">Branding &amp; Website for <em>People Wise</em></h1>
+  <div class="hero-meta">
+    <div class="hero-meta-item">
+      <span class="hero-meta-label">Prepared for</span>
+      <span class="hero-meta-value">Anastasia Flourentzou</span>
+    </div>
+    <div class="hero-meta-item">
+      <span class="hero-meta-label">Company</span>
+      <span class="hero-meta-value">People Wise</span>
+    </div>
+    <div class="hero-meta-item">
+      <span class="hero-meta-label">Date</span>
+      <span class="hero-meta-value">July 2025</span>
+    </div>
+    <div class="hero-meta-item">
+      <span class="hero-meta-label">Ref</span>
+      <span class="hero-meta-value">PW-Q-001</span>
+    </div>
+    <div class="hero-meta-item">
+      <span class="hero-meta-label">Valid Until</span>
+      <span class="hero-meta-value">31 August 2025</span>
+    </div>
+  </div>
+</section>
+
+<!-- SCOPE -->
+<section class="scope">
+  <div class="section-eyebrow">Scope of Work</div>
+  <h2 class="section-title">What we are <em>delivering</em></h2>
+  <p class="section-lead">This quotation covers two core services: brand identity and a bespoke website. Together they form the complete digital and visual foundation of People Wise.</p>
+  <div class="scope-grid">
+    <div class="scope-card fade-up">
+      <div class="scope-card-header">
+        <div class="scope-card-icon branding">🎨</div>
+        <div>
+          <div class="scope-card-title">Brand Identity</div>
+          <div class="scope-card-subtitle">Visual language for People Wise</div>
+        </div>
+      </div>
+      <div class="scope-card-body">
+        <div class="scope-item">
+          <div class="scope-dot"></div>
+          <div class="scope-item-text">
+            <strong>Logo Design</strong>
+            Primary logo, secondary mark, and usage guidelines. Up to 3 initial concepts with 2 rounds of revisions.
+          </div>
+        </div>
+        <div class="scope-item">
+          <div class="scope-dot"></div>
+          <div class="scope-item-text">
+            <strong>Colour Palette</strong>
+            A curated palette that reflects the holistic, human-centred philosophy of People Wise, delivered with primary, secondary, and neutral tones.
+          </div>
+        </div>
+        <div class="scope-item">
+          <div class="scope-dot"></div>
+          <div class="scope-item-text">
+            <strong>Typography System</strong>
+            Display and body typeface pairing with hierarchy rules for consistent use across all materials.
+          </div>
+        </div>
+        <div class="scope-item">
+          <div class="scope-dot"></div>
+          <div class="scope-item-text">
+            <strong>Brand Guidelines Document</strong>
+            A concise PDF guide covering logo usage, colours, typography, and tone of voice basics.
+          </div>
+        </div>
+        <div class="scope-item">
+          <div class="scope-dot"></div>
+          <div class="scope-item-text">
+            <strong>Social Media Kit</strong>
+            Profile images, cover photos, and post template in brand for Instagram and LinkedIn.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scope-card fade-up fade-up-delay-1">
+      <div class="scope-card-header">
+        <div class="scope-card-icon website">🌐</div>
+        <div>
+          <div class="scope-card-title">Website</div>
+          <div class="scope-card-subtitle">5-page bespoke build</div>
+        </div>
+      </div>
+      <div class="scope-card-body">
+        <div class="scope-item">
+          <div class="scope-dot"></div>
+          <div class="scope-item-text">
+            <strong>5 Core Pages</strong>
+            Home, About, Services, Contact, and one additional page (e.g. Coaching or FAQ). All pages designed and developed to brand.
+          </div>
+        </div>
+        <div class="scope-item">
+          <div class="scope-dot"></div>
+          <div class="scope-item-text">
+            <strong>Copywriting</strong>
+            Professional web copy written for all 5 pages, aligned with Anastasia's voice and positioned for her target audience.
+          </div>
+        </div>
+        <div class="scope-item">
+          <div class="scope-dot"></div>
+          <div class="scope-item-text">
+            <strong>SEO Foundations</strong>
+            On-page SEO setup: meta titles, descriptions, heading structure, alt text, and Google Search Console connection.
+          </div>
+        </div>
+        <div class="scope-item">
+          <div class="scope-dot"></div>
+          <div class="scope-item-text">
+            <strong>Contact and Enquiry Form</strong>
+            A functional enquiry form connected to Anastasia's email, with confirmation response.
+          </div>
+        </div>
+        <div class="scope-item">
+          <div class="scope-dot"></div>
+          <div class="scope-item-text">
+            <strong>Mobile Responsive</strong>
+            Fully optimised for desktop, tablet, and mobile. Includes basic speed and accessibility checks before launch.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DELIVERABLES -->
+<section class="deliverables">
+  <div class="section-eyebrow">Timeline</div>
+  <h2 class="section-title">Delivered in <em>8 to 11 weeks</em></h2>
+  <p class="section-lead">A structured process from briefing to launch, running in two sequential phases. Branding is completed and approved before the website build begins.</p>
+  <div class="deliverables-track">
+    <div class="deliverable-step fade-up">
+      <div class="deliverable-accent"></div>
+      <div class="deliverable-week">Weeks 1 — 2</div>
+      <div class="deliverable-title">Discovery &amp; Brand</div>
+      <ul class="deliverable-list">
+        <li>Kickoff call and brand briefing</li>
+        <li>Moodboard and direction presentation</li>
+        <li>3 initial logo concepts delivered</li>
+        <li>Colour palette and typeface proposal</li>
+      </ul>
+    </div>
+    <div class="deliverable-step fade-up fade-up-delay-1">
+      <div class="deliverable-accent"></div>
+      <div class="deliverable-week">Weeks 2 — 3</div>
+      <div class="deliverable-title">Brand Refinement</div>
+      <ul class="deliverable-list">
+        <li>Client feedback and revision round</li>
+        <li>Final logo and brand system approved</li>
+        <li>Brand guidelines document delivered</li>
+        <li>Social media kit prepared</li>
+      </ul>
+    </div>
+    <div class="deliverable-step fade-up fade-up-delay-2">
+      <div class="deliverable-accent"></div>
+      <div class="deliverable-week">Weeks 3 — 11</div>
+      <div class="deliverable-title">Website Build &amp; Launch</div>
+      <ul class="deliverable-list">
+        <li>Web copy drafted and approved</li>
+        <li>Website design and development</li>
+        <li>Client review and final revisions</li>
+        <li>SEO setup and go-live</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTATION TABLE -->
+<section class="quotation">
+  <div class="section-eyebrow">Investment</div>
+  <h2 class="section-title">Simple, <em>transparent pricing</em></h2>
+  <p class="section-lead">A one-time project investment covering the full scope of work outlined above. No hidden costs.</p>
+
+  <table class="quote-table fade-up">
+    <thead>
+      <tr>
+        <th>Service</th>
+        <th>Description</th>
+        <th style="text-align:right;">Fee</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Brand Identity</td>
+        <td>Logo design, visual identity system, brand guidelines, and social media kit</td>
+        <td>€1,000</td>
+      </tr>
+      <tr>
+        <td>Website</td>
+        <td>5-page bespoke design and development, copywriting, and SEO foundations</td>
+        <td>€1,200</td>
+      </tr>
+      <tr>
+        <td>Hosting &amp; Maintenance</td>
+        <td>Annual hosting, security updates, and technical maintenance</td>
+        <td>€500 / year</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr class="quote-total">
+        <td colspan="2">Total Project Investment</td>
+        <td>€2,200</td>
+      </tr>
+    </tfoot>
+  </table>
+
+  <div class="quote-note">
+    <strong>Payment terms:</strong> 50% upon project confirmation (€1,100), 50% upon website launch (€1,100). All prices exclude VAT where applicable. This quotation is valid until 31 August 2025.
+  </div>
+  <div class="quote-note" style="margin-top: 12px; border-left-color: var(--terracotta); background: #FAF0EB;">
+    <strong>A note on pricing:</strong> Our marketing proposal outlined an indicative Tier 1 bundle of €1,800 covering branding, website, social media profile setup, and a photography session across four services. This quotation focuses exclusively on branding and website, and goes deeper into each — including professional web copywriting for all 5 pages and a full brand guidelines document with social media kit, which were not part of the bundle. The difference in investment reflects that additional scope and depth.
+  </div>
+</section>
+
+<!-- TERMS -->
+<section class="terms">
+  <div class="section-eyebrow">Terms at a Glance</div>
+  <h2 class="section-title">Simple, <em>transparent</em></h2>
+  <p class="section-lead">Everything you need to know before signing off.</p>
+  <div class="terms-grid">
+    <div class="term-card fade-up">
+      <div class="term-label">Project Duration</div>
+      <div class="term-value">8 — 11 Weeks</div>
+      <p class="term-desc">Branding: 2 to 3 weeks. Website: 6 to 8 weeks following brand approval. Timeline assumes timely client feedback at each stage.</p>
+    </div>
+    <div class="term-card fade-up fade-up-delay-1">
+      <div class="term-label">Revisions Included</div>
+      <div class="term-value">2 Rounds</div>
+      <p class="term-desc">Two rounds of revisions are included per deliverable. Additional revision rounds are billed at €80/hour.</p>
+    </div>
+    <div class="term-card fade-up fade-up-delay-2">
+      <div class="term-label">Payment</div>
+      <div class="term-value">50 / 50</div>
+      <p class="term-desc">50% deposit to begin, 50% on delivery. Bank transfer or other agreed method. Invoice provided for each payment.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<section class="closing">
+  <svg class="closing-blob" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+    <path fill="#ffffff" d="M200,35 C295,35 365,115 368,205 C371,295 305,365 210,372 C115,379 40,310 28,220 C16,130 75,50 165,36 C177,34 188,35 200,35Z"/>
+  </svg>
+  <h2 class="closing-title">Ready to bring <em>People Wise</em> to life?</h2>
+  <p class="closing-text">To confirm this quotation, simply reply to this email or get in touch directly. We can get started within days.</p>
+  <div class="closing-contact">
+    <div class="closing-contact-item">
+      <div class="closing-contact-label">Agency</div>
+      <div class="closing-contact-value">Wecomeone Marketing And Comms</div>
+    </div>
+    <div class="closing-divider"></div>
+    <div class="closing-contact-item">
+      <div class="closing-contact-label">Email</div>
+      <div class="closing-contact-value">hello@wecomeone.me</div>
+    </div>
+    <div class="closing-divider"></div>
+    <div class="closing-contact-item">
+      <div class="closing-contact-label">Website</div>
+      <div class="closing-contact-value">wecomeone.me</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Wecomeone Marketing And Comms</div>
+  <div class="footer-note">Confidential — Prepared for Anastasia Flourentzou, People Wise · Ref: PW-Q-001</div>
+</footer>
+
+<script>
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 50);
+  });
+
+  const fadeEls = document.querySelectorAll('.fade-up');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+  fadeEls.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
