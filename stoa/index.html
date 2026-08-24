@@ -21,24 +21,27 @@
 
   /* nav */
   .topnav{position:sticky;top:0;z-index:100;background:var(--black);display:flex;align-items:center;justify-content:space-between;padding:1rem 6vw;border-bottom:1px solid rgba(255,255,255,.08)}
-  .wm{font-family:'Barlow',sans-serif;font-weight:700;letter-spacing:-.01em;font-size:1.15rem}
+  .wm{font-family:'Barlow',sans-serif;font-weight:700;letter-spacing:-.01em;font-size:1.15rem;position:relative;z-index:100}
   .wm .we{color:#fff}.wm .one{color:var(--mint)}
   .navlinks{display:flex;align-items:center;gap:1.4rem}
   .navlinks a{color:rgba(255,255,255,.82);text-decoration:none;font-weight:600;font-size:.82rem;letter-spacing:.05em;text-transform:uppercase;transition:.2s}
   .navlinks a:hover{color:var(--mint)}
   .navcta{background:var(--mint);color:var(--black)!important;padding:.6rem 1.2rem;border-radius:4px;font-family:'Barlow Condensed',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.05em}
   .navcta:hover{background:#fff;color:var(--black)!important}
-  .hamburger{display:none;background:none;border:none;cursor:pointer;padding:0;width:44px;height:44px;flex-direction:column;justify-content:center;align-items:center;gap:5px}
+  .hamburger{display:none;background:none;border:none;cursor:pointer;padding:0;width:44px;height:44px;flex-direction:column;justify-content:center;align-items:center;gap:5px;position:relative;z-index:100}
   .hamburger span{display:block;width:26px;height:3px;background:var(--mint);border-radius:2px;transition:transform .25s,opacity .25s}
   .topnav.open .hamburger span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
   .topnav.open .hamburger span:nth-child(2){opacity:0}
   .topnav.open .hamburger span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
   @media(max-width:760px){
     .hamburger{display:flex}
-    .navlinks{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:var(--black);padding:.4rem 6vw 1.1rem;border-bottom:1px solid rgba(255,255,255,.08)}
+    .navlinks{display:none;position:fixed;inset:0;z-index:90;background:#44FFCF;flex-direction:column;justify-content:center;align-items:flex-start;gap:.15rem;padding:5.5rem 9vw 2.5rem;overflow-y:auto}
     .topnav.open .navlinks{display:flex}
-    .navlinks a{padding:.95rem 0;font-size:1rem;letter-spacing:.06em;border-top:1px solid rgba(255,255,255,.07)}
-    .navcta{background:none;color:var(--mint)!important;padding:.95rem 0;border-radius:0;letter-spacing:.06em}
+    .navlinks a{color:#111111;font-size:1.7rem;padding:.5rem 0;letter-spacing:.03em;border:none}
+    .navcta{background:none;color:#111111!important;padding:.5rem 0;border-radius:0;letter-spacing:.03em}
+    .topnav.open{background:transparent;border-bottom-color:transparent}
+    .topnav.open .wm .we,.topnav.open .wm .one{color:#111111}
+    .topnav.open .hamburger span{background:#111111}
   }
 
   /* bands */
@@ -452,8 +455,9 @@
   // mobile menu
   const nav=document.querySelector('.topnav'), ham=document.getElementById('hamburger');
   if(ham){
-    ham.addEventListener('click',()=>{const o=nav.classList.toggle('open');ham.setAttribute('aria-expanded',o);});
-    document.querySelectorAll('.navlinks a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');ham.setAttribute('aria-expanded','false');}));
+    const setOpen=(o)=>{nav.classList.toggle('open',o);ham.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':'';};
+    ham.addEventListener('click',()=>setOpen(!nav.classList.contains('open')));
+    document.querySelectorAll('.navlinks a').forEach(a=>a.addEventListener('click',()=>setOpen(false)));
   }
 </script>
 </body>
