@@ -23,13 +23,13 @@
   .topnav{position:sticky;top:0;z-index:100;background:var(--black);display:flex;align-items:center;justify-content:space-between;padding:1rem 6vw;border-bottom:1px solid rgba(255,255,255,.08)}
   .wm{font-family:'Barlow',sans-serif;font-weight:700;letter-spacing:-.01em;font-size:1.15rem}
   .wm .we{color:#fff}.wm .one{color:var(--mint)}
-  .navlinks{display:flex;align-items:center;gap:2rem}
-  .navlinks a{color:rgba(255,255,255,.82);text-decoration:none;font-weight:600;font-size:.9rem;letter-spacing:.08em;text-transform:uppercase;transition:.2s}
+  .navlinks{display:flex;align-items:center;gap:1.4rem}
+  .navlinks a{color:rgba(255,255,255,.82);text-decoration:none;font-weight:600;font-size:.82rem;letter-spacing:.05em;text-transform:uppercase;transition:.2s}
   .navlinks a:hover{color:var(--mint)}
   .navcta{background:var(--mint);color:var(--black)!important;padding:.6rem 1.2rem;border-radius:4px;font-family:'Barlow Condensed',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.05em}
   .navcta:hover{background:#fff;color:var(--black)!important}
   .hamburger{display:none;background:none;border:none;cursor:pointer;padding:0;width:44px;height:44px;flex-direction:column;justify-content:center;align-items:center;gap:5px}
-  .hamburger span{display:block;width:24px;height:2.5px;background:var(--mint);border-radius:2px;transition:transform .25s,opacity .25s}
+  .hamburger span{display:block;width:26px;height:3px;background:var(--mint);border-radius:2px;transition:transform .25s,opacity .25s}
   .topnav.open .hamburger span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
   .topnav.open .hamburger span:nth-child(2){opacity:0}
   .topnav.open .hamburger span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
@@ -152,8 +152,11 @@
   <span class="wm"><span class="we">we</span><span class="one">comeone</span></span>
   <div class="navlinks">
     <a href="#scope">Scope</a>
+    <a href="#services">Services</a>
+    <a href="#billing">Billing</a>
     <a href="#invest">Investment</a>
     <a href="#timeline">Timeline</a>
+    <a href="#terms">Terms</a>
     <a href="#contact" class="navcta">Get in touch</a>
   </div>
   <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
@@ -212,7 +215,7 @@
 </section>
 
 <!-- PILLARS DETAIL -->
-<section class="band dark">
+<section class="band dark" id="services">
   <div class="wrap">
     <div class="sec-head reveal"><span class="kicker">What we deliver</span><h2>The four pillars in full.</h2></div>
 
@@ -288,7 +291,7 @@
 </section>
 
 <!-- HOW BILLING WORKS -->
-<section class="band light">
+<section class="band light" id="billing">
   <div class="wrap">
     <div class="sec-head reveal"><span class="kicker">How billing works</span><h2>Two ways to be invoiced.</h2>
       <p style="margin-top:1rem">However you split the cost, we can bill it two ways. Both put the exact same plan behind the arcade.</p>
@@ -404,7 +407,7 @@
 </section>
 
 <!-- TERMS -->
-<section class="band dark">
+<section class="band dark" id="terms">
   <div class="wrap">
     <div class="sec-head reveal"><span class="kicker">The essentials</span><h2>Terms at a glance.</h2></div>
     <ul class="clean reveal" style="max-width:900px">
