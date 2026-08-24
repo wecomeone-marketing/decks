@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STOA Larnaca · Marketing, Web &amp; Events Quotation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,300&family=Barlow+Condensed:ital,wght@0,600;0,700;0,900;1,300&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#111111;--mint:#00e8b0;--deep:#00c49a;--white:#fff;--off:#f7f5f2;--ink:#111111;--muted:#6f6f6f;
+    --line:rgba(26,26,26,.14);--line-d:rgba(255,255,255,.16);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Barlow','Segoe UI',system-ui,sans-serif;color:var(--ink);background:var(--black);line-height:1.55}
+
+  .progress{position:fixed;top:0;left:0;height:4px;width:0;background:var(--mint);z-index:200;transition:width .1s linear}
+
+  /* nav */
+  .topnav{position:sticky;top:0;z-index:100;background:var(--black);display:flex;align-items:center;justify-content:space-between;padding:1rem 6vw;border-bottom:1px solid rgba(255,255,255,.08)}
+  .wm{font-family:'Barlow',sans-serif;font-weight:700;letter-spacing:-.01em;font-size:1.15rem}
+  .wm .we{color:#fff}.wm .one{color:var(--mint)}
+  .navlinks{display:flex;align-items:center;gap:2rem}
+  .navlinks a{color:rgba(255,255,255,.82);text-decoration:none;font-weight:600;font-size:.9rem;letter-spacing:.08em;text-transform:uppercase;transition:.2s}
+  .navlinks a:hover{color:var(--mint)}
+  .navcta{background:var(--mint);color:var(--black)!important;padding:.6rem 1.2rem;border-radius:4px;font-family:'Barlow Condensed',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+  .navcta:hover{background:#fff;color:var(--black)!important}
+  @media(max-width:760px){.navlinks a:not(.navcta){display:none}}
+
+  /* bands */
+  .band{padding:7rem 6vw;scroll-margin-top:70px}
+  .band.dark{background:var(--black);color:#fff}
+  .band.light{background:var(--off);color:var(--ink)}
+  .wrap{max-width:1160px;margin:0 auto}
+
+  h1{font-family:'Barlow Condensed','Barlow',sans-serif;font-weight:900;text-transform:uppercase;font-size:clamp(3.2rem,8.5vw,7rem);line-height:.92;letter-spacing:.005em}
+  h2{font-family:'Barlow Condensed','Barlow',sans-serif;font-weight:900;text-transform:uppercase;font-size:clamp(2.1rem,4.7vw,3.7rem);line-height:1;letter-spacing:.005em}
+  h3{font-family:'Barlow Condensed','Barlow',sans-serif;font-weight:700;text-transform:uppercase;font-size:clamp(1.15rem,1.8vw,1.5rem);letter-spacing:.01em}
+  p{font-size:clamp(1rem,1.3vw,1.2rem);font-weight:500}
+  .lead{font-size:clamp(1.2rem,1.9vw,1.6rem);font-weight:500;line-height:1.45}
+
+  .kicker{display:inline-block;font-weight:700;font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:var(--deep);margin-bottom:1.1rem}
+  .dark .kicker{color:var(--mint)}
+  .muted{color:var(--muted);font-weight:500}
+  .dark .muted{color:rgba(255,255,255,.72)}
+  .accent{font-family:'Barlow Condensed','Barlow',sans-serif;font-style:italic;font-weight:300;text-transform:uppercase;color:var(--deep)}
+  .dark .accent{color:var(--mint)}
+  .sec-head{max-width:820px;margin-bottom:2.4rem}
+  .sec-head h2{margin-bottom:.6rem}
+
+  /* hero */
+  .hero{min-height:calc(100vh - 66px);display:flex;flex-direction:column;justify-content:center;position:relative}
+  .hero .meta{display:flex;gap:3rem;flex-wrap:wrap;margin-top:2.4rem;font-size:.92rem;font-weight:500;color:rgba(255,255,255,.72)}
+  .hero .meta b{color:#fff;font-weight:700;display:block;margin-top:.2rem}
+  .scrollcue{position:absolute;bottom:3rem;left:6vw;font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.6);font-weight:600}
+  .scrollcue::after{content:" ↓"}
+
+  .grid{display:grid;gap:1.3rem}
+  .g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+  @media(max-width:860px){.g4,.g3,.g2{grid-template-columns:1fr}}
+
+  .card{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:1.6rem}
+  .dark .card{background:rgba(255,255,255,.05);border:1px solid var(--line-d)}
+  .card .num{font-weight:700;font-size:1.5rem;color:var(--black);letter-spacing:-.02em}
+  .dark .card .num{color:var(--mint)}
+  .card h3{margin:.4rem 0 .5rem}
+  .card p{font-size:1rem;line-height:1.45}
+  .card .ico{display:block;width:42px;height:42px;margin-bottom:1rem;color:var(--mint)}
+  .card .ico svg{width:100%;height:100%;display:block}
+
+  .pillar{display:grid;grid-template-columns:.9fr 1.1fr;gap:3rem;align-items:start;padding:2.4rem 0;border-top:1px solid var(--line)}
+  .dark .pillar{border-top:1px solid var(--line-d)}
+  .pillar:first-of-type{border-top:none}
+  .pillar .pnum{font-weight:700;font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .dark .pillar .pnum{color:var(--mint)}
+  .pillar h3{font-size:clamp(1.5rem,2.6vw,2.1rem);margin:.5rem 0 .2rem;letter-spacing:-.02em}
+  @media(max-width:860px){.pillar{grid-template-columns:1fr;gap:1.2rem}}
+
+  ul.clean{list-style:none;display:flex;flex-direction:column;gap:.75rem}
+  ul.clean li{position:relative;padding-left:1.7rem;font-size:1.1rem;line-height:1.45;font-weight:500}
+  ul.clean li::before{content:"";position:absolute;left:0;top:.55em;width:10px;height:10px;border-radius:2px;background:var(--black)}
+  .dark ul.clean li::before{background:var(--mint)}
+  ul.clean li b{font-weight:700}
+
+  .note{margin-top:1.5rem;padding:1.1rem 1.3rem;background:var(--white);border-left:5px solid var(--mint);border-radius:10px;font-size:1.02rem;font-weight:500}
+  .dark .note{background:rgba(255,255,255,.06)}
+
+  .pill{display:inline-block;padding:.45rem 1rem;border-radius:999px;font-weight:600;font-size:.9rem;border:2px solid var(--black);color:var(--black);margin:.3rem .4rem .3rem 0}
+  .dark .pill{border-color:var(--mint);color:var(--mint)}
+
+  .portal{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:1.4rem}
+  .dark .portal{background:rgba(255,255,255,.05);border-color:var(--line-d)}
+  .portal .tag{font-weight:700;font-size:1.25rem;letter-spacing:-.01em}
+  .dark .portal .tag{color:var(--mint)}
+  .portal p{font-size:1rem;margin-top:.4rem;line-height:1.4;font-weight:500}
+
+  .qtable{width:100%;border-collapse:collapse;font-size:1.1rem}
+  .qtable td{padding:.9rem .3rem;border-bottom:1px solid var(--line);vertical-align:top;font-weight:500}
+  .qtable td.price{text-align:right;font-weight:700;white-space:nowrap}
+  .qtable tr.total td{border-bottom:none;border-top:3px solid var(--black);font-weight:700;padding-top:1.1rem;font-size:1.15em}
+  .qtable tr.total td.price span{background:var(--mint);color:var(--black);padding:.1em .45em;border-radius:.2em}
+  .price-card{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:1.8rem 2rem}
+  .dark .price-card{background:rgba(255,255,255,.05);border-color:var(--line-d)}
+  .price-card h3{margin-bottom:.4rem}
+  .price-card .cap{font-size:.95rem;color:var(--muted);font-weight:500;margin-bottom:.4rem}
+  .dark .price-card .cap{color:rgba(255,255,255,.62)}
+
+  .snapshot{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem}
+  .snap{background:rgba(255,255,255,.05);border:1px solid var(--line-d);border-radius:18px;padding:1.6rem}
+  .snap .big{font-weight:700;font-size:clamp(1.9rem,3.4vw,2.7rem);color:var(--mint);line-height:1;letter-spacing:-.02em}
+  .snap .lbl{margin-top:.55rem;font-size:.95rem;color:rgba(255,255,255,.72);font-weight:500}
+  @media(max-width:860px){.snapshot{grid-template-columns:repeat(2,1fr)}}
+
+  .timeline{display:grid;grid-template-columns:repeat(5,1fr);gap:0}
+  .tl{padding:0 1.2rem;border-top:3px solid var(--black);position:relative;padding-top:1.5rem}
+  .tl::before{content:"";position:absolute;top:-9px;left:0;width:15px;height:15px;border-radius:3px;background:var(--black)}
+  .tl .when{font-weight:700;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;color:var(--black)}
+  .tl h3{margin:.4rem 0 .5rem;font-size:1.15rem}
+  .tl p{font-size:.98rem;color:var(--muted);font-weight:500}
+  @media(max-width:860px){.timeline{grid-template-columns:1fr;gap:1.3rem}.tl{border-top:none;border-left:3px solid var(--black);padding-top:0;padding-left:1.4rem}.tl::before{top:0;left:-9px}}
+
+  .vat{margin-top:1.3rem;font-size:.95rem;color:var(--muted);font-weight:500}
+
+  /* footer / contact */
+  .footer{padding:6rem 6vw 4rem;background:var(--black);color:#fff}
+  .footer h2{margin-bottom:1.4rem}
+  .footer .email{font-weight:700;color:var(--mint);text-decoration:none;font-size:clamp(1.4rem,3vw,2.2rem);letter-spacing:-.02em}
+  .footer .legal{margin-top:3rem;font-size:.82rem;color:rgba(255,255,255,.55);font-weight:500;line-height:1.6;border-top:1px solid rgba(255,255,255,.12);padding-top:1.6rem}
+
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+
+<nav class="topnav">
+  <span class="wm"><span class="we">we</span><span class="one">comeone</span></span>
+  <div class="navlinks">
+    <a href="#scope">Scope</a>
+    <a href="#invest">Investment</a>
+    <a href="#timeline">Timeline</a>
+    <a href="#contact" class="navcta">Get in touch</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="band dark hero" id="top">
+  <div class="wrap">
+    <span class="kicker reveal">Marketing, Web &amp; Events Quotation</span>
+    <h1 class="reveal">STOA<br>Larnaca</h1>
+    <p class="lead reveal" style="margin-top:1.6rem;max-width:680px;color:rgba(255,255,255,.82)">Turning the courtyard into the city's everyday destination.</p>
+    <div class="meta reveal">
+      <span>Prepared for<b>The STOA Larnaca shop owners</b></span>
+      <span>Prepared by<b>Wecomeone Marketing And Comms</b></span>
+      <span>Where<b>Larnaka, 2026</b></span>
+    </div>
+  </div>
+  <span class="scrollcue">Scroll</span>
+</header>
+
+<!-- UNDERSTANDING -->
+<section class="band light">
+  <div class="wrap reveal">
+    <span class="kicker">Our understanding</span>
+    <h2 style="max-width:900px">A courtyard built to be visited every day, at every hour.</h2>
+    <p style="max-width:840px;margin-top:1.2rem">Six independent doors, pizza, coffee, wine, comfort food, a barber and a spa, around one shared courtyard in the heart of Larnaca. The space is strong. What it needs is a reason for people to come, a shared destination brand that sits over the individual businesses, a home online, and a steady voice telling the city what is on. That is what this plan delivers.</p>
+    <div style="margin-top:1.8rem">
+      <span class="pill">Pizzaria 485</span><span class="pill">Zya Cafe</span><span class="pill">TONI&amp;GUY</span><span class="pill">Vinaria</span><span class="pill">Afterbite</span><span class="pill">Nudeless Spa</span>
+    </div>
+  </div>
+</section>
+
+<!-- OBJECTIVES -->
+<section class="band dark">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="kicker">What we are here to do</span><h2>Three goals.</h2></div>
+    <div class="grid g3">
+      <div class="card reveal"><span class="ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 42 H42" opacity=".35"/><polyline points="7 31 19 21 27 27 42 11"/><polyline points="34 11 42 11 42 19"/></svg></span><h3>Grow footfall</h3><p class="muted">Give people recurring reasons to visit, day and night.</p></div>
+      <div class="card reveal"><span class="ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18 L24 8 L42 18"/><path d="M6 18 H42"/><path d="M10 18 V37 M19 18 V37 M29 18 V37 M38 18 V37"/><path d="M6 37 H42"/></svg></span><h3>Build the STOA name</h3><p class="muted">One identity, one voice, one destination people talk about.</p></div>
+      <div class="card reveal"><span class="ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="12" width="32" height="28" rx="4"/><path d="M8 20 H40"/><path d="M16 8 V14 M32 8 V14"/><circle cx="18" cy="28" r="1.5" fill="currentColor" stroke="none"/><circle cx="24" cy="28" r="1.5" fill="currentColor" stroke="none"/><circle cx="30" cy="28" r="1.5" fill="currentColor" stroke="none"/><circle cx="18" cy="34" r="1.5" fill="currentColor" stroke="none"/><circle cx="24" cy="34" r="1.5" fill="currentColor" stroke="none"/></svg></span><h3>Fill the calendar</h3><p class="muted">Bazaars, markets, live music and pop ups that keep people coming back.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SCOPE OVERVIEW -->
+<section class="band light" id="scope">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="kicker">Scope at a glance</span><h2>Four pillars, one team.</h2></div>
+    <div class="grid g4">
+      <div class="card reveal"><div class="num">01</div><h3>Brand, Web &amp; Content</h3><p class="muted">Finish the identity, build the website, shoot the content.</p></div>
+      <div class="card reveal"><div class="num">02</div><h3>Social &amp; Paid</h3><p class="muted">Manage Instagram and Facebook, run the ads that fill events.</p></div>
+      <div class="card reveal"><div class="num">03</div><h3>PR &amp; Portals</h3><p class="muted">Get STOA and every event into local and national media.</p></div>
+      <div class="card reveal"><div class="num">04</div><h3>Events &amp; Production</h3><p class="muted">Plan, book and capture everything in the courtyard.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PILLARS DETAIL -->
+<section class="band dark">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="kicker">What we deliver</span><h2>The four pillars in full.</h2></div>
+
+    <div class="pillar reveal">
+      <div><div class="pnum">Pillar 01</div><h3>Brand, Web &amp; Content</h3><p class="muted" style="margin-top:.6rem">Finish the brand, build the home, then feed it.</p></div>
+      <div>
+        <ul class="clean">
+          <li>Refine and complete the STOA identity into a full, production ready system with guidelines</li>
+          <li>A STOA website: mobile first, with the live events calendar, the six venues, opening hours and a map</li>
+          <li>Social and event templates for the STOA channels: reusable post, story and event-listing designs (signage and printed collateral quoted separately once the brand is finalised)</li>
+          <li>Social accounts set up, plus a launch content shoot for the photo and video library</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pillar reveal">
+      <div><div class="pnum">Pillar 02</div><h3>Social &amp; Paid</h3><p class="muted" style="margin-top:.6rem">A daily voice, and ads that fill the courtyard.</p></div>
+      <div>
+        <ul class="clean">
+          <li>Instagram and Facebook management for the STOA accounts: strategy, content calendar, roughly 12 to 16 posts a month plus stories and reels</li>
+          <li>Community management: replies, messages and reshares of guest content</li>
+          <li>Paid advertising: geo targeted campaigns to locals and tourists, built around events and offers</li>
+          <li>Monthly reporting and a strategy call</li>
+        </ul>
+        <div class="note">Ad budget is billed separately and always goes to Meta, never mixed into our fee.</div>
+        <div class="note">Any collaboration with influencers is handled ad hoc: we agree the creator, the scope and the cost with you before each one, so it sits outside the retainer.</div>
+      </div>
+    </div>
+
+    <div class="pillar reveal">
+      <div><div class="pnum">Pillar 03</div><h3>PR &amp; Portals</h3><p class="muted" style="margin-top:.6rem">The whole city hears what is on.</p></div>
+      <div>
+        <p style="margin-bottom:1.1rem">Social reaches the people who already follow. The portals reach everyone else, and a write up gives STOA a credibility a post cannot.</p>
+        <div class="grid g3">
+          <div class="portal"><span class="tag">City of Larnaka</span><p>Always on event listings and city guide presence.</p></div>
+          <div class="portal"><span class="tag">Skala Times</span><p>Press releases around the relaunch and every milestone.</p></div>
+          <div class="portal"><span class="tag">Larnaka Online</span><p>Features and reshares to a large local following.</p></div>
+        </div>
+        <div class="note">We build and maintain a media kit and press contact list, and pitch national portals for the bigger moments, so coverage is systematic and not one off.</div>
+      </div>
+    </div>
+
+    <div class="pillar reveal">
+      <div><div class="pnum">Pillar 04</div><h3>Events, Production &amp; Comms</h3><p class="muted" style="margin-top:.6rem">We run the calendar end to end.</p></div>
+      <div>
+        <ul class="clean">
+          <li>An annual events calendar, built from October 2026: bazaars, Christmas markets, live music and pop ups mapped across the year</li>
+          <li>Event planning and coordination: concept, logistics and run sheet</li>
+          <li>Vendor and talent liaison: booking bazaar vendors, live acts and live links, and negotiating the deal</li>
+          <li>Photography and videography at every event, edited for social</li>
+          <li>Event promotion: an event page, boosted posts and portal PR for each one</li>
+        </ul>
+        <div class="note">The events calendar is drafted with you and agreed together before it is finalised.</div>
+        <div class="note">All third party costs (talent, vendors, printing, equipment) are pre funded or invoiced in advance. We organise, we do not finance.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ENGAGEMENT -->
+<section class="band light">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="kicker">Sharing the cost</span><h2>How the six share it.</h2>
+      <p style="margin-top:1rem">STOA is one brand run by many doors. However you divide the cost between yourselves, here are three fair ways to split it. How we then invoice, pooled or per shop, comes next.</p>
+    </div>
+    <div class="grid g3">
+      <div class="card reveal"><h3>Equal shares</h3><p class="muted">Every door pays the same monthly membership into a shared pot. Simplest, and keeps everyone aligned. Recommended.</p></div>
+      <div class="card reveal"><h3>Weighted</h3><p class="muted">Doors that gain most from footfall (the F&amp;B venues) contribute more than the spa and barber.</p></div>
+      <div class="card reveal"><h3>Anchor plus members</h3><p class="muted">A lead tenant or the landlord underwrites the base, others buy in per event or per season.</p></div>
+    </div>
+    <div class="note reveal">Whichever split you choose, one nominated person approves budgets so decisions stay fast.</div>
+  </div>
+</section>
+
+<!-- HOW BILLING WORKS -->
+<section class="band light">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="kicker">How billing works</span><h2>Two ways to be invoiced.</h2>
+      <p style="margin-top:1rem">However you split the cost, we can bill it two ways. Both put the exact same plan behind the courtyard.</p>
+    </div>
+    <div class="grid g2">
+      <div class="price-card reveal">
+        <h3>Option A <span class="muted" style="font-weight:600">· one pooled invoice</span></h3>
+        <ul class="clean" style="margin-top:1rem">
+          <li>We invoice a single nominated payer once a month, and you settle your shares privately</li>
+          <li>Lowest admin, most reliable cash flow, one point of approval</li>
+          <li>Best when you can agree a lead payer or a shared STOA account</li>
+        </ul>
+        <p class="cap" style="margin-top:1rem">Recommended.</p>
+      </div>
+      <div class="price-card reveal">
+        <h3>Option B <span class="muted" style="font-weight:600">· split per shop</span></h3>
+        <ul class="clean" style="margin-top:1rem">
+          <li>Each shop gets its own invoice with two fixed lines: the retainer membership and a share of the monthly ad spend</li>
+          <li>Both lines are the same every month, so the invoice stays predictable</li>
+          <li>Events are added only when they run, and shop specific requests are billed to that shop alone</li>
+        </ul>
+        <p class="cap" style="margin-top:1rem">More admin, but every invoice stays predictable.</p>
+      </div>
+    </div>
+    <div class="price-card reveal" style="margin-top:1.3rem">
+      <h3>A shop's monthly invoice <span class="muted" style="font-weight:600">· split example</span></h3>
+      <table class="qtable">
+        <tr><td>STOA marketing membership (retainer, includes ad management)</td><td class="price">€350</td></tr>
+        <tr><td>Ad spend share (of the €300 / mo group budget)</td><td class="price">€50</td></tr>
+        <tr><td>Shop specific work &amp; events, only when they run</td><td class="price">variable</td></tr>
+        <tr class="total"><td>Typical per shop, per month</td><td class="price"><span>€400</span></td></tr>
+      </table>
+      <p class="cap" style="margin-top:1rem">Illustrative on an equal split, plus VAT. Ad spend and event third party costs are always pre funded, never carried by us.</p>
+    </div>
+  </div>
+</section>
+
+<!-- INVESTMENT -->
+<section class="band dark" id="invest">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="kicker">Investment</span><h2>The numbers.</h2>
+      <p class="muted" style="margin-top:1rem">A one off foundation, a steady monthly retainer, and events priced only when they run. All prices plus VAT at 19%.</p>
+    </div>
+
+    <div class="price-card reveal" style="margin-bottom:1.3rem">
+      <h3>Foundation <span class="muted" style="font-weight:600">· one off</span></h3>
+      <table class="qtable">
+        <tr><td>Brand finalisation &amp; guidelines</td><td class="price">€1,100</td></tr>
+        <tr><td>STOA website (design &amp; build): events calendar, venues, hours, map</td><td class="price">€2,100</td></tr>
+        <tr><td>Social &amp; event templates (reusable post, story &amp; event-listing designs)</td><td class="price">€600</td></tr>
+        <tr><td>Social setup &amp; content strategy</td><td class="price">€700</td></tr>
+        <tr><td>Launch content shoot (photo &amp; video)<span style="display:block;margin-top:.3rem;font-size:.85rem;font-weight:500;color:rgba(255,255,255,.6)">The courtyard in day and evening light, each of the six venues, guests and the faces behind the doors, plus a hero reel and short clips for social. The library that fills the launch.</span></td><td class="price">€800</td></tr>
+        <tr class="total"><td>Foundation total</td><td class="price"><span>€5,300</span></td></tr>
+      </table>
+      <p class="cap" style="margin-top:1rem">Shared across the six doors, about €885 each on an equal split, paid once.</p>
+      <p class="cap" style="margin-top:.5rem">Website is a mobile first build with an events calendar you can keep current. Hosting and maintenance is €500 / year, paid annually in advance, from year one.</p>
+      <p class="cap" style="margin-top:.5rem">Entrance signage, wayfinding and any printed collateral are quoted separately once the brand is finalised, since they depend on the finished design.</p>
+    </div>
+
+    <div class="grid g2">
+      <div class="price-card reveal">
+        <h3>Monthly <span class="muted" style="font-weight:600">· what each shop pays</span></h3>
+        <table class="qtable">
+          <tr><td>Retainer share (social, content, PR, reporting &amp; ad management)</td><td class="price">€350</td></tr>
+          <tr><td>Ad spend to Meta</td><td class="price">€50</td></tr>
+          <tr class="total"><td>Per shop, per month</td><td class="price"><span>€400</span></td></tr>
+        </table>
+        <p class="cap" style="margin-top:1rem">Across the six doors that is a €2,100 retainer plus a €300 pooled ad budget, so €2,400 a month. Ad spend is billed at cost to Meta. Twelve month contract.</p>
+      </div>
+      <div class="price-card reveal">
+        <h3>Events <span class="muted" style="font-weight:600">· per event</span></h3>
+        <table class="qtable">
+          <tr><td>Planning &amp; coordination</td><td class="price">from €600</td></tr>
+          <tr><td>Vendor &amp; talent liaison + booking</td><td class="price">from €300</td></tr>
+          <tr><td>Photography, half / full day</td><td class="price">€500 / €800</td></tr>
+          <tr><td>Highlight movie</td><td class="price">€600</td></tr>
+          <tr><td>UGC content (creator-style social clips)</td><td class="price">€400</td></tr>
+          <tr><td>Promo push (page, boosts &amp; PR)</td><td class="price">€300 + spend</td></tr>
+          <tr><td>Signature event / Christmas market<span style="display:block;margin-top:.3rem;font-size:.85rem;font-weight:500;color:rgba(255,255,255,.6)">Full multi-day production; agency fee only, third party costs pre funded.</span></td><td class="price">from €2,500</td></tr>
+        </table>
+        <p class="cap" style="margin-top:1rem">Plus VAT and any third party costs, pre funded.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SNAPSHOT -->
+<section class="band dark" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="kicker">Your twelve month contract</span><h2>What the year covers.</h2></div>
+    <div class="snapshot">
+      <div class="snap reveal"><div class="big">€885</div><div class="lbl">Setup, once per shop (share of the €5,300 foundation)</div></div>
+      <div class="snap reveal"><div class="big">€400</div><div class="lbl">Every month, per shop (retainer + ad spend)</div></div>
+      <div class="snap reveal"><div class="big">€5,685</div><div class="lbl">Your first year, per shop (all in)</div></div>
+      <div class="snap reveal"><div class="big">+ events</div><div class="lbl">Added only when they run</div></div>
+    </div>
+    <div class="note reveal">Per shop on an equal split, that is about €885 once to set up, then €400 a month covering the retainer and the ad budget, roughly €5,685 across the first year. Website hosting and maintenance is €500 a year on top, and events are added only when they run.</div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="band light" id="timeline">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="kicker">How we roll out</span><h2>The rollout.</h2></div>
+    <div class="timeline reveal">
+      <div class="tl"><span class="when">Weeks 1 to 4</span><h3>Foundation</h3><p>Brand completed, website live, templates and signage, accounts set, media kit ready.</p></div>
+      <div class="tl"><span class="when">Weeks 3 to 6</span><h3>Launch</h3><p>Content shoot, first posts, first portal coverage, launch event.</p></div>
+      <div class="tl"><span class="when">Weeks 6 to 12</span><h3>Rhythm</h3><p>Weekly posting, first bazaar or pop up, ads switched on, PR activation across the local portals.</p></div>
+      <div class="tl"><span class="when">October 2026</span><h3>Events calendar live</h3><p>The agreed annual calendar goes live and drives the schedule.</p></div>
+      <div class="tl"><span class="when">Ongoing</span><h3>Seasonal build</h3><p>Toward the Christmas market as the year's high point.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TERMS -->
+<section class="band dark">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="kicker">The essentials</span><h2>Terms at a glance.</h2></div>
+    <ul class="clean reveal" style="max-width:900px">
+      <li><b>Term:</b> a twelve month contract, renewable, with 30 days notice before renewal</li>
+      <li><b>Payment:</b> foundation 50% to start and 50% on delivery; retainer monthly in advance; hosting and maintenance annually in advance; events 50% deposit on booking</li>
+      <li><b>Ad spend and third party costs</b> are additional and pre funded</li>
+      <li><b>VAT</b> at 19% applies to all fees</li>
+      <li><b>Content and website</b> produced are licensed to STOA for its own marketing use</li>
+    </ul>
+  </div>
+</section>
+
+<!-- CONTACT / FOOTER -->
+<footer class="footer" id="contact">
+  <div class="wrap reveal">
+    <span class="kicker" style="color:var(--mint)">Let's begin</span>
+    <h2>Let's fill the <span class="accent">courtyard.</span></h2>
+    <p class="lead" style="max-width:620px;margin:1.2rem 0 2rem;color:rgba(255,255,255,.82)">One identity, a home online, a full calendar, and the whole city hearing about it.</p>
+    <a class="email" href="mailto:hello@wecomeone.me">hello@wecomeone.me</a>
+    <div class="legal">
+      A.A. Marketing And Comms Ltd, trading as Wecomeone Marketing And Comms. Reg. HE444177. Kouriou 6, Livadia, 7060, Larnaka, Cyprus.
+    </div>
+  </div>
+</footer>
+
+<script>
+  // scroll progress
+  const prog=document.getElementById('progress');
+  function onScroll(){
+    const h=document.documentElement;
+    const max=h.scrollHeight-h.clientHeight;
+    prog.style.width=(max>0?(h.scrollTop/max*100):0)+'%';
+  }
+  document.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  // reveal on scroll
+  const io=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+  },{threshold:0.12,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
