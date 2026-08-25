@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8">
+<title>Αρχεία Λάρνακας – Φοίβος Σταυρίδης · Τρίπτυχο layout</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FFFFFF;
+    --panel-alt:#FFFFFF;
+    --ink:#161513;
+    --ink-60: rgba(22,21,19,.62);
+    --ink-35: rgba(22,21,19,.35);
+    --line: rgba(22,21,19,.14);
+    --photo:#CBC8C0;
+    --photo-2:#B9B6AC;
+    --cm: 34px;
+    --head:'Manrope', 'Helvetica Neue', Arial, sans-serif;
+    --body:'Manrope', 'Segoe UI', Arial, sans-serif;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#FFFFFF;font-family:var(--body);color:var(--ink);padding:40px 24px 60px 64px;}
+  .wrap{max-width:1370px;}
+
+  .doc-head{margin-bottom:34px;border-bottom:1px solid var(--line);padding-bottom:18px;}
+  .doc-head .kicker{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-60);font-weight:600;margin-bottom:6px;font-family:var(--head);}
+  .doc-head h1{font-family:var(--head);font-weight:800;font-size:24px;margin:0 0 6px;letter-spacing:-.01em;}
+  .doc-head p{margin:0;font-size:13px;color:var(--ink-60);line-height:1.5;max-width:640px;}
+  .spec-line{margin-top:10px;font-size:12px;color:var(--ink-60);}
+  .spec-line b{color:var(--ink);}
+
+  .sheet-block{margin-bottom:40px;}
+  .sheet-label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-60);font-weight:600;margin-bottom:10px;display:flex;align-items:baseline;gap:8px;font-family:var(--head);}
+  .sheet-label span.tag{background:var(--ink);color:var(--bg);font-size:9.5px;letter-spacing:.1em;padding:2px 7px;font-weight:600;}
+
+  .sheet-outer{position:relative;width:calc(39 * var(--cm));padding:22px;}
+  .sheet-outer::before,.sheet-outer::after,.tick-tr,.tick-br{content:'';position:absolute;width:14px;height:14px;border-color:var(--ink-35);}
+  .sheet-outer::before{top:8px;left:8px;border-top:1px solid var(--ink-35);border-left:1px solid var(--ink-35);}
+  .sheet-outer::after{bottom:8px;left:8px;border-bottom:1px solid var(--ink-35);border-left:1px solid var(--ink-35);}
+  .tick-tr{top:8px;right:8px;border-top:1px solid var(--ink-35);border-right:1px solid var(--ink-35);}
+  .tick-br{bottom:8px;right:8px;border-bottom:1px solid var(--ink-35);border-right:1px solid var(--ink-35);}
+
+  .sheet{width:calc(39 * var(--cm));height:calc(13 * var(--cm));display:flex;box-shadow:0 1px 0 rgba(0,0,0,.05), 0 22px 46px -10px rgba(0,0,0,.28), 0 6px 14px rgba(0,0,0,.10);border:1px solid rgba(0,0,0,.07);background:var(--bg);}
+  .panel{width:calc(13 * var(--cm));height:calc(13 * var(--cm));background:var(--bg);position:relative;padding:.7cm;display:flex;flex-direction:column;border-right:1px dashed var(--line);overflow:hidden;}
+  .panel:last-child{border-right:none;}
+  .panel.alt{background:var(--panel-alt);}
+
+  .pnum{position:absolute;font-family:var(--head);font-size:10px;letter-spacing:.18em;color:var(--ink-35);font-weight:600;}
+  .pnum.br{bottom:.55cm;right:-.05cm;transform:rotate(-90deg);transform-origin:right bottom;}
+  .pnum.tl{top:.55cm;left:-.05cm;transform:rotate(-90deg);transform-origin:left top;}
+
+  .photo{background:var(--photo);position:relative;flex-shrink:0;}
+  .photo.tone2{background:var(--photo-2);}
+  .photo .tag{position:absolute;left:8px;bottom:8px;background:rgba(250,250,248,.88);font-family:var(--head);font-size:7.6px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-60);padding:3px 7px;}
+
+  .eyebrow{font-family:var(--head);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-60);font-weight:600;margin-bottom:4px;}
+  h2.title{font-family:var(--head);font-weight:800;font-size:16px;line-height:1.08;margin:0 0 2px;letter-spacing:-.005em;text-transform:uppercase;}
+  .sub{font-size:9.5px;color:var(--ink-60);margin:0 0 6px;font-style:italic;}
+
+  .copy{font-size:7.7px;line-height:1.46;color:var(--ink-60);}
+  .copy p+p{margin-top:5px;}
+  .copy p{margin:0;}
+
+
+  /* COVER */
+  .cover-panel{padding:0;}
+  .cover-photo{position:absolute;top:0;right:0;bottom:0;left:0;}
+  .cover-vert-plate{position:absolute;left:0;top:0;bottom:0;width:2.6cm;background:rgba(250,250,248,.85);display:flex;align-items:center;justify-content:center;}
+  .cover-vert{white-space:nowrap;transform:rotate(-90deg);font-family:var(--head);font-weight:800;font-size:27px;letter-spacing:.02em;color:var(--ink);}
+  .cover-top{position:absolute;top:.6cm;right:.6cm;font-family:var(--head);font-size:9px;letter-spacing:.16em;color:var(--ink-60);text-transform:uppercase;background:rgba(250,250,248,.85);padding:3px 8px;}
+  .cover-cap{position:absolute;right:.6cm;bottom:.6cm;text-align:right;max-width:3.6cm;background:rgba(250,250,248,.85);padding:6px 9px;}
+  .cover-cap .k{font-family:var(--head);font-size:9px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--ink);margin-bottom:2px;}
+  .cover-cap p{font-size:7.8px;color:var(--ink-60);margin:0;line-height:1.4;}
+
+  /* PAGE 2 split */
+  .split{display:flex;gap:.4cm;flex:1;}
+  .split .left{width:34%;}
+  .split .right{width:66%;display:flex;flex-direction:column;}
+
+  /* PAGE 4 dual photo */
+  .dual{display:flex;gap:.3cm;margin-bottom:.4cm;}
+  .dual .photo{flex:1;height:2.7cm;}
+
+  /* BACK COVER */
+  .contact{margin-top:6px;}
+  .contact div{font-size:9px;line-height:2;color:var(--ink-60);border-top:1px solid var(--line);padding:4px 0;}
+  .contact div:first-child{border-top:none;}
+  .contact b{font-family:var(--head);display:inline-block;width:70px;color:var(--ink);font-weight:600;font-size:8.4px;letter-spacing:.05em;text-transform:uppercase;}
+  .contact .fill{color:var(--ink-35);font-style:italic;}
+
+  .notes{max-width:820px;margin:50px auto 0;font-size:13px;line-height:1.6;color:var(--ink-60);}
+  .notes h3{font-family:var(--head);font-size:15px;margin:0 0 8px;color:var(--ink);font-weight:800;}
+  .notes ol{margin:0 0 26px;padding-left:20px;}
+  .notes li{margin-bottom:6px;}
+  .notes .corrections{background:var(--panel-alt);border:1px solid var(--line);padding:14px 18px;margin-bottom:26px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="doc-head">
+    <div class="kicker">Wecomeone Marketing And Comms · Layout v2</div>
+    <h1>Αρχεία Λάρνακας — Φοίβος Σταυρίδης</h1>
+    <p>Τρίπτυχο φυλλάδιο, τετράγωνη μορφή. Φωτογραφία-led σύνθεση όπως το reference, με placeholders μέχρι να παραληφθεί το τελικό υλικό.</p>
+    <div class="spec-line">Ανοιχτό: <b>39 × 13 cm</b> &nbsp;·&nbsp; Κλειστό: <b>13 × 13 cm</b> &nbsp;·&nbsp; 3 πάνελ × 13 cm, εκτύπωση 2 όψεων</div>
+  </div>
+
+  <!-- FRONT SHEET -->
+  <div class="sheet-block">
+    <div class="sheet-label"><span class="tag">Όψη Α · Front</span> Εσωτερική ανάπτυξη — σελ. 1, 2, 3</div>
+    <div class="sheet-outer">
+      <span class="tick-tr"></span><span class="tick-br"></span>
+      <div class="sheet">
+
+        <!-- PAGE 1 -->
+        <div class="panel">
+          <div class="pnum br">01</div>
+          <div class="photo" style="height:4.6cm;margin-bottom:.35cm;">
+            <span class="tag">φωτ. κτιρίου αρχείων</span>
+          </div>
+          <div class="eyebrow">Ο φορέας</div>
+          <h2 class="title">Αρχεία Λάρνακας</h2>
+          <p class="sub">Φοίβος Σταυρίδης</p>
+          <div class="copy">
+            <p>Τα Αρχεία Λάρνακας – Φοίβος Σταυρίδης αποτελούν έναν ζωντανό οργανισμό μνήμης, αφιερωμένο στη συλλογή, διαφύλαξη, μελέτη και ανάδειξη της ιστορίας της Λάρνακας και των ανθρώπων της. Ξεκίνησαν το 2015, ως ιδιωτική πρωτοβουλία του Φοίβου Σταυρίδη σε συνεργασία με τον Δήμο Λάρνακας, και σήμερα ανήκουν στον Δήμο. Μέσα από ένα πλούσιο αρχείο και μια εξαιρετική βιβλιοθήκη, διασώζουν όχι μόνο τα μεγάλα γεγονότα, αλλά και τις καθημερινές ιστορίες που διαμόρφωσαν την ταυτότητα της πόλης.</p>
+            <p>Τα Αρχεία αποτελούν χώρο έρευνας, γνώσης και συνάντησης, ενώ παράγουν σημαντικό ερευνητικό και εκδοτικό έργο, συμβάλλοντας στη μελέτη και ανάδειξη της πολιτιστικής κληρονομιάς της Λάρνακας. Παράλληλα, μέσα από εκδόσεις, εκθέσεις, εκπαιδευτικά προγράμματα και δημόσιες δράσεις, συνδέουν το παρελθόν με το παρόν και ενισχύουν τη σχέση των πολιτών με την ιστορία και τη μνήμη της πόλης.</p>
+          </div>
+        </div>
+
+        <!-- PAGE 2 -->
+        <div class="panel alt">
+          <div class="pnum tl">02</div>
+          <div class="split">
+            <div class="left">
+              <div class="photo tone2" style="height:100%;">
+                <span class="tag">λογότυπο, έγχρωμο</span>
+              </div>
+            </div>
+            <div class="right">
+              <div class="eyebrow">Ο χώρος</div>
+              <h2 class="title">Home of<br>Memory</h2>
+              <p class="sub">Το Σπίτι της Μνήμης</p>
+              <div class="copy">
+                <p>Το Σπίτι της Μνήμης (Home of Memory) είναι ο χώρος όπου τα Αρχεία Λάρνακας – Φοίβος Σταυρίδης αφηγούνται την ιστορία της πόλης μέσα από τις ζωές, τις μνήμες και τις καθημερινές εμπειρίες των ανθρώπων της.</p>
+                <p>Δεν είναι απλώς ένας χώρος φύλαξης τεκμηρίων, αλλά ένας ζωντανός τόπος όπου φωτογραφίες, έγγραφα, αντικείμενα, βιβλία και προσωπικές μαρτυρίες συνθέτουν το πολύπλευρο πορτρέτο της Λάρνακας. Εδώ, η μεγάλη ιστορία συναντά την προσωπική μνήμη και οι αφανείς ιστορίες αποκτούν φωνή.</p>
+                <p>Θα στεγάζεται στο Common Ground Cultural Center και αποτελεί μέρος του οράματος της Λάρνακας – Πολιτιστικής Πρωτεύουσας της Ευρώπης 2030. Θα ανοίξει για το κοινό το 2031. Μέχρι τότε, θα λειτουργεί σε μια ρευστή και ανοιχτή μορφή, μέσα στην πόλη και στο διαδίκτυο, μέσα από δράσεις, αφηγήσεις και ψηφιακές πρωτοβουλίες που μετατρέπουν τη μνήμη σε ζωντανή εμπειρία.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PAGE 3 -->
+        <div class="panel">
+          <div class="pnum br">03</div>
+          <div class="photo" style="height:5.2cm;margin-bottom:.35cm;">
+            <span class="tag">εξώφυλλο 1ου τεύχους</span>
+          </div>
+          <div class="eyebrow">Η έκδοση</div>
+          <h2 class="title">L'Arnica</h2>
+          <div class="copy">
+            <p>Το L'Arnica είναι η δίγλωσση περιοδική έκδοση των Αρχείων Λάρνακας – Φοίβος Σταυρίδης, ενταγμένη στο ευρύτερο εκδοτικό έργο. Στόχος του είναι να αναδεικνύει την ιστορία, την πολιτιστική κληρονομιά και τη σύγχρονη πολιτιστική ζωή της Λάρνακας, φιλοξενώντας μελέτες, ιστορικά κείμενα, αρχειακό υλικό, μαρτυρίες και θεματικές προσεγγίσεις, σε μια σύγχρονη και απλή γλώσσα.</p>
+            <p>Μέσα από τις σελίδες του, η Λάρνακα παρουσιάζεται ως ένας ζωντανός τόπος, όπου το παρελθόν συνομιλεί με το παρόν και οι διαφορετικές ιστορίες και ταυτότητες της πόλης αποκτούν χώρο και φωνή. Το L'Arnica συμβάλλει έτσι ουσιαστικά στη διάδοση της έρευνας και στη διαμόρφωση μιας σύγχρονης, συλλογικής αφήγησης για τη Λάρνακα.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- BACK SHEET -->
+  <div class="sheet-block">
+    <div class="sheet-label"><span class="tag">Όψη Β · Back</span> Σελ. 4, οπισθόφυλλο, εξώφυλλο</div>
+    <div class="sheet-outer">
+      <span class="tick-tr"></span><span class="tick-br"></span>
+      <div class="sheet">
+
+        <!-- PAGE 4 -->
+        <div class="panel alt">
+          <div class="pnum br">04</div>
+          <div class="dual">
+            <div class="photo"><span class="tag">παιδιά</span></div>
+            <div class="photo tone2"><span class="tag">ζωγραφική</span></div>
+          </div>
+          <div class="eyebrow">Εκπαίδευση</div>
+          <h2 class="title">Προγράμματα</h2>
+          <div class="copy">
+            <p>Τα Αρχεία Λάρνακας – Φοίβος Σταυρίδης αναπτύσσουν εκπαιδευτικές δράσεις που μεταφέρουν την ιστορική έρευνα και την πολιτιστική κληρονομιά από το αρχείο στην κοινωνία. Μέσα από δημιουργικές και συμμετοχικές προσεγγίσεις, παιδιά και νέοι έρχονται σε επαφή με την ιστορία, τη μνήμη και το αρχειακό υλικό, καλλιεργώντας τη γνώση, την έρευνα και την ενεργό συμμετοχή. Οι δράσεις αυτές συνδέονται με το ευρύτερο ερευνητικό, εκδοτικό και ευρωπαϊκό έργο των Αρχείων και συμβάλλουν στη διάχυση της ιστορικής γνώσης.</p>
+            <p>Τα Lefkart και Cardpostart είναι δύο χαρακτηριστικά εκπαιδευτικά προγράμματα που υλοποιούνται σε σχολεία σε όλη την Κύπρο, σε συνεργασία με το Ίδρυμα Πολιτιστικής Δημιουργίας για Παιδιά και Νέους. Στο πλαίσιο της Λάρνακας – Πολιτιστικής Πρωτεύουσας της Ευρώπης 2030, τα Αρχεία αποτελούν έναν από τους τοπικούς πολιτιστικούς πυρήνες που έχουν την ευθύνη διεκπεραίωσης και οργάνωσης πολιτιστικών προγραμμάτων ιδιαίτερα σε σχέση με τις κοινότητες, την πολιτιστική κληρονομιά και την σύγχρονη δημιουργικότητα.</p>
+          </div>
+        </div>
+
+        <!-- BACK COVER -->
+        <div class="panel">
+          <div class="pnum tl">05</div>
+          <div class="eyebrow">Επικοινωνία</div>
+          <h2 class="title" style="font-size:14px;">Ελάτε να μας<br>γνωρίσετε</h2>
+          <div class="contact">
+            <div><b>Διεύθυνση</b> <span class="fill">[συμπλήρωση]</span></div>
+            <div><b>Τηλέφωνο</b> <span class="fill">[συμπλήρωση]</span></div>
+            <div><b>Email</b> <span class="fill">[συμπλήρωση]</span></div>
+            <div><b>Website</b> <span class="fill">[συμπλήρωση]</span></div>
+            <div><b>Social</b> <span class="fill">[συμπλήρωση]</span></div>
+          </div>
+        </div>
+
+        <!-- COVER -->
+        <div class="panel cover-panel">
+          <div class="photo cover-photo"></div>
+          <div class="cover-top">Cover · 06 · φωτ. εξωφύλλου (μεγάλη)</div>
+          <div class="cover-vert-plate"><div class="cover-vert">ΑΡΧΕΙΑ ΛΑΡΝΑΚΑΣ</div></div>
+          <div class="cover-cap">
+            <div class="k">Φοίβος Σταυρίδης</div>
+            <p>Λάρνακα</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="notes">
+    <div class="corrections">
+      <h3>Διορθώσεις στο κείμενο</h3>
+      <ol>
+        <li>«ΑΡΧΑΕΙΑ ΛΑΡΝΑΚΑΣ» → «ΑΡΧΕΙΑ ΛΑΡΝΑΚΑΣ» (ορθογραφικό, το υπόλοιπο κείμενο έγραφε ήδη σωστά).</li>
+        <li>Πρόσθεσα την τελεία που έλειπε στο τέλος της ενότητας «Προγράμματα».</li>
+        <li>Ενότητα 2: αναφέρει άνοιγμα στο κοινό το <b>2031</b>, ενώ το όραμα τοποθετείται στο πλαίσιο του 2030. Το άφησα ως έχει, μπορεί να είναι σκόπιμο, το σημειώνω για επιβεβαίωση.</li>
+      </ol>
+    </div>
+    <h3>Ερωτήσεις</h3>
+    <ol>
+      <li>Στο εξώφυλλο, ποιο λογότυπο θέλετε: του φορέα ή το έγχρωμο Home of Memory από την postcard;</li>
+      <li>Στοιχεία επικοινωνίας για το οπισθόφυλλο (διεύθυνση, τηλέφωνο, email, website, social).</li>
+      <li>Χάρτης στο οπισθόφυλλο ναι ή όχι;</li>
+    </ol>
+  </div>
+
+</div>
+</body>
+</html>
