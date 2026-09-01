@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="el">
 <head>
@@ -328,7 +329,7 @@ section.dark .wrap{max-width:900px;}
   margin-top:44px;
   border:1px solid var(--line);
   background:var(--white);
-  max-width:640px;
+  max-width:100%;
 }
 .browser-bar{
   background:var(--steel);
@@ -418,8 +419,13 @@ section.dark .wrap{max-width:900px;}
 }
 
 /* Areas preview table (mirrors the client's table of areas) */
+.areas-scroll{
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+}
 .areas-preview{
   width:100%;
+  min-width:860px;
   border-collapse:collapse;
 }
 .areas-preview th{
@@ -428,21 +434,23 @@ section.dark .wrap{max-width:900px;}
   font-family:'Manrope', sans-serif;
   font-weight:600;
   text-transform:uppercase;
-  letter-spacing:0.04em;
-  font-size:10.5px;
-  padding:9px 10px;
+  letter-spacing:0.02em;
+  font-size:9.5px;
+  padding:9px 8px;
   text-align:left;
+  white-space:nowrap;
 }
 .areas-preview td{
-  padding:10px;
+  padding:10px 8px;
   border-bottom:1px solid var(--line);
   font-family:'Manrope', sans-serif;
-  font-size:13px;
+  font-size:12.5px;
+  white-space:nowrap;
 }
 .areas-preview .plans-link{
   color:var(--mint);
   font-weight:600;
-  font-size:12.5px;
+  font-size:12px;
 }
 .status-offer{background:var(--amber); color:var(--black);}
 .browser-label{
@@ -757,7 +765,7 @@ footer{
       </div>
       <div class="pillar">
         <div class="num">02</div>
-        <h3>Ιστοσελίδα και CMS</h3>
+        <h3>Ιστοσελίδα και Σύστημα Διαχείρισης Περιεχομένου (CMS)</h3>
         <p>Μια ιστοσελίδα χτισμένη γύρω από τα έργα σας, με σύστημα περιεχομένου που τρέχει η ίδια σας η ομάδα.</p>
       </div>
       <div class="pillar">
@@ -789,7 +797,7 @@ footer{
 <section class="service">
   <div class="wrap">
     <div class="service-top">
-      <h2>Ιστοσελίδα και CMS</h2>
+      <h2>Ιστοσελίδα και Σύστημα Διαχείρισης Περιεχομένου (CMS)</h2>
       <div class="service-price">€2.850 <span class="per">εφάπαξ</span></div>
     </div>
     <p class="service-desc">Αυτό είναι το σημείο που θέλω να σταθώ περισσότερο, γιατί η ιστοσελίδα ενός κατασκευαστή ακινήτων δουλεύει διαφορετικά από τις περισσότερες ιστοσελίδες μικρών επιχειρήσεων. Το πιο σημαντικό κομμάτι είναι οι σελίδες Νέων Έργων, αυτές που θα ανεβάζετε εσείς μέσω του CMS, με πλήρη στοιχεία και πίνακα εμβαδών ανά μονάδα. Παράλληλα, η ιστοσελίδα θα φιλοξενεί ένα πορτφόλιο περίπου δέκα ολοκληρωμένων και πωλημένων έργων, ένα εκ των οποίων έχει ακόμη μονάδες προς πώληση αυτή τη στιγμή. Η ιστοσελίδα θα είναι δίγλωσση, Ελληνικά και Αγγλικά.</p>
@@ -822,36 +830,66 @@ footer{
       </div>
       <div class="browser-body" style="padding:0 0 14px;">
         <div class="browser-label">Marina Heights &middot; Πίνακας εμβαδών</div>
+        <div class="areas-scroll">
         <table class="areas-preview">
           <tr>
             <th>Διαμ.</th>
             <th>Υπν.</th>
-            <th>Εμβαδόν</th>
+            <th>Μπάν.</th>
+            <th>Εσ. εμβαδόν</th>
+            <th>Καλ. βεράντες</th>
+            <th>Ακάλ. βεράντες</th>
+            <th>Κήπος</th>
+            <th>Στάθμευση</th>
+            <th>Αποθήκη</th>
+            <th>Roof garden</th>
             <th>Διαθεσιμότητα</th>
             <th>Κάτοψη</th>
           </tr>
           <tr>
             <td>01</td>
             <td>2</td>
+            <td>2</td>
             <td>78.70 τ.μ.</td>
+            <td>16.20 τ.μ.</td>
+            <td>&#45;</td>
+            <td>63.20 τ.μ.</td>
+            <td>12.00 τ.μ.</td>
+            <td>7.40 τ.μ.</td>
+            <td>&#45;</td>
             <td><span class="status status-available">Διαθέσιμο</span></td>
             <td class="plans-link">Προβολή</td>
           </tr>
           <tr>
             <td>02</td>
             <td>2</td>
+            <td>2</td>
             <td>79.90 τ.μ.</td>
+            <td>23.90 τ.μ.</td>
+            <td>&#45;</td>
+            <td>138.50 τ.μ.</td>
+            <td>12.00 τ.μ.</td>
+            <td>4.42 τ.μ.</td>
+            <td>&#45;</td>
             <td><span class="status status-soldout">Πωλήθηκε</span></td>
             <td class="plans-link">Προβολή</td>
           </tr>
           <tr>
             <td>03</td>
             <td>1</td>
-            <td>48.80 τ.μ.</td>
+            <td>1</td>
+            <td>52.20 τ.μ.</td>
+            <td>18.50 τ.μ.</td>
+            <td>18.70 τ.μ.</td>
+            <td>41.20 τ.μ.</td>
+            <td>12.00 τ.μ.</td>
+            <td>3.70 τ.μ.</td>
+            <td>&#45;</td>
             <td><span class="status status-offer">Υπό προσφορά</span></td>
             <td class="plans-link">Προβολή</td>
           </tr>
         </table>
+        </div>
       </div>
     </div>
     <p class="field-note">περιγραφή / τοποθεσία + χάρτης / κατάσταση / ημερομηνία ολοκλήρωσης / 3D renderings / τεχνικά χαρακτηριστικά / κατόψεις pdf / πίνακας εμβαδών ανά μονάδα</p>
@@ -904,7 +942,7 @@ footer{
       </tr>
       <tr>
         <td>
-          <div class="item-name">Ιστοσελίδα και CMS</div>
+          <div class="item-name">Ιστοσελίδα και Σύστημα Διαχείρισης Περιεχομένου (CMS)</div>
           <div class="item-type">εφάπαξ, δίγλωσση, νέα &amp; ολοκληρωμένα έργα</div>
         </td>
         <td class="amount">€2.850</td>
