@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wecomeone Marketing And Comms: Προσφορά για A. Nicolaou &amp; Son</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --black:#1A1A1A;
+  --mint:#00C49A;
+  --mint-bright:#00E8B0;
+  --white:#FFFFFF;
+  --offwhite:#F7F5F2;
+  --steel:#2E2E2A;
+  --concrete:#8C8C86;
+  --concrete-light:#DAD9D2;
+  --amber:#D9A441;
+  --line:rgba(26,26,26,0.14);
+  --line-light:rgba(255,255,255,0.16);
+}
+
+*{box-sizing:border-box; margin:0; padding:0;}
+
+html{scroll-behavior:smooth;}
+
+body{
+  font-family:'Manrope', sans-serif;
+  font-weight:400;
+  color:var(--black);
+  background:var(--offwhite);
+  line-height:1.6;
+  font-size:17px;
+}
+
+.label-font{
+  font-family:'Manrope', sans-serif;
+  font-weight:700;
+  letter-spacing:0.06em;
+}
+
+h1,h2,h3,h4{
+  font-family:'Manrope', sans-serif;
+  font-weight:800;
+  text-transform:uppercase;
+  line-height:1.05;
+  letter-spacing:0.01em;
+}
+
+em{
+  font-style:normal;
+  font-weight:300;
+  color:var(--mint-bright);
+}
+
+a{color:inherit;}
+
+.wrap{
+  max-width:900px;
+  margin:0 auto;
+  padding:0 32px;
+}
+
+.progress{
+  position:fixed;
+  top:0; left:0;
+  height:3px;
+  width:0%;
+  background:var(--mint-bright);
+  z-index:100;
+  transition:width 0.1s ease-out;
+}
+
+/* Top bar */
+.topbar{
+  background:var(--black);
+  padding:22px 32px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.wordmark{
+  font-family:'Manrope', sans-serif;
+  font-size:22px;
+  font-weight:600;
+  letter-spacing:-0.01em;
+}
+.wordmark .we{color:var(--white);}
+.wordmark .come{color:var(--mint-bright);}
+.wordmark .one{color:var(--white);}
+.topbar .tag{
+  font-family:'Manrope', sans-serif;
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  color:var(--concrete-light);
+}
+
+/* Hero */
+.hero{
+  position:relative;
+  background:var(--black);
+  color:var(--white);
+  padding:100px 32px 90px;
+  overflow:hidden;
+}
+.hero-grid{
+  position:absolute;
+  inset:0;
+  opacity:0.5;
+  pointer-events:none;
+}
+.hero-inner{
+  max-width:900px;
+  margin:0 auto;
+  position:relative;
+  z-index:1;
+}
+.hero-eyebrow{
+  font-family:'Manrope', sans-serif;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:0.08em;
+  font-size:14px;
+  color:var(--mint);
+  margin-bottom:24px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.hero-eyebrow .tick{
+  width:14px; height:2px;
+  background:var(--mint);
+  display:inline-block;
+}
+.hero h1{
+  font-size:44px;
+  text-transform:none;
+  letter-spacing:-0.01em;
+  max-width:640px;
+  margin-bottom:14px;
+  opacity:0;
+  animation:riseIn 0.8s ease-out 0.15s forwards;
+}
+.hero .sub{
+  font-family:'Manrope', sans-serif;
+  font-size:24px;
+  font-weight:600;
+  text-transform:none;
+  margin-bottom:22px;
+  opacity:0;
+  animation:riseIn 0.8s ease-out 0.28s forwards;
+}
+.hero p.lead{
+  font-size:19px;
+  font-weight:400;
+  color:var(--concrete-light);
+  max-width:540px;
+  margin-bottom:48px;
+  opacity:0;
+  animation:riseIn 0.8s ease-out 0.4s forwards;
+}
+@keyframes riseIn{
+  from{opacity:0; transform:translateY(14px);}
+  to{opacity:1; transform:translateY(0);}
+}
+.hero-meta{
+  display:flex;
+  gap:48px;
+  flex-wrap:wrap;
+  border-top:1px solid var(--line-light);
+  padding-top:24px;
+}
+.hero-meta div{}
+.hero-meta .label{
+  font-family:'Manrope', sans-serif;
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:0.06em;
+  font-size:11.5px;
+  color:var(--concrete);
+  margin-bottom:6px;
+}
+.hero-meta .value{
+  font-weight:600;
+  font-size:15px;
+}
+
+/* Section shell */
+section{
+  padding:80px 0;
+}
+section.dark{
+  background:var(--black);
+  color:var(--white);
+}
+section.dark .wrap{max-width:900px;}
+
+.section-head{
+  display:flex;
+  align-items:flex-start;
+  gap:14px;
+  margin-bottom:36px;
+}
+.section-head .mark{
+  width:14px; height:14px;
+  background:var(--mint);
+  margin-top:10px;
+  flex-shrink:0;
+}
+.section-head h2{
+  font-size:32px;
+}
+.dark .section-head .mark{background:var(--mint-bright);}
+
+.lede{
+  max-width:640px;
+  font-size:17px;
+  color:#3d3d3a;
+  margin-bottom:8px;
+}
+.dark .lede{color:var(--concrete-light);}
+
+/* Pillars overview */
+.pillars{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1px;
+  background:var(--line);
+  border:1px solid var(--line);
+  margin-top:40px;
+}
+.pillar{
+  background:var(--offwhite);
+  padding:32px 28px;
+}
+.pillar .num{
+  font-family:'Manrope', sans-serif;
+  font-weight:700;
+  font-size:14px;
+  color:var(--mint);
+  margin-bottom:16px;
+}
+.pillar h3{
+  font-size:21px;
+  margin-bottom:10px;
+}
+.pillar p{
+  font-family:'Manrope', sans-serif;
+  font-size:15px;
+  color:#4a4a46;
+}
+
+/* Service blocks */
+.service{
+  padding:70px 0;
+  border-top:1px solid var(--line);
+}
+.service-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  flex-wrap:wrap;
+  gap:16px;
+  margin-bottom:12px;
+}
+.service-top h2{font-size:30px;}
+.service-price{
+  font-family:'Manrope', sans-serif;
+  font-weight:700;
+  font-size:16px;
+  background:var(--black);
+  color:var(--mint-bright);
+  padding:8px 16px;
+  white-space:nowrap;
+}
+.service-price .per{color:var(--concrete-light); font-size:12px; text-transform:uppercase; letter-spacing:0.04em;}
+.service-price .was{text-decoration:line-through; color:var(--concrete); font-weight:500; font-size:0.82em; margin-right:8px;}
+
+.service-desc{
+  max-width:660px;
+  font-family:'Manrope', sans-serif;
+  color:#3d3d3a;
+  margin:18px 0 34px;
+}
+
+.feature-list{
+  list-style:none;
+  display:grid;
+  gap:14px;
+  max-width:660px;
+}
+.feature-list li{
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+  font-family:'Manrope', sans-serif;
+  font-size:15.5px;
+}
+.feature-list li::before{
+  content:'';
+  width:6px; height:6px;
+  background:var(--black);
+  margin-top:9px;
+  flex-shrink:0;
+}
+
+.included-tag{
+  display:inline-block;
+  font-family:'Manrope', sans-serif;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:0.05em;
+  font-size:12px;
+  background:var(--black);
+  color:var(--white);
+  padding:6px 12px;
+  margin-top:28px;
+}
+.included-tag .n{color:var(--mint-bright);}
+
+/* CMS mockup */
+.browser{
+  margin-top:44px;
+  border:1px solid var(--line);
+  background:var(--white);
+  max-width:640px;
+}
+.browser-bar{
+  background:var(--steel);
+  padding:12px 16px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.browser-bar .dot{
+  width:9px; height:9px;
+  border-radius:50%;
+  background:var(--concrete);
+  display:inline-block;
+}
+.browser-bar .url{
+  font-family:'Manrope', sans-serif;
+  font-size:12.5px;
+  color:var(--concrete-light);
+  background:rgba(255,255,255,0.06);
+  padding:5px 12px;
+  margin-left:8px;
+  flex:1;
+}
+.browser-body{padding:18px;}
+.dev-row{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:12px 8px;
+  border-bottom:1px solid var(--line);
+}
+.dev-row:last-of-type{border-bottom:none;}
+.dev-thumb{
+  width:44px; height:44px;
+  background:var(--concrete-light);
+  flex-shrink:0;
+}
+.dev-info{flex:1;}
+.dev-info strong{display:block; font-family:'Manrope', sans-serif; font-weight:700; font-size:15.5px; text-transform:none;}
+.dev-info span{
+  font-size:13px;
+  color:var(--concrete);
+  font-family:'Manrope', sans-serif;
+}
+.status{
+  font-family:'Manrope', sans-serif;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:0.04em;
+  font-size:11.5px;
+  padding:5px 10px;
+  white-space:nowrap;
+}
+.status-available{background:var(--black); color:var(--mint-bright);}
+.status-construction{background:var(--amber); color:var(--black);}
+.status-soldout{background:var(--concrete-light); color:#5a5a55;}
+.add-row{
+  margin-top:14px;
+  padding-top:14px;
+  border-top:1px dashed var(--line);
+  font-family:'Manrope', sans-serif;
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:0.05em;
+  font-size:12.5px;
+  color:var(--concrete);
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.add-row .plus{
+  width:18px; height:18px;
+  border:1px solid var(--concrete);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:13px;
+}
+
+.field-note{
+  margin-top:28px;
+  max-width:660px;
+  font-size:14px;
+  color:var(--concrete);
+  font-family:'Manrope', sans-serif;
+  line-height:1.8;
+}
+
+/* Areas preview table (mirrors the client's table of areas) */
+.areas-preview{
+  width:100%;
+  border-collapse:collapse;
+}
+.areas-preview th{
+  background:var(--black);
+  color:var(--concrete-light);
+  font-family:'Manrope', sans-serif;
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:0.04em;
+  font-size:10.5px;
+  padding:9px 10px;
+  text-align:left;
+}
+.areas-preview td{
+  padding:10px;
+  border-bottom:1px solid var(--line);
+  font-family:'Manrope', sans-serif;
+  font-size:13px;
+}
+.areas-preview .plans-link{
+  color:var(--mint);
+  font-weight:600;
+  font-size:12.5px;
+}
+.status-offer{background:var(--amber); color:var(--black);}
+.browser-label{
+  padding:14px 18px 6px;
+  font-family:'Manrope', sans-serif;
+  font-weight:700;
+  font-size:13px;
+  color:var(--concrete);
+}
+
+/* Optional addon box */
+.addon-box{
+  margin-top:32px;
+  max-width:440px;
+  border:1px dashed var(--concrete);
+  padding:22px 24px;
+  background:var(--white);
+}
+.addon-box-label{
+  font-family:'Manrope', sans-serif;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:0.05em;
+  font-size:11px;
+  color:var(--mint);
+  margin-bottom:10px;
+}
+.addon-box-title{
+  font-family:'Manrope', sans-serif;
+  font-weight:800;
+  text-transform:uppercase;
+  font-size:19px;
+  margin-bottom:8px;
+}
+.addon-box p{
+  font-family:'Manrope', sans-serif;
+  font-size:14px;
+  color:#4a4a46;
+  margin-bottom:16px;
+}
+.addon-box-price{
+  font-family:'Manrope', sans-serif;
+  font-weight:800;
+  font-size:21px;
+}
+.addon-box-price span{
+  font-size:11px;
+  font-weight:600;
+  color:var(--concrete);
+  text-transform:uppercase;
+  margin-left:4px;
+}
+.optional-badge{
+  display:inline-block;
+  font-family:'Manrope', sans-serif;
+  font-weight:600;
+  font-size:10px;
+  text-transform:uppercase;
+  letter-spacing:0.04em;
+  color:var(--mint-bright);
+  border:1px solid var(--mint-bright);
+  padding:2px 8px;
+  margin-left:10px;
+  vertical-align:middle;
+}
+
+/* Sitemap */
+.sitemap{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:30px;
+  max-width:660px;
+}
+.sitemap span{
+  font-family:'Manrope', sans-serif;
+  font-size:14px;
+  padding:8px 14px;
+  border:1px solid var(--line);
+  background:var(--white);
+}
+.sitemap span.cms{
+  border-style:dashed;
+  color:#4a4a46;
+}
+
+/* Investment summary */
+.invest-table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:36px;
+}
+.invest-table th{
+  text-align:left;
+  font-family:'Manrope', sans-serif;
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:0.06em;
+  font-size:11.5px;
+  color:var(--concrete);
+  padding-bottom:12px;
+  border-bottom:1px solid var(--line-light);
+}
+.invest-table td{
+  padding:20px 0;
+  border-bottom:1px solid var(--line-light);
+  vertical-align:top;
+}
+.invest-table .item-name{
+  font-family:'Manrope', sans-serif;
+  font-weight:700;
+  font-size:18px;
+}
+.invest-table .item-type{
+  font-family:'Manrope', sans-serif;
+  font-size:12.5px;
+  color:var(--concrete-light);
+  margin-top:4px;
+}
+.invest-table .amount{
+  font-family:'Manrope', sans-serif;
+  font-weight:700;
+  font-size:19px;
+  color:var(--mint-bright);
+  text-align:right;
+  white-space:nowrap;
+}
+.invest-total{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  padding-top:28px;
+  margin-top:4px;
+}
+.invest-total .label{
+  font-size:15px;
+  color:var(--concrete-light);
+}
+.invest-total .value{
+  font-family:'Manrope', sans-serif;
+  font-weight:800;
+  font-size:32px;
+  color:var(--white);
+}
+.vat-note{
+  font-size:13px;
+  color:var(--concrete);
+  margin-top:18px;
+}
+
+/* Timeline */
+.timeline{
+  margin-top:40px;
+  display:grid;
+  gap:0;
+}
+.tl-row{
+  display:grid;
+  grid-template-columns:64px 1fr;
+  border-top:1px solid var(--line);
+  padding:22px 0;
+}
+.tl-row:last-child{border-bottom:1px solid var(--line);}
+.tl-num{
+  font-family:'Manrope', sans-serif;
+  font-weight:700;
+  font-size:14px;
+  color:var(--concrete);
+}
+.tl-content h4{font-size:18px; margin-bottom:6px;}
+.tl-content p{font-family:'Manrope', sans-serif; font-size:14.5px; color:#4a4a46;}
+
+/* Terms */
+.terms-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:32px;
+  margin-top:36px;
+}
+.terms-col h4{
+  font-family:'Manrope', sans-serif;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:0.05em;
+  font-size:14px;
+  margin-bottom:14px;
+  color:var(--concrete);
+}
+.terms-col p, .terms-col li{
+  font-family:'Manrope', sans-serif;
+  font-size:14.5px;
+  color:#3d3d3a;
+  margin-bottom:8px;
+}
+.terms-col ul{list-style:none;}
+.terms-col li::before{content:'\2022  ';}
+
+/* Closing */
+.closing{
+  background:var(--black);
+  color:var(--white);
+  padding:90px 0 70px;
+  text-align:left;
+}
+.closing h2{
+  font-size:34px;
+  max-width:540px;
+  margin-bottom:18px;
+}
+.closing p{
+  font-family:'Manrope', sans-serif;
+  color:var(--concrete-light);
+  max-width:500px;
+  margin-bottom:40px;
+}
+.closing-contact{
+  display:flex;
+  gap:48px;
+  flex-wrap:wrap;
+  border-top:1px solid var(--line-light);
+  padding-top:28px;
+}
+.closing-contact .label{
+  font-family:'Manrope', sans-serif;
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:0.06em;
+  font-size:11.5px;
+  color:var(--concrete);
+  margin-bottom:6px;
+}
+.closing-contact .value{font-weight:600; font-size:15px;}
+
+footer{
+  padding:28px 32px;
+  text-align:center;
+  font-family:'Manrope', sans-serif;
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:0.05em;
+  font-size:11.5px;
+  color:var(--concrete);
+  background:var(--offwhite);
+}
+
+@media (max-width:720px){
+  .wrap{padding:0 20px;}
+  .hero{padding:70px 20px 60px;}
+  .hero h1{font-size:34px;}
+  .hero .sub{font-size:19px;}
+  .pillars{grid-template-columns:1fr;}
+  .terms-grid{grid-template-columns:1fr;}
+  .invest-table .amount{font-size:16px;}
+  .service-top{flex-direction:column; align-items:flex-start;}
+  .tl-row{grid-template-columns:40px 1fr;}
+}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<div class="topbar">
+  <div class="wordmark"><span class="we">we</span><span class="come">come</span><span class="one">one</span></div>
+</div>
+
+<section class="hero">
+  <svg class="hero-grid" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <pattern id="grid" width="46" height="46" patternUnits="userSpaceOnUse">
+        <path d="M 46 0 L 0 0 0 46" fill="none" stroke="#00E8B0" stroke-opacity="0.06" stroke-width="1"/>
+      </pattern>
+    </defs>
+    <rect width="100%" height="100%" fill="url(#grid)"/>
+  </svg>
+  <div class="hero-inner">
+    <div class="hero-eyebrow"><span class="tick"></span>προσφορά &middot; ετοιμάστηκε για A. Nicolaou &amp; Son</div>
+    <h1>Θεμέλια μάρκετινγκ για όσα χτίζετε</h1>
+    <div class="sub">A. Nicolaou &amp; Son <em>Ανάπτυξη ακινήτων</em></div>
+    <p class="lead">Ταυτότητα brand, μια ιστοσελίδα που παρουσιάζει τα έργα σας, και social media με διαφημίσεις που κρατούν κάθε έργο ορατό, από τα θεμέλια μέχρι να εξαντληθεί.</p>
+    <div class="hero-meta">
+      <div>
+        <div class="label">ετοιμάστηκε για</div>
+        <div class="value">A. Nicolaou &amp; Son</div>
+      </div>
+      <div>
+        <div class="label">ετοιμάστηκε από</div>
+        <div class="value">Wecomeone Marketing And Comms</div>
+      </div>
+      <div>
+        <div class="label">ημερομηνία</div>
+        <div class="value">Σεπτέμβριος 2026</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="mark"></span>
+      <h2>Η ανάγκη</h2>
+    </div>
+    <p class="lede">Οι αγοραστές ψάχνουν ένα έργο πολύ πριν σηκώσουν τηλέφωνο. Αυτό που βρίσκουν online, μια ξεκάθαρη ταυτότητα, μια ιστοσελίδα που τους αφήνει να δουν το έργο σε βάθος, μια παρουσία στα social που δείχνει ένα εργοτάξιο να προχωράει πραγματικά, κάνει μεγάλο μέρος της πώλησης πριν καν μιλήσει η ομάδα σας.</p>
+    <p class="lede" style="margin-top:16px;">Αυτή η προσφορά καλύπτει τρία κομμάτια που δουλεύουν μαζί: μια ταυτότητα που μπορείτε να βάλετε με σιγουριά σε μια πινακίδα εργοταξίου ή σε μια κάτοψη, μια ιστοσελίδα που ενημερώνει η ίδια σας η ομάδα καθώς προχωρούν τα έργα, και συνεχή παρουσία στα social media και διαφημίσεις που κρατούν αυτή τη ροή αγοραστών ενεργή.</p>
+
+    <div class="pillars">
+      <div class="pillar">
+        <div class="num">01</div>
+        <h3>Ταυτότητα brand</h3>
+        <p>Λογότυπο, χρώματα και τυπογραφία, εφαρμοσμένα σε πραγματικά mockups.</p>
+      </div>
+      <div class="pillar">
+        <div class="num">02</div>
+        <h3>Ιστοσελίδα και CMS</h3>
+        <p>Μια ιστοσελίδα χτισμένη γύρω από τα έργα σας, με σύστημα περιεχομένου που τρέχει η ίδια σας η ομάδα.</p>
+      </div>
+      <div class="pillar">
+        <div class="num">03</div>
+        <h3>Social και διαφημίσεις</h3>
+        <p>Μηνιαίο περιεχόμενο και μία ενεργή καμπάνια, χτισμένα για ανθρώπους που θέλουν να αγοράσουν.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="service">
+  <div class="wrap">
+    <div class="service-top">
+      <h2>Ταυτότητα brand</h2>
+      <div class="service-price"><span class="was">€1.100</span>€850 <span class="per">εφάπαξ</span></div>
+    </div>
+    <p class="service-desc">Μια βασική ταυτότητα, φτιαγμένη σωστά. Δύο κατευθύνσεις για να διαλέξετε, οι οποίες καταλήγουν σε ένα τελικό σύστημα που εφαρμόζεται παντού, από μια πινακίδα εργοταξίου μέχρι μια κάτοψη σε PDF.</p>
+    <ul class="feature-list">
+      <li>Κύριο λογότυπο, και μια απλοποιημένη εκδοχή για favicon και social profiles</li>
+      <li>Παλέτα χρωμάτων φτιαγμένη για brand ακινήτων, βασικά, δευτερεύοντα και ουδέτερα χρώματα</li>
+      <li>Σύστημα τυπογραφίας, μία γραμματοσειρά τίτλων και μία κειμένου, σε μεγέθη για έντυπο, πινακίδες και web</li>
+      <li>Μερικά εφαρμοσμένα mockups, business card, letterhead και μια ιδέα πινακίδας εργοταξίου</li>
+    </ul>
+    <div class="included-tag">2 κατευθύνσεις <span class="n">&middot;</span> 1 τελική ταυτότητα</div>
+  </div>
+</section>
+
+<section class="service">
+  <div class="wrap">
+    <div class="service-top">
+      <h2>Ιστοσελίδα και CMS</h2>
+      <div class="service-price">€2.850 <span class="per">εφάπαξ</span></div>
+    </div>
+    <p class="service-desc">Αυτό είναι το σημείο που θέλω να σταθώ περισσότερο, γιατί η ιστοσελίδα ενός κατασκευαστή ακινήτων δουλεύει διαφορετικά από τις περισσότερες ιστοσελίδες μικρών επιχειρήσεων. Το πιο σημαντικό κομμάτι είναι οι σελίδες Νέων Έργων, αυτές που θα ανεβάζετε εσείς μέσω του CMS, με πλήρη στοιχεία και πίνακα εμβαδών ανά μονάδα. Παράλληλα, η ιστοσελίδα θα φιλοξενεί ένα πορτφόλιο περίπου δέκα ολοκληρωμένων και πωλημένων έργων, ένα εκ των οποίων έχει ακόμη μονάδες προς πώληση αυτή τη στιγμή. Η ιστοσελίδα θα είναι δίγλωσση, Ελληνικά και Αγγλικά.</p>
+
+    <h4 style="font-size:17px; margin-top:8px; margin-bottom:4px;">Χάρτης ιστοσελίδας</h4>
+    <div class="sitemap">
+      <span>Αρχική</span>
+      <span>Σχετικά</span>
+      <span class="cms">Έργα &middot; Νέα Έργα</span>
+      <span class="cms">Έργα &middot; Ολοκληρωμένα</span>
+      <span class="cms">Σελίδα έργου (ανά έργο)</span>
+      <span>Επικοινωνία</span>
+    </div>
+    <p style="margin-top:16px; max-width:660px; font-size:14.5px; color:#4a4a46; font-family:'Manrope', sans-serif;">Τέσσερις στατικές σελίδες είναι αρκετές εδώ. Δεν πρόσθεσα ξεχωριστή σελίδα Υπηρεσιών, γιατί η ουσία της δουλειάς σας φαίνεται καλύτερα μέσα από τα ίδια τα Έργα παρά από περιγραφές. Αν αναλαμβάνετε και κατασκευή για τρίτους, μια σελίδα Υπηρεσιών θα είχε νόημα, πείτε μου.</p>
+
+    <h4 style="font-size:17px; margin-top:44px; margin-bottom:4px;">Τι δίνει το CMS στην ομάδα σας</h4>
+    <ul class="feature-list" style="margin-top:18px;">
+      <li>Σελίδα Νέου Έργου με περιγραφή, τοποθεσία και χάρτη, κατάσταση, ημερομηνία ολοκλήρωσης, 3D renderings, τεχνικά χαρακτηριστικά και κατόψεις σε PDF</li>
+      <li>Πίνακας εμβαδών ανά μονάδα, δωμάτια, μπάνια, εσωτερικό εμβαδόν, βεράντες, κήπο, στάθμευση και αποθήκη, με τη διαθεσιμότητα κάθε μονάδας να αλλάζει ξεχωριστά, διαθέσιμο, πωλήθηκε ή υπό προσφορά</li>
+      <li>Ενότητα Ολοκληρωμένων Έργων, ένα πορτφόλιο περίπου δέκα έργων που δείχνει τη δουλειά σας σε νέους αγοραστές</li>
+      <li>Δίγλωσση δομή, Ελληνικά και Αγγλικά, με εναλλαγή γλώσσας σε κάθε σελίδα</li>
+      <li>Φόρμα ενδιαφέροντος σε κάθε σελίδα έργου, που καταλήγει απευθείας στο email σας</li>
+      <li>Μία συνεδρία εκπαίδευσης για την ομάδα σας, ώστε η προσθήκη ενός νέου έργου να είναι κάτι που κάνετε μόνοι σας</li>
+    </ul>
+
+    <div class="browser">
+      <div class="browser-bar">
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        <div class="url">anicolaouandson.com/projects/marina-heights</div>
+      </div>
+      <div class="browser-body" style="padding:0 0 14px;">
+        <div class="browser-label">Marina Heights &middot; Πίνακας εμβαδών</div>
+        <table class="areas-preview">
+          <tr>
+            <th>Διαμ.</th>
+            <th>Υπν.</th>
+            <th>Εμβαδόν</th>
+            <th>Διαθεσιμότητα</th>
+            <th>Κάτοψη</th>
+          </tr>
+          <tr>
+            <td>01</td>
+            <td>2</td>
+            <td>78.70 τ.μ.</td>
+            <td><span class="status status-available">Διαθέσιμο</span></td>
+            <td class="plans-link">Προβολή</td>
+          </tr>
+          <tr>
+            <td>02</td>
+            <td>2</td>
+            <td>79.90 τ.μ.</td>
+            <td><span class="status status-soldout">Πωλήθηκε</span></td>
+            <td class="plans-link">Προβολή</td>
+          </tr>
+          <tr>
+            <td>03</td>
+            <td>1</td>
+            <td>48.80 τ.μ.</td>
+            <td><span class="status status-offer">Υπό προσφορά</span></td>
+            <td class="plans-link">Προβολή</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <p class="field-note">περιγραφή / τοποθεσία + χάρτης / κατάσταση / ημερομηνία ολοκλήρωσης / 3D renderings / τεχνικά χαρακτηριστικά / κατόψεις pdf / πίνακας εμβαδών ανά μονάδα</p>
+
+    <div class="included-tag">νέα έργα μέσω CMS &middot; πορτφόλιο ολοκληρωμένων &middot; Ελληνικά / Αγγλικά</div>
+
+    <div class="addon-box">
+      <div class="addon-box-label">Προαιρετικό addon</div>
+      <div class="addon-box-title">Ψηφιακό brochure</div>
+      <p>Αυτόματη δημιουργία ενός ψηφιακού brochure για κάθε έργο, από το περιεχόμενο που υπάρχει ήδη στο CMS.</p>
+      <div class="addon-box-price">€600 <span>εφάπαξ</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="service">
+  <div class="wrap">
+    <div class="service-top">
+      <h2>Social media και διαφημίσεις</h2>
+      <div class="service-price">€700 <span class="per">τον μήνα</span></div>
+    </div>
+    <p class="service-desc">Συνεχής διαχείριση μόλις είναι live η ταυτότητα και η ιστοσελίδα, με ελάχιστη διάρκεια 6 μηνών, δίνοντας σε κάθε έργο μια ορατή πορεία από την ανακοίνωση μέχρι να εξαντληθεί.</p>
+    <ul class="feature-list">
+      <li>Οκτώ αναρτήσεις τον μήνα σε διάφορες μορφές, static posts, carousels και reels</li>
+      <li>Περιεχόμενο χτισμένο γύρω από πραγματικά ορόσημα, νέα έργα, πρόοδο κατασκευής και αποκαλύψεις ολοκληρωμένων μονάδων</li>
+      <li>Μία ενεργή καμπάνια στη Meta, που στοχεύει αγοραστές και επενδυτές και κάνει retargeting σε όσους έχουν επισκεφθεί την ιστοσελίδα</li>
+      <li>Μηνιαία αναφορά με reach, engagement και αιτήματα ενδιαφέροντος</li>
+    </ul>
+    <p style="margin-top:26px; font-size:14.5px; color:#4a4a46; font-family:'Manrope', sans-serif;">Προτεινόμενος μηνιαίος προϋπολογισμός διαφήμισης €350 έως €600, που καταβάλλεται απευθείας στη Meta από την A. Nicolaou &amp; Son. Χωρίς προσαύξηση στο διαφημιστικό budget.</p>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="mark"></span>
+      <h2>Σύνοψη επένδυσης</h2>
+    </div>
+    <table class="invest-table">
+      <tr>
+        <th>Υπηρεσία</th>
+        <th style="text-align:right;">Ποσό</th>
+      </tr>
+      <tr>
+        <td>
+          <div class="item-name">Ταυτότητα brand</div>
+          <div class="item-type">εφάπαξ, τιμή προσφοράς από €1.100</div>
+        </td>
+        <td class="amount">€850</td>
+      </tr>
+      <tr>
+        <td>
+          <div class="item-name">Ιστοσελίδα και CMS</div>
+          <div class="item-type">εφάπαξ, δίγλωσση, νέα &amp; ολοκληρωμένα έργα</div>
+        </td>
+        <td class="amount">€2.850</td>
+      </tr>
+      <tr>
+        <td>
+          <div class="item-name">Ψηφιακό brochure <span class="optional-badge">προαιρετικό</span></div>
+          <div class="item-type">addon, εφάπαξ, δεν περιλαμβάνεται στο σύνολο</div>
+        </td>
+        <td class="amount">€600</td>
+      </tr>
+      <tr>
+        <td>
+          <div class="item-name">Social media και διαφημίσεις</div>
+          <div class="item-type">μηνιαία χρέωση, ελάχιστη διάρκεια 6 μηνών</div>
+        </td>
+        <td class="amount">€700 / μήνα</td>
+      </tr>
+      <tr>
+        <td>
+          <div class="item-name">Φιλοξενία και συντήρηση</div>
+          <div class="item-type">ετήσια χρέωση, από τον 2ο χρόνο</div>
+        </td>
+        <td class="amount">€700 / έτος</td>
+      </tr>
+    </table>
+    <div class="invest-total">
+      <div class="label">Αρχική επένδυση, brand και ιστοσελίδα</div>
+      <div class="value">€3.700</div>
+    </div>
+    <p class="vat-note">Όλα τα ποσά δεν περιλαμβάνουν ΦΠΑ 19%. Το ψηφιακό brochure είναι προαιρετικό addon και δεν περιλαμβάνεται στο παραπάνω σύνολο. Το διαφημιστικό budget είναι ξεχωριστό και καταβάλλεται απευθείας στη Meta.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="mark"></span>
+      <h2>Χρονοδιάγραμμα</h2>
+    </div>
+    <div class="timeline">
+      <div class="tl-row">
+        <div class="tl-num">01</div>
+        <div class="tl-content">
+          <h4>Ανακάλυψη και κατεύθυνση brand</h4>
+          <p>Εβδομάδες 1 έως 2. Παρουσίαση δύο κατευθύνσεων, μία εξελίσσεται στην τελική ταυτότητα.</p>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-num">02</div>
+        <div class="tl-content">
+          <h4>Κατασκευή ιστοσελίδας και ρύθμιση CMS</h4>
+          <p>Εβδομάδες 2 έως 6. Σχεδιασμός ιστοσελίδας, πρότυπα σελίδων έργων, ρύθμιση CMS, και καταχώρηση των πρώτων σας έργων.</p>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-num">03</div>
+        <div class="tl-content">
+          <h4>Εκπαίδευση στο CMS και launch</h4>
+          <p>Εβδομάδα 6. Η ομάδα σας εκπαιδεύεται στην προσθήκη και ενημέρωση έργων, και η ιστοσελίδα ανεβαίνει live.</p>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-num">04</div>
+        <div class="tl-content">
+          <h4>Έναρξη social media και διαφημίσεων</h4>
+          <p>Συνεχής παρουσία από το launch, ή νωρίτερα αν θέλετε teaser περιεχόμενο πριν ανέβει η ιστοσελίδα.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:20px;">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="mark"></span>
+      <h2>Όροι πληρωμής</h2>
+    </div>
+    <div class="terms-grid">
+      <div class="terms-col">
+        <h4>brand και ιστοσελίδα</h4>
+        <ul>
+          <li>50% προκαταβολή για έναρξη</li>
+          <li>50% στην παράδοση, πριν το launch</li>
+        </ul>
+      </div>
+      <div class="terms-col">
+        <h4>συνεχείς υπηρεσίες</h4>
+        <ul>
+          <li>Social media και διαφημίσεις, μηνιαία χρέωση στο τέλος του κάθε μήνα με περίοδο αποπληρωμής 15 ημερών</li>
+          <li>Φιλοξενία και συντήρηση, ετήσια τιμολόγηση, προκαταβολικά</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="wrap">
+    <h2>Έτοιμοι να προχωρήσουμε;</h2>
+    <p>Η προσφορά ισχύει για 30 ημέρες. Απαντήστε μας για να κλείσουμε ημερομηνία έναρξης και να προγραμματίσουμε τη συνάντηση εκκίνησης.</p>
+  </div>
+</section>
+
+<footer>A.A. MARKETING AND COMMS LTD &middot; ΠΡΟΣΦΟΡΑ ΓΙΑ Α. NICOLAOU &amp; SON</footer>
+
+<script>
+window.addEventListener('scroll', function(){
+  var h = document.documentElement.scrollHeight - window.innerHeight;
+  var p = h > 0 ? (window.scrollY / h) * 100 : 0;
+  document.getElementById('progress').style.width = p + '%';
+});
+</script>
+
+</body>
+</html>
