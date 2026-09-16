@@ -693,7 +693,7 @@
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
       width: 100vw; height: 100vh;
-      background: rgba(30,53,53,0.98);
+      background: rgba(30,53,53,0.96);
       align-items: center;
       justify-content: center;
       gap: 28px;
@@ -702,19 +702,30 @@
       overflow-y: auto;
       margin: 0;
       list-style: none;
+      animation: menuFadeIn 0.3s ease forwards;
+    }
+
+    @keyframes menuFadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
     .nav-links.open a { font-size: 16px; letter-spacing: 3px; color: var(--white); }
     .nav-close {
       display: block;
       position: fixed;
-      top: 20px; right: 24px;
-      font-size: 36px;
+      top: 16px; right: 24px;
+      font-size: 28px;
       color: var(--white);
       cursor: pointer;
       z-index: 10000;
       background: none;
       border: none;
       line-height: 1;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .nav-burger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; z-index: 300; padding: 8px; }
     .nav-burger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: all 0.3s; }
