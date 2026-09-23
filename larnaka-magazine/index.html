@@ -196,10 +196,10 @@ tr.inc td:last-child{color:var(--accent-ink)}
 
 .approve{margin-top:clamp(56px,8vw,96px);display:grid;grid-template-columns:1fr auto;gap:32px;align-items:end}
 .approve h2{font-size:clamp(40px,6vw,80px)}
-.cta-wrap{display:flex;flex-direction:column;align-items:flex-start;gap:10px}
-.cta{display:inline-flex;align-items:center;gap:12px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;font-size:17px;padding:18px 30px;border-radius:999px;box-shadow:0 10px 24px -12px var(--accent);transition:transform .15s,background .2s}
-.cta:hover{background:var(--accent-ink);transform:translateY(-1px)}
-.cta-note{font-size:13px;color:var(--muted)}
+.steps-next{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 14px;font-size:15px;color:var(--muted)}
+.steps-next li{display:flex;align-items:baseline;gap:8px}
+.steps-next li+li::before{content:"\2192";color:var(--accent-ink);margin-right:6px}
+.steps-next .k{font-family:var(--display);font-size:20px;color:var(--accent-ink)}
 @media (max-width:900px){.approve{grid-template-columns:1fr}}
 
 /* Footer */
@@ -442,10 +442,11 @@ footer .credit strong{color:var(--sea-ink)}
       </div>
       <div class="approve">
         <h2 data-el="Έτοιμο για &lt;em&gt;έγκριση&lt;/em&gt;.">Ready for <em>approval</em>.</h2>
-        <div class="cta-wrap">
-          <a class="cta" id="approveCta" href="mailto:hello@wecomeone.me?subject=Larnaka%20Magazine%20proposal%3A%20approval&amp;body=Dear%20Wecomeone%20team%2C%0A%0AWe%20are%20pleased%20to%20confirm%20that%20the%20Municipality%20of%20Larnaka%20has%20approved%20the%20proposal%20for%20the%20Larnaka%20investor%20magazine%2C%20dated%2025/09/2026%2C%20at%20the%20partnership%20rate%20of%20%E2%82%AC6%2C500%20%2B%20VAT%2C%20including%20the%20commitment%20to%20a%20second%20edition.%0A%0APlease%20send%20us%20the%20invoice%20for%20the%2050%25%20advance%20so%20that%20work%20can%20begin.%0A%0AOur%20contact%20person%20for%20the%20project%3A%0AName%3A%0APosition%3A%0APhone%3A%0AEmail%3A%0A%0AKind%20regards%2C%0A" data-href-en="mailto:hello@wecomeone.me?subject=Larnaka%20Magazine%20proposal%3A%20approval&amp;body=Dear%20Wecomeone%20team%2C%0A%0AWe%20are%20pleased%20to%20confirm%20that%20the%20Municipality%20of%20Larnaka%20has%20approved%20the%20proposal%20for%20the%20Larnaka%20investor%20magazine%2C%20dated%2025/09/2026%2C%20at%20the%20partnership%20rate%20of%20%E2%82%AC6%2C500%20%2B%20VAT%2C%20including%20the%20commitment%20to%20a%20second%20edition.%0A%0APlease%20send%20us%20the%20invoice%20for%20the%2050%25%20advance%20so%20that%20work%20can%20begin.%0A%0AOur%20contact%20person%20for%20the%20project%3A%0AName%3A%0APosition%3A%0APhone%3A%0AEmail%3A%0A%0AKind%20regards%2C%0A" data-href-el="mailto:hello@wecomeone.me?subject=%CE%A0%CF%81%CF%8C%CF%84%CE%B1%CF%83%CE%B7%20%CF%80%CE%B5%CF%81%CE%B9%CE%BF%CE%B4%CE%B9%CE%BA%CE%BF%CF%8D%20%CE%9B%CE%AC%CF%81%CE%BD%CE%B1%CE%BA%CE%B1%CF%82%3A%20%CE%AD%CE%B3%CE%BA%CF%81%CE%B9%CF%83%CE%B7&amp;body=%CE%91%CE%B3%CE%B1%CF%80%CE%B7%CF%84%CE%AE%20%CE%BF%CE%BC%CE%AC%CE%B4%CE%B1%20%CF%84%CE%B7%CF%82%20Wecomeone%2C%0A%0A%CE%9C%CE%B5%20%CF%87%CE%B1%CF%81%CE%AC%20%CF%83%CE%B1%CF%82%20%CE%B5%CF%80%CE%B9%CE%B2%CE%B5%CE%B2%CE%B1%CE%B9%CF%8E%CE%BD%CE%BF%CF%85%CE%BC%CE%B5%20%CF%8C%CF%84%CE%B9%20%CE%BF%20%CE%94%CE%AE%CE%BC%CE%BF%CF%82%20%CE%9B%CE%AC%CF%81%CE%BD%CE%B1%CE%BA%CE%B1%CF%82%20%CE%B5%CE%BD%CE%AD%CE%BA%CF%81%CE%B9%CE%BD%CE%B5%20%CF%84%CE%B7%CE%BD%20%CF%80%CF%81%CF%8C%CF%84%CE%B1%CF%83%CE%B7%20%CE%B3%CE%B9%CE%B1%20%CF%84%CE%BF%20%CE%B5%CF%80%CE%B5%CE%BD%CE%B4%CF%85%CF%84%CE%B9%CE%BA%CF%8C%20%CF%80%CE%B5%CF%81%CE%B9%CE%BF%CE%B4%CE%B9%CE%BA%CF%8C%20%CF%84%CE%B7%CF%82%20%CE%9B%CE%AC%CF%81%CE%BD%CE%B1%CE%BA%CE%B1%CF%82%2C%20%CE%BC%CE%B5%20%CE%B7%CE%BC%CE%B5%CF%81%CE%BF%CE%BC%CE%B7%CE%BD%CE%AF%CE%B1%2025/09/2026%2C%20%CF%83%CF%84%CE%B7%CE%BD%20%CF%84%CE%B9%CE%BC%CE%AE%20%CF%83%CF%85%CE%BD%CE%B5%CF%81%CE%B3%CE%B1%CF%83%CE%AF%CE%B1%CF%82%20%CF%84%CF%89%CE%BD%20%E2%82%AC6.500%20%2B%20%CE%A6%CE%A0%CE%91%2C%20%CE%BC%CE%B5%20%CE%B4%CE%AD%CF%83%CE%BC%CE%B5%CF%85%CF%83%CE%B7%20%CE%B3%CE%B9%CE%B1%20%CE%B4%CE%B5%CF%8D%CF%84%CE%B5%CF%81%CE%B7%20%CE%AD%CE%BA%CE%B4%CE%BF%CF%83%CE%B7.%0A%0A%CE%A0%CE%B1%CF%81%CE%B1%CE%BA%CE%B1%CE%BB%CE%BF%CF%8D%CE%BC%CE%B5%20%CE%B1%CF%80%CE%BF%CF%83%CF%84%CE%B5%CE%AF%CE%BB%CE%B5%CF%84%CE%B5%20%CF%84%CE%BF%20%CF%84%CE%B9%CE%BC%CE%BF%CE%BB%CF%8C%CE%B3%CE%B9%CE%BF%20%CF%84%CE%B7%CF%82%20%CF%80%CF%81%CE%BF%CE%BA%CE%B1%CF%84%CE%B1%CE%B2%CE%BF%CE%BB%CE%AE%CF%82%2050%25%20%CF%8E%CF%83%CF%84%CE%B5%20%CE%BD%CE%B1%20%CE%BE%CE%B5%CE%BA%CE%B9%CE%BD%CE%AE%CF%83%CE%BF%CF%85%CE%BD%20%CE%BF%CE%B9%20%CE%B5%CF%81%CE%B3%CE%B1%CF%83%CE%AF%CE%B5%CF%82.%0A%0A%CE%A5%CF%80%CE%B5%CF%8D%CE%B8%CF%85%CE%BD%CE%BF%CF%82%20%CE%B5%CF%80%CE%B9%CE%BA%CE%BF%CE%B9%CE%BD%CF%89%CE%BD%CE%AF%CE%B1%CF%82%20%CE%B3%CE%B9%CE%B1%20%CF%84%CE%BF%20%CE%AD%CF%81%CE%B3%CE%BF%3A%0A%CE%8C%CE%BD%CE%BF%CE%BC%CE%B1%3A%0A%CE%98%CE%AD%CF%83%CE%B7%3A%0A%CE%A4%CE%B7%CE%BB%CE%AD%CF%86%CF%89%CE%BD%CE%BF%3A%0AEmail%3A%0A%0A%CE%9C%CE%B5%20%CE%B5%CE%BA%CF%84%CE%AF%CE%BC%CE%B7%CF%83%CE%B7%2C%0A"><span data-el="Έγκριση πρότασης">Approve the proposal</span> <span aria-hidden="true">&rarr;</span></a>
-          <p class="cta-note" data-el="Ανοίγει έτοιμο email προς hello@wecomeone.me">Opens a ready email to hello@wecomeone.me</p>
-        </div>
+        <ol class="steps-next" aria-label="Next steps">
+          <li><span class="k">1</span><span data-el="Έγκριση από την επιτροπή">Committee approval</span></li>
+          <li><span class="k">2</span><span data-el="Προκαταβολή 50%">50% advance</span></li>
+          <li><span class="k">3</span><span data-el="Έναρξη εργασιών">Work starts</span></li>
+        </ol>
       </div>
     </div>
   </section>
@@ -475,7 +476,6 @@ footer .credit strong{color:var(--sea-ink)}
     });
     document.documentElement.lang = l==='el' ? 'el' : 'en';
     document.title = titles[l];
-    var cta=document.getElementById('approveCta'); if(cta) cta.setAttribute('href', cta.dataset[l==='el'?'hrefEl':'hrefEn']);
     document.getElementById('langEl').classList.toggle('on', l==='el');
     document.getElementById('langEn').classList.toggle('on', l==='en');
     document.getElementById('langEl').setAttribute('aria-pressed', String(l==='el'));
