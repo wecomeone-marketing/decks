@@ -22,6 +22,12 @@ nav.toc ol a:hover,nav.toc ol a.on{background:var(--accent-soft);color:var(--acc
 .switch button{font:inherit;font-size:13px;font-weight:600;letter-spacing:.04em;border:0;background:transparent;color:var(--muted);padding:7px 16px;cursor:pointer}
 .switch button[aria-pressed="true"]{background:var(--accent);color:#fff}
 [data-lang][hidden]{display:none!important}
+.clear{display:block;margin:-10px 0 22px;font:inherit;font-size:13px;color:var(--muted);background:none;border:0;padding:0;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.clear.arm{color:#b3261e}
+td.edit{cursor:text;background:var(--accent-soft);outline:none;min-width:140px}
+td.edit:focus{box-shadow:inset 0 0 0 2px var(--accent)}
+td.edit:empty::before{content:attr(data-ph);color:var(--muted);opacity:.7}
+
 main{padding:48px 56px 96px;min-width:0}
 header.cover{padding-bottom:28px;margin-bottom:8px;border-bottom:1px solid var(--line)}
 header.cover h1{font-size:40px;line-height:1.1;letter-spacing:-.02em;margin:0 0 10px;font-weight:700}
@@ -58,7 +64,8 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);color:v
 }
 @media print{
  :root{--bg:#fff;--paper:#fff;--ink:#000;--muted:#555;--line:#bbb;--head:#f2f2f2;--accent:#000}
- .switch{display:none}
+ .switch,.clear{display:none}
+ td.edit{background:none}
  .wrap{display:block}
  nav.toc{position:static;height:auto;border:0;page-break-after:always;padding:0}
  main{padding:0}
@@ -71,9 +78,10 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);color:v
 </style>
 </head>
 <body>
-<div class="wrap" data-lang="en" data-title="Hotel Operations Manual" lang="en">
+<div class="wrap" data-ph="Tap to add" data-lang="en" data-title="Hotel Operations Manual" lang="en">
 <nav class="toc" aria-label="Contents">
 <div class="switch" role="group" aria-label="Language"><button type="button" data-set="en" aria-pressed="false">EN</button><button type="button" data-set="el" aria-pressed="false">GR</button></div>
+<button type="button" class="clear">Clear all ticks</button>
 <p class="brand">Contents</p>
 <ol><li><a href="#en-s1">How to use this manual</a></li><li><a href="#en-s2">Before you sign</a></li><li><a href="#en-s3">The 8 week launch plan</a></li><li><a href="#en-s4">Roles and the weekly schedule</a></li><li><a href="#en-s5">Reservations and self check in</a></li><li><a href="#en-s6">Housekeeping</a></li><li><a href="#en-s7">Breakfast</a></li><li><a href="#en-s8">Weekend brunch</a></li><li><a href="#en-s9">Private events</a></li><li><a href="#en-s10">Food safety</a></li><li><a href="#en-s11">Maintenance</a></li><li><a href="#en-s12">Safety and emergencies</a></li><li><a href="#en-s13">Guest experience and reviews</a></li><li><a href="#en-s14">Pricing and revenue</a></li><li><a href="#en-s15">Money and admin</a></li><li><a href="#en-s16">Hiring and training staff</a></li><li><a href="#en-s17">Living alongside the owners</a></li><li><a href="#en-s18">Templates</a></li></ol>
 </nav>
@@ -1234,9 +1242,10 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);color:v
 <footer>Hotel Operations Manual. Review monthly in the first year, then every quarter.</footer>
 </main>
 </div>
-<div class="wrap" hidden data-lang="el" data-title="Εγχειρίδιο Λειτουργίας Ξενοδοχείου" lang="el">
+<div class="wrap" hidden data-ph="Πατήστε για προσθήκη" data-lang="el" data-title="Εγχειρίδιο Λειτουργίας Ξενοδοχείου" lang="el">
 <nav class="toc" aria-label="Περιεχόμενα">
 <div class="switch" role="group" aria-label="Language"><button type="button" data-set="en" aria-pressed="false">EN</button><button type="button" data-set="el" aria-pressed="false">GR</button></div>
+<button type="button" class="clear">Καθαρισμός όλων των επιλογών</button>
 <p class="brand">Περιεχόμενα</p>
 <ol><li><a href="#el-s1">Πώς να χρησιμοποιείτε αυτό το εγχειρίδιο</a></li><li><a href="#el-s2">Πριν υπογράψετε</a></li><li><a href="#el-s3">Το πλάνο έναρξης 8 εβδομάδων</a></li><li><a href="#el-s4">Ρόλοι και εβδομαδιαίο πρόγραμμα</a></li><li><a href="#el-s5">Κρατήσεις και αυτόνομο check-in</a></li><li><a href="#el-s6">Καθαριότητα δωματίων</a></li><li><a href="#el-s7">Πρωινό</a></li><li><a href="#el-s8">Brunch Σαββατοκύριακου</a></li><li><a href="#el-s9">Ιδιωτικές εκδηλώσεις</a></li><li><a href="#el-s10">Ασφάλεια τροφίμων</a></li><li><a href="#el-s11">Συντήρηση</a></li><li><a href="#el-s12">Ασφάλεια και έκτακτα περιστατικά</a></li><li><a href="#el-s13">Εμπειρία επισκεπτών και αξιολογήσεις</a></li><li><a href="#el-s14">Τιμολόγηση και έσοδα</a></li><li><a href="#el-s15">Οικονομικά και διαχείριση</a></li><li><a href="#el-s16">Πρόσληψη και εκπαίδευση προσωπικού</a></li><li><a href="#el-s17">Συμβίωση με τους ιδιοκτήτες του ακινήτου</a></li><li><a href="#el-s18">Πρότυπα</a></li></ol>
 </nav>
@@ -2413,6 +2422,28 @@ function show(l,keep){
   try{localStorage.setItem('manual-lang',l)}catch(e){}
   if(keep){let y=0;if(idx>=0){const t=views[l].querySelectorAll('section')[idx];y=t.getBoundingClientRect().top+window.scrollY-8;}window.scrollTo({top:y,behavior:'instant'});}
 }
+
+function load(k,d){try{const v=JSON.parse(localStorage.getItem(k));return v==null?d:v}catch(e){return d}}
+function save(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+const boxes={en:[...views.en.querySelectorAll('ul.check input')],el:[...views.el.querySelectorAll('ul.check input')]};
+let ticks=load('manual-ticks',[]);
+function paintTicks(){for(const k in boxes)boxes[k].forEach((b,i)=>b.checked=!!ticks[i]);}
+paintTicks();
+for(const k in boxes)boxes[k].forEach((b,i)=>b.addEventListener('change',()=>{ticks[i]=b.checked;save('manual-ticks',ticks);paintTicks();}));
+document.querySelectorAll('.clear').forEach(btn=>{const lab=btn.textContent;let t;btn.addEventListener('click',()=>{
+  if(!btn.classList.contains('arm')){btn.classList.add('arm');btn.textContent=document.documentElement.lang==='el'?'Πατήστε ξανά για επιβεβαίωση':'Tap again to confirm';t=setTimeout(()=>{btn.classList.remove('arm');btn.textContent=lab},3000);return;}
+  clearTimeout(t);ticks=[];save('manual-ticks',ticks);paintTicks();btn.classList.remove('arm');btn.textContent=lab;});});
+const phoneCells={};
+for(const k in views){const tbls=views[k].querySelectorAll('section.tpl table');const tb=tbls[tbls.length-1];
+  phoneCells[k]=[...tb.querySelectorAll('tbody tr')].map(r=>r.cells[1]);}
+let phones=load('manual-phones',null);
+if(!phones)phones=phoneCells.en.map(c=>c.textContent.trim());
+for(const k in phoneCells)phoneCells[k].forEach((c,i)=>{
+  c.textContent=phones[i]||'';c.contentEditable='true';c.classList.add('edit');c.setAttribute('inputmode','tel');c.dataset.ph=views[k].dataset.ph;
+  c.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();c.blur();}});
+  c.addEventListener('input',()=>{phones[i]=c.textContent.trim();save('manual-phones',phones);const o=k==='en'?'el':'en';phoneCells[o][i].textContent=phones[i];});
+  c.addEventListener('blur',()=>{if(!c.textContent.trim())c.textContent='';});
+});
 btns.forEach(b=>b.addEventListener('click',()=>{if(b.dataset.set!==cur)show(b.dataset.set,true)}));
 let start='en';try{const s=localStorage.getItem('manual-lang');if(s==='el'||s==='en')start=s}catch(e){}
 if(location.hash==='#gr')start='el';if(location.hash==='#en')start='en';
