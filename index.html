@@ -1,0 +1,2426 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hotel Operations Manual</title>
+<style>
+:root{--bg:#fbfaf7;--paper:#ffffff;--ink:#1d1d1b;--muted:#6b6862;--line:#e6e2da;--accent:#8a6a3d;--accent-soft:#f4eee4;--head:#f7f4ee}
+@media (prefers-color-scheme:dark){:root{--bg:#161513;--paper:#1e1d1a;--ink:#ecebe7;--muted:#a19d95;--line:#34322d;--accent:#d2ad74;--accent-soft:#2a251d;--head:#25231f}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:16px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans","Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{display:grid;grid-template-columns:260px minmax(0,1fr);max-width:1180px;margin:0 auto}
+nav.toc{position:sticky;top:0;height:100vh;overflow:auto;padding:32px 20px 32px 24px;border-right:1px solid var(--line)}
+nav.toc .brand{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 16px}
+nav.toc ol{list-style:none;margin:0;padding:0;counter-reset:s}
+nav.toc li{counter-increment:s}
+nav.toc ol a{display:flex;gap:10px;padding:6px 8px;border-radius:6px;color:var(--ink);text-decoration:none;font-size:14px;line-height:1.35}
+nav.toc ol a::before{content:counter(s,decimal-leading-zero);color:var(--muted);font-variant-numeric:tabular-nums;font-size:12px;padding-top:2px}
+nav.toc ol a:hover,nav.toc ol a.on{background:var(--accent-soft);color:var(--accent)}
+.switch{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;margin:0 0 22px;background:var(--paper)}
+.switch button{font:inherit;font-size:13px;font-weight:600;letter-spacing:.04em;border:0;background:transparent;color:var(--muted);padding:7px 16px;cursor:pointer}
+.switch button[aria-pressed="true"]{background:var(--accent);color:#fff}
+[data-lang][hidden]{display:none!important}
+main{padding:48px 56px 96px;min-width:0}
+header.cover{padding-bottom:28px;margin-bottom:8px;border-bottom:1px solid var(--line)}
+header.cover h1{font-size:40px;line-height:1.1;letter-spacing:-.02em;margin:0 0 10px;font-weight:700}
+header.cover p{margin:0;color:var(--muted)}
+section{padding-top:40px}
+h2{font-size:26px;letter-spacing:-.01em;margin:0 0 14px;display:flex;align-items:baseline;gap:14px}
+h2 .n{font-size:14px;color:var(--accent);font-variant-numeric:tabular-nums;font-weight:600}
+p{margin:0 0 14px;max-width:72ch}
+p.sub{margin:24px 0 10px;font-weight:650;font-size:16px}
+ol,ul{margin:0 0 16px;padding-left:22px;max-width:72ch}
+li{margin:4px 0}
+ul.check{list-style:none;padding-left:0}
+ul.check li{display:flex;gap:10px;align-items:flex-start}
+ul.check input{appearance:none;-webkit-appearance:none;flex:0 0 18px;width:18px;height:18px;margin:3px 0 0;border:1.5px solid var(--muted);border-radius:4px;cursor:pointer;background:var(--paper)}
+ul.check input:checked{background:var(--accent);border-color:var(--accent);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3.5 8.5l3 3 6-7' fill='none' stroke='white' stroke-width='2'/%3E%3C/svg%3E")}
+ul.check input:checked + span{color:var(--muted);text-decoration:line-through}
+.tbl{overflow-x:auto;margin:0 0 18px;border:1px solid var(--line);border-radius:8px;background:var(--paper)}
+table{border-collapse:collapse;width:100%;font-size:14.5px}
+th,td{text-align:left;vertical-align:top;padding:9px 12px;border-bottom:1px solid var(--line)}
+th{background:var(--head);font-weight:600}
+section.tpl th,section.tpl td{border-right:1px solid var(--line)}
+section.tpl th:last-child,section.tpl td:last-child{border-right:0}
+tr:last-child td{border-bottom:0}
+td:empty::after{content:"\00a0";display:inline-block;height:18px}
+.blank td{height:34px}
+footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+@media (max-width:860px){
+ .wrap{display:block}
+ nav.toc{position:static;height:auto;border-right:0;border-bottom:1px solid var(--line);padding:20px 16px}
+ nav.toc ol{columns:1}
+ main{padding:28px 16px 64px}
+ header.cover h1{font-size:30px}
+ h2{font-size:22px}
+}
+@media print{
+ :root{--bg:#fff;--paper:#fff;--ink:#000;--muted:#555;--line:#bbb;--head:#f2f2f2;--accent:#000}
+ .switch{display:none}
+ .wrap{display:block}
+ nav.toc{position:static;height:auto;border:0;page-break-after:always;padding:0}
+ main{padding:0}
+ section{page-break-before:always;padding-top:0}
+ table,ul.check li,ol li{page-break-inside:avoid}
+ ul.check input{border-color:#000}
+ body{font-size:11pt}
+ a{color:inherit}
+}
+</style>
+</head>
+<body>
+<div class="wrap" data-lang="en" data-title="Hotel Operations Manual" lang="en">
+<nav class="toc" aria-label="Contents">
+<div class="switch" role="group" aria-label="Language"><button type="button" data-set="en" aria-pressed="false">EN</button><button type="button" data-set="el" aria-pressed="false">GR</button></div>
+<p class="brand">Contents</p>
+<ol><li><a href="#en-s1">How to use this manual</a></li><li><a href="#en-s2">Before you sign</a></li><li><a href="#en-s3">The 8 week launch plan</a></li><li><a href="#en-s4">Roles and the weekly schedule</a></li><li><a href="#en-s5">Reservations and self check in</a></li><li><a href="#en-s6">Housekeeping</a></li><li><a href="#en-s7">Breakfast</a></li><li><a href="#en-s8">Weekend brunch</a></li><li><a href="#en-s9">Private events</a></li><li><a href="#en-s10">Food safety</a></li><li><a href="#en-s11">Maintenance</a></li><li><a href="#en-s12">Safety and emergencies</a></li><li><a href="#en-s13">Guest experience and reviews</a></li><li><a href="#en-s14">Pricing and revenue</a></li><li><a href="#en-s15">Money and admin</a></li><li><a href="#en-s16">Hiring and training staff</a></li><li><a href="#en-s17">Living alongside the owners</a></li><li><a href="#en-s18">Templates</a></li></ol>
+</nav>
+<main>
+<header class="cover"><h1>Hotel Operations Manual</h1><p>October 2026</p></header>
+<section id="en-s1"><h2><span class="n">01</span>How to use this manual</h2>
+<p>This manual is how the hotel runs when you are not in the room. Every task that happens more than once gets a written routine here, so staff do it the same way every time and you can step back without standards slipping.</p>
+<p class="sub">The operating model it is written for</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Area</th>
+<th>How it works</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rooms</td>
+<td>7 rooms, self check in with one code for the main entrance and the room</td>
+</tr>
+<tr>
+<td>Owners</td>
+<td>Andreas and Mira on site every day, not all day; less as staff take over</td>
+</tr>
+<tr>
+<td>Nights</td>
+<td>No one on site overnight; guests call a night phone number</td>
+</tr>
+<tr>
+<td>Breakfast</td>
+<td>Served to guests who booked bed and breakfast</td>
+</tr>
+<tr>
+<td>Brunch</td>
+<td>Weekends, 10:00 to 14:00, short a la carte menu, for guests and the public; weekdays later if it proves itself</td>
+</tr>
+<tr>
+<td>Events</td>
+<td>Small private events in the garden</td>
+</tr>
+<tr>
+<td>Season</td>
+<td>Lease starts January, setup in January and February, open to guests in March</td>
+</tr>
+</tbody>
+</table></div>
+<p class="sub">How to keep it alive</p>
+<ol>
+<li>When something goes wrong twice, write or fix the routine that would have prevented it.</li>
+<li>Train every new staff member from this manual, section by section, and have them sign off each routine.</li>
+<li>Review it together once a month in the first year, then every quarter.</li>
+<li>One owner is responsible for each section, so nothing falls between you.</li>
+</ol></section><section id="en-s2"><h2><span class="n">02</span>Before you sign</h2>
+<p>Do not sign until every item below is answered in writing. Most problems between tenants and owners come from things agreed verbally.</p>
+<p class="sub">The lease</p>
+<ul class="check"><li><input type="checkbox" aria-label="done"><span>Rent schedule, the rent free setup months (January and February), and whether rent is plus VAT</span></li><li><input type="checkbox" aria-label="done"><span>Break clause: ask that the owner cannot use it in the first 2 to 3 years, or compensates you for your setup costs if they do</span></li><li><input type="checkbox" aria-label="done"><span>Who pays for what: you cover day to day upkeep; the owner covers the building (roof, structure, plumbing, electrics) and replacing major equipment that fails, including the lift and AC units</span></li><li><input type="checkbox" aria-label="done"><span>Build defects in the first year are the owner's responsibility</span></li><li><input type="checkbox" aria-label="done"><span>Equipment warranties (lift, AC, kitchen) are passed to you or honoured by the owner</span></li><li><input type="checkbox" aria-label="done"><span>Deposit of €18,000: held in a named account, returned within a set number of days at the end, and only reduced for documented damage</span></li><li><input type="checkbox" aria-label="done"><span>Everything you buy (TVs, linen, crockery, dishwasher, ice machine) stays yours when you leave</span></li><li><input type="checkbox" aria-label="done"><span>You may operate under your own brand name, change decor, and run your own website and booking accounts</span></li></ul>
+<p class="sub">The inventory</p>
+<ul class="check"><li><input type="checkbox" aria-label="done"><span>A full list of what the owner provides, with photos and condition: fridges, freezer, oven, extraction hood, prep tables, shelving, bar fridge, furniture, fixtures</span></li><li><input type="checkbox" aria-label="done"><span>A meter reading for electricity and water on the day you take over</span></li></ul>
+<p class="sub">Licences and permissions</p>
+<ul class="check"><li><input type="checkbox" aria-label="done"><span>Hotel operating licence from the Deputy Ministry of Tourism: confirm it is issued, valid, and that your company can operate under it</span></li><li><input type="checkbox" aria-label="done"><span>Whether the current licence allows serving brunch and hosting events for non residents; if not, apply early for a catering licence so it is ready by March</span></li><li><input type="checkbox" aria-label="done"><span>Alcohol licence, loudspeaker or music permit, and food handler certificates for kitchen staff</span></li></ul>
+<p class="sub">Living alongside the owners</p>
+<ul class="check"><li><input type="checkbox" aria-label="done"><span>Which areas are shared, at what times, and who uses which entrance</span></li><li><input type="checkbox" aria-label="done"><span>Quiet hours and event rules agreed in writing</span></li><li><input type="checkbox" aria-label="done"><span>Separate meters for the owners' accommodation confirmed</span></li></ul>
+<p class="sub">Your company</p>
+<ul class="check"><li><input type="checkbox" aria-label="done"><span>New company registered for the hotel, with its own bank account and VAT registration</span></li><li><input type="checkbox" aria-label="done"><span>Employer registration with social insurance before the first hire</span></li><li><input type="checkbox" aria-label="done"><span>Insurance for your contents, public liability and employer's liability (compulsory once you have staff)</span></li><li><input type="checkbox" aria-label="done"><span>An accountant agreed before January, so payroll and VAT start correctly</span></li></ul>
+<p>Have a lawyer read the final lease before you sign. Pay for one hour of their time; it is the cheapest insurance you will buy.</p></section><section id="en-s3"><h2><span class="n">03</span>The 8 week launch plan</h2>
+<p>The goal for January and February is simple: open in March with listings live, the first bookings in, staff trained, and two full practice runs done. Anything that needs a supplier, a licence or a photographer starts in week 1, because those are what slip.</p>
+<p class="sub">Week 1: take over the building</p>
+<ul class="check"><li><input type="checkbox" aria-label="done"><span>Walk the building with the owner; sign the inventory and take meter readings</span></li><li><input type="checkbox" aria-label="done"><span>Change or record every door code and key; set up your own master code</span></li><li><input type="checkbox" aria-label="done"><span>Order the dishwasher, ice machine, crockery, TVs and linen (delivery takes 2 to 4 weeks)</span></li><li><input type="checkbox" aria-label="done"><span>Book the photographer for week 5, once rooms are dressed</span></li><li><input type="checkbox" aria-label="done"><span>Submit licence applications or transfers that are not already in place</span></li></ul>
+<p class="sub">Week 2: systems</p>
+<ul class="check"><li><input type="checkbox" aria-label="done"><span>Choose and set up the booking system and channel manager; enter rooms, rates and policies</span></li><li><input type="checkbox" aria-label="done"><span>Open Booking.com, Airbnb and Expedia accounts (approval can take 1 to 2 weeks)</span></li><li><input type="checkbox" aria-label="done"><span>Card terminal and till system for brunch and bar</span></li><li><input type="checkbox" aria-label="done"><span>Night phone number set up and forwarding tested</span></li></ul>
+<p class="sub">Week 3: suppliers and menu</p>
+<ul class="check"><li><input type="checkbox" aria-label="done"><span>Pick suppliers: laundry, food, coffee (ask about a free machine), drinks, cleaning products, amenities</span></li><li><input type="checkbox" aria-label="done"><span>Write the breakfast and brunch menus; cost every dish so food stays near 30% of the price</span></li><li><input type="checkbox" aria-label="done"><span>Agree pest control, fire safety and AC servicing contracts</span></li></ul>
+<p class="sub">Week 4: hiring</p>
+<ul class="check"><li><input type="checkbox" aria-label="done"><span>Hire housekeeping and the breakfast and bar person; contracts signed, registered with social insurance</span></li><li><input type="checkbox" aria-label="done"><span>Food handler certificates booked for anyone who touches food</span></li></ul>
+<p class="sub">Week 5: rooms ready, content shot</p>
+<ul class="check"><li><input type="checkbox" aria-label="done"><span>Rooms fully dressed; every room tested (AC, TV, shower, Wi Fi, door code)</span></li><li><input type="checkbox" aria-label="done"><span>Photo and video shoot: rooms, garden, brunch dishes, details</span></li><li><input type="checkbox" aria-label="done"><span>Website live with direct booking</span></li></ul>
+<p class="sub">Week 6: open for bookings</p>
+<ul class="check"><li><input type="checkbox" aria-label="done"><span>Listings live on all channels with the new photos; opening offer for March stays</span></li><li><input type="checkbox" aria-label="done"><span>Google Business profile, Instagram and Facebook live</span></li><li><input type="checkbox" aria-label="done"><span>Staff training from this manual, one section per day</span></li></ul>
+<p class="sub">Week 7: practice runs</p>
+<ul class="check"><li><input type="checkbox" aria-label="done"><span>Friends and family stay 2 nights: full check in, cleaning, breakfast and check out, then a written list of every problem</span></li><li><input type="checkbox" aria-label="done"><span>Full practice brunch for 20 to 30 invited guests</span></li><li><input type="checkbox" aria-label="done"><span>Fix everything on both lists</span></li></ul>
+<p class="sub">Week 8: final checks</p>
+<ul class="check"><li><input type="checkbox" aria-label="done"><span>Second practice run if the first had serious problems</span></li><li><input type="checkbox" aria-label="done"><span>Stock full: food, drinks, amenities, cleaning, spare linen</span></li><li><input type="checkbox" aria-label="done"><span>Opening day in March: both owners on site all day</span></li></ul></section><section id="en-s4"><h2><span class="n">04</span>Roles and the weekly schedule</h2>
+<p>Split the business between you by area, not by task, so each of you owns results and staff know who to ask. A suggested split is below; swap areas to suit your strengths.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Area</th>
+<th>Owner</th>
+<th>Covers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rooms and guests</td>
+<td>Mira</td>
+<td>Bookings, guest messages, check in support, housekeeping, reviews</td>
+</tr>
+<tr>
+<td>Food and brunch</td>
+<td>Mira</td>
+<td>Breakfast, brunch, events, kitchen, suppliers, food safety</td>
+</tr>
+<tr>
+<td>Sales and marketing</td>
+<td>Andreas</td>
+<td>Pricing, channels, website, social media, event enquiries</td>
+</tr>
+<tr>
+<td>Money and admin</td>
+<td>Andreas</td>
+<td>Daily cash up, payroll, invoices, VAT with the accountant</td>
+</tr>
+<tr>
+<td>Building</td>
+<td>Shared</td>
+<td>Maintenance, contractors, the owners on site</td>
+</tr>
+</tbody>
+</table></div>
+<p class="sub">A typical day in the first months</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Time</th>
+<th>What happens</th>
+<th>Who</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>06:00 to 10:30</td>
+<td>Breakfast setup, service and close</td>
+<td>Breakfast and bar person, one owner checking in</td>
+</tr>
+<tr>
+<td>10:00 to 11:00</td>
+<td>Check outs; messages answered; arrivals checked</td>
+<td>Owner on rooms</td>
+</tr>
+<tr>
+<td>11:30 to 14:30</td>
+<td>Rooms cleaned and inspected before 15:00 check in</td>
+<td>Housekeeping</td>
+</tr>
+<tr>
+<td>13:00</td>
+<td>Codes sent and arrivals confirmed</td>
+<td>Owner on rooms</td>
+</tr>
+<tr>
+<td>18:00 to 21:00</td>
+<td>Evening walk round, guest welcome where possible, next day prep</td>
+<td>One owner</td>
+</tr>
+<tr>
+<td>21:00 to 07:00</td>
+<td>Night phone with one owner</td>
+<td>Rota</td>
+</tr>
+</tbody>
+</table></div>
+<p class="sub">Weekends with brunch</p>
+<p>Brunch needs at least three people on the floor from 09:00 to 15:00: one in the kitchen, one serving, one on the bar and payments. In the first months that is one owner plus the breakfast and bar person plus the extra brunch staff you budgeted.</p>
+<p class="sub">Days off and cover</p>
+<ul>
+<li>Each owner takes one full day off a week, never both on the same day.</li>
+<li>Each staff role has a named backup who is trained on it. Housekeeping is covered by the part time housekeeper; breakfast by an owner.</li>
+<li>Sickness: staff call the owner on rooms before 07:00, never a message.</li>
+</ul>
+<p class="sub">The night phone</p>
+<ul>
+<li>One owner holds the phone each night, alternating, and it is written in the rota.</li>
+<li>Answer within 3 rings. Most calls are door codes, Wi Fi or noise; keep the answers in a short script by the phone.</li>
+<li>Real emergencies (fire, medical, break in): call 112 first, then go to the hotel.</li>
+</ul>
+<p class="sub">Stepping back</p>
+<p>Step back from a task only when the person doing it has run it alone for 4 weeks without a guest complaint, and it is written in this manual.</p></section><section id="en-s5"><h2><span class="n">05</span>Reservations and self check in</h2>
+<p>Check in is from 15:00 and check out is by 11:00. Every booking, from any channel, lives in the booking system; nothing is written on paper or kept only in a phone.</p>
+<p class="sub">House rules to publish everywhere</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>Setting</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Check in</td>
+<td>From 15:00; early check in only if the room is ready, free of charge when possible</td>
+</tr>
+<tr>
+<td>Check out</td>
+<td>By 11:00; late check out until 13:00 for a fee, if the next guest allows</td>
+</tr>
+<tr>
+<td>Cancellation</td>
+<td>Free until 7 days before arrival; a cheaper non refundable rate also offered</td>
+</tr>
+<tr>
+<td>Payment</td>
+<td>Card on booking; direct bookings pay a 30% deposit, balance 7 days before arrival</td>
+</tr>
+<tr>
+<td>Quiet hours</td>
+<td>23:00 to 08:00</td>
+</tr>
+<tr>
+<td>Smoking</td>
+<td>Not inside the building; garden only, in the marked area</td>
+</tr>
+<tr>
+<td>Children and pets</td>
+<td>No children and no pets</td>
+</tr>
+</tbody>
+</table></div>
+<p class="sub">When a booking arrives</p>
+<ol>
+<li>Check it appears in the booking system with the right dates, room and rate.</li>
+<li>Check the payment: card guaranteed, deposit taken, or the channel collects it.</li>
+<li>Send the welcome message within 2 hours: confirmation, address, parking, and that the door code arrives on the day.</li>
+<li>Note any special request (late arrival, celebration, allergy, cot) in the booking and tell the person who needs to act on it.</li>
+</ol>
+<p class="sub">The day before arrival</p>
+<ol>
+<li>Send the pre arrival message: check in time, how self check in works, the night phone number, breakfast times if booked.</li>
+<li>Ask for the estimated arrival time and the online registration form (name, nationality, ID or passport number for every adult).</li>
+</ol>
+<p class="sub">Arrival day</p>
+<ol>
+<li>13:00: generate a new code for that booking and send it. Every stay gets its own code; never reuse one. On brunch days the garden rooms are inspected at 14:50, before their codes start working.</li>
+<li>The code works from 15:00 on arrival day until 11:00 on departure day.</li>
+<li>18:00: check who has not arrived. Message anyone expected but not in yet.</li>
+<li>Late arrivals after 21:00: the night phone holder keeps the phone on until they confirm they are inside.</li>
+<li>Next morning: an owner greets new guests at breakfast or sends a short welcome message.</li>
+</ol>
+<p class="sub">Guest registration</p>
+<p>Keep a record of every guest's name, nationality and ID or passport number for the length of time the law requires. Confirm the exact rule with the Deputy Ministry of Tourism before opening, and store these records securely, never in a shared chat.</p>
+<p class="sub">Departure day</p>
+<ol>
+<li>09:00: send a check out reminder with a thank you and a link to leave a review.</li>
+<li>11:00: the code stops working; housekeeping checks the room is empty before entering.</li>
+<li>Charge any extras (minibar, late check out, damage) the same day, with a receipt.</li>
+</ol>
+<p class="sub">Cancellations and no shows</p>
+<ul>
+<li>Apply the published policy every time; exceptions only by an owner, and written in the booking.</li>
+<li>No show: if a guest has not arrived or messaged by 23:00, call once, then mark the booking as a no show the next morning and charge as the policy allows.</li>
+<li>Channel bookings: report the no show inside the channel's own system within 48 hours, or the fee is lost.</li>
+</ul>
+<p class="sub">Complaints</p>
+<ol>
+<li>Listen fully, apologise for the experience, and do not argue.</li>
+<li>Fix it now if you can: move room, send maintenance, replace an item.</li>
+<li>If you cannot fix it, offer something proportionate: breakfast, a discount on the night, a late check out.</li>
+<li>Write it in the complaints log the same day and check the next morning that the guest is happy.</li>
+<li>If the same complaint appears twice, fix the routine in this manual.</li>
+</ol>
+<p class="sub">Overbooking</p>
+<p>The channel manager must close all channels the moment a room sells. If you are ever overbooked, the guest who booked last is moved to a comparable hotel nearby at your cost, with the price difference and transport paid. Keep two partner hotels' numbers by the phone for this.</p></section><section id="en-s6"><h2><span class="n">06</span>Housekeeping</h2>
+<p>Every occupied room is cleaned every day. Codes are sent at 13:00 and start working at 15:00, and every room is inspected by an owner before its code starts working. On weekdays housekeeping works 11:30 to 14:30, departures first, then stayovers. On brunch days the garden rooms follow their own plan, below.</p>
+<p class="sub">Order of the day</p>
+<ol>
+<li>11:00 to 11:30: check the arrivals and departures list; load the cart.</li>
+<li>11:30: departures first, starting with rooms that have a same day arrival.</li>
+<li>Stayovers next, only after the guest has left the room or asked for service.</li>
+<li>13:00: owner inspects every departure room, then codes go out.</li>
+<li>14:30: dirty linen bagged for the laundry, cart restocked, store room tidy.</li>
+</ol>
+<p class="sub">Garden rooms on brunch days (Saturday and Sunday)</p>
+<p>The two ground floor rooms open onto the garden where brunch is served. On brunch days they follow this plan every weekend, without exceptions. The housekeeper works 11:00 to 15:00 and the part time housekeeper 13:00 to 15:00.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Time</th>
+<th>Who</th>
+<th>Work</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>11:00 to 13:00</td>
+<td>Housekeeper</td>
+<td>Upstairs rooms, departures first</td>
+</tr>
+<tr>
+<td>13:00</td>
+<td>Owner on duty</td>
+<td>Codes sent for all arrivals, garden rooms included</td>
+</tr>
+<tr>
+<td>13:00 to 14:00</td>
+<td>Housekeeper and part time housekeeper</td>
+<td>Finish the upstairs rooms</td>
+</tr>
+<tr>
+<td>14:00 to 15:00</td>
+<td>Both</td>
+<td>Garden rooms: departures first, then stayovers</td>
+</tr>
+<tr>
+<td>14:50</td>
+<td>Owner on duty</td>
+<td>Inspects the garden rooms before their codes start working at 15:00</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li>No housekeeping in the garden from 10:00 to 14:00.</li>
+<li>Guests staying in a garden room over a weekend are told in the pre arrival message that their room is serviced at 14:00 on Saturday and Sunday.</li>
+<li>Towels or amenities asked for during brunch are handed over at the door; nobody enters the room.</li>
+<li>Linen, towels, amenities and products for both rooms are packed in closed bags by 13:45: one trip in, one trip out.</li>
+<li>Deep cleaning tasks for the garden rooms are done Monday to Thursday only.</li>
+</ul>
+<p class="sub">Departure room: full clean (about 45 minutes)</p>
+<ul class="check"><li><input type="checkbox" aria-label="done"><span>Open windows, strip the bed, remove all linen and towels</span></li><li><input type="checkbox" aria-label="done"><span>Empty every bin; check drawers, wardrobe, safe and under the bed for lost property</span></li><li><input type="checkbox" aria-label="done"><span>Bathroom: toilet, shower, sink, mirror, tiles, floor; clean, then disinfect</span></li><li><input type="checkbox" aria-label="done"><span>Fresh linen and towels; bed made to the house standard with photo reference</span></li><li><input type="checkbox" aria-label="done"><span>Dust all surfaces, light switches, door handles, remote controls, the TV</span></li><li><input type="checkbox" aria-label="done"><span>Vacuum and mop the floor</span></li><li><input type="checkbox" aria-label="done"><span>Restock amenities, coffee, tea, water, toilet paper</span></li><li><input type="checkbox" aria-label="done"><span>Check AC, lights, TV, shower and Wi Fi card; report anything broken</span></li><li><input type="checkbox" aria-label="done"><span>Close windows, set AC to 24 degrees, lights off, door closed</span></li></ul>
+<p class="sub">Stayover room: refresh (about 20 minutes)</p>
+<ul class="check"><li><input type="checkbox" aria-label="done"><span>Make the bed; change linen every 3 nights or on request</span></li><li><input type="checkbox" aria-label="done"><span>Replace towels left on the floor; hung towels are reused</span></li><li><input type="checkbox" aria-label="done"><span>Empty bins, clean the bathroom, restock amenities</span></li><li><input type="checkbox" aria-label="done"><span>Tidy without moving guest belongings</span></li></ul>
+<p class="sub">Linen</p>
+<ul>
+<li>Three full sets per bed: one on the bed, one at the laundry, one in the store.</li>
+<li>Count linen out and back in with the laundry every collection; chase missing items the same week.</li>
+<li>Stained or torn items go to the reserve list for replacement.</li>
+</ul>
+<p class="sub">Deep cleaning schedule</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>How often</th>
+<th>Task</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Weekly</td>
+<td>Mattress turn, inside fridges and kettles, balconies, window glass</td>
+</tr>
+<tr>
+<td>Monthly</td>
+<td>AC filters cleaned, grout scrubbed, under furniture</td>
+</tr>
+<tr>
+<td>Every 3 months</td>
+<td>Mattress protectors and pillows washed, carpets or rugs deep cleaned</td>
+</tr>
+<tr>
+<td>Every 6 months</td>
+<td>Walls touched up, full AC service</td>
+</tr>
+</tbody>
+</table></div>
+<p class="sub">Lost property</p>
+<ol>
+<li>Bag and label it: room, date, who found it.</li>
+<li>Log it and message the guest the same day.</li>
+<li>Keep items for 3 months; valuables (cash, jewellery, documents) are locked away and handed over only with ID.</li>
+<li>Postage is paid by the guest, in advance.</li>
+</ol>
+<p class="sub">Do not disturb</p>
+<p>Respect the sign. If a room has had it on for 2 days, an owner knocks and checks in with the guest politely.</p></section><section id="en-s7"><h2><span class="n">07</span>Breakfast</h2>
+<p>Breakfast is served 07:30 to 10:00 to guests who booked bed and breakfast, with prep from 06:00. With at most 14 guests, serve a small set breakfast to order rather than a buffet: less waste, better food, and a more boutique feel.</p>
+<p class="sub">The night before</p>
+<ol>
+<li>Check the breakfast list in the booking system: how many guests, which rooms, allergies, early departures.</li>
+<li>Defrost what is needed; check milk, eggs, bread, fruit and coffee stock.</li>
+<li>Lay the tables in the garden or breakfast room.</li>
+</ol>
+<p class="sub">Setup, 06:00 to 07:30</p>
+<ul class="check"><li><input type="checkbox" aria-label="done"><span>Coffee machine on and cleaned; first shot tested</span></li><li><input type="checkbox" aria-label="done"><span>Fridge temperatures checked and written in the log</span></li><li><input type="checkbox" aria-label="done"><span>Fresh juice, fruit, yoghurt, pastries and bread out on the side table, covered</span></li><li><input type="checkbox" aria-label="done"><span>Hot items prepped for cooking to order: eggs, halloumi, vegetables</span></li><li><input type="checkbox" aria-label="done"><span>Tables set, napkins, water, menu card with the day's options</span></li></ul>
+<p class="sub">Service, 07:30 to 10:00</p>
+<ol>
+<li>Greet each guest by name, seat them, offer coffee or tea within 2 minutes.</li>
+<li>Take the hot order; check the booking for allergies before cooking.</li>
+<li>Hot plates out within 10 to 15 minutes.</li>
+<li>Clear and reset tables as guests leave.</li>
+<li>Guests without breakfast in their booking may order and pay on the day; charge to their room or by card.</li>
+</ol>
+<p class="sub">Close, 10:00 to 10:30</p>
+<ul class="check"><li><input type="checkbox" aria-label="done"><span>Unused food labelled with the date or thrown away; nothing cooked goes back into the fridge without a label</span></li><li><input type="checkbox" aria-label="done"><span>Dishwasher run, surfaces cleaned and sanitised, floors swept</span></li><li><input type="checkbox" aria-label="done"><span>Waste logged roughly: if more than 10% of food is thrown away for a week, cut the quantities</span></li><li><input type="checkbox" aria-label="done"><span>Shopping list updated for the next delivery</span></li></ul>
+<p class="sub">Allergies</p>
+<p>Ask for allergies in the pre arrival message and again at the table. Keep a card listing the 14 EU allergens in every dish; staff never guess.</p></section><section id="en-s8"><h2><span class="n">08</span>Weekend brunch</h2>
+<p>Brunch runs Saturday and Sunday, 10:00 to 14:00, with the team on from 09:00 to 15:00. On weekends, hotel breakfast ends at 10:00 so the kitchen can switch over; guests who come later order from the brunch menu, with their breakfast included up to its value.</p>
+<p class="sub">The menu</p>
+<ul>
+<li>8 to 10 dishes at most, plus 2 sweet options and a short drinks list. A short menu keeps quality high and the kitchen fast.</li>
+<li>Every dish costed so food costs about 30% of its price.</li>
+<li>Build each dish from shared ingredients, so 10 dishes need perhaps 25 ingredients, not 60.</li>
+<li>Change one or two dishes each season, never the whole menu.</li>
+</ul>
+<p class="sub">Bookings and walk ins</p>
+<ul>
+<li>Take bookings online (through the till or a booking widget) and keep about a third of tables for walk ins.</li>
+<li>Hotel guests always get a table; hold one for them until 11:00.</li>
+<li>Tables are booked for 90 minutes; say so politely when confirming.</li>
+<li>Groups over 8 book by phone with a set menu and a card deposit.</li>
+</ul>
+<p class="sub">Friday prep</p>
+<ul class="check"><li><input type="checkbox" aria-label="done"><span>Check the booking count; order fresh produce for Saturday morning delivery</span></li><li><input type="checkbox" aria-label="done"><span>Prep sauces, doughs, cut vegetables, portion meats; label and date everything</span></li><li><input type="checkbox" aria-label="done"><span>Garden set: tables, cushions, umbrellas or heaters checked</span></li></ul>
+<p class="sub">Service day</p>
+<ol>
+<li>09:00: team in, fridge temperatures logged, coffee machine on, garden laid.</li>
+<li>09:45: five minute briefing: bookings, large tables, allergies, dish of the day, anything out of stock.</li>
+<li>10:00: open. Greet within 1 minute, menus and water at once, drinks order within 3 minutes.</li>
+<li>Food out within 15 minutes of ordering; the floor person checks back after the first bites.</li>
+<li>Clear and reset each table within 5 minutes of guests leaving.</li>
+<li>13:30: last orders. 14:00: kitchen closes.</li>
+<li>14:00 to 15:00: clean down, dishwasher, garden cleared, waste logged.</li>
+</ol>
+<p class="sub">Garden rooms</p>
+<ul>
+<li>Brunch tables stay at least 3 metres from the two garden room doors.</li>
+<li>No housekeeping in the garden during brunch; the garden rooms are cleaned from 14:00 (see Housekeeping).</li>
+</ul>
+<p class="sub">The bill and cash up</p>
+<ul>
+<li>Every order goes through the till; nothing is served without a ticket.</li>
+<li>Hotel guests can charge to their room; everyone else pays at the table by card.</li>
+<li>At close, the till report is checked against card payments and cash. Any difference over €10 is written up and explained the same day.</li>
+</ul>
+<p class="sub">Moving to weekdays</p>
+<p>Add weekdays only when all of these are true for 6 weekends in a row:</p>
+<ul class="check"><li><input type="checkbox" aria-label="done"><span>Average of 40 or more guests per day</span></li><li><input type="checkbox" aria-label="done"><span>Food cost at or under 32%</span></li><li><input type="checkbox" aria-label="done"><span>Weekend service runs without an owner in the kitchen</span></li><li><input type="checkbox" aria-label="done"><span>Reviews mention brunch positively</span></li></ul>
+<p>Start with Friday only. Run it for a month and check the same four points before adding another day.</p></section><section id="en-s9"><h2><span class="n">09</span>Private events</h2>
+<p>Events are small, planned and paid in advance: up to about 50 guests in the garden, with a signed agreement and a deposit before a date is held. Every event must fit around hotel guests and the owners who live on site.</p>
+<p class="sub">Event rules to agree with the owner first</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>Suggested setting</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Maximum guests</td>
+<td>50 seated</td>
+</tr>
+<tr>
+<td>Finish time</td>
+<td>Music off by 23:00, guests out by 23:30</td>
+</tr>
+<tr>
+<td>Music</td>
+<td>Background level; live bands or DJs only with an owner's approval in writing</td>
+</tr>
+<tr>
+<td>Days</td>
+<td>Not on brunch mornings unless the event replaces brunch</td>
+</tr>
+<tr>
+<td>Hotel guests</td>
+<td>Told about the event in advance; no event if all 7 rooms object to noise in reviews</td>
+</tr>
+</tbody>
+</table></div>
+<p>Christenings and family events will bring children as event guests. Your no children policy applies to overnight stays only; say so clearly on the website.</p>
+<p class="sub">From enquiry to booking</p>
+<ol>
+<li>Reply to every enquiry within 24 hours: available dates, packages, the price per guest and the venue hire fee.</li>
+<li>Offer a site visit; most events are won in the garden, not by email.</li>
+<li>Send a written quote with the menu, guest numbers, timings and the deposit.</li>
+<li>The date is held only once the agreement is signed and a 30% deposit is paid.</li>
+<li>Final guest numbers and menu 14 days before; balance paid 7 days before.</li>
+<li>Cancellation: deposit kept if cancelled within 60 days; full price if within 14 days.</li>
+</ol>
+<p class="sub">The agreement must state</p>
+<ul class="check"><li><input type="checkbox" aria-label="done"><span>Date, start and finish times, guest numbers and the menu</span></li><li><input type="checkbox" aria-label="done"><span>Price per guest, venue hire fee, deposit and payment dates</span></li><li><input type="checkbox" aria-label="done"><span>Music and noise rules, finish time, smoking area</span></li><li><input type="checkbox" aria-label="done"><span>Damage: the client pays for anything broken by their guests</span></li><li><input type="checkbox" aria-label="done"><span>Outside suppliers (cakes, flowers, photographers) must be agreed in advance</span></li></ul>
+<p class="sub">The week before</p>
+<ul class="check"><li><input type="checkbox" aria-label="done"><span>Confirm numbers, dietary needs and allergies; order food and drinks</span></li><li><input type="checkbox" aria-label="done"><span>Book extra staff: one server per 15 to 20 guests, plus kitchen help</span></li><li><input type="checkbox" aria-label="done"><span>Hire extra crockery, tables or chairs if needed</span></li><li><input type="checkbox" aria-label="done"><span>Tell hotel guests and the owners the date and times</span></li></ul>
+<p class="sub">On the day</p>
+<ol>
+<li>Setup finished 1 hour before guests arrive; an owner walks through and approves it.</li>
+<li>One named person is in charge of the event and is the only contact for the client.</li>
+<li>Allergies checked plate by plate before food leaves the kitchen.</li>
+<li>Extras ordered on the day (extra drinks, more guests) go on a written tab the client signs before leaving.</li>
+<li>23:00 music off; 23:30 guests leave; clean up the garden the same night so hotel guests wake to a clean space.</li>
+</ol>
+<p class="sub">After the event</p>
+<p>Send a thank you within 2 days with a request for a Google review and a few photos you may use. Write in the events log what went well and what to fix.</p></section><section id="en-s10"><h2><span class="n">10</span>Food safety</h2>
+<p>Any business serving food in Cyprus must run a food safety system based on HACCP and keep written records that a health inspector can check at any time. Keep it simple: a few logs filled in every day, and nobody touching food without a valid certificate.</p>
+<p class="sub">Before opening</p>
+<ul class="check"><li><input type="checkbox" aria-label="done"><span>Register the kitchen with the local health services and ask what inspection they need before you serve the public</span></li><li><input type="checkbox" aria-label="done"><span>A simple HACCP plan written for your menu; a food safety consultant can do this for a small fee</span></li><li><input type="checkbox" aria-label="done"><span>Food handler certificates for everyone who prepares or serves food, including both owners</span></li><li><input type="checkbox" aria-label="done"><span>Pest control contract in place before the first delivery</span></li></ul>
+<p class="sub">Temperatures</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>What</th>
+<th>Safe range</th>
+<th>When to check</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fridges</td>
+<td>0 to 5 °C</td>
+<td>Opening and closing, every day</td>
+</tr>
+<tr>
+<td>Freezer</td>
+<td>−18 °C or colder</td>
+<td>Opening, every day</td>
+</tr>
+<tr>
+<td>Hot food when cooked</td>
+<td>75 °C or hotter in the centre</td>
+<td>Every batch of meat, eggs or rice</td>
+</tr>
+<tr>
+<td>Hot food kept warm</td>
+<td>63 °C or hotter</td>
+<td>Every 2 hours during service</td>
+</tr>
+<tr>
+<td>Deliveries of chilled food</td>
+<td>5 °C or colder</td>
+<td>Every delivery; refuse anything warmer</td>
+</tr>
+</tbody>
+</table></div>
+<p>If a fridge reads above 5 °C twice in a row, move the food to another fridge, call the technician, and throw away anything that was above 8 °C for more than 2 hours.</p>
+<p class="sub">Daily rules</p>
+<ul>
+<li>Wash hands on entering the kitchen, after raw food, after the bin, after the toilet.</li>
+<li>Separate boards and knives for raw meat, fish, vegetables and ready to eat food, by colour.</li>
+<li>Everything opened or prepped gets a label: what it is, date made, use by date.</li>
+<li>First in, first out: older stock at the front.</li>
+<li>Cooked food cooled within 90 minutes and refrigerated; never left out on the side.</li>
+<li>Nobody works with food while ill with vomiting or diarrhoea, or for 48 hours after.</li>
+</ul>
+<p class="sub">Allergens</p>
+<p>EU law lists 14 allergens that must be declared, including gluten, eggs, milk, nuts, peanuts, sesame, soy, fish and shellfish. Keep an allergen matrix for every dish, show it to any guest who asks, and update it every time a recipe or supplier changes. If a guest has an allergy, the person who took the order tells the kitchen in person, not just on the ticket.</p>
+<p class="sub">Records to keep</p>
+<ul>
+<li>Temperature log (daily)</li>
+<li>Cleaning log (daily)</li>
+<li>Delivery log (every delivery)</li>
+<li>Pest control reports</li>
+<li>Staff certificates and training records</li>
+</ul>
+<p>Keep these for at least one year in a folder in the kitchen.</p></section><section id="en-s11"><h2><span class="n">11</span>Maintenance</h2>
+<p>Small problems fixed the same day are what keep a new building looking new and reviews above 9. Every fault goes into one maintenance log, with the date it was reported and the date it was fixed.</p>
+<p class="sub">Who fixes what</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Type of fault</th>
+<th>Who pays and arranges</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bulbs, batteries, remote controls, small furniture repairs</td>
+<td>You, same day</td>
+</tr>
+<tr>
+<td>AC servicing and filters, appliance servicing</td>
+<td>You, on schedule</td>
+</tr>
+<tr>
+<td>Plumbing, electrics, roof, walls, structure</td>
+<td>The owner, per the lease</td>
+</tr>
+<tr>
+<td>Lift breakdown</td>
+<td>Per the lease; you report it to the lift company immediately</td>
+</tr>
+<tr>
+<td>Build defects in the first year</td>
+<td>The owner</td>
+</tr>
+</tbody>
+</table></div>
+<p class="sub">Daily (housekeeping and the owner on rooms)</p>
+<ul class="check"><li><input type="checkbox" aria-label="done"><span>Every room checked during cleaning: lights, AC, TV, shower pressure, hot water, door code</span></li><li><input type="checkbox" aria-label="done"><span>Lift working; any noise or jolt reported</span></li><li><input type="checkbox" aria-label="done"><span>Garden lights and irrigation working</span></li></ul>
+<p class="sub">Weekly</p>
+<ul class="check"><li><input type="checkbox" aria-label="done"><span>Walk the whole building: corridors, stairs, garden, kitchen, store rooms</span></li><li><input type="checkbox" aria-label="done"><span>Test the door code system and the backup key</span></li><li><input type="checkbox" aria-label="done"><span>Check for leaks under sinks and around toilets</span></li></ul>
+<p class="sub">Monthly</p>
+<ul class="check"><li><input type="checkbox" aria-label="done"><span>AC filters cleaned in every room and the kitchen</span></li><li><input type="checkbox" aria-label="done"><span>Kitchen extraction filters cleaned</span></li><li><input type="checkbox" aria-label="done"><span>Fire extinguishers visually checked; emergency lights tested</span></li><li><input type="checkbox" aria-label="done"><span>Pest control visit report filed</span></li></ul>
+<p class="sub">Every 6 months</p>
+<ul class="check"><li><input type="checkbox" aria-label="done"><span>Full AC service by a technician before summer and before winter</span></li><li><input type="checkbox" aria-label="done"><span>Touch up paint in rooms and corridors</span></li><li><input type="checkbox" aria-label="done"><span>Check grout, silicone and drains in all bathrooms</span></li></ul>
+<p class="sub">Yearly</p>
+<ul class="check"><li><input type="checkbox" aria-label="done"><span>Fire extinguishers and alarms serviced and certified</span></li><li><input type="checkbox" aria-label="done"><span>Lift inspection certificate renewed</span></li><li><input type="checkbox" aria-label="done"><span>Electrical safety check of your own appliances</span></li><li><input type="checkbox" aria-label="done"><span>Close one room at a time in January for a deep refresh</span></li></ul>
+<p class="sub">When something breaks while a guest is in the room</p>
+<ol>
+<li>Apologise and give a time it will be fixed.</li>
+<li>If it cannot be fixed within 2 hours and affects comfort (no AC in summer, no hot water), move the guest to another room.</li>
+<li>If no room is free, offer a discount on the night and fix it first thing the next day.</li>
+</ol>
+<p>Keep a contact list of a plumber, electrician, AC technician, lift company and locksmith who will come the same day, and agree their call out fees in advance.</p></section><section id="en-s12"><h2><span class="n">12</span>Safety and emergencies</h2>
+<p>With no one on site at night, guests must be able to get out safely and reach help on their own. The emergency number in Cyprus is 112 for police, fire and ambulance.</p>
+<p class="sub">What must be in place before the first guest</p>
+<ul class="check"><li><input type="checkbox" aria-label="done"><span>Fire exit plan on the back of every room door, in English and Greek</span></li><li><input type="checkbox" aria-label="done"><span>Emergency lighting and exit signs working on every floor</span></li><li><input type="checkbox" aria-label="done"><span>Fire extinguishers and a fire blanket in the kitchen, serviced and dated</span></li><li><input type="checkbox" aria-label="done"><span>Smoke detectors in every room and corridor, tested</span></li><li><input type="checkbox" aria-label="done"><span>Doors open from inside without a code, always</span></li><li><input type="checkbox" aria-label="done"><span>First aid kit in the kitchen and at reception, checked monthly</span></li><li><input type="checkbox" aria-label="done"><span>Night phone number and 112 on the room information card</span></li><li><input type="checkbox" aria-label="done"><span>Fire safety certificate confirmed with the owner</span></li></ul>
+<p class="sub">Fire</p>
+<ol>
+<li>Anyone who finds a fire raises the alarm and calls 112.</li>
+<li>Use an extinguisher only on a small fire and only if the way out is behind you.</li>
+<li>Get everyone out to the meeting point: knock on every room door on the way.</li>
+<li>The owner on duty counts guests against the booking list at the meeting point.</li>
+<li>Nobody goes back inside until the fire service says so.</li>
+</ol>
+<p class="sub">Medical emergency</p>
+<ol>
+<li>Call 112 first. Give the address and the room.</li>
+<li>Do not move the person unless they are in danger; give first aid only if trained.</li>
+<li>Call the owner on duty, then the guest's emergency contact if they agree.</li>
+<li>Write an incident report the same day.</li>
+</ol>
+<p class="sub">Night calls to the night phone</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Call</th>
+<th>What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Locked out or code not working</td>
+<td>Send the backup code; if that fails, go to the hotel</td>
+</tr>
+<tr>
+<td>Noise from another room</td>
+<td>Message that room; call if it continues; go in person after 30 minutes</td>
+</tr>
+<tr>
+<td>Something broken</td>
+<td>Fix what you can remotely; otherwise note it for 08:00 and offer an apology</td>
+</tr>
+<tr>
+<td>Feels unsafe or a break in</td>
+<td>Tell them to stay in the room and call 112; then go to the hotel</td>
+</tr>
+</tbody>
+</table></div>
+<p class="sub">Incidents</p>
+<p>Every accident, injury, theft, damage or police visit goes into the incident log the same day: what happened, who was involved, what was done. Photograph any damage. Tell your insurer within the time your policy requires.</p>
+<p class="sub">CCTV and guest data</p>
+<ul>
+<li>CCTV is allowed at entrances and shared areas, never inside rooms or bathrooms. Put up a visible sign that cameras are in use.</li>
+<li>Keep recordings no longer than needed, usually up to 30 days, unless an incident needs them.</li>
+<li>Guest details (names, IDs, cards, phone numbers) are personal data under GDPR: store them only in the booking system, never in personal chats or on paper left out.</li>
+<li>Only owners and named staff can access guest data. Delete what you no longer need.</li>
+</ul></section><section id="en-s13"><h2><span class="n">13</span>Guest experience and reviews</h2>
+<p>The goal is a Booking.com score of 9.0 or higher by the end of the first summer. At your price level guests expect a personal touch, and with self check in that touch has to come from messages, small details and the owners being seen.</p>
+<p class="sub">What earns a 9 or 10 at a boutique hotel</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Moment</th>
+<th>Standard</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Before arrival</td>
+<td>A warm personal message, not a template; local tips for their dates</td>
+</tr>
+<tr>
+<td>Arrival</td>
+<td>Code works first time; room cool in summer, warm in winter; a handwritten welcome card</td>
+</tr>
+<tr>
+<td>In the room</td>
+<td>Spotless, good pillows, strong Wi Fi, quiet, a few local touches</td>
+</tr>
+<tr>
+<td>Breakfast</td>
+<td>Fresh, cooked to order, greeted by name</td>
+</tr>
+<tr>
+<td>During the stay</td>
+<td>A reply to any message within 15 minutes between 08:00 and 22:00</td>
+</tr>
+<tr>
+<td>Departure</td>
+<td>A thank you and a review link; extras charged correctly</td>
+</tr>
+</tbody>
+</table></div>
+<p class="sub">The small touches</p>
+<ul>
+<li>A welcome treat in the room: local sweets or a bottle of water from Cyprus.</li>
+<li>A one page guide to the area: your favourite cafe, beach, restaurant, the airport and taxi numbers.</li>
+<li>Celebrations: when a booking mentions a birthday or anniversary, add something small and a card.</li>
+<li>An owner says hello to every guest at least once during their stay.</li>
+</ul>
+<p class="sub">Reviews</p>
+<ol>
+<li>Ask every guest at check out, in person or by message, with a direct link.</li>
+<li>Reply to every review on every platform within 48 hours, signed by name.</li>
+<li>Good review: thank them for something specific they mentioned.</li>
+<li>Bad review: thank them, apologise for their experience, say what you changed. Never argue, never reveal private details.</li>
+<li>Every Monday, read the week's reviews together and pick one thing to improve.</li>
+</ol>
+<p class="sub">Guest messages</p>
+<p>Keep ready made answers for the common questions (parking, Wi Fi, airport transfer, late check out, nearby restaurants) in the booking system, but always add a personal line.</p></section><section id="en-s14"><h2><span class="n">14</span>Pricing and revenue</h2>
+<p>Prices are set every week, not once a season. One hour every Monday is enough for 7 rooms, and it is worth more than any other hour of the week.</p>
+<p class="sub">The Monday pricing routine</p>
+<ol>
+<li>Open the booking system and look at the next 90 days: how full is each night?</li>
+<li>Compare with your plan's occupancy for that month.</li>
+<li>Check 4 or 5 competitor hotels for the same dates on Booking.com and Google Hotels.</li>
+<li>Adjust prices using the rules below.</li>
+<li>Write what you changed and why in the pricing log.</li>
+</ol>
+<p class="sub">Simple pricing rules</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Situation</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>More than 60% booked and over 30 days away</td>
+<td>Raise prices 10%</td>
+</tr>
+<tr>
+<td>Behind the plan and 14 to 30 days away</td>
+<td>Lower prices 5 to 10%, or add value (free breakfast, late check out)</td>
+</tr>
+<tr>
+<td>Under 40% booked and under 7 days away</td>
+<td>Last minute offer on one channel only</td>
+</tr>
+<tr>
+<td>Local event, holiday or festival</td>
+<td>Raise prices early, add a 2 night minimum</td>
+</tr>
+<tr>
+<td>One empty night between two bookings</td>
+<td>Allow a 1 night stay at a small discount</td>
+</tr>
+</tbody>
+</table></div>
+<p>Never drop below the lowest price you agreed for each room type. Discounting too far damages the brand you are building.</p>
+<p class="sub">Channels</p>
+<ul>
+<li>Keep Booking.com and Airbnb for visibility, especially in year 1.</li>
+<li>Push direct bookings: a best price guarantee on your website, a free extra for booking direct, and the website link on every message.</li>
+<li>Check each month what share of bookings came from each channel and what you paid in commission. Update the Booking channels table in the plan.</li>
+</ul>
+<p class="sub">Numbers to watch every month</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Measure</th>
+<th>What it tells you</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Occupancy</td>
+<td>How full you were, against the plan</td>
+</tr>
+<tr>
+<td>Average room rate</td>
+<td>What guests actually paid per night</td>
+</tr>
+<tr>
+<td>Revenue per available room</td>
+<td>Rate and occupancy together: the best single number</td>
+</tr>
+<tr>
+<td>Direct booking share</td>
+<td>How much you saved on commission</td>
+</tr>
+<tr>
+<td>Brunch guests per day</td>
+<td>Whether brunch is growing</td>
+</tr>
+<tr>
+<td>Review score</td>
+<td>Whether the experience is holding up</td>
+</tr>
+</tbody>
+</table></div>
+<p>Once open, enter the real monthly results next to the plan, so you see early whether the year is on track.</p></section><section id="en-s15"><h2><span class="n">15</span>Money and admin</h2>
+<p>Know your cash position every day and your profit every month. Most small hotels that fail run out of cash in the winter, not customers in the summer.</p>
+<p class="sub">Daily cash up (10 minutes, every evening)</p>
+<ol>
+<li>Print the till report for breakfast, brunch and bar.</li>
+<li>Match card payments against the card terminal's end of day report.</li>
+<li>Count cash; any difference over €10 is written up and explained.</li>
+<li>Check the day's room payments arrived (channel, card, transfer).</li>
+<li>Note the totals in the daily sheet.</li>
+</ol>
+<p class="sub">Weekly</p>
+<ul class="check"><li><input type="checkbox" aria-label="done"><span>Pay supplier invoices due that week; check each against the delivery note</span></li><li><input type="checkbox" aria-label="done"><span>Check Booking.com, Airbnb and Expedia payouts arrived and match the bookings</span></li><li><input type="checkbox" aria-label="done"><span>Cash forecast for the next 4 weeks: money coming in versus rent, payroll and suppliers</span></li></ul>
+<p class="sub">Monthly</p>
+<ul class="check"><li><input type="checkbox" aria-label="done"><span>Payroll and social insurance paid on time</span></li><li><input type="checkbox" aria-label="done"><span>Rent paid on the agreed date</span></li><li><input type="checkbox" aria-label="done"><span>All invoices and receipts sent to the accountant by the 5th</span></li><li><input type="checkbox" aria-label="done"><span>Results entered in the plan: occupancy, rate, brunch, events, costs, profit</span></li><li><input type="checkbox" aria-label="done"><span>A one hour review together: what is ahead or behind the plan, and one action for next month</span></li></ul>
+<p class="sub">Quarterly and yearly</p>
+<ul class="check"><li><input type="checkbox" aria-label="done"><span>VAT returns with the accountant</span></li><li><input type="checkbox" aria-label="done"><span>Yearly accounts and audit</span></li><li><input type="checkbox" aria-label="done"><span>Insurance and licences renewed before they expire</span></li></ul>
+<p class="sub">Suppliers</p>
+<ul>
+<li>Keep at least two suppliers for anything you cannot run without: food, laundry, coffee, drinks.</li>
+<li>Negotiate payment terms of 30 days where you can.</li>
+<li>Review prices every 6 months; ask for a better price once you have steady volume.</li>
+</ul>
+<p class="sub">Cash reserve</p>
+<p>Keep enough in the bank to cover 3 months of fixed costs (rent, salaries, running costs) before you take any profit out. It is what carries you through January and February.</p></section><section id="en-s16"><h2><span class="n">16</span>Hiring and training staff</h2>
+<p>Hire for attitude and train for skill: a warm, reliable person can learn the routines in this manual, but nobody can be trained to care. Start everyone with a written contract and a probation period.</p>
+<p class="sub">Before the first hire</p>
+<ul class="check"><li><input type="checkbox" aria-label="done"><span>The company registered as an employer with social insurance</span></li><li><input type="checkbox" aria-label="done"><span>Employer's liability insurance in place</span></li><li><input type="checkbox" aria-label="done"><span>A standard contract checked by your accountant or lawyer: hours, pay, days off, probation, notice</span></li><li><input type="checkbox" aria-label="done"><span>Check the current national minimum wage and any hotel sector agreement on pay, 13th salary or service charge</span></li></ul>
+<p class="sub">Hiring</p>
+<ol>
+<li>Write a short job description from the relevant section of this manual.</li>
+<li>Advertise on local job sites, social media and through hospitality schools.</li>
+<li>Interview in person at the hotel; ask how they would handle a real situation, such as a guest locked out at midnight.</li>
+<li>A paid trial shift before offering the job.</li>
+<li>Check references from at least one previous employer.</li>
+<li>Register the employee with social insurance before their first working day.</li>
+</ol>
+<p class="sub">First week training</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Day</th>
+<th>Training</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>The hotel, the team, house rules, safety and fire exits, where everything is</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Their main routine from this manual, shadowing an owner</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Doing the routine with an owner watching</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Food safety and allergens (food staff) or room standards (housekeeping)</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Doing the routine alone, checked at the end; sign off the sections learned</td>
+</tr>
+</tbody>
+</table></div>
+<p class="sub">Keeping good staff</p>
+<ul>
+<li>Pay on time, every time.</li>
+<li>Publish the rota at least 2 weeks ahead.</li>
+<li>Short team meeting every week: what went well, what to fix.</li>
+<li>Share good guest reviews that mention staff by name.</li>
+<li>Review each person after 3 months and every year after.</li>
+</ul>
+<p class="sub">When things go wrong</p>
+<p>Raise a problem privately and early, write down what was agreed, and follow the probation and notice terms in the contract. Take advice from your accountant or lawyer before ending anyone's employment.</p></section><section id="en-s17"><h2><span class="n">17</span>Living alongside the owners</h2>
+<p>The owners live in the same building, so a good relationship with them is part of running the hotel. Agree the rules in writing at the start; it is much easier than fixing a misunderstanding later.</p>
+<p class="sub">Agree in writing</p>
+<ul class="check"><li><input type="checkbox" aria-label="done"><span>Which areas are shared, which are the hotel's, and which are private</span></li><li><input type="checkbox" aria-label="done"><span>Which entrance each side uses, and whether guests ever pass through the owners' areas</span></li><li><input type="checkbox" aria-label="done"><span>Quiet hours for the hotel, events and brunch</span></li><li><input type="checkbox" aria-label="done"><span>How many events per month, and how much notice the owners get</span></li><li><input type="checkbox" aria-label="done"><span>Who parks where, and where deliveries arrive</span></li><li><input type="checkbox" aria-label="done"><span>Whether the owners may use the garden, and when</span></li></ul>
+<p class="sub">Day to day</p>
+<ul>
+<li>Share the events calendar with them at the start of each month.</li>
+<li>Tell them before any contractor works near their accommodation.</li>
+<li>One named contact on each side for anything about the building.</li>
+<li>A short catch up once a month: what is working, what is not.</li>
+</ul>
+<p class="sub">Guests and the owners</p>
+<p>Guests should never feel they are staying in someone's home. Keep private areas clearly marked, keep the owners' comings and goings separate from guest areas where possible, and agree how to introduce them if a guest asks.</p></section><section id="en-s18" class="tpl"><h2><span class="n">18</span>Templates</h2>
+<p>Print these, keep them on a clipboard where the work happens, and file the completed sheets weekly.</p>
+<p class="sub">Fridge and freezer temperature log</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Date</th>
+<th>Fridge 1 opening</th>
+<th>Fridge 1 closing</th>
+<th>Fridge 2 opening</th>
+<th>Fridge 2 closing</th>
+<th>Freezer</th>
+<th>Signed</th>
+</tr>
+</thead>
+<tbody>
+<tr class="blank">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="blank">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="blank">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p class="sub">Room inspection sheet</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Room</th>
+<th>Bed</th>
+<th>Bathroom</th>
+<th>Floor and dust</th>
+<th>Amenities</th>
+<th>AC, TV, lights</th>
+<th>Code tested</th>
+<th>Inspected by</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p class="sub">Maintenance log</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Date reported</th>
+<th>Room or area</th>
+<th>Problem</th>
+<th>Reported by</th>
+<th>Date fixed</th>
+<th>Fixed by</th>
+<th>Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr class="blank">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="blank">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p class="sub">Incident log</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Date and time</th>
+<th>What happened</th>
+<th>People involved</th>
+<th>Action taken</th>
+<th>Reported by</th>
+</tr>
+</thead>
+<tbody>
+<tr class="blank">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p class="sub">Daily cash up sheet</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Date</th>
+<th>Till total</th>
+<th>Card total</th>
+<th>Cash counted</th>
+<th>Difference</th>
+<th>Room payments received</th>
+<th>Signed</th>
+</tr>
+</thead>
+<tbody>
+<tr class="blank">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p class="sub">Lost property log</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Date found</th>
+<th>Room or area</th>
+<th>Item</th>
+<th>Found by</th>
+<th>Guest contacted</th>
+<th>Returned or disposed</th>
+</tr>
+</thead>
+<tbody>
+<tr class="blank">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p class="sub">Emergency contacts (keep by every phone)</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Who</th>
+<th>Number</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Emergency (police, fire, ambulance)</td>
+<td>112</td>
+</tr>
+<tr>
+<td>Night phone</td>
+<td>99007611</td>
+</tr>
+<tr>
+<td>Andreas</td>
+<td>99007611</td>
+</tr>
+<tr>
+<td>Mira</td>
+<td>96679787</td>
+</tr>
+<tr>
+<td>Property owner</td>
+<td></td>
+</tr>
+<tr>
+<td>Plumber</td>
+<td></td>
+</tr>
+<tr>
+<td>Electrician</td>
+<td></td>
+</tr>
+<tr>
+<td>AC technician</td>
+<td></td>
+</tr>
+<tr>
+<td>Lift company</td>
+<td></td>
+</tr>
+<tr>
+<td>Locksmith</td>
+<td></td>
+</tr>
+<tr>
+<td>Insurance claims line</td>
+<td></td>
+</tr>
+</tbody>
+</table></div></section>
+<footer>Hotel Operations Manual. Review monthly in the first year, then every quarter.</footer>
+</main>
+</div>
+<div class="wrap" hidden data-lang="el" data-title="Εγχειρίδιο Λειτουργίας Ξενοδοχείου" lang="el">
+<nav class="toc" aria-label="Περιεχόμενα">
+<div class="switch" role="group" aria-label="Language"><button type="button" data-set="en" aria-pressed="false">EN</button><button type="button" data-set="el" aria-pressed="false">GR</button></div>
+<p class="brand">Περιεχόμενα</p>
+<ol><li><a href="#el-s1">Πώς να χρησιμοποιείτε αυτό το εγχειρίδιο</a></li><li><a href="#el-s2">Πριν υπογράψετε</a></li><li><a href="#el-s3">Το πλάνο έναρξης 8 εβδομάδων</a></li><li><a href="#el-s4">Ρόλοι και εβδομαδιαίο πρόγραμμα</a></li><li><a href="#el-s5">Κρατήσεις και αυτόνομο check-in</a></li><li><a href="#el-s6">Καθαριότητα δωματίων</a></li><li><a href="#el-s7">Πρωινό</a></li><li><a href="#el-s8">Brunch Σαββατοκύριακου</a></li><li><a href="#el-s9">Ιδιωτικές εκδηλώσεις</a></li><li><a href="#el-s10">Ασφάλεια τροφίμων</a></li><li><a href="#el-s11">Συντήρηση</a></li><li><a href="#el-s12">Ασφάλεια και έκτακτα περιστατικά</a></li><li><a href="#el-s13">Εμπειρία επισκεπτών και αξιολογήσεις</a></li><li><a href="#el-s14">Τιμολόγηση και έσοδα</a></li><li><a href="#el-s15">Οικονομικά και διαχείριση</a></li><li><a href="#el-s16">Πρόσληψη και εκπαίδευση προσωπικού</a></li><li><a href="#el-s17">Συμβίωση με τους ιδιοκτήτες του ακινήτου</a></li><li><a href="#el-s18">Πρότυπα</a></li></ol>
+</nav>
+<main>
+<header class="cover"><h1>Εγχειρίδιο Λειτουργίας Ξενοδοχείου</h1><p>Οκτώβριος 2026</p></header>
+<section id="el-s1"><h2><span class="n">01</span>Πώς να χρησιμοποιείτε αυτό το εγχειρίδιο</h2>
+<p>Αυτό το εγχειρίδιο περιγράφει πώς λειτουργεί το ξενοδοχείο όταν εσείς δεν είστε παρόντες. Κάθε εργασία που γίνεται περισσότερες από μία φορές έχει εδώ γραπτή διαδικασία, ώστε το προσωπικό να την κάνει πάντα με τον ίδιο τρόπο και εσείς να μπορείτε να αποσύρεστε χωρίς να πέφτει το επίπεδο.</p>
+<p class="sub">Το μοντέλο λειτουργίας για το οποίο γράφτηκε</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Τομέας</th>
+<th>Πώς λειτουργεί</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Δωμάτια</td>
+<td>7 δωμάτια, αυτόνομο check-in με έναν κωδικό για την κεντρική είσοδο και το δωμάτιο</td>
+</tr>
+<tr>
+<td>Ιδιοκτήτες</td>
+<td>Ο Αντρέας και η Μίρα στον χώρο κάθε μέρα, όχι όλη μέρα· λιγότερο καθώς αναλαμβάνει το προσωπικό</td>
+</tr>
+<tr>
+<td>Νύχτες</td>
+<td>Κανείς στον χώρο τη νύχτα· οι επισκέπτες καλούν το νυχτερινό τηλέφωνο</td>
+</tr>
+<tr>
+<td>Πρωινό</td>
+<td>Σερβίρεται στους επισκέπτες που έκλεισαν με πρωινό</td>
+</tr>
+<tr>
+<td>Brunch</td>
+<td>Σαββατοκύριακα, 10:00 έως 14:00, σύντομο μενού a la carte, για επισκέπτες και κοινό· τις καθημερινές αργότερα, αν πετύχει</td>
+</tr>
+<tr>
+<td>Εκδηλώσεις</td>
+<td>Μικρές ιδιωτικές εκδηλώσεις στον κήπο</td>
+</tr>
+<tr>
+<td>Σεζόν</td>
+<td>Η μίσθωση ξεκινά τον Ιανουάριο, προετοιμασία τον Ιανουάριο και τον Φεβρουάριο, άνοιγμα για επισκέπτες τον Μάρτιο</td>
+</tr>
+</tbody>
+</table></div>
+<p class="sub">Πώς να το κρατάτε ζωντανό</p>
+<ol>
+<li>Όταν κάτι πάει στραβά δύο φορές, γράψτε ή διορθώστε τη διαδικασία που θα το είχε αποτρέψει.</li>
+<li>Εκπαιδεύστε κάθε νέο μέλος του προσωπικού με βάση αυτό το εγχειρίδιο, ενότητα προς ενότητα, και ζητήστε του να υπογράψει για κάθε διαδικασία.</li>
+<li>Ανασκοπήστε το μαζί μία φορά τον μήνα τον πρώτο χρόνο, και μετά κάθε τρίμηνο.</li>
+<li>Ένας ιδιοκτήτης είναι υπεύθυνος για κάθε ενότητα, ώστε τίποτα να μη μένει στη μέση.</li>
+</ol></section><section id="el-s2"><h2><span class="n">02</span>Πριν υπογράψετε</h2>
+<p>Μην υπογράψετε μέχρι να έχει απαντηθεί γραπτώς κάθε σημείο παρακάτω. Τα περισσότερα προβλήματα μεταξύ ενοικιαστών και ιδιοκτητών προέρχονται από πράγματα που συμφωνήθηκαν προφορικά.</p>
+<p class="sub">Η μίσθωση</p>
+<ul class="check"><li><input type="checkbox" aria-label="done"><span>Πρόγραμμα ενοικίου, οι μήνες προετοιμασίας χωρίς ενοίκιο (Ιανουάριος και Φεβρουάριος), και αν το ενοίκιο είναι συν ΦΠΑ</span></li><li><input type="checkbox" aria-label="done"><span>Ρήτρα πρόωρου τερματισμού: ζητήστε ο ιδιοκτήτης να μην μπορεί να τη χρησιμοποιήσει τα πρώτα 2 έως 3 χρόνια, ή να σας αποζημιώσει για τα έξοδα προετοιμασίας αν το κάνει</span></li><li><input type="checkbox" aria-label="done"><span>Ποιος πληρώνει τι: εσείς καλύπτετε την καθημερινή συντήρηση· ο ιδιοκτήτης καλύπτει το κτήριο (στέγη, δομή, υδραυλικά, ηλεκτρολογικά) και την αντικατάσταση σημαντικού εξοπλισμού που χαλάει, συμπεριλαμβανομένου του ανελκυστήρα και των κλιματιστικών</span></li><li><input type="checkbox" aria-label="done"><span>Κατασκευαστικά ελαττώματα τον πρώτο χρόνο είναι ευθύνη του ιδιοκτήτη</span></li><li><input type="checkbox" aria-label="done"><span>Οι εγγυήσεις εξοπλισμού (ανελκυστήρας, κλιματιστικά, κουζίνα) μεταφέρονται σε εσάς ή τις τηρεί ο ιδιοκτήτης</span></li><li><input type="checkbox" aria-label="done"><span>Εγγύηση €18,000: φυλάσσεται σε ονομαστικό λογαριασμό, επιστρέφεται μέσα σε συγκεκριμένο αριθμό ημερών στο τέλος, και μειώνεται μόνο για τεκμηριωμένες ζημιές</span></li><li><input type="checkbox" aria-label="done"><span>Ό,τι αγοράζετε (τηλεοράσεις, λευκά είδη, σερβίτσια, πλυντήριο πιάτων, παγομηχανή) παραμένει δικό σας όταν φύγετε</span></li><li><input type="checkbox" aria-label="done"><span>Μπορείτε να λειτουργείτε με δική σας επωνυμία, να αλλάξετε τη διακόσμηση, και να έχετε δική σας ιστοσελίδα και λογαριασμούς κρατήσεων</span></li></ul>
+<p class="sub">Η απογραφή</p>
+<ul class="check"><li><input type="checkbox" aria-label="done"><span>Πλήρης λίστα όσων παρέχει ο ιδιοκτήτης, με φωτογραφίες και κατάσταση: ψυγεία, καταψύκτης, φούρνος, απορροφητήρας, πάγκοι προετοιμασίας, ράφια, ψυγείο μπαρ, έπιπλα, εξαρτήματα</span></li><li><input type="checkbox" aria-label="done"><span>Ένδειξη μετρητή ρεύματος και νερού την ημέρα που αναλαμβάνετε</span></li></ul>
+<p class="sub">Άδειες και εγκρίσεις</p>
+<ul class="check"><li><input type="checkbox" aria-label="done"><span>Άδεια λειτουργίας ξενοδοχείου από το Υφυπουργείο Τουρισμού: επιβεβαιώστε ότι έχει εκδοθεί, ότι είναι σε ισχύ, και ότι η εταιρεία σας μπορεί να λειτουργεί με αυτήν</span></li><li><input type="checkbox" aria-label="done"><span>Αν η τρέχουσα άδεια επιτρέπει σερβίρισμα brunch και εκδηλώσεις για μη διαμένοντες· αν όχι, κάντε νωρίς αίτηση για άδεια εστίασης ώστε να είναι έτοιμη μέχρι τον Μάρτιο</span></li><li><input type="checkbox" aria-label="done"><span>Άδεια αλκοόλ, άδεια μεγαφώνων ή μουσικής, και πιστοποιητικά χειριστή τροφίμων για το προσωπικό της κουζίνας</span></li></ul>
+<p class="sub">Συμβίωση με τους ιδιοκτήτες</p>
+<ul class="check"><li><input type="checkbox" aria-label="done"><span>Ποιοι χώροι είναι κοινόχρηστοι, ποιες ώρες, και ποιος χρησιμοποιεί ποια είσοδο</span></li><li><input type="checkbox" aria-label="done"><span>Ώρες κοινής ησυχίας και κανόνες εκδηλώσεων συμφωνημένοι γραπτώς</span></li><li><input type="checkbox" aria-label="done"><span>Επιβεβαιωμένοι ξεχωριστοί μετρητές για την κατοικία των ιδιοκτητών</span></li></ul>
+<p class="sub">Η εταιρεία σας</p>
+<ul class="check"><li><input type="checkbox" aria-label="done"><span>Νέα εταιρεία εγγεγραμμένη για το ξενοδοχείο, με δικό της τραπεζικό λογαριασμό και εγγραφή στον ΦΠΑ</span></li><li><input type="checkbox" aria-label="done"><span>Εγγραφή εργοδότη στις Κοινωνικές Ασφαλίσεις πριν την πρώτη πρόσληψη</span></li><li><input type="checkbox" aria-label="done"><span>Ασφάλιση περιεχομένου, αστικής ευθύνης έναντι τρίτων και ευθύνης εργοδότη (υποχρεωτική μόλις έχετε προσωπικό)</span></li><li><input type="checkbox" aria-label="done"><span>Λογιστής συμφωνημένος πριν τον Ιανουάριο, ώστε η μισθοδοσία και ο ΦΠΑ να ξεκινήσουν σωστά</span></li></ul>
+<p>Ζητήστε από δικηγόρο να διαβάσει την τελική μίσθωση πριν υπογράψετε. Πληρώστε για μία ώρα του χρόνου του· είναι η φθηνότερη ασφάλεια που θα αγοράσετε.</p></section><section id="el-s3"><h2><span class="n">03</span>Το πλάνο έναρξης 8 εβδομάδων</h2>
+<p>Ο στόχος για τον Ιανουάριο και τον Φεβρουάριο είναι απλός: άνοιγμα τον Μάρτιο με ενεργές καταχωρίσεις, τις πρώτες κρατήσεις, εκπαιδευμένο προσωπικό, και δύο πλήρεις δοκιμαστικές λειτουργίες. Ό,τι χρειάζεται προμηθευτή, άδεια ή φωτογράφο ξεκινά την εβδομάδα 1, γιατί αυτά είναι που καθυστερούν.</p>
+<p class="sub">Εβδομάδα 1: παραλαβή του κτηρίου</p>
+<ul class="check"><li><input type="checkbox" aria-label="done"><span>Περπατήστε το κτήριο με τον ιδιοκτήτη· υπογράψτε την απογραφή και καταγράψτε τις ενδείξεις μετρητών</span></li><li><input type="checkbox" aria-label="done"><span>Αλλάξτε ή καταγράψτε κάθε κωδικό πόρτας και κλειδί· ορίστε δικό σας κύριο κωδικό</span></li><li><input type="checkbox" aria-label="done"><span>Παραγγείλετε το πλυντήριο πιάτων, την παγομηχανή, τα σερβίτσια, τις τηλεοράσεις και τα λευκά είδη (η παράδοση παίρνει 2 έως 4 εβδομάδες)</span></li><li><input type="checkbox" aria-label="done"><span>Κλείστε τον φωτογράφο για την εβδομάδα 5, όταν τα δωμάτια θα είναι στημένα</span></li><li><input type="checkbox" aria-label="done"><span>Υποβάλετε αιτήσεις ή μεταβιβάσεις αδειών που δεν υπάρχουν ήδη</span></li></ul>
+<p class="sub">Εβδομάδα 2: συστήματα</p>
+<ul class="check"><li><input type="checkbox" aria-label="done"><span>Επιλέξτε και στήστε το σύστημα κρατήσεων και τον channel manager· καταχωρίστε δωμάτια, τιμές και πολιτικές</span></li><li><input type="checkbox" aria-label="done"><span>Ανοίξτε λογαριασμούς σε Booking.com, Airbnb και Expedia (η έγκριση μπορεί να πάρει 1 έως 2 εβδομάδες)</span></li><li><input type="checkbox" aria-label="done"><span>Τερματικό καρτών και σύστημα ταμείου για το brunch και το μπαρ</span></li><li><input type="checkbox" aria-label="done"><span>Στήσιμο του νυχτερινού τηλεφώνου και δοκιμή της προώθησης κλήσεων</span></li></ul>
+<p class="sub">Εβδομάδα 3: προμηθευτές και μενού</p>
+<ul class="check"><li><input type="checkbox" aria-label="done"><span>Επιλέξτε προμηθευτές: πλυντήριο, τρόφιμα, καφές (ρωτήστε για δωρεάν μηχανή), ποτά, προϊόντα καθαρισμού, είδη περιποίησης</span></li><li><input type="checkbox" aria-label="done"><span>Γράψτε τα μενού πρωινού και brunch· κοστολογήστε κάθε πιάτο ώστε το κόστος τροφίμων να μένει κοντά στο 30% της τιμής</span></li><li><input type="checkbox" aria-label="done"><span>Συμφωνήστε συμβόλαια απεντόμωσης, πυρασφάλειας και συντήρησης κλιματιστικών</span></li></ul>
+<p class="sub">Εβδομάδα 4: προσλήψεις</p>
+<ul class="check"><li><input type="checkbox" aria-label="done"><span>Προσλάβετε καθαρίστρια και το άτομο για πρωινό και μπαρ· υπογεγραμμένα συμβόλαια, εγγραφή στις Κοινωνικές Ασφαλίσεις</span></li><li><input type="checkbox" aria-label="done"><span>Κλεισμένα πιστοποιητικά χειριστή τροφίμων για όποιον χειρίζεται τρόφιμα</span></li></ul>
+<p class="sub">Εβδομάδα 5: έτοιμα δωμάτια, γύρισμα περιεχομένου</p>
+<ul class="check"><li><input type="checkbox" aria-label="done"><span>Δωμάτια πλήρως στημένα· κάθε δωμάτιο δοκιμασμένο (κλιματιστικό, τηλεόραση, ντους, Wi-Fi, κωδικός πόρτας)</span></li><li><input type="checkbox" aria-label="done"><span>Φωτογράφιση και βιντεοσκόπηση: δωμάτια, κήπος, πιάτα brunch, λεπτομέρειες</span></li><li><input type="checkbox" aria-label="done"><span>Ιστοσελίδα ενεργή με απευθείας κρατήσεις</span></li></ul>
+<p class="sub">Εβδομάδα 6: άνοιγμα για κρατήσεις</p>
+<ul class="check"><li><input type="checkbox" aria-label="done"><span>Καταχωρίσεις ενεργές σε όλα τα κανάλια με τις νέες φωτογραφίες· προσφορά έναρξης για διαμονές Μαρτίου</span></li><li><input type="checkbox" aria-label="done"><span>Ενεργά προφίλ Google Business, Instagram και Facebook</span></li><li><input type="checkbox" aria-label="done"><span>Εκπαίδευση προσωπικού με βάση αυτό το εγχειρίδιο, μία ενότητα την ημέρα</span></li></ul>
+<p class="sub">Εβδομάδα 7: δοκιμαστικές λειτουργίες</p>
+<ul class="check"><li><input type="checkbox" aria-label="done"><span>Φίλοι και οικογένεια μένουν 2 νύχτες: πλήρες check-in, καθαριότητα, πρωινό και check-out, και μετά γραπτή λίστα με κάθε πρόβλημα</span></li><li><input type="checkbox" aria-label="done"><span>Πλήρες δοκιμαστικό brunch για 20 έως 30 καλεσμένους</span></li><li><input type="checkbox" aria-label="done"><span>Διορθώστε όλα όσα υπάρχουν και στις δύο λίστες</span></li></ul>
+<p class="sub">Εβδομάδα 8: τελικοί έλεγχοι</p>
+<ul class="check"><li><input type="checkbox" aria-label="done"><span>Δεύτερη δοκιμαστική λειτουργία αν η πρώτη είχε σοβαρά προβλήματα</span></li><li><input type="checkbox" aria-label="done"><span>Πλήρες απόθεμα: τρόφιμα, ποτά, είδη περιποίησης, καθαριστικά, εφεδρικά λευκά είδη</span></li><li><input type="checkbox" aria-label="done"><span>Ημέρα έναρξης τον Μάρτιο: και οι δύο ιδιοκτήτες στον χώρο όλη μέρα</span></li></ul></section><section id="el-s4"><h2><span class="n">04</span>Ρόλοι και εβδομαδιαίο πρόγραμμα</h2>
+<p>Μοιράστε την επιχείρηση μεταξύ σας ανά τομέα, όχι ανά εργασία, ώστε ο καθένας να έχει την ευθύνη των αποτελεσμάτων και το προσωπικό να ξέρει ποιον να ρωτήσει. Παρακάτω υπάρχει μια προτεινόμενη κατανομή· αλλάξτε τομείς ανάλογα με τα δυνατά σας σημεία.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Τομέας</th>
+<th>Υπεύθυνος</th>
+<th>Καλύπτει</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Δωμάτια και επισκέπτες</td>
+<td>Μίρα</td>
+<td>Κρατήσεις, μηνύματα επισκεπτών, υποστήριξη check-in, καθαριότητα, αξιολογήσεις</td>
+</tr>
+<tr>
+<td>Φαγητό και brunch</td>
+<td>Μίρα</td>
+<td>Πρωινό, brunch, εκδηλώσεις, κουζίνα, προμηθευτές, ασφάλεια τροφίμων</td>
+</tr>
+<tr>
+<td>Πωλήσεις και μάρκετινγκ</td>
+<td>Αντρέας</td>
+<td>Τιμολόγηση, κανάλια, ιστοσελίδα, μέσα κοινωνικής δικτύωσης, ερωτήματα για εκδηλώσεις</td>
+</tr>
+<tr>
+<td>Οικονομικά και διοίκηση</td>
+<td>Αντρέας</td>
+<td>Καθημερινό κλείσιμο ταμείου, μισθοδοσία, τιμολόγια, ΦΠΑ με τον λογιστή</td>
+</tr>
+<tr>
+<td>Κτήριο</td>
+<td>Κοινό</td>
+<td>Συντήρηση, εργολάβοι, οι ιδιοκτήτες που μένουν στον χώρο</td>
+</tr>
+</tbody>
+</table></div>
+<p class="sub">Μια τυπική μέρα τους πρώτους μήνες</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Ώρα</th>
+<th>Τι γίνεται</th>
+<th>Ποιος</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>06:00 έως 10:30</td>
+<td>Ετοιμασία, σερβίρισμα και κλείσιμο πρωινού</td>
+<td>Άτομο πρωινού και μπαρ, ένας ιδιοκτήτης περνά για έλεγχο</td>
+</tr>
+<tr>
+<td>10:00 έως 11:00</td>
+<td>Check-out· απαντήσεις σε μηνύματα· έλεγχος αφίξεων</td>
+<td>Ιδιοκτήτης υπεύθυνος δωματίων</td>
+</tr>
+<tr>
+<td>11:30 έως 14:30</td>
+<td>Καθαρισμός και έλεγχος δωματίων πριν το check-in στις 15:00</td>
+<td>Καθαριότητα</td>
+</tr>
+<tr>
+<td>13:00</td>
+<td>Αποστολή κωδικών και επιβεβαίωση αφίξεων</td>
+<td>Ιδιοκτήτης υπεύθυνος δωματίων</td>
+</tr>
+<tr>
+<td>18:00 έως 21:00</td>
+<td>Βραδινή περιήγηση, υποδοχή επισκεπτών όπου είναι δυνατόν, προετοιμασία επόμενης μέρας</td>
+<td>Ένας ιδιοκτήτης</td>
+</tr>
+<tr>
+<td>21:00 έως 07:00</td>
+<td>Νυχτερινό τηλέφωνο σε έναν ιδιοκτήτη</td>
+<td>Βάρδια</td>
+</tr>
+</tbody>
+</table></div>
+<p class="sub">Σαββατοκύριακα με brunch</p>
+<p>Το brunch χρειάζεται τουλάχιστον τρία άτομα στη σάλα από τις 09:00 έως τις 15:00: ένα στην κουζίνα, ένα στο σερβίρισμα, ένα στο μπαρ και τις πληρωμές. Τους πρώτους μήνες αυτό σημαίνει έναν ιδιοκτήτη, συν το άτομο πρωινού και μπαρ, συν το επιπλέον προσωπικό brunch που έχετε προϋπολογίσει.</p>
+<p class="sub">Ρεπό και αναπλήρωση</p>
+<ul>
+<li>Κάθε ιδιοκτήτης παίρνει μία ολόκληρη μέρα ρεπό την εβδομάδα, ποτέ και οι δύο την ίδια μέρα.</li>
+<li>Κάθε ρόλος προσωπικού έχει συγκεκριμένο αναπληρωτή εκπαιδευμένο σε αυτόν. Την καθαριότητα την καλύπτει η καθαρίστρια μερικής απασχόλησης· το πρωινό ένας ιδιοκτήτης.</li>
+<li>Ασθένεια: το προσωπικό τηλεφωνεί στον ιδιοκτήτη υπεύθυνο δωματίων πριν τις 07:00, ποτέ με μήνυμα.</li>
+</ul>
+<p class="sub">Το νυχτερινό τηλέφωνο</p>
+<ul>
+<li>Ένας ιδιοκτήτης κρατά το τηλέφωνο κάθε νύχτα, εναλλάξ, και αυτό γράφεται στο πρόγραμμα βαρδιών.</li>
+<li>Απαντήστε μέσα σε 3 χτυπήματα. Οι περισσότερες κλήσεις αφορούν κωδικούς πόρτας, Wi-Fi ή θόρυβο· κρατήστε τις απαντήσεις σε ένα σύντομο κείμενο δίπλα στο τηλέφωνο.</li>
+<li>Πραγματικά επείγοντα (φωτιά, ιατρικό, διάρρηξη): καλέστε πρώτα το 112, μετά πηγαίνετε στο ξενοδοχείο.</li>
+</ul>
+<p class="sub">Σταδιακή απόσυρση</p>
+<p>Αποσυρθείτε από μια εργασία μόνο όταν το άτομο που την κάνει την έχει εκτελέσει μόνο του για 4 εβδομάδες χωρίς παράπονο επισκέπτη, και όταν είναι γραμμένη σε αυτό το εγχειρίδιο.</p></section><section id="el-s5"><h2><span class="n">05</span>Κρατήσεις και αυτόνομο check-in</h2>
+<p>Το check-in γίνεται από τις 15:00 και το check-out μέχρι τις 11:00. Κάθε κράτηση, από οποιοδήποτε κανάλι, καταχωρίζεται στο σύστημα κρατήσεων· τίποτα δεν γράφεται σε χαρτί ούτε κρατιέται μόνο σε ένα κινητό.</p>
+<p class="sub">Κανόνες λειτουργίας για δημοσίευση παντού</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Κανόνας</th>
+<th>Ρύθμιση</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Check-in</td>
+<td>Από τις 15:00· νωρίτερο check-in μόνο αν το δωμάτιο είναι έτοιμο, δωρεάν όταν είναι δυνατόν</td>
+</tr>
+<tr>
+<td>Check-out</td>
+<td>Μέχρι τις 11:00· αργότερο check-out μέχρι τις 13:00 με χρέωση, αν το επιτρέπει ο επόμενος επισκέπτης</td>
+</tr>
+<tr>
+<td>Ακύρωση</td>
+<td>Δωρεάν μέχρι 7 ημέρες πριν την άφιξη· προσφέρεται επίσης φθηνότερη τιμή χωρίς επιστροφή χρημάτων</td>
+</tr>
+<tr>
+<td>Πληρωμή</td>
+<td>Κάρτα κατά την κράτηση· οι απευθείας κρατήσεις πληρώνουν προκαταβολή 30%, το υπόλοιπο 7 ημέρες πριν την άφιξη</td>
+</tr>
+<tr>
+<td>Ώρες κοινής ησυχίας</td>
+<td>23:00 έως 08:00</td>
+</tr>
+<tr>
+<td>Κάπνισμα</td>
+<td>Όχι μέσα στο κτήριο· μόνο στον κήπο, στον σημειωμένο χώρο</td>
+</tr>
+<tr>
+<td>Παιδιά και κατοικίδια</td>
+<td>Όχι παιδιά και όχι κατοικίδια</td>
+</tr>
+</tbody>
+</table></div>
+<p class="sub">Όταν έρχεται μια κράτηση</p>
+<ol>
+<li>Ελέγξτε ότι εμφανίζεται στο σύστημα κρατήσεων με τις σωστές ημερομηνίες, δωμάτιο και τιμή.</li>
+<li>Ελέγξτε την πληρωμή: εγγυημένη με κάρτα, εισπραγμένη προκαταβολή, ή την εισπράττει το κανάλι.</li>
+<li>Στείλτε το μήνυμα καλωσορίσματος μέσα σε 2 ώρες: επιβεβαίωση, διεύθυνση, στάθμευση, και ότι ο κωδικός πόρτας θα σταλεί την ημέρα της άφιξης.</li>
+<li>Σημειώστε κάθε ειδικό αίτημα (αργή άφιξη, γιορτή, αλλεργία, παιδικό κρεβάτι) στην κράτηση και ενημερώστε το άτομο που πρέπει να το χειριστεί.</li>
+</ol>
+<p class="sub">Την προηγούμενη μέρα της άφιξης</p>
+<ol>
+<li>Στείλτε το μήνυμα πριν την άφιξη: ώρα check-in, πώς λειτουργεί το αυτόνομο check-in, το νυχτερινό τηλέφωνο, ώρες πρωινού αν έχει κρατηθεί.</li>
+<li>Ζητήστε την εκτιμώμενη ώρα άφιξης και την ηλεκτρονική φόρμα εγγραφής (όνομα, υπηκοότητα, αριθμός ταυτότητας ή διαβατηρίου για κάθε ενήλικα).</li>
+</ol>
+<p class="sub">Ημέρα άφιξης</p>
+<ol>
+<li>13:00: δημιουργήστε νέο κωδικό για αυτή την κράτηση και στείλτε τον. Κάθε διαμονή έχει δικό της κωδικό· ποτέ μην ξαναχρησιμοποιείτε έναν κωδικό. Τις ημέρες του brunch τα δωμάτια κήπου ελέγχονται στις 14:50, πριν ενεργοποιηθούν οι κωδικοί τους.</li>
+<li>Ο κωδικός λειτουργεί από τις 15:00 την ημέρα άφιξης μέχρι τις 11:00 την ημέρα αναχώρησης.</li>
+<li>18:00: ελέγξτε ποιος δεν έχει φτάσει. Στείλτε μήνυμα σε όποιον αναμένεται αλλά δεν έχει έρθει ακόμα.</li>
+<li>Αργές αφίξεις μετά τις 21:00: όποιος έχει το νυχτερινό τηλέφωνο το κρατά ανοιχτό μέχρι να επιβεβαιώσουν ότι μπήκαν μέσα.</li>
+<li>Το επόμενο πρωί: ένας ιδιοκτήτης χαιρετά τους νέους επισκέπτες στο πρωινό ή στέλνει ένα σύντομο μήνυμα καλωσορίσματος.</li>
+</ol>
+<p class="sub">Εγγραφή επισκεπτών</p>
+<p>Κρατήστε αρχείο με το όνομα, την υπηκοότητα και τον αριθμό ταυτότητας ή διαβατηρίου κάθε επισκέπτη για όσο χρόνο απαιτεί ο νόμος. Επιβεβαιώστε τον ακριβή κανόνα με το Υφυπουργείο Τουρισμού πριν το άνοιγμα, και φυλάξτε αυτά τα αρχεία με ασφάλεια, ποτέ σε κοινόχρηστη συνομιλία.</p>
+<p class="sub">Ημέρα αναχώρησης</p>
+<ol>
+<li>09:00: στείλτε υπενθύμιση check-out με ένα ευχαριστώ και σύνδεσμο για αξιολόγηση.</li>
+<li>11:00: ο κωδικός σταματά να λειτουργεί· η καθαριότητα ελέγχει ότι το δωμάτιο είναι άδειο πριν μπει.</li>
+<li>Χρεώστε τυχόν επιπλέον (minibar, αργότερο check-out, ζημιές) την ίδια μέρα, με απόδειξη.</li>
+</ol>
+<p class="sub">Ακυρώσεις και μη εμφανίσεις</p>
+<ul>
+<li>Εφαρμόζετε την δημοσιευμένη πολιτική κάθε φορά· εξαιρέσεις μόνο από ιδιοκτήτη, και γραμμένες στην κράτηση.</li>
+<li>Μη εμφάνιση: αν ένας επισκέπτης δεν έχει φτάσει ή δεν έχει στείλει μήνυμα μέχρι τις 23:00, τηλεφωνήστε μία φορά, μετά σημειώστε την κράτηση ως μη εμφάνιση το επόμενο πρωί και χρεώστε όπως επιτρέπει η πολιτική.</li>
+<li>Κρατήσεις από κανάλια: δηλώστε τη μη εμφάνιση στο σύστημα του ίδιου του καναλιού μέσα σε 48 ώρες, αλλιώς χάνεται η χρέωση.</li>
+</ul>
+<p class="sub">Παράπονα</p>
+<ol>
+<li>Ακούστε μέχρι το τέλος, ζητήστε συγγνώμη για την εμπειρία, και μην διαφωνείτε.</li>
+<li>Διορθώστε το αμέσως αν μπορείτε: αλλαγή δωματίου, αποστολή συντήρησης, αντικατάσταση αντικειμένου.</li>
+<li>Αν δεν μπορείτε να το διορθώσετε, προσφέρετε κάτι ανάλογο: πρωινό, έκπτωση στη διανυκτέρευση, αργότερο check-out.</li>
+<li>Γράψτε το στο αρχείο παραπόνων την ίδια μέρα και ελέγξτε το επόμενο πρωί ότι ο επισκέπτης είναι ικανοποιημένος.</li>
+<li>Αν το ίδιο παράπονο εμφανιστεί δύο φορές, διορθώστε τη διαδικασία σε αυτό το εγχειρίδιο.</li>
+</ol>
+<p class="sub">Υπερκράτηση</p>
+<p>Ο channel manager πρέπει να κλείνει όλα τα κανάλια τη στιγμή που πωλείται ένα δωμάτιο. Αν ποτέ υπάρξει υπερκράτηση, ο επισκέπτης που έκλεισε τελευταίος μεταφέρεται σε αντίστοιχο ξενοδοχείο κοντά με δικά σας έξοδα, πληρώνοντας τη διαφορά τιμής και τη μεταφορά. Κρατήστε δίπλα στο τηλέφωνο τα τηλέφωνα δύο συνεργαζόμενων ξενοδοχείων για αυτόν τον σκοπό.</p></section><section id="el-s6"><h2><span class="n">06</span>Καθαριότητα δωματίων</h2>
+<p>Κάθε κατειλημμένο δωμάτιο καθαρίζεται καθημερινά. Οι κωδικοί στέλνονται στις 13:00 και ενεργοποιούνται στις 15:00, και κάθε δωμάτιο ελέγχεται από έναν ιδιοκτήτη πριν ενεργοποιηθεί ο κωδικός του. Τις καθημερινές η καθαριότητα δωματίων γίνεται 11:30 με 14:30, πρώτα τα δωμάτια αναχώρησης και μετά τα δωμάτια με παραμονή. Τις ημέρες του brunch τα δωμάτια κήπου ακολουθούν δικό τους πλάνο, παρακάτω.</p>
+<p class="sub">Πρόγραμμα της ημέρας</p>
+<ol>
+<li>11:00 με 11:30: Ελέγξτε τη λίστα αφίξεων και αναχωρήσεων. Γεμίστε το καρότσι.</li>
+<li>11:30: Πρώτα τα δωμάτια αναχώρησης, ξεκινώντας από όσα έχουν άφιξη την ίδια μέρα.</li>
+<li>Μετά τα δωμάτια με παραμονή, μόνο αφού ο επισκέπτης φύγει από το δωμάτιο ή ζητήσει καθαρισμό.</li>
+<li>13:00: Ο ιδιοκτήτης ελέγχει κάθε δωμάτιο αναχώρησης και μετά στέλνονται οι κωδικοί.</li>
+<li>14:30: Τα βρόμικα λινά μπαίνουν σε σακούλες για το πλυντήριο, το καρότσι ξαναγεμίζει, η αποθήκη τακτοποιείται.</li>
+</ol>
+<p class="sub">Δωμάτια κήπου τις ημέρες του brunch (Σάββατο και Κυριακή)</p>
+<p>Τα δύο δωμάτια του ισογείου ανοίγουν στον κήπο όπου σερβίρεται το brunch. Τις ημέρες του brunch ακολουθούν αυτό το πλάνο κάθε Σαββατοκύριακο, χωρίς εξαιρέσεις. Η καμαριέρα εργάζεται 11:00 με 15:00 και η καμαριέρα μερικής απασχόλησης 13:00 με 15:00.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Ώρα</th>
+<th>Ποιος</th>
+<th>Εργασία</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>11:00 με 13:00</td>
+<td>Καμαριέρα</td>
+<td>Δωμάτια του ορόφου, πρώτα τα δωμάτια αναχώρησης</td>
+</tr>
+<tr>
+<td>13:00</td>
+<td>Υπεύθυνος της ημέρας</td>
+<td>Αποστολή κωδικών για όλες τις αφίξεις, μαζί και τα δωμάτια κήπου</td>
+</tr>
+<tr>
+<td>13:00 με 14:00</td>
+<td>Καμαριέρα και καμαριέρα μερικής απασχόλησης</td>
+<td>Ολοκλήρωση των δωματίων του ορόφου</td>
+</tr>
+<tr>
+<td>14:00 με 15:00</td>
+<td>Και οι δύο</td>
+<td>Δωμάτια κήπου: πρώτα τα δωμάτια αναχώρησης, μετά τα δωμάτια με παραμονή</td>
+</tr>
+<tr>
+<td>14:50</td>
+<td>Υπεύθυνος της ημέρας</td>
+<td>Ελέγχει τα δωμάτια κήπου πριν ενεργοποιηθούν οι κωδικοί τους στις 15:00</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li>Καμία εργασία καθαριότητας στον κήπο από τις 10:00 έως τις 14:00.</li>
+<li>Οι επισκέπτες που μένουν σε δωμάτιο κήπου το Σαββατοκύριακο ενημερώνονται στο μήνυμα πριν την άφιξη ότι το δωμάτιό τους καθαρίζεται στις 14:00 το Σάββατο και την Κυριακή.</li>
+<li>Πετσέτες ή παροχές που ζητούνται κατά τη διάρκεια του brunch παραδίδονται στην πόρτα· κανείς δεν μπαίνει στο δωμάτιο.</li>
+<li>Λευκά είδη, πετσέτες, παροχές και καθαριστικά και για τα δύο δωμάτια ετοιμάζονται σε κλειστές σακούλες μέχρι τις 13:45: μία διαδρομή μέσα, μία διαδρομή έξω.</li>
+<li>Οι εργασίες γενικού καθαρισμού στα δωμάτια κήπου γίνονται μόνο Δευτέρα έως Πέμπτη.</li>
+</ul>
+<p class="sub">Δωμάτιο αναχώρησης: πλήρης καθαρισμός (περίπου 45 λεπτά)</p>
+<ul class="check"><li><input type="checkbox" aria-label="done"><span>Ανοίξτε τα παράθυρα, ξεστρώστε το κρεβάτι, αφαιρέστε όλα τα λινά και τις πετσέτες</span></li><li><input type="checkbox" aria-label="done"><span>Αδειάστε όλους τους κάδους. Ελέγξτε συρτάρια, ντουλάπα, χρηματοκιβώτιο και κάτω από το κρεβάτι για ξεχασμένα αντικείμενα</span></li><li><input type="checkbox" aria-label="done"><span>Μπάνιο: τουαλέτα, ντους, νιπτήρας, καθρέφτης, πλακάκια, πάτωμα. Καθαρίστε και μετά απολυμάνετε</span></li><li><input type="checkbox" aria-label="done"><span>Καθαρά λινά και πετσέτες. Στρώστε το κρεβάτι σύμφωνα με το πρότυπο του ξενοδοχείου, με βάση τη φωτογραφία αναφοράς</span></li><li><input type="checkbox" aria-label="done"><span>Ξεσκονίστε όλες τις επιφάνειες, διακόπτες, πόμολα, τηλεχειριστήρια, την τηλεόραση</span></li><li><input type="checkbox" aria-label="done"><span>Σκουπίστε με ηλεκτρική σκούπα και σφουγγαρίστε το πάτωμα</span></li><li><input type="checkbox" aria-label="done"><span>Συμπληρώστε τα είδη περιποίησης, καφέ, τσάι, νερό, χαρτί υγείας</span></li><li><input type="checkbox" aria-label="done"><span>Ελέγξτε κλιματιστικό, φώτα, τηλεόραση, ντους και κάρτα Wi-Fi. Αναφέρετε οτιδήποτε χαλασμένο</span></li><li><input type="checkbox" aria-label="done"><span>Κλείστε τα παράθυρα, ρυθμίστε το κλιματιστικό στους 24 βαθμούς, σβήστε τα φώτα, κλείστε την πόρτα</span></li></ul>
+<p class="sub">Δωμάτιο με παραμονή: φρεσκάρισμα (περίπου 20 λεπτά)</p>
+<ul class="check"><li><input type="checkbox" aria-label="done"><span>Στρώστε το κρεβάτι. Αλλάξτε τα λινά κάθε 3 νύχτες ή όταν ζητηθεί</span></li><li><input type="checkbox" aria-label="done"><span>Αντικαταστήστε τις πετσέτες που είναι στο πάτωμα. Οι κρεμασμένες πετσέτες ξαναχρησιμοποιούνται</span></li><li><input type="checkbox" aria-label="done"><span>Αδειάστε τους κάδους, καθαρίστε το μπάνιο, συμπληρώστε τα είδη περιποίησης</span></li><li><input type="checkbox" aria-label="done"><span>Τακτοποιήστε χωρίς να μετακινήσετε τα προσωπικά αντικείμενα του επισκέπτη</span></li></ul>
+<p class="sub">Λινά</p>
+<ul>
+<li>Τρία πλήρη σετ ανά κρεβάτι: ένα στο κρεβάτι, ένα στο πλυντήριο, ένα στην αποθήκη.</li>
+<li>Μετρήστε τα λινά που φεύγουν και που επιστρέφουν από το πλυντήριο σε κάθε παραλαβή. Κυνηγήστε όσα λείπουν την ίδια εβδομάδα.</li>
+<li>Λερωμένα ή σκισμένα κομμάτια μπαίνουν στη λίστα αντικατάστασης.</li>
+</ul>
+<p class="sub">Πρόγραμμα γενικής καθαριότητας</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Συχνότητα</th>
+<th>Εργασία</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Εβδομαδιαία</td>
+<td>Γύρισμα στρωμάτων, εσωτερικό ψυγείων και βραστήρων, μπαλκόνια, τζάμια παραθύρων</td>
+</tr>
+<tr>
+<td>Μηνιαία</td>
+<td>Καθαρισμός φίλτρων κλιματιστικών, τρίψιμο αρμών, κάτω από τα έπιπλα</td>
+</tr>
+<tr>
+<td>Κάθε 3 μήνες</td>
+<td>Πλύσιμο προστατευτικών στρωμάτων και μαξιλαριών, βαθύς καθαρισμός χαλιών</td>
+</tr>
+<tr>
+<td>Κάθε 6 μήνες</td>
+<td>Μερεμέτια στους τοίχους, πλήρες σέρβις κλιματιστικών</td>
+</tr>
+</tbody>
+</table></div>
+<p class="sub">Ξεχασμένα αντικείμενα</p>
+<ol>
+<li>Βάλτε το σε σακούλα με ετικέτα: δωμάτιο, ημερομηνία, ποιος το βρήκε.</li>
+<li>Καταγράψτε το και στείλτε μήνυμα στον επισκέπτη την ίδια μέρα.</li>
+<li>Φυλάξτε τα αντικείμενα για 3 μήνες. Τα πολύτιμα (μετρητά, κοσμήματα, έγγραφα) κλειδώνονται και παραδίδονται μόνο με ταυτότητα.</li>
+<li>Τα ταχυδρομικά τα πληρώνει ο επισκέπτης, προκαταβολικά.</li>
+</ol>
+<p class="sub">Μην ενοχλείτε</p>
+<p>Σεβαστείτε την ταμπέλα. Αν ένα δωμάτιο την έχει για 2 μέρες, ένας ιδιοκτήτης χτυπά την πόρτα και ρωτά ευγενικά τον επισκέπτη αν όλα είναι εντάξει.</p></section><section id="el-s7"><h2><span class="n">07</span>Πρωινό</h2>
+<p>Το πρωινό σερβίρεται 07:30 με 10:00 στους επισκέπτες που έκλεισαν διαμονή με πρωινό, με προετοιμασία από τις 06:00. Με το πολύ 14 επισκέπτες, σερβίρετε ένα μικρό σταθερό πρωινό κατά παραγγελία αντί για μπουφέ: λιγότερη σπατάλη, καλύτερο φαγητό και πιο boutique αίσθηση.</p>
+<p class="sub">Το προηγούμενο βράδυ</p>
+<ol>
+<li>Ελέγξτε τη λίστα πρωινού στο σύστημα κρατήσεων: πόσοι επισκέπτες, ποια δωμάτια, αλλεργίες, πρόωρες αναχωρήσεις.</li>
+<li>Ξεπαγώστε ό,τι χρειάζεται. Ελέγξτε το απόθεμα σε γάλα, αυγά, ψωμί, φρούτα και καφέ.</li>
+<li>Στρώστε τα τραπέζια στον κήπο ή στην αίθουσα πρωινού.</li>
+</ol>
+<p class="sub">Προετοιμασία, 06:00 με 07:30</p>
+<ul class="check"><li><input type="checkbox" aria-label="done"><span>Ανοίξτε και καθαρίστε την καφετιέρα. Δοκιμάστε το πρώτο σφηνάκι</span></li><li><input type="checkbox" aria-label="done"><span>Ελέγξτε τις θερμοκρασίες των ψυγείων και γράψτε τις στο αρχείο</span></li><li><input type="checkbox" aria-label="done"><span>Φρέσκος χυμός, φρούτα, γιαούρτι, αρτοσκευάσματα και ψωμί στο πλαϊνό τραπέζι, σκεπασμένα</span></li><li><input type="checkbox" aria-label="done"><span>Ετοιμάστε τα ζεστά για μαγείρεμα κατά παραγγελία: αυγά, χαλλούμι, λαχανικά</span></li><li><input type="checkbox" aria-label="done"><span>Στρωμένα τραπέζια, χαρτοπετσέτες, νερό, κάρτα μενού με τις επιλογές της ημέρας</span></li></ul>
+<p class="sub">Σερβίρισμα, 07:30 με 10:00</p>
+<ol>
+<li>Χαιρετήστε κάθε επισκέπτη με το όνομά του, βρείτε του θέση, προσφέρετε καφέ ή τσάι μέσα σε 2 λεπτά.</li>
+<li>Πάρτε την παραγγελία για τα ζεστά. Ελέγξτε την κράτηση για αλλεργίες πριν μαγειρέψετε.</li>
+<li>Τα ζεστά πιάτα βγαίνουν μέσα σε 10 με 15 λεπτά.</li>
+<li>Μαζέψτε και ξαναστρώστε τα τραπέζια καθώς φεύγουν οι επισκέπτες.</li>
+<li>Επισκέπτες χωρίς πρωινό στην κράτησή τους μπορούν να παραγγείλουν και να πληρώσουν την ίδια μέρα: χρέωση στο δωμάτιο ή με κάρτα.</li>
+</ol>
+<p class="sub">Κλείσιμο, 10:00 με 10:30</p>
+<ul class="check"><li><input type="checkbox" aria-label="done"><span>Το φαγητό που περίσσεψε παίρνει ετικέτα με ημερομηνία ή πετιέται. Τίποτα μαγειρεμένο δεν μπαίνει πίσω στο ψυγείο χωρίς ετικέτα</span></li><li><input type="checkbox" aria-label="done"><span>Βάλτε το πλυντήριο πιάτων, καθαρίστε και απολυμάνετε τις επιφάνειες, σκουπίστε τα πατώματα</span></li><li><input type="checkbox" aria-label="done"><span>Καταγράψτε περίπου τη σπατάλη: αν πετιέται πάνω από 10% του φαγητού για μια εβδομάδα, μειώστε τις ποσότητες</span></li><li><input type="checkbox" aria-label="done"><span>Ενημερώστε τη λίστα αγορών για την επόμενη παράδοση</span></li></ul>
+<p class="sub">Αλλεργίες</p>
+<p>Ρωτήστε για αλλεργίες στο μήνυμα πριν την άφιξη και ξανά στο τραπέζι. Κρατήστε μια κάρτα με τα 14 αλλεργιογόνα της ΕΕ σε κάθε πιάτο. Το προσωπικό δεν μαντεύει ποτέ.</p></section><section id="el-s8"><h2><span class="n">08</span>Brunch Σαββατοκύριακου</h2>
+<p>Το brunch γίνεται Σάββατο και Κυριακή, 10:00 με 14:00, με την ομάδα σε βάρδια 09:00 με 15:00. Τα Σαββατοκύριακα, το πρωινό του ξενοδοχείου τελειώνει στις 10:00 για να αλλάξει η κουζίνα σε brunch. Όσοι επισκέπτες έρθουν αργότερα παραγγέλνουν από το μενού brunch, με το πρωινό τους να καλύπτεται μέχρι την αξία του.</p>
+<p class="sub">Το μενού</p>
+<ul>
+<li>8 με 10 πιάτα το πολύ, συν 2 γλυκές επιλογές και μια σύντομη λίστα ποτών. Ένα σύντομο μενού κρατά την ποιότητα ψηλά και την κουζίνα γρήγορη.</li>
+<li>Κάθε πιάτο κοστολογημένο ώστε το κόστος φαγητού να είναι περίπου 30% της τιμής του.</li>
+<li>Φτιάξτε κάθε πιάτο από κοινά υλικά, ώστε 10 πιάτα να χρειάζονται ίσως 25 υλικά, όχι 60.</li>
+<li>Αλλάζετε ένα ή δύο πιάτα κάθε εποχή, ποτέ ολόκληρο το μενού.</li>
+</ul>
+<p class="sub">Κρατήσεις και πελάτες χωρίς κράτηση</p>
+<ul>
+<li>Δέχεστε κρατήσεις online (μέσω του ταμειακού συστήματος ή ενός widget κρατήσεων) και κρατάτε περίπου το ένα τρίτο των τραπεζιών για πελάτες χωρίς κράτηση.</li>
+<li>Οι επισκέπτες του ξενοδοχείου βρίσκουν πάντα τραπέζι. Κρατήστε ένα για αυτούς μέχρι τις 11:00.</li>
+<li>Τα τραπέζια κλείνονται για 90 λεπτά. Αναφέρετέ το ευγενικά όταν επιβεβαιώνετε.</li>
+<li>Ομάδες πάνω από 8 άτομα κλείνουν τηλεφωνικά, με σταθερό μενού και προκαταβολή με κάρτα.</li>
+</ul>
+<p class="sub">Προετοιμασία Παρασκευής</p>
+<ul class="check"><li><input type="checkbox" aria-label="done"><span>Ελέγξτε τον αριθμό κρατήσεων. Παραγγείλετε φρέσκα προϊόντα για παράδοση το Σάββατο το πρωί</span></li><li><input type="checkbox" aria-label="done"><span>Ετοιμάστε σάλτσες, ζύμες, κομμένα λαχανικά, μερίδες κρεάτων. Βάλτε ετικέτα και ημερομηνία σε όλα</span></li><li><input type="checkbox" aria-label="done"><span>Στήσιμο κήπου: ελέγξτε τραπέζια, μαξιλάρια, ομπρέλες ή θερμάστρες</span></li></ul>
+<p class="sub">Ημέρα σερβιρίσματος</p>
+<ol>
+<li>09:00: Η ομάδα φτάνει, καταγράφονται οι θερμοκρασίες των ψυγείων, ανοίγει η καφετιέρα, στρώνεται ο κήπος.</li>
+<li>09:45: Ενημέρωση πέντε λεπτών: κρατήσεις, μεγάλα τραπέζια, αλλεργίες, πιάτο ημέρας, ό,τι έχει τελειώσει.</li>
+<li>10:00: Ανοίγουμε. Χαιρετισμός μέσα σε 1 λεπτό, μενού και νερό αμέσως, παραγγελία ποτών μέσα σε 3 λεπτά.</li>
+<li>Το φαγητό βγαίνει μέσα σε 15 λεπτά από την παραγγελία. Ο σερβιτόρος ρωτά αν όλα είναι εντάξει μετά τις πρώτες μπουκιές.</li>
+<li>Μαζέψτε και ξαναστρώστε κάθε τραπέζι μέσα σε 5 λεπτά αφού φύγουν οι πελάτες.</li>
+<li>13:30: Τελευταίες παραγγελίες. 14:00: Κλείνει η κουζίνα.</li>
+<li>14:00 με 15:00: Γενικός καθαρισμός, πλυντήριο πιάτων, μάζεμα κήπου, καταγραφή σπατάλης.</li>
+</ol>
+<p class="sub">Δωμάτια κήπου</p>
+<ul>
+<li>Τα τραπέζια του brunch απέχουν τουλάχιστον 3 μέτρα από τις πόρτες των δύο δωματίων κήπου.</li>
+<li>Καμία εργασία καθαριότητας στον κήπο κατά τη διάρκεια του brunch· τα δωμάτια κήπου καθαρίζονται από τις 14:00 (δείτε Καθαριότητα δωματίων).</li>
+</ul>
+<p class="sub">Λογαριασμός και κλείσιμο ταμείου</p>
+<ul>
+<li>Κάθε παραγγελία περνά από το ταμειακό σύστημα. Τίποτα δεν σερβίρεται χωρίς απόδειξη παραγγελίας.</li>
+<li>Οι επισκέπτες του ξενοδοχείου μπορούν να χρεώσουν στο δωμάτιο. Όλοι οι άλλοι πληρώνουν στο τραπέζι με κάρτα.</li>
+<li>Στο κλείσιμο, η αναφορά του ταμειακού συστήματος ελέγχεται με τις πληρωμές με κάρτα και τα μετρητά. Κάθε διαφορά πάνω από €10 καταγράφεται και εξηγείται την ίδια μέρα.</li>
+</ul>
+<p class="sub">Επέκταση σε καθημερινές</p>
+<p>Προσθέστε καθημερινές μόνο όταν ισχύουν όλα τα παρακάτω για 6 συνεχόμενα Σαββατοκύριακα:</p>
+<ul class="check"><li><input type="checkbox" aria-label="done"><span>Μέσος όρος 40 ή περισσότεροι πελάτες ανά ημέρα</span></li><li><input type="checkbox" aria-label="done"><span>Κόστος φαγητού στο 32% ή χαμηλότερα</span></li><li><input type="checkbox" aria-label="done"><span>Το σερβίρισμα του Σαββατοκύριακου λειτουργεί χωρίς ιδιοκτήτη στην κουζίνα</span></li><li><input type="checkbox" aria-label="done"><span>Οι κριτικές αναφέρουν θετικά το brunch</span></li></ul>
+<p>Ξεκινήστε μόνο με Παρασκευή. Λειτουργήστε το για ένα μήνα και ελέγξτε τα ίδια τέσσερα σημεία πριν προσθέσετε άλλη μέρα.</p></section><section id="el-s9"><h2><span class="n">09</span>Ιδιωτικές εκδηλώσεις</h2>
+<p>Οι εκδηλώσεις είναι μικρές, προγραμματισμένες και πληρωμένες εκ των προτέρων: μέχρι περίπου 50 άτομα στον κήπο, με υπογεγραμμένη συμφωνία και προκαταβολή πριν κρατηθεί η ημερομηνία. Κάθε εκδήλωση πρέπει να ταιριάζει με τους επισκέπτες του ξενοδοχείου και τους ιδιοκτήτες που μένουν στον χώρο.</p>
+<p class="sub">Κανόνες εκδηλώσεων που συμφωνούνται πρώτα με τον ιδιοκτήτη</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Κανόνας</th>
+<th>Προτεινόμενη ρύθμιση</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Μέγιστος αριθμός ατόμων</td>
+<td>50 καθήμενοι</td>
+</tr>
+<tr>
+<td>Ώρα λήξης</td>
+<td>Μουσική κλειστή μέχρι τις 23:00, καλεσμένοι έξω μέχρι τις 23:30</td>
+</tr>
+<tr>
+<td>Μουσική</td>
+<td>Σε επίπεδο υπόκρουσης. Ζωντανά συγκροτήματα ή DJ μόνο με γραπτή έγκριση ιδιοκτήτη</td>
+</tr>
+<tr>
+<td>Ημέρες</td>
+<td>Όχι πρωινά με brunch, εκτός αν η εκδήλωση αντικαθιστά το brunch</td>
+</tr>
+<tr>
+<td>Επισκέπτες ξενοδοχείου</td>
+<td>Ενημερώνονται για την εκδήλωση από πριν. Καμία εκδήλωση αν και τα 7 δωμάτια παραπονεθούν για θόρυβο σε κριτικές</td>
+</tr>
+</tbody>
+</table></div>
+<p>Οι βαφτίσεις και οι οικογενειακές εκδηλώσεις θα φέρουν παιδιά ως καλεσμένους. Η πολιτική σας για όχι παιδιά ισχύει μόνο για τις διανυκτερεύσεις. Αναφέρετέ το καθαρά στην ιστοσελίδα.</p>
+<p class="sub">Από το αίτημα στην κράτηση</p>
+<ol>
+<li>Απαντήστε σε κάθε αίτημα μέσα σε 24 ώρες: διαθέσιμες ημερομηνίες, πακέτα, τιμή ανά άτομο και κόστος ενοικίασης χώρου.</li>
+<li>Προσφέρετε επίσκεψη στον χώρο. Οι περισσότερες εκδηλώσεις κερδίζονται στον κήπο, όχι με email.</li>
+<li>Στείλτε γραπτή προσφορά με το μενού, τον αριθμό ατόμων, τα ωράρια και την προκαταβολή.</li>
+<li>Η ημερομηνία κρατιέται μόνο αφού υπογραφεί η συμφωνία και πληρωθεί προκαταβολή 30%.</li>
+<li>Τελικός αριθμός ατόμων και μενού 14 μέρες πριν. Εξόφληση 7 μέρες πριν.</li>
+<li>Ακύρωση: η προκαταβολή κρατείται αν η ακύρωση γίνει μέσα σε 60 μέρες. Πλήρης τιμή αν γίνει μέσα σε 14 μέρες.</li>
+</ol>
+<p class="sub">Η συμφωνία πρέπει να αναφέρει</p>
+<ul class="check"><li><input type="checkbox" aria-label="done"><span>Ημερομηνία, ώρα έναρξης και λήξης, αριθμό ατόμων και το μενού</span></li><li><input type="checkbox" aria-label="done"><span>Τιμή ανά άτομο, κόστος ενοικίασης χώρου, προκαταβολή και ημερομηνίες πληρωμής</span></li><li><input type="checkbox" aria-label="done"><span>Κανόνες για μουσική και θόρυβο, ώρα λήξης, χώρο καπνιστών</span></li><li><input type="checkbox" aria-label="done"><span>Ζημιές: ο πελάτης πληρώνει για οτιδήποτε σπάσουν οι καλεσμένοι του</span></li><li><input type="checkbox" aria-label="done"><span>Εξωτερικοί προμηθευτές (τούρτες, λουλούδια, φωτογράφοι) πρέπει να συμφωνηθούν από πριν</span></li></ul>
+<p class="sub">Την προηγούμενη εβδομάδα</p>
+<ul class="check"><li><input type="checkbox" aria-label="done"><span>Επιβεβαιώστε αριθμό ατόμων, διατροφικές ανάγκες και αλλεργίες. Παραγγείλετε φαγητό και ποτά</span></li><li><input type="checkbox" aria-label="done"><span>Κλείστε επιπλέον προσωπικό: έναν σερβιτόρο ανά 15 με 20 άτομα, συν βοηθό κουζίνας</span></li><li><input type="checkbox" aria-label="done"><span>Νοικιάστε επιπλέον σερβίτσια, τραπέζια ή καρέκλες αν χρειάζεται</span></li><li><input type="checkbox" aria-label="done"><span>Ενημερώστε τους επισκέπτες του ξενοδοχείου και τους ιδιοκτήτες για την ημερομηνία και τις ώρες</span></li></ul>
+<p class="sub">Την ημέρα της εκδήλωσης</p>
+<ol>
+<li>Το στήσιμο τελειώνει 1 ώρα πριν φτάσουν οι καλεσμένοι. Ένας ιδιοκτήτης το ελέγχει και το εγκρίνει.</li>
+<li>Ένα συγκεκριμένο άτομο είναι υπεύθυνο για την εκδήλωση και είναι η μόνη επαφή για τον πελάτη.</li>
+<li>Οι αλλεργίες ελέγχονται πιάτο προς πιάτο πριν το φαγητό φύγει από την κουζίνα.</li>
+<li>Ό,τι επιπλέον παραγγελθεί την ημέρα (επιπλέον ποτά, περισσότεροι καλεσμένοι) μπαίνει σε γραπτό λογαριασμό που υπογράφει ο πελάτης πριν φύγει.</li>
+<li>23:00 κλείνει η μουσική. 23:30 φεύγουν οι καλεσμένοι. Καθαρίστε τον κήπο το ίδιο βράδυ, ώστε οι επισκέπτες του ξενοδοχείου να ξυπνήσουν σε καθαρό χώρο.</li>
+</ol>
+<p class="sub">Μετά την εκδήλωση</p>
+<p>Στείλτε ευχαριστήριο μέσα σε 2 μέρες, ζητώντας μια κριτική στο Google και μερικές φωτογραφίες που μπορείτε να χρησιμοποιήσετε. Γράψτε στο αρχείο εκδηλώσεων τι πήγε καλά και τι πρέπει να διορθωθεί.</p></section><section id="el-s10"><h2><span class="n">10</span>Ασφάλεια τροφίμων</h2>
+<p>Κάθε επιχείρηση που σερβίρει φαγητό στην Κύπρο πρέπει να εφαρμόζει σύστημα ασφάλειας τροφίμων βασισμένο στο HACCP και να κρατά γραπτά αρχεία που μπορεί να ελέγξει υγειονομικός επιθεωρητής ανά πάσα στιγμή. Κρατήστε το απλό: λίγα αρχεία που συμπληρώνονται κάθε μέρα, και κανείς δεν αγγίζει φαγητό χωρίς έγκυρο πιστοποιητικό.</p>
+<p class="sub">Πριν το άνοιγμα</p>
+<ul class="check"><li><input type="checkbox" aria-label="done"><span>Εγγράψτε την κουζίνα στις τοπικές υγειονομικές υπηρεσίες και ρωτήστε ποια επιθεώρηση χρειάζεται πριν σερβίρετε στο κοινό</span></li><li><input type="checkbox" aria-label="done"><span>Ένα απλό σχέδιο HACCP γραμμένο για το μενού σας. Ένας σύμβουλος ασφάλειας τροφίμων μπορεί να το κάνει με μικρό κόστος</span></li><li><input type="checkbox" aria-label="done"><span>Πιστοποιητικά χειριστή τροφίμων για όλους όσοι ετοιμάζουν ή σερβίρουν φαγητό, μαζί και οι δύο ιδιοκτήτες</span></li><li><input type="checkbox" aria-label="done"><span>Συμβόλαιο απεντόμωσης σε ισχύ πριν την πρώτη παράδοση</span></li></ul>
+<p class="sub">Θερμοκρασίες</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Τι</th>
+<th>Ασφαλές εύρος</th>
+<th>Πότε ελέγχεται</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ψυγεία</td>
+<td>0 με 5 °C</td>
+<td>Στο άνοιγμα και στο κλείσιμο, κάθε μέρα</td>
+</tr>
+<tr>
+<td>Καταψύκτης</td>
+<td>−18 °C ή πιο κρύο</td>
+<td>Στο άνοιγμα, κάθε μέρα</td>
+</tr>
+<tr>
+<td>Ζεστό φαγητό όταν μαγειρεύεται</td>
+<td>75 °C ή περισσότερο στο κέντρο</td>
+<td>Κάθε παρτίδα κρέατος, αυγών ή ρυζιού</td>
+</tr>
+<tr>
+<td>Ζεστό φαγητό που διατηρείται ζεστό</td>
+<td>63 °C ή περισσότερο</td>
+<td>Κάθε 2 ώρες κατά το σερβίρισμα</td>
+</tr>
+<tr>
+<td>Παραδόσεις ψυχόμενων τροφίμων</td>
+<td>5 °C ή πιο κρύο</td>
+<td>Κάθε παράδοση. Απορρίψτε οτιδήποτε πιο ζεστό</td>
+</tr>
+</tbody>
+</table></div>
+<p>Αν ένα ψυγείο δείξει πάνω από 5 °C δύο φορές στη σειρά, μεταφέρετε το φαγητό σε άλλο ψυγείο, καλέστε τον τεχνικό και πετάξτε ό,τι ήταν πάνω από 8 °C για περισσότερες από 2 ώρες.</p>
+<p class="sub">Καθημερινοί κανόνες</p>
+<ul>
+<li>Πλένετε τα χέρια όταν μπαίνετε στην κουζίνα, μετά από ωμά τρόφιμα, μετά τον κάδο, μετά την τουαλέτα.</li>
+<li>Ξεχωριστές επιφάνειες κοπής και μαχαίρια για ωμό κρέας, ψάρι, λαχανικά και έτοιμα για κατανάλωση τρόφιμα, ανά χρώμα.</li>
+<li>Ό,τι ανοίγεται ή ετοιμάζεται παίρνει ετικέτα: τι είναι, ημερομηνία παρασκευής, ημερομηνία λήξης.</li>
+<li>Ό,τι μπαίνει πρώτο, βγαίνει πρώτο: το παλαιότερο απόθεμα μπροστά.</li>
+<li>Το μαγειρεμένο φαγητό κρυώνει μέσα σε 90 λεπτά και μπαίνει στο ψυγείο. Ποτέ δεν μένει έξω στον πάγκο.</li>
+<li>Κανείς δεν δουλεύει με φαγητό όταν έχει εμετό ή διάρροια, ούτε για 48 ώρες μετά.</li>
+</ul>
+<p class="sub">Αλλεργιογόνα</p>
+<p>Η νομοθεσία της ΕΕ ορίζει 14 αλλεργιογόνα που πρέπει να δηλώνονται, όπως γλουτένη, αυγά, γάλα, ξηροί καρποί, φιστίκια, σουσάμι, σόγια, ψάρι και οστρακοειδή. Κρατήστε πίνακα αλλεργιογόνων για κάθε πιάτο, δείξτε τον σε όποιον επισκέπτη τον ζητήσει και ενημερώστε τον κάθε φορά που αλλάζει μια συνταγή ή ένας προμηθευτής. Αν ένας επισκέπτης έχει αλλεργία, όποιος πήρε την παραγγελία ενημερώνει την κουζίνα προσωπικά, όχι μόνο στην απόδειξη παραγγελίας.</p>
+<p class="sub">Αρχεία που πρέπει να κρατάτε</p>
+<ul>
+<li>Αρχείο θερμοκρασιών (καθημερινά)</li>
+<li>Αρχείο καθαριότητας (καθημερινά)</li>
+<li>Αρχείο παραδόσεων (κάθε παράδοση)</li>
+<li>Αναφορές απεντόμωσης</li>
+<li>Πιστοποιητικά και αρχεία εκπαίδευσης προσωπικού</li>
+</ul>
+<p>Κρατήστε τα για τουλάχιστον ένα χρόνο σε φάκελο στην κουζίνα.</p></section><section id="el-s11"><h2><span class="n">11</span>Συντήρηση</h2>
+<p>Τα μικρά προβλήματα που διορθώνονται την ίδια μέρα κρατούν ένα νέο κτήριο να δείχνει καινούργιο και τις αξιολογήσεις πάνω από 9. Κάθε βλάβη καταγράφεται σε ένα ενιαίο βιβλίο συντήρησης, με την ημερομηνία αναφοράς και την ημερομηνία επιδιόρθωσης.</p>
+<p class="sub">Ποιος διορθώνει τι</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Είδος βλάβης</th>
+<th>Ποιος πληρώνει και κανονίζει</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Λάμπες, μπαταρίες, τηλεχειριστήρια, μικροεπισκευές επίπλων</td>
+<td>Εσείς, την ίδια μέρα</td>
+</tr>
+<tr>
+<td>Σέρβις και φίλτρα κλιματιστικών, σέρβις συσκευών</td>
+<td>Εσείς, βάσει προγράμματος</td>
+</tr>
+<tr>
+<td>Υδραυλικά, ηλεκτρολογικά, στέγη, τοίχοι, φέρων οργανισμός</td>
+<td>Ο ιδιοκτήτης του ακινήτου, βάσει της μίσθωσης</td>
+</tr>
+<tr>
+<td>Βλάβη ανελκυστήρα</td>
+<td>Βάσει της μίσθωσης· ενημερώστε αμέσως την εταιρεία του ανελκυστήρα</td>
+</tr>
+<tr>
+<td>Κατασκευαστικά ελαττώματα τον πρώτο χρόνο</td>
+<td>Ο ιδιοκτήτης του ακινήτου</td>
+</tr>
+</tbody>
+</table></div>
+<p class="sub">Καθημερινά (καθαριότητα και ο υπεύθυνος της ημέρας στα δωμάτια)</p>
+<ul class="check"><li><input type="checkbox" aria-label="done"><span>Ελέγξτε κάθε δωμάτιο κατά τον καθαρισμό: φώτα, κλιματιστικό, τηλεόραση, πίεση ντους, ζεστό νερό, κωδικός πόρτας</span></li><li><input type="checkbox" aria-label="done"><span>Ο ανελκυστήρας λειτουργεί· αναφέρετε κάθε θόρυβο ή τράνταγμα</span></li><li><input type="checkbox" aria-label="done"><span>Τα φώτα και το πότισμα του κήπου λειτουργούν</span></li></ul>
+<p class="sub">Εβδομαδιαία</p>
+<ul class="check"><li><input type="checkbox" aria-label="done"><span>Περπατήστε όλο το κτήριο: διαδρόμους, σκάλες, κήπο, κουζίνα, αποθήκες</span></li><li><input type="checkbox" aria-label="done"><span>Δοκιμάστε το σύστημα κωδικών πόρτας και το εφεδρικό κλειδί</span></li><li><input type="checkbox" aria-label="done"><span>Ελέγξτε για διαρροές κάτω από τους νιπτήρες και γύρω από τις τουαλέτες</span></li></ul>
+<p class="sub">Μηνιαία</p>
+<ul class="check"><li><input type="checkbox" aria-label="done"><span>Καθαρίστε τα φίλτρα κλιματιστικού σε κάθε δωμάτιο και στην κουζίνα</span></li><li><input type="checkbox" aria-label="done"><span>Καθαρίστε τα φίλτρα του απορροφητήρα της κουζίνας</span></li><li><input type="checkbox" aria-label="done"><span>Κάντε οπτικό έλεγχο στους πυροσβεστήρες· δοκιμάστε τα φώτα ασφαλείας</span></li><li><input type="checkbox" aria-label="done"><span>Αρχειοθετήστε την αναφορά της επίσκεψης απεντόμωσης</span></li></ul>
+<p class="sub">Κάθε 6 μήνες</p>
+<ul class="check"><li><input type="checkbox" aria-label="done"><span>Πλήρες σέρβις κλιματιστικών από τεχνικό πριν το καλοκαίρι και πριν τον χειμώνα</span></li><li><input type="checkbox" aria-label="done"><span>Φρεσκάρετε τη βαφή στα δωμάτια και στους διαδρόμους</span></li><li><input type="checkbox" aria-label="done"><span>Ελέγξτε αρμόστοκο, σιλικόνες και αποχετεύσεις σε όλα τα μπάνια</span></li></ul>
+<p class="sub">Ετήσια</p>
+<ul class="check"><li><input type="checkbox" aria-label="done"><span>Σέρβις και πιστοποίηση πυροσβεστήρων και συναγερμών</span></li><li><input type="checkbox" aria-label="done"><span>Ανανέωση του πιστοποιητικού επιθεώρησης του ανελκυστήρα</span></li><li><input type="checkbox" aria-label="done"><span>Έλεγχος ηλεκτρικής ασφάλειας των δικών σας συσκευών</span></li><li><input type="checkbox" aria-label="done"><span>Κλείστε ένα δωμάτιο τη φορά τον Ιανουάριο για πλήρη ανανέωση</span></li></ul>
+<p class="sub">Όταν κάτι χαλάσει ενώ ο επισκέπτης είναι στο δωμάτιο</p>
+<ol>
+<li>Ζητήστε συγγνώμη και δώστε ώρα επιδιόρθωσης.</li>
+<li>Αν δεν διορθώνεται μέσα σε 2 ώρες και επηρεάζει την άνεση (χωρίς κλιματιστικό το καλοκαίρι, χωρίς ζεστό νερό), μεταφέρετε τον επισκέπτη σε άλλο δωμάτιο.</li>
+<li>Αν δεν υπάρχει ελεύθερο δωμάτιο, προσφέρετε έκπτωση για τη νύχτα και διορθώστε το πρώτο πράγμα την επόμενη μέρα.</li>
+</ol>
+<p>Κρατήστε λίστα επαφών με υδραυλικό, ηλεκτρολόγο, τεχνικό κλιματιστικών, εταιρεία ανελκυστήρα και κλειδαρά που έρχονται την ίδια μέρα, και συμφωνήστε από πριν τη χρέωση επίσκεψης.</p></section><section id="el-s12"><h2><span class="n">12</span>Ασφάλεια και έκτακτα περιστατικά</h2>
+<p>Αφού δεν υπάρχει κανείς στο κτήριο τη νύχτα, οι επισκέπτες πρέπει να μπορούν να βγουν με ασφάλεια και να ζητήσουν βοήθεια μόνοι τους. Ο αριθμός έκτακτης ανάγκης στην Κύπρο είναι 112 για αστυνομία, πυροσβεστική και ασθενοφόρο.</p>
+<p class="sub">Τι πρέπει να υπάρχει πριν τον πρώτο επισκέπτη</p>
+<ul class="check"><li><input type="checkbox" aria-label="done"><span>Σχέδιο διαφυγής πυρκαγιάς στο πίσω μέρος κάθε πόρτας δωματίου, στα αγγλικά και στα ελληνικά</span></li><li><input type="checkbox" aria-label="done"><span>Φωτισμός ασφαλείας και πινακίδες εξόδου σε λειτουργία σε κάθε όροφο</span></li><li><input type="checkbox" aria-label="done"><span>Πυροσβεστήρες και πυρίμαχη κουβέρτα στην κουζίνα, με σέρβις και ημερομηνία</span></li><li><input type="checkbox" aria-label="done"><span>Ανιχνευτές καπνού σε κάθε δωμάτιο και διάδρομο, δοκιμασμένοι</span></li><li><input type="checkbox" aria-label="done"><span>Οι πόρτες ανοίγουν από μέσα χωρίς κωδικό, πάντα</span></li><li><input type="checkbox" aria-label="done"><span>Φαρμακείο πρώτων βοηθειών στην κουζίνα και στη ρεσεψιόν, με μηνιαίο έλεγχο</span></li><li><input type="checkbox" aria-label="done"><span>Ο αριθμός του νυχτερινού τηλεφώνου και το 112 στην κάρτα πληροφοριών του δωματίου</span></li><li><input type="checkbox" aria-label="done"><span>Πιστοποιητικό πυρασφάλειας επιβεβαιωμένο με τον ιδιοκτήτη του ακινήτου</span></li></ul>
+<p class="sub">Πυρκαγιά</p>
+<ol>
+<li>Όποιος εντοπίσει φωτιά σημαίνει συναγερμό και καλεί το 112.</li>
+<li>Χρησιμοποιήστε πυροσβεστήρα μόνο σε μικρή φωτιά και μόνο αν η έξοδος είναι πίσω σας.</li>
+<li>Βγάλτε όλους έξω στο σημείο συγκέντρωσης: χτυπήστε κάθε πόρτα δωματίου στον δρόμο.</li>
+<li>Ο υπεύθυνος βάρδιας (Αντρέας ή Μίρα) μετρά τους επισκέπτες με βάση τη λίστα κρατήσεων στο σημείο συγκέντρωσης.</li>
+<li>Κανείς δεν ξαναμπαίνει μέσα μέχρι να το πει η πυροσβεστική.</li>
+</ol>
+<p class="sub">Ιατρικό περιστατικό</p>
+<ol>
+<li>Καλέστε πρώτα το 112. Δώστε τη διεύθυνση και το δωμάτιο.</li>
+<li>Μη μετακινείτε το άτομο εκτός αν κινδυνεύει· δώστε πρώτες βοήθειες μόνο αν είστε εκπαιδευμένοι.</li>
+<li>Καλέστε τον υπεύθυνο βάρδιας (Αντρέας ή Μίρα) και μετά την επαφή έκτακτης ανάγκης του επισκέπτη, αν συμφωνεί.</li>
+<li>Συντάξτε αναφορά συμβάντος την ίδια μέρα.</li>
+</ol>
+<p class="sub">Νυχτερινές κλήσεις στο νυχτερινό τηλέφωνο</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Κλήση</th>
+<th>Τι κάνετε</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Κλειδώθηκε έξω ή ο κωδικός δεν λειτουργεί</td>
+<td>Στείλτε τον εφεδρικό κωδικό· αν δεν λειτουργήσει, πηγαίνετε στο ξενοδοχείο</td>
+</tr>
+<tr>
+<td>Θόρυβος από άλλο δωμάτιο</td>
+<td>Στείλτε μήνυμα στο δωμάτιο· τηλεφωνήστε αν συνεχιστεί· πηγαίνετε αυτοπροσώπως μετά από 30 λεπτά</td>
+</tr>
+<tr>
+<td>Κάτι χάλασε</td>
+<td>Διορθώστε ό,τι μπορείτε εξ αποστάσεως· αλλιώς σημειώστε το για τις 08:00 και ζητήστε συγγνώμη</td>
+</tr>
+<tr>
+<td>Νιώθει ανασφάλεια ή διάρρηξη</td>
+<td>Πείτε του να μείνει στο δωμάτιο και να καλέσει το 112· μετά πηγαίνετε στο ξενοδοχείο</td>
+</tr>
+</tbody>
+</table></div>
+<p class="sub">Συμβάντα</p>
+<p>Κάθε ατύχημα, τραυματισμός, κλοπή, ζημιά ή επίσκεψη της αστυνομίας καταγράφεται στο βιβλίο συμβάντων την ίδια μέρα: τι έγινε, ποιοι εμπλέκονταν, τι έγινε για αυτό. Φωτογραφίστε κάθε ζημιά. Ενημερώστε την ασφαλιστική σας μέσα στην προθεσμία που ορίζει το συμβόλαιο.</p>
+<p class="sub">CCTV και δεδομένα επισκεπτών</p>
+<ul>
+<li>Το CCTV επιτρέπεται στις εισόδους και στους κοινόχρηστους χώρους, ποτέ μέσα σε δωμάτια ή μπάνια. Τοποθετήστε ορατή πινακίδα ότι λειτουργούν κάμερες.</li>
+<li>Μην κρατάτε τις καταγραφές περισσότερο από όσο χρειάζεται, συνήθως έως 30 μέρες, εκτός αν τις χρειάζεται κάποιο συμβάν.</li>
+<li>Τα στοιχεία των επισκεπτών (ονόματα, ταυτότητες, κάρτες, τηλέφωνα) είναι προσωπικά δεδομένα βάσει GDPR: αποθηκεύστε τα μόνο στο σύστημα κρατήσεων, ποτέ σε προσωπικές συνομιλίες ή σε χαρτιά αφημένα εκτεθειμένα.</li>
+<li>Πρόσβαση στα δεδομένα επισκεπτών έχουν μόνο ο Αντρέας, η Μίρα και ονομαστικά ορισμένο προσωπικό. Διαγράψτε ό,τι δεν χρειάζεστε πλέον.</li>
+</ul></section><section id="el-s13"><h2><span class="n">13</span>Εμπειρία επισκεπτών και αξιολογήσεις</h2>
+<p>Ο στόχος είναι βαθμολογία 9.0 ή υψηλότερη στο Booking.com μέχρι το τέλος του πρώτου καλοκαιριού. Σε αυτό το επίπεδο τιμής οι επισκέπτες περιμένουν προσωπική φροντίδα, και με το self check in αυτή η φροντίδα πρέπει να έρχεται από τα μηνύματα, τις μικρές λεπτομέρειες και την παρουσία του Αντρέα και της Μίρας.</p>
+<p class="sub">Τι φέρνει 9 ή 10 σε ένα boutique ξενοδοχείο</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Στιγμή</th>
+<th>Πρότυπο</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Πριν την άφιξη</td>
+<td>Ένα ζεστό προσωπικό μήνυμα, όχι πρότυπο· τοπικές προτάσεις για τις ημερομηνίες τους</td>
+</tr>
+<tr>
+<td>Άφιξη</td>
+<td>Ο κωδικός λειτουργεί με την πρώτη· δωμάτιο δροσερό το καλοκαίρι, ζεστό τον χειμώνα· χειρόγραφη κάρτα καλωσορίσματος</td>
+</tr>
+<tr>
+<td>Στο δωμάτιο</td>
+<td>Πεντακάθαρο, καλά μαξιλάρια, δυνατό Wi Fi, ησυχία, λίγες τοπικές πινελιές</td>
+</tr>
+<tr>
+<td>Πρωινό</td>
+<td>Φρέσκο, μαγειρεμένο κατά παραγγελία, χαιρετισμός με το όνομα</td>
+</tr>
+<tr>
+<td>Κατά τη διαμονή</td>
+<td>Απάντηση σε κάθε μήνυμα μέσα σε 15 λεπτά από 08:00 έως 22:00</td>
+</tr>
+<tr>
+<td>Αναχώρηση</td>
+<td>Ένα ευχαριστώ και σύνδεσμος για αξιολόγηση· σωστή χρέωση των επιπλέον</td>
+</tr>
+</tbody>
+</table></div>
+<p class="sub">Οι μικρές πινελιές</p>
+<ul>
+<li>Ένα κέρασμα καλωσορίσματος στο δωμάτιο: τοπικά γλυκά ή ένα μπουκάλι νερό από την Κύπρο.</li>
+<li>Ένας οδηγός μίας σελίδας για την περιοχή: το αγαπημένο σας καφέ, παραλία, εστιατόριο, το αεροδρόμιο και αριθμοί ταξί.</li>
+<li>Γιορτές: όταν μια κράτηση αναφέρει γενέθλια ή επέτειο, προσθέστε κάτι μικρό και μια κάρτα.</li>
+<li>Ο Αντρέας ή η Μίρα χαιρετά κάθε επισκέπτη τουλάχιστον μία φορά κατά τη διαμονή του.</li>
+</ul>
+<p class="sub">Αξιολογήσεις</p>
+<ol>
+<li>Ζητήστε από κάθε επισκέπτη στο check out, αυτοπροσώπως ή με μήνυμα, με άμεσο σύνδεσμο.</li>
+<li>Απαντήστε σε κάθε αξιολόγηση σε κάθε πλατφόρμα μέσα σε 48 ώρες, με υπογραφή ονόματος.</li>
+<li>Καλή αξιολόγηση: ευχαριστήστε τους για κάτι συγκεκριμένο που ανέφεραν.</li>
+<li>Κακή αξιολόγηση: ευχαριστήστε τους, ζητήστε συγγνώμη για την εμπειρία τους, πείτε τι αλλάξατε. Ποτέ μη διαφωνείτε, ποτέ μην αποκαλύπτετε προσωπικά στοιχεία.</li>
+<li>Κάθε Δευτέρα, διαβάστε μαζί τις αξιολογήσεις της εβδομάδας και επιλέξτε ένα πράγμα για βελτίωση.</li>
+</ol>
+<p class="sub">Μηνύματα επισκεπτών</p>
+<p>Κρατήστε έτοιμες απαντήσεις για τις συχνές ερωτήσεις (στάθμευση, Wi Fi, μεταφορά από το αεροδρόμιο, late check out, κοντινά εστιατόρια) στο σύστημα κρατήσεων, αλλά πάντα προσθέτετε μια προσωπική γραμμή.</p></section><section id="el-s14"><h2><span class="n">14</span>Τιμολόγηση και έσοδα</h2>
+<p>Οι τιμές ορίζονται κάθε εβδομάδα, όχι μία φορά τη σεζόν. Μία ώρα κάθε Δευτέρα αρκεί για 7 δωμάτια, και αξίζει περισσότερο από οποιαδήποτε άλλη ώρα της εβδομάδας.</p>
+<p class="sub">Η ρουτίνα τιμολόγησης της Δευτέρας</p>
+<ol>
+<li>Ανοίξτε το σύστημα κρατήσεων και δείτε τις επόμενες 90 μέρες: πόσο γεμάτη είναι κάθε νύχτα;</li>
+<li>Συγκρίνετε με την πληρότητα του πλάνου σας για εκείνο τον μήνα.</li>
+<li>Ελέγξτε 4 ή 5 ανταγωνιστικά ξενοδοχεία για τις ίδιες ημερομηνίες στο Booking.com και στο Google Hotels.</li>
+<li>Προσαρμόστε τις τιμές με βάση τους παρακάτω κανόνες.</li>
+<li>Γράψτε τι αλλάξατε και γιατί στο βιβλίο τιμολόγησης.</li>
+</ol>
+<p class="sub">Απλοί κανόνες τιμολόγησης</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Κατάσταση</th>
+<th>Ενέργεια</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Πάνω από 60% κρατημένο και πάνω από 30 μέρες μπροστά</td>
+<td>Αυξήστε τις τιμές 10%</td>
+</tr>
+<tr>
+<td>Πίσω από το πλάνο και 14 έως 30 μέρες μπροστά</td>
+<td>Μειώστε τις τιμές 5 έως 10%, ή προσθέστε αξία (δωρεάν πρωινό, late check out)</td>
+</tr>
+<tr>
+<td>Κάτω από 40% κρατημένο και κάτω από 7 μέρες μπροστά</td>
+<td>Προσφορά τελευταίας στιγμής σε ένα μόνο κανάλι</td>
+</tr>
+<tr>
+<td>Τοπική εκδήλωση, αργία ή φεστιβάλ</td>
+<td>Αυξήστε τις τιμές νωρίς, προσθέστε ελάχιστη διαμονή 2 νυχτών</td>
+</tr>
+<tr>
+<td>Μία κενή νύχτα ανάμεσα σε δύο κρατήσεις</td>
+<td>Επιτρέψτε διαμονή 1 νύχτας με μικρή έκπτωση</td>
+</tr>
+</tbody>
+</table></div>
+<p>Ποτέ μην πέφτετε κάτω από την κατώτατη τιμή που συμφωνήσατε για κάθε τύπο δωματίου. Οι υπερβολικές εκπτώσεις βλάπτουν το brand που χτίζετε.</p>
+<p class="sub">Κανάλια</p>
+<ul>
+<li>Κρατήστε το Booking.com και το Airbnb για προβολή, ειδικά τον 1ο χρόνο.</li>
+<li>Προωθήστε τις απευθείας κρατήσεις: εγγύηση καλύτερης τιμής στην ιστοσελίδα σας, ένα δωρεάν extra για απευθείας κράτηση, και τον σύνδεσμο της ιστοσελίδας σε κάθε μήνυμα.</li>
+<li>Ελέγχετε κάθε μήνα τι ποσοστό κρατήσεων ήρθε από κάθε κανάλι και πόση προμήθεια πληρώσατε. Ενημερώστε τον πίνακα καναλιών κρατήσεων στο πλάνο.</li>
+</ul>
+<p class="sub">Αριθμοί που παρακολουθείτε κάθε μήνα</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Δείκτης</th>
+<th>Τι σας λέει</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Πληρότητα</td>
+<td>Πόσο γεμάτοι ήσασταν, σε σχέση με το πλάνο</td>
+</tr>
+<tr>
+<td>Μέση τιμή δωματίου</td>
+<td>Τι πλήρωσαν πραγματικά οι επισκέπτες ανά νύχτα</td>
+</tr>
+<tr>
+<td>Έσοδα ανά διαθέσιμο δωμάτιο</td>
+<td>Τιμή και πληρότητα μαζί: ο καλύτερος μεμονωμένος αριθμός</td>
+</tr>
+<tr>
+<td>Ποσοστό απευθείας κρατήσεων</td>
+<td>Πόσα εξοικονομήσατε σε προμήθειες</td>
+</tr>
+<tr>
+<td>Επισκέπτες brunch ανά μέρα</td>
+<td>Αν το brunch μεγαλώνει</td>
+</tr>
+<tr>
+<td>Βαθμολογία αξιολογήσεων</td>
+<td>Αν η εμπειρία διατηρεί το επίπεδό της</td>
+</tr>
+</tbody>
+</table></div>
+<p>Μετά το άνοιγμα, καταχωρίστε τα πραγματικά μηνιαία αποτελέσματα δίπλα στο πλάνο, ώστε να βλέπετε νωρίς αν η χρονιά είναι εντός στόχου.</p></section><section id="el-s15"><h2><span class="n">15</span>Οικονομικά και διαχείριση</h2>
+<p>Να γνωρίζετε τη ρευστότητά σας κάθε μέρα και το κέρδος σας κάθε μήνα. Τα περισσότερα μικρά ξενοδοχεία που αποτυγχάνουν μένουν χωρίς μετρητά τον χειμώνα, όχι χωρίς πελάτες το καλοκαίρι.</p>
+<p class="sub">Καθημερινό κλείσιμο ταμείου (10 λεπτά, κάθε βράδυ)</p>
+<ol>
+<li>Τυπώστε την αναφορά του ταμειακού συστήματος για πρωινό, brunch και μπαρ.</li>
+<li>Συγκρίνετε τις πληρωμές με κάρτα με την αναφορά τέλους ημέρας του τερματικού καρτών.</li>
+<li>Μετρήστε τα μετρητά· κάθε διαφορά πάνω από €10 καταγράφεται και εξηγείται.</li>
+<li>Ελέγξτε ότι έχουν εισπραχθεί οι πληρωμές δωματίων της ημέρας (κανάλι, κάρτα, έμβασμα).</li>
+<li>Σημειώστε τα σύνολα στο ημερήσιο φύλλο.</li>
+</ol>
+<p class="sub">Εβδομαδιαία</p>
+<ul class="check"><li><input type="checkbox" aria-label="done"><span>Πληρώστε τα τιμολόγια προμηθευτών που λήγουν την εβδομάδα· ελέγξτε το καθένα με το δελτίο αποστολής</span></li><li><input type="checkbox" aria-label="done"><span>Ελέγξτε ότι οι πληρωμές από Booking.com, Airbnb και Expedia έχουν εισπραχθεί και αντιστοιχούν στις κρατήσεις</span></li><li><input type="checkbox" aria-label="done"><span>Πρόβλεψη ρευστότητας για τις επόμενες 4 εβδομάδες: έσοδα σε σύγκριση με ενοίκιο, μισθοδοσία και προμηθευτές</span></li></ul>
+<p class="sub">Μηνιαία</p>
+<ul class="check"><li><input type="checkbox" aria-label="done"><span>Μισθοδοσία και Κοινωνικές Ασφαλίσεις πληρωμένες έγκαιρα</span></li><li><input type="checkbox" aria-label="done"><span>Ενοίκιο πληρωμένο την ημερομηνία που συμφωνήθηκε</span></li><li><input type="checkbox" aria-label="done"><span>Όλα τα τιμολόγια και οι αποδείξεις στάλθηκαν στον λογιστή μέχρι τις 5 του μήνα</span></li><li><input type="checkbox" aria-label="done"><span>Αποτελέσματα καταχωρημένα στο πλάνο: πληρότητα, τιμή, brunch, εκδηλώσεις, κόστη, κέρδος</span></li><li><input type="checkbox" aria-label="done"><span>Μία ώρα ανασκόπηση μαζί: τι είναι μπροστά ή πίσω από το πλάνο, και μία ενέργεια για τον επόμενο μήνα</span></li></ul>
+<p class="sub">Τριμηνιαία και ετήσια</p>
+<ul class="check"><li><input type="checkbox" aria-label="done"><span>Δηλώσεις ΦΠΑ με τον λογιστή</span></li><li><input type="checkbox" aria-label="done"><span>Ετήσιοι λογαριασμοί και έλεγχος</span></li><li><input type="checkbox" aria-label="done"><span>Ασφάλειες και άδειες ανανεωμένες πριν λήξουν</span></li></ul>
+<p class="sub">Προμηθευτές</p>
+<ul>
+<li>Να έχετε τουλάχιστον δύο προμηθευτές για ό,τι δεν μπορείτε να λειτουργήσετε χωρίς: τρόφιμα, πλυντήριο, καφέ, ποτά.</li>
+<li>Διαπραγματευτείτε όρους πληρωμής 30 ημερών όπου μπορείτε.</li>
+<li>Επανεξετάζετε τις τιμές κάθε 6 μήνες· ζητήστε καλύτερη τιμή μόλις έχετε σταθερό όγκο.</li>
+</ul>
+<p class="sub">Αποθεματικό μετρητών</p>
+<p>Να έχετε αρκετά χρήματα στην τράπεζα για να καλύψετε 3 μήνες σταθερών εξόδων (ενοίκιο, μισθοί, λειτουργικά έξοδα) πριν βγάλετε οποιοδήποτε κέρδος. Αυτό είναι που σας περνά από τον Ιανουάριο και τον Φεβρουάριο.</p></section><section id="el-s16"><h2><span class="n">16</span>Πρόσληψη και εκπαίδευση προσωπικού</h2>
+<p>Προσλάβετε με βάση τη στάση και εκπαιδεύστε στις δεξιότητες: ένας ζεστός, αξιόπιστος άνθρωπος μπορεί να μάθει τις διαδικασίες αυτού του εγχειριδίου, αλλά κανείς δεν μπορεί να εκπαιδευτεί να νοιάζεται. Ξεκινήστε τον καθένα με γραπτό συμβόλαιο και δοκιμαστική περίοδο.</p>
+<p class="sub">Πριν από την πρώτη πρόσληψη</p>
+<ul class="check"><li><input type="checkbox" aria-label="done"><span>Η εταιρεία εγγεγραμμένη ως εργοδότης στις Κοινωνικές Ασφαλίσεις</span></li><li><input type="checkbox" aria-label="done"><span>Ασφάλεια αστικής ευθύνης εργοδότη σε ισχύ</span></li><li><input type="checkbox" aria-label="done"><span>Ένα τυποποιημένο συμβόλαιο ελεγμένο από τον λογιστή ή τον δικηγόρο σας: ώρες, μισθός, ρεπό, δοκιμαστική περίοδος, προειδοποίηση</span></li><li><input type="checkbox" aria-label="done"><span>Ελέγξτε τον τρέχοντα εθνικό κατώτατο μισθό και τυχόν συλλογική σύμβαση του ξενοδοχειακού κλάδου για μισθούς, 13ο μισθό ή service charge</span></li></ul>
+<p class="sub">Πρόσληψη</p>
+<ol>
+<li>Γράψτε μια σύντομη περιγραφή θέσης από τη σχετική ενότητα αυτού του εγχειριδίου.</li>
+<li>Δημοσιεύστε την αγγελία σε τοπικές ιστοσελίδες εργασίας, στα social media και μέσω σχολών φιλοξενίας.</li>
+<li>Κάντε τη συνέντευξη από κοντά στο ξενοδοχείο· ρωτήστε πώς θα χειρίζονταν μια πραγματική κατάσταση, όπως έναν επισκέπτη κλειδωμένο έξω τα μεσάνυχτα.</li>
+<li>Μια πληρωμένη δοκιμαστική βάρδια πριν προσφέρετε τη θέση.</li>
+<li>Ελέγξτε συστάσεις από τουλάχιστον έναν προηγούμενο εργοδότη.</li>
+<li>Εγγράψτε τον εργαζόμενο στις Κοινωνικές Ασφαλίσεις πριν από την πρώτη του μέρα εργασίας.</li>
+</ol>
+<p class="sub">Εκπαίδευση πρώτης εβδομάδας</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Ημέρα</th>
+<th>Εκπαίδευση</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Το ξενοδοχείο, η ομάδα, οι κανόνες, η ασφάλεια και οι έξοδοι κινδύνου, πού βρίσκεται το καθετί</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Η κύρια διαδικασία τους από αυτό το εγχειρίδιο, παρακολουθώντας έναν ιδιοκτήτη</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Εκτέλεση της διαδικασίας ενώ τους παρακολουθεί ένας ιδιοκτήτης</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Ασφάλεια τροφίμων και αλλεργιογόνα (προσωπικό κουζίνας) ή πρότυπα δωματίων (housekeeping)</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Εκτέλεση της διαδικασίας μόνοι τους, με έλεγχο στο τέλος· υπογραφή για τις ενότητες που έμαθαν</td>
+</tr>
+</tbody>
+</table></div>
+<p class="sub">Πώς κρατάτε το καλό προσωπικό</p>
+<ul>
+<li>Πληρώνετε στην ώρα σας, κάθε φορά.</li>
+<li>Δημοσιεύετε το πρόγραμμα βαρδιών τουλάχιστον 2 εβδομάδες νωρίτερα.</li>
+<li>Σύντομη συνάντηση ομάδας κάθε εβδομάδα: τι πήγε καλά, τι πρέπει να διορθωθεί.</li>
+<li>Μοιραστείτε τις καλές κριτικές επισκεπτών που αναφέρουν μέλη του προσωπικού με το όνομά τους.</li>
+<li>Αξιολογήστε κάθε άτομο μετά από 3 μήνες και κάθε χρόνο μετά.</li>
+</ul>
+<p class="sub">Όταν κάτι πάει στραβά</p>
+<p>Θέστε το πρόβλημα ιδιωτικά και νωρίς, καταγράψτε τι συμφωνήθηκε, και ακολουθήστε τους όρους δοκιμαστικής περιόδου και προειδοποίησης του συμβολαίου. Συμβουλευτείτε τον λογιστή ή τον δικηγόρο σας πριν τερματίσετε την απασχόληση οποιουδήποτε.</p></section><section id="el-s17"><h2><span class="n">17</span>Συμβίωση με τους ιδιοκτήτες του ακινήτου</h2>
+<p>Οι ιδιοκτήτες του ακινήτου μένουν στο ίδιο κτήριο, άρα μια καλή σχέση μαζί τους είναι μέρος της λειτουργίας του ξενοδοχείου. Συμφωνήστε τους κανόνες γραπτώς από την αρχή· είναι πολύ πιο εύκολο από το να διορθώσετε μια παρεξήγηση αργότερα.</p>
+<p class="sub">Συμφωνήστε γραπτώς</p>
+<ul class="check"><li><input type="checkbox" aria-label="done"><span>Ποιοι χώροι είναι κοινόχρηστοι, ποιοι ανήκουν στο ξενοδοχείο και ποιοι είναι ιδιωτικοί</span></li><li><input type="checkbox" aria-label="done"><span>Ποια είσοδο χρησιμοποιεί η κάθε πλευρά, και αν οι επισκέπτες περνούν ποτέ από τους χώρους των ιδιοκτητών του ακινήτου</span></li><li><input type="checkbox" aria-label="done"><span>Ώρες κοινής ησυχίας για το ξενοδοχείο, τις εκδηλώσεις και το brunch</span></li><li><input type="checkbox" aria-label="done"><span>Πόσες εκδηλώσεις τον μήνα, και πόσο νωρίτερα ενημερώνονται οι ιδιοκτήτες του ακινήτου</span></li><li><input type="checkbox" aria-label="done"><span>Ποιος σταθμεύει πού, και πού γίνονται οι παραδόσεις</span></li><li><input type="checkbox" aria-label="done"><span>Αν οι ιδιοκτήτες του ακινήτου μπορούν να χρησιμοποιούν τον κήπο, και πότε</span></li></ul>
+<p class="sub">Καθημερινά</p>
+<ul>
+<li>Μοιραστείτε μαζί τους το ημερολόγιο εκδηλώσεων στην αρχή κάθε μήνα.</li>
+<li>Ενημερώστε τους πριν δουλέψει οποιοσδήποτε τεχνικός κοντά στην κατοικία τους.</li>
+<li>Ένα συγκεκριμένο άτομο επικοινωνίας από κάθε πλευρά για οτιδήποτε αφορά το κτήριο.</li>
+<li>Μια σύντομη συνάντηση μία φορά τον μήνα: τι λειτουργεί, τι όχι.</li>
+</ul>
+<p class="sub">Οι επισκέπτες και οι ιδιοκτήτες του ακινήτου</p>
+<p>Οι επισκέπτες δεν πρέπει ποτέ να νιώθουν ότι μένουν στο σπίτι κάποιου. Σημαδέψτε καθαρά τους ιδιωτικούς χώρους, κρατήστε τις μετακινήσεις των ιδιοκτητών του ακινήτου ξεχωριστά από τους χώρους των επισκεπτών όπου είναι δυνατόν, και συμφωνήστε πώς θα τους συστήσετε αν ρωτήσει κάποιος επισκέπτης.</p></section><section id="el-s18" class="tpl"><h2><span class="n">18</span>Πρότυπα</h2>
+<p>Τυπώστε τα, κρατήστε τα σε ένα clipboard εκεί όπου γίνεται η δουλειά, και αρχειοθετείτε τα συμπληρωμένα φύλλα κάθε εβδομάδα.</p>
+<p class="sub">Ημερολόγιο θερμοκρασίας ψυγείων και καταψύκτη</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Ημερομηνία</th>
+<th>Ψυγείο 1 άνοιγμα</th>
+<th>Ψυγείο 1 κλείσιμο</th>
+<th>Ψυγείο 2 άνοιγμα</th>
+<th>Ψυγείο 2 κλείσιμο</th>
+<th>Καταψύκτης</th>
+<th>Υπογραφή</th>
+</tr>
+</thead>
+<tbody>
+<tr class="blank">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="blank">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="blank">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p class="sub">Φύλλο ελέγχου δωματίων</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Δωμάτιο</th>
+<th>Κρεβάτι</th>
+<th>Μπάνιο</th>
+<th>Πάτωμα και σκόνη</th>
+<th>Παροχές</th>
+<th>Κλιματισμός, τηλεόραση, φώτα</th>
+<th>Κωδικός δοκιμάστηκε</th>
+<th>Έλεγχος από</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p class="sub">Ημερολόγιο συντήρησης</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Ημερομηνία αναφοράς</th>
+<th>Δωμάτιο ή χώρος</th>
+<th>Πρόβλημα</th>
+<th>Αναφέρθηκε από</th>
+<th>Ημερομηνία επιδιόρθωσης</th>
+<th>Επιδιορθώθηκε από</th>
+<th>Κόστος</th>
+</tr>
+</thead>
+<tbody>
+<tr class="blank">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="blank">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p class="sub">Ημερολόγιο συμβάντων</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Ημερομηνία και ώρα</th>
+<th>Τι συνέβη</th>
+<th>Εμπλεκόμενα άτομα</th>
+<th>Ενέργειες που έγιναν</th>
+<th>Αναφέρθηκε από</th>
+</tr>
+</thead>
+<tbody>
+<tr class="blank">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p class="sub">Φύλλο καθημερινού κλεισίματος ταμείου</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Ημερομηνία</th>
+<th>Σύνολο ταμειακού συστήματος</th>
+<th>Σύνολο καρτών</th>
+<th>Μετρητά που μετρήθηκαν</th>
+<th>Διαφορά</th>
+<th>Πληρωμές δωματίων που εισπράχθηκαν</th>
+<th>Υπογραφή</th>
+</tr>
+</thead>
+<tbody>
+<tr class="blank">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p class="sub">Ημερολόγιο απολεσθέντων αντικειμένων</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Ημερομηνία εύρεσης</th>
+<th>Δωμάτιο ή χώρος</th>
+<th>Αντικείμενο</th>
+<th>Βρέθηκε από</th>
+<th>Επικοινωνία με επισκέπτη</th>
+<th>Επιστράφηκε ή απορρίφθηκε</th>
+</tr>
+</thead>
+<tbody>
+<tr class="blank">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p class="sub">Τηλέφωνα έκτακτης ανάγκης (να βρίσκονται δίπλα σε κάθε τηλέφωνο)</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Ποιος</th>
+<th>Αριθμός</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Έκτακτη ανάγκη (αστυνομία, πυροσβεστική, ασθενοφόρο)</td>
+<td>112</td>
+</tr>
+<tr>
+<td>Νυχτερινό τηλέφωνο</td>
+<td>99007611</td>
+</tr>
+<tr>
+<td>Αντρέας</td>
+<td>99007611</td>
+</tr>
+<tr>
+<td>Μίρα</td>
+<td>96679787</td>
+</tr>
+<tr>
+<td>Ιδιοκτήτης του ακινήτου</td>
+<td></td>
+</tr>
+<tr>
+<td>Υδραυλικός</td>
+<td></td>
+</tr>
+<tr>
+<td>Ηλεκτρολόγος</td>
+<td></td>
+</tr>
+<tr>
+<td>Τεχνικός κλιματισμού</td>
+<td></td>
+</tr>
+<tr>
+<td>Εταιρεία ανελκυστήρα</td>
+<td></td>
+</tr>
+<tr>
+<td>Κλειδαράς</td>
+<td></td>
+</tr>
+<tr>
+<td>Γραμμή απαιτήσεων ασφάλειας</td>
+<td></td>
+</tr>
+</tbody>
+</table></div></section>
+<footer>Εγχειρίδιο Λειτουργίας Ξενοδοχείου. Ανασκόπηση κάθε μήνα τον πρώτο χρόνο, και μετά κάθε τρίμηνο.</footer>
+</main>
+</div>
+<script>
+(function(){
+const views={en:document.querySelector('[data-lang="en"]'),el:document.querySelector('[data-lang="el"]')};
+const btns=[...document.querySelectorAll('.switch button')];
+let cur='en';
+function visibleIndex(){const secs=[...views[cur].querySelectorAll('section')];let idx=-1;for(let i=0;i<secs.length;i++){if(secs[i].getBoundingClientRect().top<window.innerHeight*0.3)idx=i;}return idx;}
+function show(l,keep){
+  const idx=keep?visibleIndex():-1;
+  cur=l;
+  for(const k in views)views[k].hidden=(k!==l);
+  document.documentElement.lang=l;
+  document.title=views[l].dataset.title;
+  btns.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.set===l)));
+  try{localStorage.setItem('manual-lang',l)}catch(e){}
+  if(keep){let y=0;if(idx>=0){const t=views[l].querySelectorAll('section')[idx];y=t.getBoundingClientRect().top+window.scrollY-8;}window.scrollTo({top:y,behavior:'instant'});}
+}
+btns.forEach(b=>b.addEventListener('click',()=>{if(b.dataset.set!==cur)show(b.dataset.set,true)}));
+let start='en';try{const s=localStorage.getItem('manual-lang');if(s==='el'||s==='en')start=s}catch(e){}
+if(location.hash==='#gr')start='el';if(location.hash==='#en')start='en';
+show(start,false);
+const links=[...document.querySelectorAll('nav.toc ol a')];
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){links.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id))}})},{rootMargin:'-10% 0px -80% 0px'});
+document.querySelectorAll('section').forEach(s=>io.observe(s));
+})();
+</script>
+</body>
+</html>
