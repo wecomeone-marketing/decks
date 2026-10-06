@@ -24,6 +24,11 @@ nav.toc ol a:hover,nav.toc ol a.on{background:var(--accent-soft);color:var(--acc
 [data-lang][hidden]{display:none!important}
 .clear{display:block;margin:-10px 0 22px;font:inherit;font-size:13px;color:var(--muted);background:none;border:0;padding:0;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
 .clear.arm{color:#b3261e}
+td[style*=right],th[style*=right]{white-space:nowrap;font-variant-numeric:tabular-nums}
+td.tick,th.tick{width:36px;text-align:center}
+td.tick input{appearance:none;-webkit-appearance:none;width:18px;height:18px;margin:2px 0 0;border:1.5px solid var(--muted);border-radius:4px;cursor:pointer;background:var(--paper)}
+td.tick input:checked{background:var(--accent);border-color:var(--accent);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3.5 8.5l3 3 6-7' fill='none' stroke='white' stroke-width='2'/%3E%3C/svg%3E")}
+tr:has(td.tick input:checked) td:not(.tick){color:var(--muted);text-decoration:line-through}
 td.edit{cursor:text;background:var(--accent-soft);outline:none;min-width:140px}
 td.edit:focus{box-shadow:inset 0 0 0 2px var(--accent)}
 td.edit:empty::before{content:attr(data-ph);color:var(--muted);opacity:.7}
@@ -55,6 +60,7 @@ td:empty::after{content:"\00a0";display:inline-block;height:18px}
 .blank td{height:34px}
 footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
 @media (max-width:860px){
+ nav.toc .switch{position:fixed;top:10px;right:12px;z-index:20;margin:0;box-shadow:0 2px 10px rgba(0,0,0,.12)}
  .wrap{display:block}
  nav.toc{position:static;height:auto;border-right:0;border-bottom:1px solid var(--line);padding:20px 16px}
  nav.toc ol{columns:1}
@@ -83,7 +89,7 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);color:v
 <div class="switch" role="group" aria-label="Language"><button type="button" data-set="en" aria-pressed="false">EN</button><button type="button" data-set="el" aria-pressed="false">GR</button></div>
 <button type="button" class="clear">Clear all ticks</button>
 <p class="brand">Contents</p>
-<ol><li><a href="#en-s1">How to use this manual</a></li><li><a href="#en-s2">Before you sign</a></li><li><a href="#en-s3">The 8 week launch plan</a></li><li><a href="#en-s4">Roles and the weekly schedule</a></li><li><a href="#en-s5">Reservations and self check in</a></li><li><a href="#en-s6">Housekeeping</a></li><li><a href="#en-s7">Breakfast</a></li><li><a href="#en-s8">Weekend brunch</a></li><li><a href="#en-s9">Private events</a></li><li><a href="#en-s10">Food safety</a></li><li><a href="#en-s11">Maintenance</a></li><li><a href="#en-s12">Safety and emergencies</a></li><li><a href="#en-s13">Guest experience and reviews</a></li><li><a href="#en-s14">Pricing and revenue</a></li><li><a href="#en-s15">Money and admin</a></li><li><a href="#en-s16">Hiring and training staff</a></li><li><a href="#en-s17">Living alongside the owners</a></li><li><a href="#en-s18">Templates</a></li></ol>
+<ol><li><a href="#en-s1">How to use this manual</a></li><li><a href="#en-s2">Before you sign</a></li><li><a href="#en-s3">The 8 week launch plan</a></li><li><a href="#en-s4">What to buy</a></li><li><a href="#en-s5">Roles and the weekly schedule</a></li><li><a href="#en-s6">Reservations and self check in</a></li><li><a href="#en-s7">Housekeeping</a></li><li><a href="#en-s8">Breakfast</a></li><li><a href="#en-s9">Weekend brunch</a></li><li><a href="#en-s10">Private events</a></li><li><a href="#en-s11">Food safety</a></li><li><a href="#en-s12">Maintenance</a></li><li><a href="#en-s13">Safety and emergencies</a></li><li><a href="#en-s14">Guest experience and reviews</a></li><li><a href="#en-s15">Pricing and revenue</a></li><li><a href="#en-s16">Money and admin</a></li><li><a href="#en-s17">Hiring and training staff</a></li><li><a href="#en-s18">Living alongside the owners</a></li><li><a href="#en-s19">Templates</a></li></ol>
 </nav>
 <main>
 <header class="cover"><h1>Hotel Operations Manual</h1><p>October 2026</p></header>
@@ -137,33 +143,807 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);color:v
 </ol></section><section id="en-s2"><h2><span class="n">02</span>Before you sign</h2>
 <p>Do not sign until every item below is answered in writing. Most problems between tenants and owners come from things agreed verbally.</p>
 <p class="sub">The lease</p>
-<ul class="check"><li><input type="checkbox" aria-label="done"><span>Rent schedule, the rent free setup months (January and February), and whether rent is plus VAT</span></li><li><input type="checkbox" aria-label="done"><span>Break clause: ask that the owner cannot use it in the first 2 to 3 years, or compensates you for your setup costs if they do</span></li><li><input type="checkbox" aria-label="done"><span>Who pays for what: you cover day to day upkeep; the owner covers the building (roof, structure, plumbing, electrics) and replacing major equipment that fails, including the lift and AC units</span></li><li><input type="checkbox" aria-label="done"><span>Build defects in the first year are the owner's responsibility</span></li><li><input type="checkbox" aria-label="done"><span>Equipment warranties (lift, AC, kitchen) are passed to you or honoured by the owner</span></li><li><input type="checkbox" aria-label="done"><span>Deposit of €18,000: held in a named account, returned within a set number of days at the end, and only reduced for documented damage</span></li><li><input type="checkbox" aria-label="done"><span>Everything you buy (TVs, linen, crockery, dishwasher, ice machine) stays yours when you leave</span></li><li><input type="checkbox" aria-label="done"><span>You may operate under your own brand name, change decor, and run your own website and booking accounts</span></li></ul>
+<ul class="check"><li><input type="checkbox" aria-label="done" data-k="kb307c50122"><span>Rent schedule, the rent free setup months (January and February), and whether rent is plus VAT</span></li><li><input type="checkbox" aria-label="done" data-k="k6a2301cf9e"><span>Break clause: ask that the owner cannot use it in the first 2 to 3 years, or compensates you for your setup costs if they do</span></li><li><input type="checkbox" aria-label="done" data-k="k65975829b2"><span>Who pays for what: you cover day to day upkeep; the owner covers the building (roof, structure, plumbing, electrics) and replacing major equipment that fails, including the lift and AC units</span></li><li><input type="checkbox" aria-label="done" data-k="k9b434de647"><span>Build defects in the first year are the owner's responsibility</span></li><li><input type="checkbox" aria-label="done" data-k="k7c98c5d6f3"><span>Equipment warranties (lift, AC, kitchen) are passed to you or honoured by the owner</span></li><li><input type="checkbox" aria-label="done" data-k="kd9b1853057"><span>Deposit of €18,000: held in a named account, returned within a set number of days at the end, and only reduced for documented damage</span></li><li><input type="checkbox" aria-label="done" data-k="k8fdf8d723c"><span>Everything you buy (TVs, linen, crockery, dishwasher, ice machine) stays yours when you leave</span></li><li><input type="checkbox" aria-label="done" data-k="k529c43ccfd"><span>You may operate under your own brand name, change decor, and run your own website and booking accounts</span></li></ul>
 <p class="sub">The inventory</p>
-<ul class="check"><li><input type="checkbox" aria-label="done"><span>A full list of what the owner provides, with photos and condition: fridges, freezer, oven, extraction hood, prep tables, shelving, bar fridge, furniture, fixtures</span></li><li><input type="checkbox" aria-label="done"><span>A meter reading for electricity and water on the day you take over</span></li></ul>
+<ul class="check"><li><input type="checkbox" aria-label="done" data-k="kdf9ed50848"><span>A full list of what the owner provides, with photos and condition: fridges, freezer, oven, extraction hood, prep tables, shelving, bar fridge, furniture, fixtures</span></li><li><input type="checkbox" aria-label="done" data-k="keb06a6c2da"><span>A meter reading for electricity and water on the day you take over</span></li></ul>
 <p class="sub">Licences and permissions</p>
-<ul class="check"><li><input type="checkbox" aria-label="done"><span>Hotel operating licence from the Deputy Ministry of Tourism: confirm it is issued, valid, and that your company can operate under it</span></li><li><input type="checkbox" aria-label="done"><span>Whether the current licence allows serving brunch and hosting events for non residents; if not, apply early for a catering licence so it is ready by March</span></li><li><input type="checkbox" aria-label="done"><span>Alcohol licence, loudspeaker or music permit, and food handler certificates for kitchen staff</span></li></ul>
+<ul class="check"><li><input type="checkbox" aria-label="done" data-k="k76067eac25"><span>Hotel operating licence from the Deputy Ministry of Tourism: confirm it is issued, valid, and that your company can operate under it</span></li><li><input type="checkbox" aria-label="done" data-k="kac218ddf02"><span>Whether the current licence allows serving brunch and hosting events for non residents; if not, apply early for a catering licence so it is ready by March</span></li><li><input type="checkbox" aria-label="done" data-k="k984801be24"><span>Alcohol licence, loudspeaker or music permit, and food handler certificates for kitchen staff</span></li></ul>
 <p class="sub">Living alongside the owners</p>
-<ul class="check"><li><input type="checkbox" aria-label="done"><span>Which areas are shared, at what times, and who uses which entrance</span></li><li><input type="checkbox" aria-label="done"><span>Quiet hours and event rules agreed in writing</span></li><li><input type="checkbox" aria-label="done"><span>Separate meters for the owners' accommodation confirmed</span></li></ul>
+<ul class="check"><li><input type="checkbox" aria-label="done" data-k="ke8351bbab0"><span>Which areas are shared, at what times, and who uses which entrance</span></li><li><input type="checkbox" aria-label="done" data-k="kce2bd61c60"><span>Quiet hours and event rules agreed in writing</span></li><li><input type="checkbox" aria-label="done" data-k="k202f848abc"><span>Separate meters for the owners' accommodation confirmed</span></li></ul>
 <p class="sub">Your company</p>
-<ul class="check"><li><input type="checkbox" aria-label="done"><span>New company registered for the hotel, with its own bank account and VAT registration</span></li><li><input type="checkbox" aria-label="done"><span>Employer registration with social insurance before the first hire</span></li><li><input type="checkbox" aria-label="done"><span>Insurance for your contents, public liability and employer's liability (compulsory once you have staff)</span></li><li><input type="checkbox" aria-label="done"><span>An accountant agreed before January, so payroll and VAT start correctly</span></li></ul>
+<ul class="check"><li><input type="checkbox" aria-label="done" data-k="k5a802d594d"><span>New company registered for the hotel, with its own bank account and VAT registration</span></li><li><input type="checkbox" aria-label="done" data-k="kf6e307db51"><span>Employer registration with social insurance before the first hire</span></li><li><input type="checkbox" aria-label="done" data-k="k9a62d89d25"><span>Insurance for your contents, public liability and employer's liability (compulsory once you have staff)</span></li><li><input type="checkbox" aria-label="done" data-k="kbc207a9334"><span>An accountant agreed before January, so payroll and VAT start correctly</span></li></ul>
 <p>Have a lawyer read the final lease before you sign. Pay for one hour of their time; it is the cheapest insurance you will buy.</p></section><section id="en-s3"><h2><span class="n">03</span>The 8 week launch plan</h2>
 <p>The goal for January and February is simple: open in March with listings live, the first bookings in, staff trained, and two full practice runs done. Anything that needs a supplier, a licence or a photographer starts in week 1, because those are what slip.</p>
 <p class="sub">Week 1: take over the building</p>
-<ul class="check"><li><input type="checkbox" aria-label="done"><span>Walk the building with the owner; sign the inventory and take meter readings</span></li><li><input type="checkbox" aria-label="done"><span>Change or record every door code and key; set up your own master code</span></li><li><input type="checkbox" aria-label="done"><span>Order the dishwasher, ice machine, crockery, TVs and linen (delivery takes 2 to 4 weeks)</span></li><li><input type="checkbox" aria-label="done"><span>Book the photographer for week 5, once rooms are dressed</span></li><li><input type="checkbox" aria-label="done"><span>Submit licence applications or transfers that are not already in place</span></li></ul>
+<ul class="check"><li><input type="checkbox" aria-label="done" data-k="k0841f70631"><span>Walk the building with the owner; sign the inventory and take meter readings</span></li><li><input type="checkbox" aria-label="done" data-k="kd60576ae3b"><span>Change or record every door code and key; set up your own master code</span></li><li><input type="checkbox" aria-label="done" data-k="k911dbeeebb"><span>Order the dishwasher, ice machine, crockery, TVs and linen (delivery takes 2 to 4 weeks)</span></li><li><input type="checkbox" aria-label="done" data-k="k9fc3503e25"><span>Book the photographer for week 5, once rooms are dressed</span></li><li><input type="checkbox" aria-label="done" data-k="kb0ca8c0c73"><span>Submit licence applications or transfers that are not already in place</span></li></ul>
 <p class="sub">Week 2: systems</p>
-<ul class="check"><li><input type="checkbox" aria-label="done"><span>Choose and set up the booking system and channel manager; enter rooms, rates and policies</span></li><li><input type="checkbox" aria-label="done"><span>Open Booking.com, Airbnb and Expedia accounts (approval can take 1 to 2 weeks)</span></li><li><input type="checkbox" aria-label="done"><span>Card terminal and till system for brunch and bar</span></li><li><input type="checkbox" aria-label="done"><span>Night phone number set up and forwarding tested</span></li></ul>
+<ul class="check"><li><input type="checkbox" aria-label="done" data-k="k4242c23e1b"><span>Choose and set up the booking system and channel manager; enter rooms, rates and policies</span></li><li><input type="checkbox" aria-label="done" data-k="ka42b59dc6a"><span>Open Booking.com, Airbnb and Expedia accounts (approval can take 1 to 2 weeks)</span></li><li><input type="checkbox" aria-label="done" data-k="k520d63ac88"><span>Card terminal and till system for brunch and bar</span></li><li><input type="checkbox" aria-label="done" data-k="k14213ae2a7"><span>Night phone number set up and forwarding tested</span></li></ul>
 <p class="sub">Week 3: suppliers and menu</p>
-<ul class="check"><li><input type="checkbox" aria-label="done"><span>Pick suppliers: laundry, food, coffee (ask about a free machine), drinks, cleaning products, amenities</span></li><li><input type="checkbox" aria-label="done"><span>Write the breakfast and brunch menus; cost every dish so food stays near 30% of the price</span></li><li><input type="checkbox" aria-label="done"><span>Agree pest control, fire safety and AC servicing contracts</span></li></ul>
+<ul class="check"><li><input type="checkbox" aria-label="done" data-k="k89454ac2fa"><span>Pick suppliers: laundry, food, coffee (ask about a free machine), drinks, cleaning products, amenities</span></li><li><input type="checkbox" aria-label="done" data-k="kd40011f725"><span>Write the breakfast and brunch menus; cost every dish so food stays near 30% of the price</span></li><li><input type="checkbox" aria-label="done" data-k="kd9b6accdf7"><span>Agree pest control, fire safety and AC servicing contracts</span></li></ul>
 <p class="sub">Week 4: hiring</p>
-<ul class="check"><li><input type="checkbox" aria-label="done"><span>Hire housekeeping and the breakfast and bar person; contracts signed, registered with social insurance</span></li><li><input type="checkbox" aria-label="done"><span>Food handler certificates booked for anyone who touches food</span></li></ul>
+<ul class="check"><li><input type="checkbox" aria-label="done" data-k="k36d6295643"><span>Hire housekeeping and the breakfast and bar person; contracts signed, registered with social insurance</span></li><li><input type="checkbox" aria-label="done" data-k="kbf4ccae152"><span>Food handler certificates booked for anyone who touches food</span></li></ul>
 <p class="sub">Week 5: rooms ready, content shot</p>
-<ul class="check"><li><input type="checkbox" aria-label="done"><span>Rooms fully dressed; every room tested (AC, TV, shower, Wi Fi, door code)</span></li><li><input type="checkbox" aria-label="done"><span>Photo and video shoot: rooms, garden, brunch dishes, details</span></li><li><input type="checkbox" aria-label="done"><span>Website live with direct booking</span></li></ul>
+<ul class="check"><li><input type="checkbox" aria-label="done" data-k="ke0401f67d1"><span>Rooms fully dressed; every room tested (AC, TV, shower, Wi Fi, door code)</span></li><li><input type="checkbox" aria-label="done" data-k="kddec67432b"><span>Photo and video shoot: rooms, garden, brunch dishes, details</span></li><li><input type="checkbox" aria-label="done" data-k="k2b5ebabe68"><span>Website live with direct booking</span></li></ul>
 <p class="sub">Week 6: open for bookings</p>
-<ul class="check"><li><input type="checkbox" aria-label="done"><span>Listings live on all channels with the new photos; opening offer for March stays</span></li><li><input type="checkbox" aria-label="done"><span>Google Business profile, Instagram and Facebook live</span></li><li><input type="checkbox" aria-label="done"><span>Staff training from this manual, one section per day</span></li></ul>
+<ul class="check"><li><input type="checkbox" aria-label="done" data-k="kfca5deea34"><span>Listings live on all channels with the new photos; opening offer for March stays</span></li><li><input type="checkbox" aria-label="done" data-k="kbc2d9fe23e"><span>Google Business profile, Instagram and Facebook live</span></li><li><input type="checkbox" aria-label="done" data-k="ka01a3a3db4"><span>Staff training from this manual, one section per day</span></li></ul>
 <p class="sub">Week 7: practice runs</p>
-<ul class="check"><li><input type="checkbox" aria-label="done"><span>Friends and family stay 2 nights: full check in, cleaning, breakfast and check out, then a written list of every problem</span></li><li><input type="checkbox" aria-label="done"><span>Full practice brunch for 20 to 30 invited guests</span></li><li><input type="checkbox" aria-label="done"><span>Fix everything on both lists</span></li></ul>
+<ul class="check"><li><input type="checkbox" aria-label="done" data-k="kbc944c7443"><span>Friends and family stay 2 nights: full check in, cleaning, breakfast and check out, then a written list of every problem</span></li><li><input type="checkbox" aria-label="done" data-k="ka265292d5d"><span>Full practice brunch for 20 to 30 invited guests</span></li><li><input type="checkbox" aria-label="done" data-k="k55907386d3"><span>Fix everything on both lists</span></li></ul>
 <p class="sub">Week 8: final checks</p>
-<ul class="check"><li><input type="checkbox" aria-label="done"><span>Second practice run if the first had serious problems</span></li><li><input type="checkbox" aria-label="done"><span>Stock full: food, drinks, amenities, cleaning, spare linen</span></li><li><input type="checkbox" aria-label="done"><span>Opening day in March: both owners on site all day</span></li></ul></section><section id="en-s4"><h2><span class="n">04</span>Roles and the weekly schedule</h2>
+<ul class="check"><li><input type="checkbox" aria-label="done" data-k="kc8b4e46809"><span>Second practice run if the first had serious problems</span></li><li><input type="checkbox" aria-label="done" data-k="k6b81b282e2"><span>Stock full: food, drinks, amenities, cleaning, spare linen</span></li><li><input type="checkbox" aria-label="done" data-k="k024ec2f0b5"><span>Opening day in March: both owners on site all day</span></li></ul></section><section id="en-s4"><h2><span class="n">04</span>What to buy</h2>
+<p>Everything to buy before opening, by area. Estimated prices for mid range hotel quality in Cyprus, VAT included. Get quotes from two hotel suppliers for the textiles and tableware before ordering.</p>
+<p class="sub">Beds</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Item</th>
+<th style="text-align: right;">Number of rooms</th>
+<th style="text-align: right;">Items per room</th>
+<th style="text-align: right;">Cost per item</th>
+<th style="text-align: right;">Total cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Waterproof mattress protector 160 x 200</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">€20</td>
+<td style="text-align: right;">€280</td>
+</tr>
+<tr>
+<td>Pillows 50 x 70</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">€12</td>
+<td style="text-align: right;">€336</td>
+</tr>
+<tr>
+<td>Pillow protectors 50 x 70</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">€4</td>
+<td style="text-align: right;">€224</td>
+</tr>
+<tr>
+<td>Duvet 200 x 220, medium weight</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">€45</td>
+<td style="text-align: right;">€315</td>
+</tr>
+<tr>
+<td>Light blanket or coverlet</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">€35</td>
+<td style="text-align: right;">€245</td>
+</tr>
+<tr>
+<td>Bedspread or bed runner</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">€30</td>
+<td style="text-align: right;">€210</td>
+</tr>
+<tr>
+<td>Fitted sheet 160 x 200</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">€15</td>
+<td style="text-align: right;">€315</td>
+</tr>
+<tr>
+<td>Duvet cover 200 x 220</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">€25</td>
+<td style="text-align: right;">€525</td>
+</tr>
+<tr>
+<td>Pillowcases 50 x 70</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">€3.50</td>
+<td style="text-align: right;">€294</td>
+</tr>
+<tr>
+<td><strong>Subtotal</strong></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"><strong>€2,744</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p class="sub">Bathroom textiles</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Item</th>
+<th style="text-align: right;">Number of rooms</th>
+<th style="text-align: right;">Items per room</th>
+<th style="text-align: right;">Cost per item</th>
+<th style="text-align: right;">Total cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bath towels 70 x 140</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">€8</td>
+<td style="text-align: right;">€336</td>
+</tr>
+<tr>
+<td>Hand towels 50 x 100</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">€4</td>
+<td style="text-align: right;">€168</td>
+</tr>
+<tr>
+<td>Face towels 30 x 30</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">€1.50</td>
+<td style="text-align: right;">€63</td>
+</tr>
+<tr>
+<td>Bath mats</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">€5</td>
+<td style="text-align: right;">€105</td>
+</tr>
+<tr>
+<td><strong>Subtotal</strong></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"><strong>€672</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p class="sub">Room equipment</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Item</th>
+<th style="text-align: right;">Number of rooms</th>
+<th style="text-align: right;">Items per room</th>
+<th style="text-align: right;">Cost per item</th>
+<th style="text-align: right;">Total cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Smart TV, 43 inch</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">€350</td>
+<td style="text-align: right;">€2,450</td>
+</tr>
+<tr>
+<td>TV wall bracket</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">€25</td>
+<td style="text-align: right;">€175</td>
+</tr>
+<tr>
+<td>Hairdryer</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">€30</td>
+<td style="text-align: right;">€210</td>
+</tr>
+<tr>
+<td>Hangers, wooden</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">€2</td>
+<td style="text-align: right;">€112</td>
+</tr>
+<tr>
+<td>Bathroom mirror</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">€40</td>
+<td style="text-align: right;">€280</td>
+</tr>
+<tr>
+<td>Bins, bedroom and bathroom</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">€12</td>
+<td style="text-align: right;">€168</td>
+</tr>
+<tr>
+<td>Toilet brush and holder</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">€10</td>
+<td style="text-align: right;">€70</td>
+</tr>
+<tr>
+<td>Do not disturb door hanger</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">€3</td>
+<td style="text-align: right;">€21</td>
+</tr>
+<tr>
+<td>Room information folder</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">€15</td>
+<td style="text-align: right;">€105</td>
+</tr>
+<tr>
+<td><strong>Subtotal</strong></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"><strong>€3,591</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p class="sub">Guest amenities, first stock</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Item</th>
+<th style="text-align: right;">Quantity</th>
+<th style="text-align: right;">Cost per item</th>
+<th style="text-align: right;">Total cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Wall dispensers: shampoo, shower gel, hand soap</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">€15</td>
+<td style="text-align: right;">€315</td>
+</tr>
+<tr>
+<td>Refills, 5 litre cans</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">€25</td>
+<td style="text-align: right;">€225</td>
+</tr>
+<tr>
+<td>Toilet paper, hotel pack</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">€150</td>
+<td style="text-align: right;">€150</td>
+</tr>
+<tr>
+<td><strong>Subtotal</strong></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"><strong>€690</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p class="sub">Housekeeping</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Item</th>
+<th style="text-align: right;">Quantity</th>
+<th style="text-align: right;">Cost per item</th>
+<th style="text-align: right;">Total cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Housekeeping cart</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">€250</td>
+<td style="text-align: right;">€250</td>
+</tr>
+<tr>
+<td>Mop and bucket system</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">€40</td>
+<td style="text-align: right;">€80</td>
+</tr>
+<tr>
+<td>Microfibre cloths, colour coded</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: right;">€1.50</td>
+<td style="text-align: right;">€60</td>
+</tr>
+<tr>
+<td>Cleaning products, first stock</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">€200</td>
+<td style="text-align: right;">€200</td>
+</tr>
+<tr>
+<td>Laundry bags for dirty linen</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">€15</td>
+<td style="text-align: right;">€90</td>
+</tr>
+<tr>
+<td>Closed bags for the garden room kits</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">€20</td>
+<td style="text-align: right;">€80</td>
+</tr>
+<tr>
+<td>Gloves and aprons</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">€40</td>
+<td style="text-align: right;">€40</td>
+</tr>
+<tr>
+<td>Step ladder</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">€50</td>
+<td style="text-align: right;">€50</td>
+</tr>
+<tr>
+<td><strong>Subtotal</strong></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"><strong>€850</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p class="sub">Tableware for breakfast and brunch</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Item</th>
+<th style="text-align: right;">Quantity</th>
+<th style="text-align: right;">Cost per item</th>
+<th style="text-align: right;">Total cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Main plates 27 cm</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">€5</td>
+<td style="text-align: right;">€300</td>
+</tr>
+<tr>
+<td>Starter plates 21 cm</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">€5</td>
+<td style="text-align: right;">€300</td>
+</tr>
+<tr>
+<td>Small plates 16 cm, bread and dessert</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">€4</td>
+<td style="text-align: right;">€240</td>
+</tr>
+<tr>
+<td>Bowls 16 cm, yoghurt, fruit, salad</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">€5</td>
+<td style="text-align: right;">€300</td>
+</tr>
+<tr>
+<td>Cappuccino cups and saucers</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">€7</td>
+<td style="text-align: right;">€420</td>
+</tr>
+<tr>
+<td>Espresso cups and saucers</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: right;">€5</td>
+<td style="text-align: right;">€150</td>
+</tr>
+<tr>
+<td>Teapots</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">€12</td>
+<td style="text-align: right;">€72</td>
+</tr>
+<tr>
+<td>Small milk jugs</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">€4</td>
+<td style="text-align: right;">€64</td>
+</tr>
+<tr>
+<td>Ramekins for butter, jam, sauces</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">€2</td>
+<td style="text-align: right;">€120</td>
+</tr>
+<tr>
+<td>Egg cups</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">€2</td>
+<td style="text-align: right;">€32</td>
+</tr>
+<tr>
+<td>Serving platters and boards</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">€15</td>
+<td style="text-align: right;">€225</td>
+</tr>
+<tr>
+<td>Bread baskets</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">€6</td>
+<td style="text-align: right;">€90</td>
+</tr>
+<tr>
+<td>Water carafes and juice jugs</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">€8</td>
+<td style="text-align: right;">€120</td>
+</tr>
+<tr>
+<td>Salt and pepper sets</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">€6</td>
+<td style="text-align: right;">€90</td>
+</tr>
+<tr>
+<td>Sugar and condiment holders</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">€4</td>
+<td style="text-align: right;">€60</td>
+</tr>
+<tr>
+<td>Water glasses</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">€2</td>
+<td style="text-align: right;">€120</td>
+</tr>
+<tr>
+<td>Juice glasses</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">€2</td>
+<td style="text-align: right;">€120</td>
+</tr>
+<tr>
+<td>Wine glasses</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">€3.50</td>
+<td style="text-align: right;">€210</td>
+</tr>
+<tr>
+<td>Flutes for prosecco and mimosas</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: right;">€3.50</td>
+<td style="text-align: right;">€105</td>
+</tr>
+<tr>
+<td>Highball glasses for cocktails and soft drinks</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: right;">€3</td>
+<td style="text-align: right;">€90</td>
+</tr>
+<tr>
+<td>Table knives</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">€2.50</td>
+<td style="text-align: right;">€150</td>
+</tr>
+<tr>
+<td>Table forks</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">€2</td>
+<td style="text-align: right;">€120</td>
+</tr>
+<tr>
+<td>Dessert spoons</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">€1.80</td>
+<td style="text-align: right;">€108</td>
+</tr>
+<tr>
+<td>Teaspoons</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">€1</td>
+<td style="text-align: right;">€60</td>
+</tr>
+<tr>
+<td>Cutlery holders for the tables</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">€8</td>
+<td style="text-align: right;">€120</td>
+</tr>
+<tr>
+<td>Service trays</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">€12</td>
+<td style="text-align: right;">€72</td>
+</tr>
+<tr>
+<td>Paper napkins, quality, first stock</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">€100</td>
+<td style="text-align: right;">€100</td>
+</tr>
+<tr>
+<td><strong>Subtotal</strong></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"><strong>€3,958</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p class="sub">Kitchen</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Item</th>
+<th style="text-align: right;">Quantity</th>
+<th style="text-align: right;">Cost per item</th>
+<th style="text-align: right;">Total cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dishwasher, commercial undercounter</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">€2,500</td>
+<td style="text-align: right;">€2,500</td>
+</tr>
+<tr>
+<td>Dishwasher racks</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">€20</td>
+<td style="text-align: right;">€120</td>
+</tr>
+<tr>
+<td>Coffee machine and grinder</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">free</td>
+<td style="text-align: right;">€0</td>
+</tr>
+<tr>
+<td>Commercial toaster</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">€250</td>
+<td style="text-align: right;">€250</td>
+</tr>
+<tr>
+<td>Orange juicer</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">€300</td>
+<td style="text-align: right;">€300</td>
+</tr>
+<tr>
+<td>Blender</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">€150</td>
+<td style="text-align: right;">€150</td>
+</tr>
+<tr>
+<td>Hand blender</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">€80</td>
+<td style="text-align: right;">€80</td>
+</tr>
+<tr>
+<td>Frying pans, 24 and 28 cm</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">€35</td>
+<td style="text-align: right;">€210</td>
+</tr>
+<tr>
+<td>Saucepans and stock pots</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">€250</td>
+<td style="text-align: right;">€250</td>
+</tr>
+<tr>
+<td>Baking trays</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">€15</td>
+<td style="text-align: right;">€120</td>
+</tr>
+<tr>
+<td>Gastronorm containers with lids</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">€12</td>
+<td style="text-align: right;">€240</td>
+</tr>
+<tr>
+<td>Food storage containers with lids</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: right;">€4</td>
+<td style="text-align: right;">€160</td>
+</tr>
+<tr>
+<td>Mixing bowls, stainless</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">€8</td>
+<td style="text-align: right;">€64</td>
+</tr>
+<tr>
+<td>Knives: chef, paring, bread, serrated</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">€200</td>
+<td style="text-align: right;">€200</td>
+</tr>
+<tr>
+<td>Chopping boards, colour coded</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">€60</td>
+<td style="text-align: right;">€120</td>
+</tr>
+<tr>
+<td>Utensils: tongs, spatulas, ladles, whisks, sieves</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">€150</td>
+<td style="text-align: right;">€150</td>
+</tr>
+<tr>
+<td>Probe thermometer</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">€25</td>
+<td style="text-align: right;">€50</td>
+</tr>
+<tr>
+<td>Fridge thermometers</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">€5</td>
+<td style="text-align: right;">€20</td>
+</tr>
+<tr>
+<td>Kitchen scales</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">€30</td>
+<td style="text-align: right;">€60</td>
+</tr>
+<tr>
+<td>Date labels and markers</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">€40</td>
+<td style="text-align: right;">€40</td>
+</tr>
+<tr>
+<td>Kitchen bins: general, recycling, food</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">€40</td>
+<td style="text-align: right;">€120</td>
+</tr>
+<tr>
+<td>Fire blanket and first aid kit</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">€65</td>
+<td style="text-align: right;">€65</td>
+</tr>
+<tr>
+<td><strong>Subtotal</strong></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"><strong>€5,269</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p class="sub">Bar</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Item</th>
+<th style="text-align: right;">Quantity</th>
+<th style="text-align: right;">Cost per item</th>
+<th style="text-align: right;">Total cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cocktail sets: shaker, jigger, strainer, bar spoon, muddler</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">€40</td>
+<td style="text-align: right;">€80</td>
+</tr>
+<tr>
+<td>Ice buckets with tongs</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">€15</td>
+<td style="text-align: right;">€60</td>
+</tr>
+<tr>
+<td>Ice scoops</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">€8</td>
+<td style="text-align: right;">€16</td>
+</tr>
+<tr>
+<td>Waiter's corkscrews</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">€8</td>
+<td style="text-align: right;">€24</td>
+</tr>
+<tr>
+<td>Speed pourers</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">€1</td>
+<td style="text-align: right;">€20</td>
+</tr>
+<tr>
+<td>Bar mats</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">€15</td>
+<td style="text-align: right;">€30</td>
+</tr>
+<tr>
+<td>Jugs for mimosas and lemonade</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">€12</td>
+<td style="text-align: right;">€48</td>
+</tr>
+<tr>
+<td>Citrus press and zester</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">€20</td>
+<td style="text-align: right;">€20</td>
+</tr>
+<tr>
+<td>Garnish tray</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">€30</td>
+<td style="text-align: right;">€30</td>
+</tr>
+<tr>
+<td><strong>Subtotal</strong></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"><strong>€328</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p class="sub">Summary</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Area</th>
+<th style="text-align: right;">Total cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Beds</td>
+<td style="text-align: right;">€2,744</td>
+</tr>
+<tr>
+<td>Bathroom textiles</td>
+<td style="text-align: right;">€672</td>
+</tr>
+<tr>
+<td>Room equipment</td>
+<td style="text-align: right;">€3,591</td>
+</tr>
+<tr>
+<td>Guest amenities, first stock</td>
+<td style="text-align: right;">€690</td>
+</tr>
+<tr>
+<td>Housekeeping</td>
+<td style="text-align: right;">€850</td>
+</tr>
+<tr>
+<td>Tableware for breakfast and brunch</td>
+<td style="text-align: right;">€3,958</td>
+</tr>
+<tr>
+<td>Kitchen</td>
+<td style="text-align: right;">€5,269</td>
+</tr>
+<tr>
+<td>Bar</td>
+<td style="text-align: right;">€328</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td style="text-align: right;"><strong>€18,102</strong></td>
+</tr>
+</tbody>
+</table></div></section><section id="en-s5"><h2><span class="n">05</span>Roles and the weekly schedule</h2>
 <p>Split the business between you by area, not by task, so each of you owns results and staff know who to ask. A suggested split is below; swap areas to suit your strengths.</p>
 <div class="tbl"><table>
 <thead>
@@ -258,7 +1038,7 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);color:v
 <li>Real emergencies (fire, medical, break in): call 112 first, then go to the hotel.</li>
 </ul>
 <p class="sub">Stepping back</p>
-<p>Step back from a task only when the person doing it has run it alone for 4 weeks without a guest complaint, and it is written in this manual.</p></section><section id="en-s5"><h2><span class="n">05</span>Reservations and self check in</h2>
+<p>Step back from a task only when the person doing it has run it alone for 4 weeks without a guest complaint, and it is written in this manual.</p></section><section id="en-s6"><h2><span class="n">06</span>Reservations and self check in</h2>
 <p>Check in is from 15:00 and check out is by 11:00. Every booking, from any channel, lives in the booking system; nothing is written on paper or kept only in a phone.</p>
 <p class="sub">House rules to publish everywhere</p>
 <div class="tbl"><table>
@@ -342,7 +1122,7 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);color:v
 <li>If the same complaint appears twice, fix the routine in this manual.</li>
 </ol>
 <p class="sub">Overbooking</p>
-<p>The channel manager must close all channels the moment a room sells. If you are ever overbooked, the guest who booked last is moved to a comparable hotel nearby at your cost, with the price difference and transport paid. Keep two partner hotels' numbers by the phone for this.</p></section><section id="en-s6"><h2><span class="n">06</span>Housekeeping</h2>
+<p>The channel manager must close all channels the moment a room sells. If you are ever overbooked, the guest who booked last is moved to a comparable hotel nearby at your cost, with the price difference and transport paid. Keep two partner hotels' numbers by the phone for this.</p></section><section id="en-s7"><h2><span class="n">07</span>Housekeeping</h2>
 <p>Every occupied room is cleaned every day. Codes are sent at 13:00 and start working at 15:00, and every room is inspected by an owner before its code starts working. On weekdays housekeeping works 11:30 to 14:30, departures first, then stayovers. On brunch days the garden rooms follow their own plan, below.</p>
 <p class="sub">Order of the day</p>
 <ol>
@@ -398,9 +1178,9 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);color:v
 <li>Deep cleaning tasks for the garden rooms are done Monday to Thursday only.</li>
 </ul>
 <p class="sub">Departure room: full clean (about 45 minutes)</p>
-<ul class="check"><li><input type="checkbox" aria-label="done"><span>Open windows, strip the bed, remove all linen and towels</span></li><li><input type="checkbox" aria-label="done"><span>Empty every bin; check drawers, wardrobe, safe and under the bed for lost property</span></li><li><input type="checkbox" aria-label="done"><span>Bathroom: toilet, shower, sink, mirror, tiles, floor; clean, then disinfect</span></li><li><input type="checkbox" aria-label="done"><span>Fresh linen and towels; bed made to the house standard with photo reference</span></li><li><input type="checkbox" aria-label="done"><span>Dust all surfaces, light switches, door handles, remote controls, the TV</span></li><li><input type="checkbox" aria-label="done"><span>Vacuum and mop the floor</span></li><li><input type="checkbox" aria-label="done"><span>Restock amenities, coffee, tea, water, toilet paper</span></li><li><input type="checkbox" aria-label="done"><span>Check AC, lights, TV, shower and Wi Fi card; report anything broken</span></li><li><input type="checkbox" aria-label="done"><span>Close windows, set AC to 24 degrees, lights off, door closed</span></li></ul>
+<ul class="check"><li><input type="checkbox" aria-label="done" data-k="k8a4bc0ee81"><span>Open windows, strip the bed, remove all linen and towels</span></li><li><input type="checkbox" aria-label="done" data-k="k2444891268"><span>Empty every bin; check drawers, wardrobe, safe and under the bed for lost property</span></li><li><input type="checkbox" aria-label="done" data-k="k4877986ff0"><span>Bathroom: toilet, shower, sink, mirror, tiles, floor; clean, then disinfect</span></li><li><input type="checkbox" aria-label="done" data-k="k9cee479f6d"><span>Fresh linen and towels; bed made to the house standard with photo reference</span></li><li><input type="checkbox" aria-label="done" data-k="k123bfb9409"><span>Dust all surfaces, light switches, door handles, remote controls, the TV</span></li><li><input type="checkbox" aria-label="done" data-k="kb700b85c0c"><span>Vacuum and mop the floor</span></li><li><input type="checkbox" aria-label="done" data-k="k73fa589475"><span>Restock amenities, coffee, tea, water, toilet paper</span></li><li><input type="checkbox" aria-label="done" data-k="kfaa11d1aa9"><span>Check AC, lights, TV, shower and Wi Fi card; report anything broken</span></li><li><input type="checkbox" aria-label="done" data-k="ka54f10dccf"><span>Close windows, set AC to 24 degrees, lights off, door closed</span></li></ul>
 <p class="sub">Stayover room: refresh (about 20 minutes)</p>
-<ul class="check"><li><input type="checkbox" aria-label="done"><span>Make the bed; change linen every 3 nights or on request</span></li><li><input type="checkbox" aria-label="done"><span>Replace towels left on the floor; hung towels are reused</span></li><li><input type="checkbox" aria-label="done"><span>Empty bins, clean the bathroom, restock amenities</span></li><li><input type="checkbox" aria-label="done"><span>Tidy without moving guest belongings</span></li></ul>
+<ul class="check"><li><input type="checkbox" aria-label="done" data-k="ka6d56a3229"><span>Make the bed; change linen every 3 nights or on request</span></li><li><input type="checkbox" aria-label="done" data-k="k5101615d81"><span>Replace towels left on the floor; hung towels are reused</span></li><li><input type="checkbox" aria-label="done" data-k="k04b84136bd"><span>Empty bins, clean the bathroom, restock amenities</span></li><li><input type="checkbox" aria-label="done" data-k="kbd64b64e73"><span>Tidy without moving guest belongings</span></li></ul>
 <p class="sub">Linen</p>
 <ul>
 <li>Three full sets per bed: one on the bed, one at the laundry, one in the store.</li>
@@ -442,7 +1222,7 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);color:v
 <li>Postage is paid by the guest, in advance.</li>
 </ol>
 <p class="sub">Do not disturb</p>
-<p>Respect the sign. If a room has had it on for 2 days, an owner knocks and checks in with the guest politely.</p></section><section id="en-s7"><h2><span class="n">07</span>Breakfast</h2>
+<p>Respect the sign. If a room has had it on for 2 days, an owner knocks and checks in with the guest politely.</p></section><section id="en-s8"><h2><span class="n">08</span>Breakfast</h2>
 <p>Breakfast is served 07:30 to 10:00 to guests who booked bed and breakfast, with prep from 06:00. With at most 14 guests, serve a small set breakfast to order rather than a buffet: less waste, better food, and a more boutique feel.</p>
 <p class="sub">The night before</p>
 <ol>
@@ -451,7 +1231,7 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);color:v
 <li>Lay the tables in the garden or breakfast room.</li>
 </ol>
 <p class="sub">Setup, 06:00 to 07:30</p>
-<ul class="check"><li><input type="checkbox" aria-label="done"><span>Coffee machine on and cleaned; first shot tested</span></li><li><input type="checkbox" aria-label="done"><span>Fridge temperatures checked and written in the log</span></li><li><input type="checkbox" aria-label="done"><span>Fresh juice, fruit, yoghurt, pastries and bread out on the side table, covered</span></li><li><input type="checkbox" aria-label="done"><span>Hot items prepped for cooking to order: eggs, halloumi, vegetables</span></li><li><input type="checkbox" aria-label="done"><span>Tables set, napkins, water, menu card with the day's options</span></li></ul>
+<ul class="check"><li><input type="checkbox" aria-label="done" data-k="k2845554156"><span>Coffee machine on and cleaned; first shot tested</span></li><li><input type="checkbox" aria-label="done" data-k="kc816e2a3f1"><span>Fridge temperatures checked and written in the log</span></li><li><input type="checkbox" aria-label="done" data-k="k251597a78e"><span>Fresh juice, fruit, yoghurt, pastries and bread out on the side table, covered</span></li><li><input type="checkbox" aria-label="done" data-k="k475584351f"><span>Hot items prepped for cooking to order: eggs, halloumi, vegetables</span></li><li><input type="checkbox" aria-label="done" data-k="k3178a911cd"><span>Tables set, napkins, water, menu card with the day's options</span></li></ul>
 <p class="sub">Service, 07:30 to 10:00</p>
 <ol>
 <li>Greet each guest by name, seat them, offer coffee or tea within 2 minutes.</li>
@@ -461,9 +1241,9 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);color:v
 <li>Guests without breakfast in their booking may order and pay on the day; charge to their room or by card.</li>
 </ol>
 <p class="sub">Close, 10:00 to 10:30</p>
-<ul class="check"><li><input type="checkbox" aria-label="done"><span>Unused food labelled with the date or thrown away; nothing cooked goes back into the fridge without a label</span></li><li><input type="checkbox" aria-label="done"><span>Dishwasher run, surfaces cleaned and sanitised, floors swept</span></li><li><input type="checkbox" aria-label="done"><span>Waste logged roughly: if more than 10% of food is thrown away for a week, cut the quantities</span></li><li><input type="checkbox" aria-label="done"><span>Shopping list updated for the next delivery</span></li></ul>
+<ul class="check"><li><input type="checkbox" aria-label="done" data-k="k16427c042a"><span>Unused food labelled with the date or thrown away; nothing cooked goes back into the fridge without a label</span></li><li><input type="checkbox" aria-label="done" data-k="kb6df4b169d"><span>Dishwasher run, surfaces cleaned and sanitised, floors swept</span></li><li><input type="checkbox" aria-label="done" data-k="kfa24d7c78d"><span>Waste logged roughly: if more than 10% of food is thrown away for a week, cut the quantities</span></li><li><input type="checkbox" aria-label="done" data-k="kc6bed24c32"><span>Shopping list updated for the next delivery</span></li></ul>
 <p class="sub">Allergies</p>
-<p>Ask for allergies in the pre arrival message and again at the table. Keep a card listing the 14 EU allergens in every dish; staff never guess.</p></section><section id="en-s8"><h2><span class="n">08</span>Weekend brunch</h2>
+<p>Ask for allergies in the pre arrival message and again at the table. Keep a card listing the 14 EU allergens in every dish; staff never guess.</p></section><section id="en-s9"><h2><span class="n">09</span>Weekend brunch</h2>
 <p>Brunch runs Saturday and Sunday, 10:00 to 14:00, with the team on from 09:00 to 15:00. On weekends, hotel breakfast ends at 10:00 so the kitchen can switch over; guests who come later order from the brunch menu, with their breakfast included up to its value.</p>
 <p class="sub">The menu</p>
 <ul>
@@ -480,7 +1260,7 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);color:v
 <li>Groups over 8 book by phone with a set menu and a card deposit.</li>
 </ul>
 <p class="sub">Friday prep</p>
-<ul class="check"><li><input type="checkbox" aria-label="done"><span>Check the booking count; order fresh produce for Saturday morning delivery</span></li><li><input type="checkbox" aria-label="done"><span>Prep sauces, doughs, cut vegetables, portion meats; label and date everything</span></li><li><input type="checkbox" aria-label="done"><span>Garden set: tables, cushions, umbrellas or heaters checked</span></li></ul>
+<ul class="check"><li><input type="checkbox" aria-label="done" data-k="kcbe317640a"><span>Check the booking count; order fresh produce for Saturday morning delivery</span></li><li><input type="checkbox" aria-label="done" data-k="ka1ba1355df"><span>Prep sauces, doughs, cut vegetables, portion meats; label and date everything</span></li><li><input type="checkbox" aria-label="done" data-k="k9dd0c9d67f"><span>Garden set: tables, cushions, umbrellas or heaters checked</span></li></ul>
 <p class="sub">Service day</p>
 <ol>
 <li>09:00: team in, fridge temperatures logged, coffee machine on, garden laid.</li>
@@ -504,8 +1284,8 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);color:v
 </ul>
 <p class="sub">Moving to weekdays</p>
 <p>Add weekdays only when all of these are true for 6 weekends in a row:</p>
-<ul class="check"><li><input type="checkbox" aria-label="done"><span>Average of 40 or more guests per day</span></li><li><input type="checkbox" aria-label="done"><span>Food cost at or under 32%</span></li><li><input type="checkbox" aria-label="done"><span>Weekend service runs without an owner in the kitchen</span></li><li><input type="checkbox" aria-label="done"><span>Reviews mention brunch positively</span></li></ul>
-<p>Start with Friday only. Run it for a month and check the same four points before adding another day.</p></section><section id="en-s9"><h2><span class="n">09</span>Private events</h2>
+<ul class="check"><li><input type="checkbox" aria-label="done" data-k="kaff963a90a"><span>Average of 40 or more guests per day</span></li><li><input type="checkbox" aria-label="done" data-k="ke909eda230"><span>Food cost at or under 32%</span></li><li><input type="checkbox" aria-label="done" data-k="k121ccb5e59"><span>Weekend service runs without an owner in the kitchen</span></li><li><input type="checkbox" aria-label="done" data-k="kf9fdea8dcf"><span>Reviews mention brunch positively</span></li></ul>
+<p>Start with Friday only. Run it for a month and check the same four points before adding another day.</p></section><section id="en-s10"><h2><span class="n">10</span>Private events</h2>
 <p>Events are small, planned and paid in advance: up to about 50 guests in the garden, with a signed agreement and a deposit before a date is held. Every event must fit around hotel guests and the owners who live on site.</p>
 <p class="sub">Event rules to agree with the owner first</p>
 <div class="tbl"><table>
@@ -549,9 +1329,9 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);color:v
 <li>Cancellation: deposit kept if cancelled within 60 days; full price if within 14 days.</li>
 </ol>
 <p class="sub">The agreement must state</p>
-<ul class="check"><li><input type="checkbox" aria-label="done"><span>Date, start and finish times, guest numbers and the menu</span></li><li><input type="checkbox" aria-label="done"><span>Price per guest, venue hire fee, deposit and payment dates</span></li><li><input type="checkbox" aria-label="done"><span>Music and noise rules, finish time, smoking area</span></li><li><input type="checkbox" aria-label="done"><span>Damage: the client pays for anything broken by their guests</span></li><li><input type="checkbox" aria-label="done"><span>Outside suppliers (cakes, flowers, photographers) must be agreed in advance</span></li></ul>
+<ul class="check"><li><input type="checkbox" aria-label="done" data-k="ka521b5530b"><span>Date, start and finish times, guest numbers and the menu</span></li><li><input type="checkbox" aria-label="done" data-k="k49c3ca6470"><span>Price per guest, venue hire fee, deposit and payment dates</span></li><li><input type="checkbox" aria-label="done" data-k="kec9dea0621"><span>Music and noise rules, finish time, smoking area</span></li><li><input type="checkbox" aria-label="done" data-k="kb796bb486d"><span>Damage: the client pays for anything broken by their guests</span></li><li><input type="checkbox" aria-label="done" data-k="k466894d8f4"><span>Outside suppliers (cakes, flowers, photographers) must be agreed in advance</span></li></ul>
 <p class="sub">The week before</p>
-<ul class="check"><li><input type="checkbox" aria-label="done"><span>Confirm numbers, dietary needs and allergies; order food and drinks</span></li><li><input type="checkbox" aria-label="done"><span>Book extra staff: one server per 15 to 20 guests, plus kitchen help</span></li><li><input type="checkbox" aria-label="done"><span>Hire extra crockery, tables or chairs if needed</span></li><li><input type="checkbox" aria-label="done"><span>Tell hotel guests and the owners the date and times</span></li></ul>
+<ul class="check"><li><input type="checkbox" aria-label="done" data-k="k2ebae0ed82"><span>Confirm numbers, dietary needs and allergies; order food and drinks</span></li><li><input type="checkbox" aria-label="done" data-k="kfaac6c8b45"><span>Book extra staff: one server per 15 to 20 guests, plus kitchen help</span></li><li><input type="checkbox" aria-label="done" data-k="kdd15eadd01"><span>Hire extra crockery, tables or chairs if needed</span></li><li><input type="checkbox" aria-label="done" data-k="k87a103012e"><span>Tell hotel guests and the owners the date and times</span></li></ul>
 <p class="sub">On the day</p>
 <ol>
 <li>Setup finished 1 hour before guests arrive; an owner walks through and approves it.</li>
@@ -561,10 +1341,10 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);color:v
 <li>23:00 music off; 23:30 guests leave; clean up the garden the same night so hotel guests wake to a clean space.</li>
 </ol>
 <p class="sub">After the event</p>
-<p>Send a thank you within 2 days with a request for a Google review and a few photos you may use. Write in the events log what went well and what to fix.</p></section><section id="en-s10"><h2><span class="n">10</span>Food safety</h2>
+<p>Send a thank you within 2 days with a request for a Google review and a few photos you may use. Write in the events log what went well and what to fix.</p></section><section id="en-s11"><h2><span class="n">11</span>Food safety</h2>
 <p>Any business serving food in Cyprus must run a food safety system based on HACCP and keep written records that a health inspector can check at any time. Keep it simple: a few logs filled in every day, and nobody touching food without a valid certificate.</p>
 <p class="sub">Before opening</p>
-<ul class="check"><li><input type="checkbox" aria-label="done"><span>Register the kitchen with the local health services and ask what inspection they need before you serve the public</span></li><li><input type="checkbox" aria-label="done"><span>A simple HACCP plan written for your menu; a food safety consultant can do this for a small fee</span></li><li><input type="checkbox" aria-label="done"><span>Food handler certificates for everyone who prepares or serves food, including both owners</span></li><li><input type="checkbox" aria-label="done"><span>Pest control contract in place before the first delivery</span></li></ul>
+<ul class="check"><li><input type="checkbox" aria-label="done" data-k="k6254ef4813"><span>Register the kitchen with the local health services and ask what inspection they need before you serve the public</span></li><li><input type="checkbox" aria-label="done" data-k="k605cc4006f"><span>A simple HACCP plan written for your menu; a food safety consultant can do this for a small fee</span></li><li><input type="checkbox" aria-label="done" data-k="k9075f89064"><span>Food handler certificates for everyone who prepares or serves food, including both owners</span></li><li><input type="checkbox" aria-label="done" data-k="k76af55ac4d"><span>Pest control contract in place before the first delivery</span></li></ul>
 <p class="sub">Temperatures</p>
 <div class="tbl"><table>
 <thead>
@@ -622,7 +1402,7 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);color:v
 <li>Pest control reports</li>
 <li>Staff certificates and training records</li>
 </ul>
-<p>Keep these for at least one year in a folder in the kitchen.</p></section><section id="en-s11"><h2><span class="n">11</span>Maintenance</h2>
+<p>Keep these for at least one year in a folder in the kitchen.</p></section><section id="en-s12"><h2><span class="n">12</span>Maintenance</h2>
 <p>Small problems fixed the same day are what keep a new building looking new and reviews above 9. Every fault goes into one maintenance log, with the date it was reported and the date it was fixed.</p>
 <p class="sub">Who fixes what</p>
 <div class="tbl"><table>
@@ -656,25 +1436,25 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);color:v
 </tbody>
 </table></div>
 <p class="sub">Daily (housekeeping and the owner on rooms)</p>
-<ul class="check"><li><input type="checkbox" aria-label="done"><span>Every room checked during cleaning: lights, AC, TV, shower pressure, hot water, door code</span></li><li><input type="checkbox" aria-label="done"><span>Lift working; any noise or jolt reported</span></li><li><input type="checkbox" aria-label="done"><span>Garden lights and irrigation working</span></li></ul>
+<ul class="check"><li><input type="checkbox" aria-label="done" data-k="k395a9acf53"><span>Every room checked during cleaning: lights, AC, TV, shower pressure, hot water, door code</span></li><li><input type="checkbox" aria-label="done" data-k="k7ae2e1358a"><span>Lift working; any noise or jolt reported</span></li><li><input type="checkbox" aria-label="done" data-k="kdc5fa9cc91"><span>Garden lights and irrigation working</span></li></ul>
 <p class="sub">Weekly</p>
-<ul class="check"><li><input type="checkbox" aria-label="done"><span>Walk the whole building: corridors, stairs, garden, kitchen, store rooms</span></li><li><input type="checkbox" aria-label="done"><span>Test the door code system and the backup key</span></li><li><input type="checkbox" aria-label="done"><span>Check for leaks under sinks and around toilets</span></li></ul>
+<ul class="check"><li><input type="checkbox" aria-label="done" data-k="k925898bf33"><span>Walk the whole building: corridors, stairs, garden, kitchen, store rooms</span></li><li><input type="checkbox" aria-label="done" data-k="k95970984f6"><span>Test the door code system and the backup key</span></li><li><input type="checkbox" aria-label="done" data-k="k880b39d180"><span>Check for leaks under sinks and around toilets</span></li></ul>
 <p class="sub">Monthly</p>
-<ul class="check"><li><input type="checkbox" aria-label="done"><span>AC filters cleaned in every room and the kitchen</span></li><li><input type="checkbox" aria-label="done"><span>Kitchen extraction filters cleaned</span></li><li><input type="checkbox" aria-label="done"><span>Fire extinguishers visually checked; emergency lights tested</span></li><li><input type="checkbox" aria-label="done"><span>Pest control visit report filed</span></li></ul>
+<ul class="check"><li><input type="checkbox" aria-label="done" data-k="kb817c950d7"><span>AC filters cleaned in every room and the kitchen</span></li><li><input type="checkbox" aria-label="done" data-k="k2878610487"><span>Kitchen extraction filters cleaned</span></li><li><input type="checkbox" aria-label="done" data-k="k961d419b24"><span>Fire extinguishers visually checked; emergency lights tested</span></li><li><input type="checkbox" aria-label="done" data-k="kb382798283"><span>Pest control visit report filed</span></li></ul>
 <p class="sub">Every 6 months</p>
-<ul class="check"><li><input type="checkbox" aria-label="done"><span>Full AC service by a technician before summer and before winter</span></li><li><input type="checkbox" aria-label="done"><span>Touch up paint in rooms and corridors</span></li><li><input type="checkbox" aria-label="done"><span>Check grout, silicone and drains in all bathrooms</span></li></ul>
+<ul class="check"><li><input type="checkbox" aria-label="done" data-k="k51441fc7e6"><span>Full AC service by a technician before summer and before winter</span></li><li><input type="checkbox" aria-label="done" data-k="kcf35a28e70"><span>Touch up paint in rooms and corridors</span></li><li><input type="checkbox" aria-label="done" data-k="k82f396f57b"><span>Check grout, silicone and drains in all bathrooms</span></li></ul>
 <p class="sub">Yearly</p>
-<ul class="check"><li><input type="checkbox" aria-label="done"><span>Fire extinguishers and alarms serviced and certified</span></li><li><input type="checkbox" aria-label="done"><span>Lift inspection certificate renewed</span></li><li><input type="checkbox" aria-label="done"><span>Electrical safety check of your own appliances</span></li><li><input type="checkbox" aria-label="done"><span>Close one room at a time in January for a deep refresh</span></li></ul>
+<ul class="check"><li><input type="checkbox" aria-label="done" data-k="kdf82baa6cd"><span>Fire extinguishers and alarms serviced and certified</span></li><li><input type="checkbox" aria-label="done" data-k="k535736acd0"><span>Lift inspection certificate renewed</span></li><li><input type="checkbox" aria-label="done" data-k="kb76c0a7deb"><span>Electrical safety check of your own appliances</span></li><li><input type="checkbox" aria-label="done" data-k="k4c3aeb00e7"><span>Close one room at a time in January for a deep refresh</span></li></ul>
 <p class="sub">When something breaks while a guest is in the room</p>
 <ol>
 <li>Apologise and give a time it will be fixed.</li>
 <li>If it cannot be fixed within 2 hours and affects comfort (no AC in summer, no hot water), move the guest to another room.</li>
 <li>If no room is free, offer a discount on the night and fix it first thing the next day.</li>
 </ol>
-<p>Keep a contact list of a plumber, electrician, AC technician, lift company and locksmith who will come the same day, and agree their call out fees in advance.</p></section><section id="en-s12"><h2><span class="n">12</span>Safety and emergencies</h2>
+<p>Keep a contact list of a plumber, electrician, AC technician, lift company and locksmith who will come the same day, and agree their call out fees in advance.</p></section><section id="en-s13"><h2><span class="n">13</span>Safety and emergencies</h2>
 <p>With no one on site at night, guests must be able to get out safely and reach help on their own. The emergency number in Cyprus is 112 for police, fire and ambulance.</p>
 <p class="sub">What must be in place before the first guest</p>
-<ul class="check"><li><input type="checkbox" aria-label="done"><span>Fire exit plan on the back of every room door, in English and Greek</span></li><li><input type="checkbox" aria-label="done"><span>Emergency lighting and exit signs working on every floor</span></li><li><input type="checkbox" aria-label="done"><span>Fire extinguishers and a fire blanket in the kitchen, serviced and dated</span></li><li><input type="checkbox" aria-label="done"><span>Smoke detectors in every room and corridor, tested</span></li><li><input type="checkbox" aria-label="done"><span>Doors open from inside without a code, always</span></li><li><input type="checkbox" aria-label="done"><span>First aid kit in the kitchen and at reception, checked monthly</span></li><li><input type="checkbox" aria-label="done"><span>Night phone number and 112 on the room information card</span></li><li><input type="checkbox" aria-label="done"><span>Fire safety certificate confirmed with the owner</span></li></ul>
+<ul class="check"><li><input type="checkbox" aria-label="done" data-k="ka5b1659fa0"><span>Fire exit plan on the back of every room door, in English and Greek</span></li><li><input type="checkbox" aria-label="done" data-k="k60522db992"><span>Emergency lighting and exit signs working on every floor</span></li><li><input type="checkbox" aria-label="done" data-k="k3a74dd8bb0"><span>Fire extinguishers and a fire blanket in the kitchen, serviced and dated</span></li><li><input type="checkbox" aria-label="done" data-k="k13eca67f1b"><span>Smoke detectors in every room and corridor, tested</span></li><li><input type="checkbox" aria-label="done" data-k="kba4954cba5"><span>Doors open from inside without a code, always</span></li><li><input type="checkbox" aria-label="done" data-k="ke1373b27b9"><span>First aid kit in the kitchen and at reception, checked monthly</span></li><li><input type="checkbox" aria-label="done" data-k="kc919ee5c4f"><span>Night phone number and 112 on the room information card</span></li><li><input type="checkbox" aria-label="done" data-k="kbeafcaf241"><span>Fire safety certificate confirmed with the owner</span></li></ul>
 <p class="sub">Fire</p>
 <ol>
 <li>Anyone who finds a fire raises the alarm and calls 112.</li>
@@ -725,7 +1505,7 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);color:v
 <li>Keep recordings no longer than needed, usually up to 30 days, unless an incident needs them.</li>
 <li>Guest details (names, IDs, cards, phone numbers) are personal data under GDPR: store them only in the booking system, never in personal chats or on paper left out.</li>
 <li>Only owners and named staff can access guest data. Delete what you no longer need.</li>
-</ul></section><section id="en-s13"><h2><span class="n">13</span>Guest experience and reviews</h2>
+</ul></section><section id="en-s14"><h2><span class="n">14</span>Guest experience and reviews</h2>
 <p>The goal is a Booking.com score of 9.0 or higher by the end of the first summer. At your price level guests expect a personal touch, and with self check in that touch has to come from messages, small details and the owners being seen.</p>
 <p class="sub">What earns a 9 or 10 at a boutique hotel</p>
 <div class="tbl"><table>
@@ -778,7 +1558,7 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);color:v
 <li>Every Monday, read the week's reviews together and pick one thing to improve.</li>
 </ol>
 <p class="sub">Guest messages</p>
-<p>Keep ready made answers for the common questions (parking, Wi Fi, airport transfer, late check out, nearby restaurants) in the booking system, but always add a personal line.</p></section><section id="en-s14"><h2><span class="n">14</span>Pricing and revenue</h2>
+<p>Keep ready made answers for the common questions (parking, Wi Fi, airport transfer, late check out, nearby restaurants) in the booking system, but always add a personal line.</p></section><section id="en-s15"><h2><span class="n">15</span>Pricing and revenue</h2>
 <p>Prices are set every week, not once a season. One hour every Monday is enough for 7 rooms, and it is worth more than any other hour of the week.</p>
 <p class="sub">The Monday pricing routine</p>
 <ol>
@@ -861,7 +1641,7 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);color:v
 </tr>
 </tbody>
 </table></div>
-<p>Once open, enter the real monthly results next to the plan, so you see early whether the year is on track.</p></section><section id="en-s15"><h2><span class="n">15</span>Money and admin</h2>
+<p>Once open, enter the real monthly results next to the plan, so you see early whether the year is on track.</p></section><section id="en-s16"><h2><span class="n">16</span>Money and admin</h2>
 <p>Know your cash position every day and your profit every month. Most small hotels that fail run out of cash in the winter, not customers in the summer.</p>
 <p class="sub">Daily cash up (10 minutes, every evening)</p>
 <ol>
@@ -872,11 +1652,11 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);color:v
 <li>Note the totals in the daily sheet.</li>
 </ol>
 <p class="sub">Weekly</p>
-<ul class="check"><li><input type="checkbox" aria-label="done"><span>Pay supplier invoices due that week; check each against the delivery note</span></li><li><input type="checkbox" aria-label="done"><span>Check Booking.com, Airbnb and Expedia payouts arrived and match the bookings</span></li><li><input type="checkbox" aria-label="done"><span>Cash forecast for the next 4 weeks: money coming in versus rent, payroll and suppliers</span></li></ul>
+<ul class="check"><li><input type="checkbox" aria-label="done" data-k="k0df00b4e3b"><span>Pay supplier invoices due that week; check each against the delivery note</span></li><li><input type="checkbox" aria-label="done" data-k="kde297daea2"><span>Check Booking.com, Airbnb and Expedia payouts arrived and match the bookings</span></li><li><input type="checkbox" aria-label="done" data-k="k417110914b"><span>Cash forecast for the next 4 weeks: money coming in versus rent, payroll and suppliers</span></li></ul>
 <p class="sub">Monthly</p>
-<ul class="check"><li><input type="checkbox" aria-label="done"><span>Payroll and social insurance paid on time</span></li><li><input type="checkbox" aria-label="done"><span>Rent paid on the agreed date</span></li><li><input type="checkbox" aria-label="done"><span>All invoices and receipts sent to the accountant by the 5th</span></li><li><input type="checkbox" aria-label="done"><span>Results entered in the plan: occupancy, rate, brunch, events, costs, profit</span></li><li><input type="checkbox" aria-label="done"><span>A one hour review together: what is ahead or behind the plan, and one action for next month</span></li></ul>
+<ul class="check"><li><input type="checkbox" aria-label="done" data-k="kf3ba25b5b1"><span>Payroll and social insurance paid on time</span></li><li><input type="checkbox" aria-label="done" data-k="k02a963d3e4"><span>Rent paid on the agreed date</span></li><li><input type="checkbox" aria-label="done" data-k="k938d806915"><span>All invoices and receipts sent to the accountant by the 5th</span></li><li><input type="checkbox" aria-label="done" data-k="k0bbc4d7fd1"><span>Results entered in the plan: occupancy, rate, brunch, events, costs, profit</span></li><li><input type="checkbox" aria-label="done" data-k="kdc61ef1561"><span>A one hour review together: what is ahead or behind the plan, and one action for next month</span></li></ul>
 <p class="sub">Quarterly and yearly</p>
-<ul class="check"><li><input type="checkbox" aria-label="done"><span>VAT returns with the accountant</span></li><li><input type="checkbox" aria-label="done"><span>Yearly accounts and audit</span></li><li><input type="checkbox" aria-label="done"><span>Insurance and licences renewed before they expire</span></li></ul>
+<ul class="check"><li><input type="checkbox" aria-label="done" data-k="kd5396f751f"><span>VAT returns with the accountant</span></li><li><input type="checkbox" aria-label="done" data-k="ka477e0b50c"><span>Yearly accounts and audit</span></li><li><input type="checkbox" aria-label="done" data-k="ka657b8790a"><span>Insurance and licences renewed before they expire</span></li></ul>
 <p class="sub">Suppliers</p>
 <ul>
 <li>Keep at least two suppliers for anything you cannot run without: food, laundry, coffee, drinks.</li>
@@ -884,10 +1664,10 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);color:v
 <li>Review prices every 6 months; ask for a better price once you have steady volume.</li>
 </ul>
 <p class="sub">Cash reserve</p>
-<p>Keep enough in the bank to cover 3 months of fixed costs (rent, salaries, running costs) before you take any profit out. It is what carries you through January and February.</p></section><section id="en-s16"><h2><span class="n">16</span>Hiring and training staff</h2>
+<p>Keep enough in the bank to cover 3 months of fixed costs (rent, salaries, running costs) before you take any profit out. It is what carries you through January and February.</p></section><section id="en-s17"><h2><span class="n">17</span>Hiring and training staff</h2>
 <p>Hire for attitude and train for skill: a warm, reliable person can learn the routines in this manual, but nobody can be trained to care. Start everyone with a written contract and a probation period.</p>
 <p class="sub">Before the first hire</p>
-<ul class="check"><li><input type="checkbox" aria-label="done"><span>The company registered as an employer with social insurance</span></li><li><input type="checkbox" aria-label="done"><span>Employer's liability insurance in place</span></li><li><input type="checkbox" aria-label="done"><span>A standard contract checked by your accountant or lawyer: hours, pay, days off, probation, notice</span></li><li><input type="checkbox" aria-label="done"><span>Check the current national minimum wage and any hotel sector agreement on pay, 13th salary or service charge</span></li></ul>
+<ul class="check"><li><input type="checkbox" aria-label="done" data-k="kbd2a6a9975"><span>The company registered as an employer with social insurance</span></li><li><input type="checkbox" aria-label="done" data-k="kccc54f7fea"><span>Employer's liability insurance in place</span></li><li><input type="checkbox" aria-label="done" data-k="k83e6694df3"><span>A standard contract checked by your accountant or lawyer: hours, pay, days off, probation, notice</span></li><li><input type="checkbox" aria-label="done" data-k="kbe6d2157a8"><span>Check the current national minimum wage and any hotel sector agreement on pay, 13th salary or service charge</span></li></ul>
 <p class="sub">Hiring</p>
 <ol>
 <li>Write a short job description from the relevant section of this manual.</li>
@@ -937,10 +1717,10 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);color:v
 <li>Review each person after 3 months and every year after.</li>
 </ul>
 <p class="sub">When things go wrong</p>
-<p>Raise a problem privately and early, write down what was agreed, and follow the probation and notice terms in the contract. Take advice from your accountant or lawyer before ending anyone's employment.</p></section><section id="en-s17"><h2><span class="n">17</span>Living alongside the owners</h2>
+<p>Raise a problem privately and early, write down what was agreed, and follow the probation and notice terms in the contract. Take advice from your accountant or lawyer before ending anyone's employment.</p></section><section id="en-s18"><h2><span class="n">18</span>Living alongside the owners</h2>
 <p>The owners live in the same building, so a good relationship with them is part of running the hotel. Agree the rules in writing at the start; it is much easier than fixing a misunderstanding later.</p>
 <p class="sub">Agree in writing</p>
-<ul class="check"><li><input type="checkbox" aria-label="done"><span>Which areas are shared, which are the hotel's, and which are private</span></li><li><input type="checkbox" aria-label="done"><span>Which entrance each side uses, and whether guests ever pass through the owners' areas</span></li><li><input type="checkbox" aria-label="done"><span>Quiet hours for the hotel, events and brunch</span></li><li><input type="checkbox" aria-label="done"><span>How many events per month, and how much notice the owners get</span></li><li><input type="checkbox" aria-label="done"><span>Who parks where, and where deliveries arrive</span></li><li><input type="checkbox" aria-label="done"><span>Whether the owners may use the garden, and when</span></li></ul>
+<ul class="check"><li><input type="checkbox" aria-label="done" data-k="ka0263b4495"><span>Which areas are shared, which are the hotel's, and which are private</span></li><li><input type="checkbox" aria-label="done" data-k="k536d2d4a7e"><span>Which entrance each side uses, and whether guests ever pass through the owners' areas</span></li><li><input type="checkbox" aria-label="done" data-k="k7454ac46de"><span>Quiet hours for the hotel, events and brunch</span></li><li><input type="checkbox" aria-label="done" data-k="k0911636647"><span>How many events per month, and how much notice the owners get</span></li><li><input type="checkbox" aria-label="done" data-k="kb39f870f88"><span>Who parks where, and where deliveries arrive</span></li><li><input type="checkbox" aria-label="done" data-k="kc2891bb710"><span>Whether the owners may use the garden, and when</span></li></ul>
 <p class="sub">Day to day</p>
 <ul>
 <li>Share the events calendar with them at the start of each month.</li>
@@ -949,7 +1729,7 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);color:v
 <li>A short catch up once a month: what is working, what is not.</li>
 </ul>
 <p class="sub">Guests and the owners</p>
-<p>Guests should never feel they are staying in someone's home. Keep private areas clearly marked, keep the owners' comings and goings separate from guest areas where possible, and agree how to introduce them if a guest asks.</p></section><section id="en-s18" class="tpl"><h2><span class="n">18</span>Templates</h2>
+<p>Guests should never feel they are staying in someone's home. Keep private areas clearly marked, keep the owners' comings and goings separate from guest areas where possible, and agree how to introduce them if a guest asks.</p></section><section id="en-s19" class="tpl"><h2><span class="n">19</span>Templates</h2>
 <p>Print these, keep them on a clipboard where the work happens, and file the completed sheets weekly.</p>
 <p class="sub">Fridge and freezer temperature log</p>
 <div class="tbl"><table>
@@ -1247,7 +2027,7 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);color:v
 <div class="switch" role="group" aria-label="Language"><button type="button" data-set="en" aria-pressed="false">EN</button><button type="button" data-set="el" aria-pressed="false">GR</button></div>
 <button type="button" class="clear">Καθαρισμός όλων των επιλογών</button>
 <p class="brand">Περιεχόμενα</p>
-<ol><li><a href="#el-s1">Πώς να χρησιμοποιείτε αυτό το εγχειρίδιο</a></li><li><a href="#el-s2">Πριν υπογράψετε</a></li><li><a href="#el-s3">Το πλάνο έναρξης 8 εβδομάδων</a></li><li><a href="#el-s4">Ρόλοι και εβδομαδιαίο πρόγραμμα</a></li><li><a href="#el-s5">Κρατήσεις και αυτόνομο check-in</a></li><li><a href="#el-s6">Καθαριότητα δωματίων</a></li><li><a href="#el-s7">Πρωινό</a></li><li><a href="#el-s8">Brunch Σαββατοκύριακου</a></li><li><a href="#el-s9">Ιδιωτικές εκδηλώσεις</a></li><li><a href="#el-s10">Ασφάλεια τροφίμων</a></li><li><a href="#el-s11">Συντήρηση</a></li><li><a href="#el-s12">Ασφάλεια και έκτακτα περιστατικά</a></li><li><a href="#el-s13">Εμπειρία επισκεπτών και αξιολογήσεις</a></li><li><a href="#el-s14">Τιμολόγηση και έσοδα</a></li><li><a href="#el-s15">Οικονομικά και διαχείριση</a></li><li><a href="#el-s16">Πρόσληψη και εκπαίδευση προσωπικού</a></li><li><a href="#el-s17">Συμβίωση με τους ιδιοκτήτες του ακινήτου</a></li><li><a href="#el-s18">Πρότυπα</a></li></ol>
+<ol><li><a href="#el-s1">Πώς να χρησιμοποιείτε αυτό το εγχειρίδιο</a></li><li><a href="#el-s2">Πριν υπογράψετε</a></li><li><a href="#el-s3">Το πλάνο έναρξης 8 εβδομάδων</a></li><li><a href="#el-s4">Τι να αγοράσετε</a></li><li><a href="#el-s5">Ρόλοι και εβδομαδιαίο πρόγραμμα</a></li><li><a href="#el-s6">Κρατήσεις και αυτόνομο check-in</a></li><li><a href="#el-s7">Καθαριότητα δωματίων</a></li><li><a href="#el-s8">Πρωινό</a></li><li><a href="#el-s9">Brunch Σαββατοκύριακου</a></li><li><a href="#el-s10">Ιδιωτικές εκδηλώσεις</a></li><li><a href="#el-s11">Ασφάλεια τροφίμων</a></li><li><a href="#el-s12">Συντήρηση</a></li><li><a href="#el-s13">Ασφάλεια και έκτακτα περιστατικά</a></li><li><a href="#el-s14">Εμπειρία επισκεπτών και αξιολογήσεις</a></li><li><a href="#el-s15">Τιμολόγηση και έσοδα</a></li><li><a href="#el-s16">Οικονομικά και διαχείριση</a></li><li><a href="#el-s17">Πρόσληψη και εκπαίδευση προσωπικού</a></li><li><a href="#el-s18">Συμβίωση με τους ιδιοκτήτες του ακινήτου</a></li><li><a href="#el-s19">Πρότυπα</a></li></ol>
 </nav>
 <main>
 <header class="cover"><h1>Εγχειρίδιο Λειτουργίας Ξενοδοχείου</h1><p>Οκτώβριος 2026</p></header>
@@ -1301,33 +2081,807 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);color:v
 </ol></section><section id="el-s2"><h2><span class="n">02</span>Πριν υπογράψετε</h2>
 <p>Μην υπογράψετε μέχρι να έχει απαντηθεί γραπτώς κάθε σημείο παρακάτω. Τα περισσότερα προβλήματα μεταξύ ενοικιαστών και ιδιοκτητών προέρχονται από πράγματα που συμφωνήθηκαν προφορικά.</p>
 <p class="sub">Η μίσθωση</p>
-<ul class="check"><li><input type="checkbox" aria-label="done"><span>Πρόγραμμα ενοικίου, οι μήνες προετοιμασίας χωρίς ενοίκιο (Ιανουάριος και Φεβρουάριος), και αν το ενοίκιο είναι συν ΦΠΑ</span></li><li><input type="checkbox" aria-label="done"><span>Ρήτρα πρόωρου τερματισμού: ζητήστε ο ιδιοκτήτης να μην μπορεί να τη χρησιμοποιήσει τα πρώτα 2 έως 3 χρόνια, ή να σας αποζημιώσει για τα έξοδα προετοιμασίας αν το κάνει</span></li><li><input type="checkbox" aria-label="done"><span>Ποιος πληρώνει τι: εσείς καλύπτετε την καθημερινή συντήρηση· ο ιδιοκτήτης καλύπτει το κτήριο (στέγη, δομή, υδραυλικά, ηλεκτρολογικά) και την αντικατάσταση σημαντικού εξοπλισμού που χαλάει, συμπεριλαμβανομένου του ανελκυστήρα και των κλιματιστικών</span></li><li><input type="checkbox" aria-label="done"><span>Κατασκευαστικά ελαττώματα τον πρώτο χρόνο είναι ευθύνη του ιδιοκτήτη</span></li><li><input type="checkbox" aria-label="done"><span>Οι εγγυήσεις εξοπλισμού (ανελκυστήρας, κλιματιστικά, κουζίνα) μεταφέρονται σε εσάς ή τις τηρεί ο ιδιοκτήτης</span></li><li><input type="checkbox" aria-label="done"><span>Εγγύηση €18,000: φυλάσσεται σε ονομαστικό λογαριασμό, επιστρέφεται μέσα σε συγκεκριμένο αριθμό ημερών στο τέλος, και μειώνεται μόνο για τεκμηριωμένες ζημιές</span></li><li><input type="checkbox" aria-label="done"><span>Ό,τι αγοράζετε (τηλεοράσεις, λευκά είδη, σερβίτσια, πλυντήριο πιάτων, παγομηχανή) παραμένει δικό σας όταν φύγετε</span></li><li><input type="checkbox" aria-label="done"><span>Μπορείτε να λειτουργείτε με δική σας επωνυμία, να αλλάξετε τη διακόσμηση, και να έχετε δική σας ιστοσελίδα και λογαριασμούς κρατήσεων</span></li></ul>
+<ul class="check"><li><input type="checkbox" aria-label="done" data-k="kb307c50122"><span>Πρόγραμμα ενοικίου, οι μήνες προετοιμασίας χωρίς ενοίκιο (Ιανουάριος και Φεβρουάριος), και αν το ενοίκιο είναι συν ΦΠΑ</span></li><li><input type="checkbox" aria-label="done" data-k="k6a2301cf9e"><span>Ρήτρα πρόωρου τερματισμού: ζητήστε ο ιδιοκτήτης να μην μπορεί να τη χρησιμοποιήσει τα πρώτα 2 έως 3 χρόνια, ή να σας αποζημιώσει για τα έξοδα προετοιμασίας αν το κάνει</span></li><li><input type="checkbox" aria-label="done" data-k="k65975829b2"><span>Ποιος πληρώνει τι: εσείς καλύπτετε την καθημερινή συντήρηση· ο ιδιοκτήτης καλύπτει το κτήριο (στέγη, δομή, υδραυλικά, ηλεκτρολογικά) και την αντικατάσταση σημαντικού εξοπλισμού που χαλάει, συμπεριλαμβανομένου του ανελκυστήρα και των κλιματιστικών</span></li><li><input type="checkbox" aria-label="done" data-k="k9b434de647"><span>Κατασκευαστικά ελαττώματα τον πρώτο χρόνο είναι ευθύνη του ιδιοκτήτη</span></li><li><input type="checkbox" aria-label="done" data-k="k7c98c5d6f3"><span>Οι εγγυήσεις εξοπλισμού (ανελκυστήρας, κλιματιστικά, κουζίνα) μεταφέρονται σε εσάς ή τις τηρεί ο ιδιοκτήτης</span></li><li><input type="checkbox" aria-label="done" data-k="kd9b1853057"><span>Εγγύηση €18.000: φυλάσσεται σε ονομαστικό λογαριασμό, επιστρέφεται μέσα σε συγκεκριμένο αριθμό ημερών στο τέλος, και μειώνεται μόνο για τεκμηριωμένες ζημιές</span></li><li><input type="checkbox" aria-label="done" data-k="k8fdf8d723c"><span>Ό,τι αγοράζετε (τηλεοράσεις, λευκά είδη, σερβίτσια, πλυντήριο πιάτων, παγομηχανή) παραμένει δικό σας όταν φύγετε</span></li><li><input type="checkbox" aria-label="done" data-k="k529c43ccfd"><span>Μπορείτε να λειτουργείτε με δική σας επωνυμία, να αλλάξετε τη διακόσμηση, και να έχετε δική σας ιστοσελίδα και λογαριασμούς κρατήσεων</span></li></ul>
 <p class="sub">Η απογραφή</p>
-<ul class="check"><li><input type="checkbox" aria-label="done"><span>Πλήρης λίστα όσων παρέχει ο ιδιοκτήτης, με φωτογραφίες και κατάσταση: ψυγεία, καταψύκτης, φούρνος, απορροφητήρας, πάγκοι προετοιμασίας, ράφια, ψυγείο μπαρ, έπιπλα, εξαρτήματα</span></li><li><input type="checkbox" aria-label="done"><span>Ένδειξη μετρητή ρεύματος και νερού την ημέρα που αναλαμβάνετε</span></li></ul>
+<ul class="check"><li><input type="checkbox" aria-label="done" data-k="kdf9ed50848"><span>Πλήρης λίστα όσων παρέχει ο ιδιοκτήτης, με φωτογραφίες και κατάσταση: ψυγεία, καταψύκτης, φούρνος, απορροφητήρας, πάγκοι προετοιμασίας, ράφια, ψυγείο μπαρ, έπιπλα, εξαρτήματα</span></li><li><input type="checkbox" aria-label="done" data-k="keb06a6c2da"><span>Ένδειξη μετρητή ρεύματος και νερού την ημέρα που αναλαμβάνετε</span></li></ul>
 <p class="sub">Άδειες και εγκρίσεις</p>
-<ul class="check"><li><input type="checkbox" aria-label="done"><span>Άδεια λειτουργίας ξενοδοχείου από το Υφυπουργείο Τουρισμού: επιβεβαιώστε ότι έχει εκδοθεί, ότι είναι σε ισχύ, και ότι η εταιρεία σας μπορεί να λειτουργεί με αυτήν</span></li><li><input type="checkbox" aria-label="done"><span>Αν η τρέχουσα άδεια επιτρέπει σερβίρισμα brunch και εκδηλώσεις για μη διαμένοντες· αν όχι, κάντε νωρίς αίτηση για άδεια εστίασης ώστε να είναι έτοιμη μέχρι τον Μάρτιο</span></li><li><input type="checkbox" aria-label="done"><span>Άδεια αλκοόλ, άδεια μεγαφώνων ή μουσικής, και πιστοποιητικά χειριστή τροφίμων για το προσωπικό της κουζίνας</span></li></ul>
+<ul class="check"><li><input type="checkbox" aria-label="done" data-k="k76067eac25"><span>Άδεια λειτουργίας ξενοδοχείου από το Υφυπουργείο Τουρισμού: επιβεβαιώστε ότι έχει εκδοθεί, ότι είναι σε ισχύ, και ότι η εταιρεία σας μπορεί να λειτουργεί με αυτήν</span></li><li><input type="checkbox" aria-label="done" data-k="kac218ddf02"><span>Αν η τρέχουσα άδεια επιτρέπει σερβίρισμα brunch και εκδηλώσεις για μη διαμένοντες· αν όχι, κάντε νωρίς αίτηση για άδεια εστίασης ώστε να είναι έτοιμη μέχρι τον Μάρτιο</span></li><li><input type="checkbox" aria-label="done" data-k="k984801be24"><span>Άδεια αλκοόλ, άδεια μεγαφώνων ή μουσικής, και πιστοποιητικά χειριστή τροφίμων για το προσωπικό της κουζίνας</span></li></ul>
 <p class="sub">Συμβίωση με τους ιδιοκτήτες</p>
-<ul class="check"><li><input type="checkbox" aria-label="done"><span>Ποιοι χώροι είναι κοινόχρηστοι, ποιες ώρες, και ποιος χρησιμοποιεί ποια είσοδο</span></li><li><input type="checkbox" aria-label="done"><span>Ώρες κοινής ησυχίας και κανόνες εκδηλώσεων συμφωνημένοι γραπτώς</span></li><li><input type="checkbox" aria-label="done"><span>Επιβεβαιωμένοι ξεχωριστοί μετρητές για την κατοικία των ιδιοκτητών</span></li></ul>
+<ul class="check"><li><input type="checkbox" aria-label="done" data-k="ke8351bbab0"><span>Ποιοι χώροι είναι κοινόχρηστοι, ποιες ώρες, και ποιος χρησιμοποιεί ποια είσοδο</span></li><li><input type="checkbox" aria-label="done" data-k="kce2bd61c60"><span>Ώρες κοινής ησυχίας και κανόνες εκδηλώσεων συμφωνημένοι γραπτώς</span></li><li><input type="checkbox" aria-label="done" data-k="k202f848abc"><span>Επιβεβαιωμένοι ξεχωριστοί μετρητές για την κατοικία των ιδιοκτητών</span></li></ul>
 <p class="sub">Η εταιρεία σας</p>
-<ul class="check"><li><input type="checkbox" aria-label="done"><span>Νέα εταιρεία εγγεγραμμένη για το ξενοδοχείο, με δικό της τραπεζικό λογαριασμό και εγγραφή στον ΦΠΑ</span></li><li><input type="checkbox" aria-label="done"><span>Εγγραφή εργοδότη στις Κοινωνικές Ασφαλίσεις πριν την πρώτη πρόσληψη</span></li><li><input type="checkbox" aria-label="done"><span>Ασφάλιση περιεχομένου, αστικής ευθύνης έναντι τρίτων και ευθύνης εργοδότη (υποχρεωτική μόλις έχετε προσωπικό)</span></li><li><input type="checkbox" aria-label="done"><span>Λογιστής συμφωνημένος πριν τον Ιανουάριο, ώστε η μισθοδοσία και ο ΦΠΑ να ξεκινήσουν σωστά</span></li></ul>
+<ul class="check"><li><input type="checkbox" aria-label="done" data-k="k5a802d594d"><span>Νέα εταιρεία εγγεγραμμένη για το ξενοδοχείο, με δικό της τραπεζικό λογαριασμό και εγγραφή στον ΦΠΑ</span></li><li><input type="checkbox" aria-label="done" data-k="kf6e307db51"><span>Εγγραφή εργοδότη στις Κοινωνικές Ασφαλίσεις πριν την πρώτη πρόσληψη</span></li><li><input type="checkbox" aria-label="done" data-k="k9a62d89d25"><span>Ασφάλιση περιεχομένου, αστικής ευθύνης έναντι τρίτων και ευθύνης εργοδότη (υποχρεωτική μόλις έχετε προσωπικό)</span></li><li><input type="checkbox" aria-label="done" data-k="kbc207a9334"><span>Λογιστής συμφωνημένος πριν τον Ιανουάριο, ώστε η μισθοδοσία και ο ΦΠΑ να ξεκινήσουν σωστά</span></li></ul>
 <p>Ζητήστε από δικηγόρο να διαβάσει την τελική μίσθωση πριν υπογράψετε. Πληρώστε για μία ώρα του χρόνου του· είναι η φθηνότερη ασφάλεια που θα αγοράσετε.</p></section><section id="el-s3"><h2><span class="n">03</span>Το πλάνο έναρξης 8 εβδομάδων</h2>
 <p>Ο στόχος για τον Ιανουάριο και τον Φεβρουάριο είναι απλός: άνοιγμα τον Μάρτιο με ενεργές καταχωρίσεις, τις πρώτες κρατήσεις, εκπαιδευμένο προσωπικό, και δύο πλήρεις δοκιμαστικές λειτουργίες. Ό,τι χρειάζεται προμηθευτή, άδεια ή φωτογράφο ξεκινά την εβδομάδα 1, γιατί αυτά είναι που καθυστερούν.</p>
 <p class="sub">Εβδομάδα 1: παραλαβή του κτηρίου</p>
-<ul class="check"><li><input type="checkbox" aria-label="done"><span>Περπατήστε το κτήριο με τον ιδιοκτήτη· υπογράψτε την απογραφή και καταγράψτε τις ενδείξεις μετρητών</span></li><li><input type="checkbox" aria-label="done"><span>Αλλάξτε ή καταγράψτε κάθε κωδικό πόρτας και κλειδί· ορίστε δικό σας κύριο κωδικό</span></li><li><input type="checkbox" aria-label="done"><span>Παραγγείλετε το πλυντήριο πιάτων, την παγομηχανή, τα σερβίτσια, τις τηλεοράσεις και τα λευκά είδη (η παράδοση παίρνει 2 έως 4 εβδομάδες)</span></li><li><input type="checkbox" aria-label="done"><span>Κλείστε τον φωτογράφο για την εβδομάδα 5, όταν τα δωμάτια θα είναι στημένα</span></li><li><input type="checkbox" aria-label="done"><span>Υποβάλετε αιτήσεις ή μεταβιβάσεις αδειών που δεν υπάρχουν ήδη</span></li></ul>
+<ul class="check"><li><input type="checkbox" aria-label="done" data-k="k0841f70631"><span>Περπατήστε το κτήριο με τον ιδιοκτήτη· υπογράψτε την απογραφή και καταγράψτε τις ενδείξεις μετρητών</span></li><li><input type="checkbox" aria-label="done" data-k="kd60576ae3b"><span>Αλλάξτε ή καταγράψτε κάθε κωδικό πόρτας και κλειδί· ορίστε δικό σας κύριο κωδικό</span></li><li><input type="checkbox" aria-label="done" data-k="k911dbeeebb"><span>Παραγγείλετε το πλυντήριο πιάτων, την παγομηχανή, τα σερβίτσια, τις τηλεοράσεις και τα λευκά είδη (η παράδοση παίρνει 2 έως 4 εβδομάδες)</span></li><li><input type="checkbox" aria-label="done" data-k="k9fc3503e25"><span>Κλείστε τον φωτογράφο για την εβδομάδα 5, όταν τα δωμάτια θα είναι στημένα</span></li><li><input type="checkbox" aria-label="done" data-k="kb0ca8c0c73"><span>Υποβάλετε αιτήσεις ή μεταβιβάσεις αδειών που δεν υπάρχουν ήδη</span></li></ul>
 <p class="sub">Εβδομάδα 2: συστήματα</p>
-<ul class="check"><li><input type="checkbox" aria-label="done"><span>Επιλέξτε και στήστε το σύστημα κρατήσεων και τον channel manager· καταχωρίστε δωμάτια, τιμές και πολιτικές</span></li><li><input type="checkbox" aria-label="done"><span>Ανοίξτε λογαριασμούς σε Booking.com, Airbnb και Expedia (η έγκριση μπορεί να πάρει 1 έως 2 εβδομάδες)</span></li><li><input type="checkbox" aria-label="done"><span>Τερματικό καρτών και σύστημα ταμείου για το brunch και το μπαρ</span></li><li><input type="checkbox" aria-label="done"><span>Στήσιμο του νυχτερινού τηλεφώνου και δοκιμή της προώθησης κλήσεων</span></li></ul>
+<ul class="check"><li><input type="checkbox" aria-label="done" data-k="k4242c23e1b"><span>Επιλέξτε και στήστε το σύστημα κρατήσεων και τον channel manager· καταχωρίστε δωμάτια, τιμές και πολιτικές</span></li><li><input type="checkbox" aria-label="done" data-k="ka42b59dc6a"><span>Ανοίξτε λογαριασμούς σε Booking.com, Airbnb και Expedia (η έγκριση μπορεί να πάρει 1 έως 2 εβδομάδες)</span></li><li><input type="checkbox" aria-label="done" data-k="k520d63ac88"><span>Τερματικό καρτών και σύστημα ταμείου για το brunch και το μπαρ</span></li><li><input type="checkbox" aria-label="done" data-k="k14213ae2a7"><span>Στήσιμο του νυχτερινού τηλεφώνου και δοκιμή της προώθησης κλήσεων</span></li></ul>
 <p class="sub">Εβδομάδα 3: προμηθευτές και μενού</p>
-<ul class="check"><li><input type="checkbox" aria-label="done"><span>Επιλέξτε προμηθευτές: πλυντήριο, τρόφιμα, καφές (ρωτήστε για δωρεάν μηχανή), ποτά, προϊόντα καθαρισμού, είδη περιποίησης</span></li><li><input type="checkbox" aria-label="done"><span>Γράψτε τα μενού πρωινού και brunch· κοστολογήστε κάθε πιάτο ώστε το κόστος τροφίμων να μένει κοντά στο 30% της τιμής</span></li><li><input type="checkbox" aria-label="done"><span>Συμφωνήστε συμβόλαια απεντόμωσης, πυρασφάλειας και συντήρησης κλιματιστικών</span></li></ul>
+<ul class="check"><li><input type="checkbox" aria-label="done" data-k="k89454ac2fa"><span>Επιλέξτε προμηθευτές: πλυντήριο, τρόφιμα, καφές (ρωτήστε για δωρεάν μηχανή), ποτά, προϊόντα καθαρισμού, είδη περιποίησης</span></li><li><input type="checkbox" aria-label="done" data-k="kd40011f725"><span>Γράψτε τα μενού πρωινού και brunch· κοστολογήστε κάθε πιάτο ώστε το κόστος τροφίμων να μένει κοντά στο 30% της τιμής</span></li><li><input type="checkbox" aria-label="done" data-k="kd9b6accdf7"><span>Συμφωνήστε συμβόλαια απεντόμωσης, πυρασφάλειας και συντήρησης κλιματιστικών</span></li></ul>
 <p class="sub">Εβδομάδα 4: προσλήψεις</p>
-<ul class="check"><li><input type="checkbox" aria-label="done"><span>Προσλάβετε καθαρίστρια και το άτομο για πρωινό και μπαρ· υπογεγραμμένα συμβόλαια, εγγραφή στις Κοινωνικές Ασφαλίσεις</span></li><li><input type="checkbox" aria-label="done"><span>Κλεισμένα πιστοποιητικά χειριστή τροφίμων για όποιον χειρίζεται τρόφιμα</span></li></ul>
+<ul class="check"><li><input type="checkbox" aria-label="done" data-k="k36d6295643"><span>Προσλάβετε καθαρίστρια και το άτομο για πρωινό και μπαρ· υπογεγραμμένα συμβόλαια, εγγραφή στις Κοινωνικές Ασφαλίσεις</span></li><li><input type="checkbox" aria-label="done" data-k="kbf4ccae152"><span>Κλεισμένα πιστοποιητικά χειριστή τροφίμων για όποιον χειρίζεται τρόφιμα</span></li></ul>
 <p class="sub">Εβδομάδα 5: έτοιμα δωμάτια, γύρισμα περιεχομένου</p>
-<ul class="check"><li><input type="checkbox" aria-label="done"><span>Δωμάτια πλήρως στημένα· κάθε δωμάτιο δοκιμασμένο (κλιματιστικό, τηλεόραση, ντους, Wi-Fi, κωδικός πόρτας)</span></li><li><input type="checkbox" aria-label="done"><span>Φωτογράφιση και βιντεοσκόπηση: δωμάτια, κήπος, πιάτα brunch, λεπτομέρειες</span></li><li><input type="checkbox" aria-label="done"><span>Ιστοσελίδα ενεργή με απευθείας κρατήσεις</span></li></ul>
+<ul class="check"><li><input type="checkbox" aria-label="done" data-k="ke0401f67d1"><span>Δωμάτια πλήρως στημένα· κάθε δωμάτιο δοκιμασμένο (κλιματιστικό, τηλεόραση, ντους, Wi-Fi, κωδικός πόρτας)</span></li><li><input type="checkbox" aria-label="done" data-k="kddec67432b"><span>Φωτογράφιση και βιντεοσκόπηση: δωμάτια, κήπος, πιάτα brunch, λεπτομέρειες</span></li><li><input type="checkbox" aria-label="done" data-k="k2b5ebabe68"><span>Ιστοσελίδα ενεργή με απευθείας κρατήσεις</span></li></ul>
 <p class="sub">Εβδομάδα 6: άνοιγμα για κρατήσεις</p>
-<ul class="check"><li><input type="checkbox" aria-label="done"><span>Καταχωρίσεις ενεργές σε όλα τα κανάλια με τις νέες φωτογραφίες· προσφορά έναρξης για διαμονές Μαρτίου</span></li><li><input type="checkbox" aria-label="done"><span>Ενεργά προφίλ Google Business, Instagram και Facebook</span></li><li><input type="checkbox" aria-label="done"><span>Εκπαίδευση προσωπικού με βάση αυτό το εγχειρίδιο, μία ενότητα την ημέρα</span></li></ul>
+<ul class="check"><li><input type="checkbox" aria-label="done" data-k="kfca5deea34"><span>Καταχωρίσεις ενεργές σε όλα τα κανάλια με τις νέες φωτογραφίες· προσφορά έναρξης για διαμονές Μαρτίου</span></li><li><input type="checkbox" aria-label="done" data-k="kbc2d9fe23e"><span>Ενεργά προφίλ Google Business, Instagram και Facebook</span></li><li><input type="checkbox" aria-label="done" data-k="ka01a3a3db4"><span>Εκπαίδευση προσωπικού με βάση αυτό το εγχειρίδιο, μία ενότητα την ημέρα</span></li></ul>
 <p class="sub">Εβδομάδα 7: δοκιμαστικές λειτουργίες</p>
-<ul class="check"><li><input type="checkbox" aria-label="done"><span>Φίλοι και οικογένεια μένουν 2 νύχτες: πλήρες check-in, καθαριότητα, πρωινό και check-out, και μετά γραπτή λίστα με κάθε πρόβλημα</span></li><li><input type="checkbox" aria-label="done"><span>Πλήρες δοκιμαστικό brunch για 20 έως 30 καλεσμένους</span></li><li><input type="checkbox" aria-label="done"><span>Διορθώστε όλα όσα υπάρχουν και στις δύο λίστες</span></li></ul>
+<ul class="check"><li><input type="checkbox" aria-label="done" data-k="kbc944c7443"><span>Φίλοι και οικογένεια μένουν 2 νύχτες: πλήρες check-in, καθαριότητα, πρωινό και check-out, και μετά γραπτή λίστα με κάθε πρόβλημα</span></li><li><input type="checkbox" aria-label="done" data-k="ka265292d5d"><span>Πλήρες δοκιμαστικό brunch για 20 έως 30 καλεσμένους</span></li><li><input type="checkbox" aria-label="done" data-k="k55907386d3"><span>Διορθώστε όλα όσα υπάρχουν και στις δύο λίστες</span></li></ul>
 <p class="sub">Εβδομάδα 8: τελικοί έλεγχοι</p>
-<ul class="check"><li><input type="checkbox" aria-label="done"><span>Δεύτερη δοκιμαστική λειτουργία αν η πρώτη είχε σοβαρά προβλήματα</span></li><li><input type="checkbox" aria-label="done"><span>Πλήρες απόθεμα: τρόφιμα, ποτά, είδη περιποίησης, καθαριστικά, εφεδρικά λευκά είδη</span></li><li><input type="checkbox" aria-label="done"><span>Ημέρα έναρξης τον Μάρτιο: και οι δύο ιδιοκτήτες στον χώρο όλη μέρα</span></li></ul></section><section id="el-s4"><h2><span class="n">04</span>Ρόλοι και εβδομαδιαίο πρόγραμμα</h2>
+<ul class="check"><li><input type="checkbox" aria-label="done" data-k="kc8b4e46809"><span>Δεύτερη δοκιμαστική λειτουργία αν η πρώτη είχε σοβαρά προβλήματα</span></li><li><input type="checkbox" aria-label="done" data-k="k6b81b282e2"><span>Πλήρες απόθεμα: τρόφιμα, ποτά, είδη περιποίησης, καθαριστικά, εφεδρικά λευκά είδη</span></li><li><input type="checkbox" aria-label="done" data-k="k024ec2f0b5"><span>Ημέρα έναρξης τον Μάρτιο: και οι δύο ιδιοκτήτες στον χώρο όλη μέρα</span></li></ul></section><section id="el-s4"><h2><span class="n">04</span>Τι να αγοράσετε</h2>
+<p>Όλα όσα χρειάζεται να αγοράσετε πριν το άνοιγμα, ανά τομέα. Εκτιμώμενες τιμές για μέση ξενοδοχειακή ποιότητα στην Κύπρο, με ΦΠΑ. Ζητήστε προσφορές από δύο προμηθευτές ξενοδοχείων για τα λευκά είδη και τα σερβίτσια πριν παραγγείλετε.</p>
+<p class="sub">Κρεβάτια</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Είδος</th>
+<th style="text-align: right;">Αριθμός δωματίων</th>
+<th style="text-align: right;">Τεμάχια ανά δωμάτιο</th>
+<th style="text-align: right;">Κόστος τεμαχίου</th>
+<th style="text-align: right;">Συνολικό κόστος</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Αδιάβροχο προστατευτικό στρώματος 160 x 200</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">€20</td>
+<td style="text-align: right;">€280</td>
+</tr>
+<tr>
+<td>Μαξιλάρια 50 x 70</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">€12</td>
+<td style="text-align: right;">€336</td>
+</tr>
+<tr>
+<td>Προστατευτικά μαξιλαριών 50 x 70</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">€4</td>
+<td style="text-align: right;">€224</td>
+</tr>
+<tr>
+<td>Πάπλωμα 200 x 220, μεσαίου βάρους</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">€45</td>
+<td style="text-align: right;">€315</td>
+</tr>
+<tr>
+<td>Ελαφριά κουβέρτα ή κουβερλί</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">€35</td>
+<td style="text-align: right;">€245</td>
+</tr>
+<tr>
+<td>Κουβερλί ή ράνερ κρεβατιού</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">€30</td>
+<td style="text-align: right;">€210</td>
+</tr>
+<tr>
+<td>Σεντόνι με λάστιχο 160 x 200</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">€15</td>
+<td style="text-align: right;">€315</td>
+</tr>
+<tr>
+<td>Παπλωματοθήκη 200 x 220</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">€25</td>
+<td style="text-align: right;">€525</td>
+</tr>
+<tr>
+<td>Μαξιλαροθήκες 50 x 70</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">€3,50</td>
+<td style="text-align: right;">€294</td>
+</tr>
+<tr>
+<td><strong>Υποσύνολο</strong></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"><strong>€2.744</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p class="sub">Λευκά είδη μπάνιου</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Είδος</th>
+<th style="text-align: right;">Αριθμός δωματίων</th>
+<th style="text-align: right;">Τεμάχια ανά δωμάτιο</th>
+<th style="text-align: right;">Κόστος τεμαχίου</th>
+<th style="text-align: right;">Συνολικό κόστος</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Πετσέτες μπάνιου 70 x 140</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">€8</td>
+<td style="text-align: right;">€336</td>
+</tr>
+<tr>
+<td>Πετσέτες χεριών 50 x 100</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">€4</td>
+<td style="text-align: right;">€168</td>
+</tr>
+<tr>
+<td>Πετσέτες προσώπου 30 x 30</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">€1,50</td>
+<td style="text-align: right;">€63</td>
+</tr>
+<tr>
+<td>Πατάκια μπάνιου</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">€5</td>
+<td style="text-align: right;">€105</td>
+</tr>
+<tr>
+<td><strong>Υποσύνολο</strong></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"><strong>€672</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p class="sub">Εξοπλισμός δωματίων</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Είδος</th>
+<th style="text-align: right;">Αριθμός δωματίων</th>
+<th style="text-align: right;">Τεμάχια ανά δωμάτιο</th>
+<th style="text-align: right;">Κόστος τεμαχίου</th>
+<th style="text-align: right;">Συνολικό κόστος</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Smart TV 43 ιντσών</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">€350</td>
+<td style="text-align: right;">€2.450</td>
+</tr>
+<tr>
+<td>Βάση τηλεόρασης τοίχου</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">€25</td>
+<td style="text-align: right;">€175</td>
+</tr>
+<tr>
+<td>Σεσουάρ μαλλιών</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">€30</td>
+<td style="text-align: right;">€210</td>
+</tr>
+<tr>
+<td>Ξύλινες κρεμάστρες</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">€2</td>
+<td style="text-align: right;">€112</td>
+</tr>
+<tr>
+<td>Καθρέφτης μπάνιου</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">€40</td>
+<td style="text-align: right;">€280</td>
+</tr>
+<tr>
+<td>Κάδοι απορριμμάτων, δωματίου και μπάνιου</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">€12</td>
+<td style="text-align: right;">€168</td>
+</tr>
+<tr>
+<td>Πιγκάλ τουαλέτας με βάση</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">€10</td>
+<td style="text-align: right;">€70</td>
+</tr>
+<tr>
+<td>Καρτελάκι πόρτας «Μην ενοχλείτε»</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">€3</td>
+<td style="text-align: right;">€21</td>
+</tr>
+<tr>
+<td>Φάκελος πληροφοριών δωματίου</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">€15</td>
+<td style="text-align: right;">€105</td>
+</tr>
+<tr>
+<td><strong>Υποσύνολο</strong></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"><strong>€3.591</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p class="sub">Είδη φιλοξενίας, αρχικό απόθεμα</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Είδος</th>
+<th style="text-align: right;">Ποσότητα</th>
+<th style="text-align: right;">Κόστος τεμαχίου</th>
+<th style="text-align: right;">Συνολικό κόστος</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Διανεμητές τοίχου: σαμπουάν, αφρόλουτρο, κρεμοσάπουνο</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">€15</td>
+<td style="text-align: right;">€315</td>
+</tr>
+<tr>
+<td>Ανταλλακτικά, δοχεία 5 λίτρων</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">€25</td>
+<td style="text-align: right;">€225</td>
+</tr>
+<tr>
+<td>Χαρτί υγείας, ξενοδοχειακή συσκευασία</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">€150</td>
+<td style="text-align: right;">€150</td>
+</tr>
+<tr>
+<td><strong>Υποσύνολο</strong></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"><strong>€690</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p class="sub">Καθαριότητα ορόφων</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Είδος</th>
+<th style="text-align: right;">Ποσότητα</th>
+<th style="text-align: right;">Κόστος τεμαχίου</th>
+<th style="text-align: right;">Συνολικό κόστος</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Καρότσι καθαριότητας</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">€250</td>
+<td style="text-align: right;">€250</td>
+</tr>
+<tr>
+<td>Σύστημα σφουγγαρίστρας και κουβά</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">€40</td>
+<td style="text-align: right;">€80</td>
+</tr>
+<tr>
+<td>Πανιά μικροϊνών με χρωματική κωδικοποίηση</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: right;">€1,50</td>
+<td style="text-align: right;">€60</td>
+</tr>
+<tr>
+<td>Καθαριστικά, αρχικό απόθεμα</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">€200</td>
+<td style="text-align: right;">€200</td>
+</tr>
+<tr>
+<td>Σάκοι πλυντηρίου για τα βρώμικα λευκά είδη</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">€15</td>
+<td style="text-align: right;">€90</td>
+</tr>
+<tr>
+<td>Κλειστοί σάκοι για τα κιτ των δωματίων του κήπου</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">€20</td>
+<td style="text-align: right;">€80</td>
+</tr>
+<tr>
+<td>Γάντια και ποδιές</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">€40</td>
+<td style="text-align: right;">€40</td>
+</tr>
+<tr>
+<td>Σκαλάκι</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">€50</td>
+<td style="text-align: right;">€50</td>
+</tr>
+<tr>
+<td><strong>Υποσύνολο</strong></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"><strong>€850</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p class="sub">Σερβίτσια για πρωινό και brunch</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Είδος</th>
+<th style="text-align: right;">Ποσότητα</th>
+<th style="text-align: right;">Κόστος τεμαχίου</th>
+<th style="text-align: right;">Συνολικό κόστος</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Πιάτα κυρίως 27 cm</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">€5</td>
+<td style="text-align: right;">€300</td>
+</tr>
+<tr>
+<td>Πιάτα ορεκτικών 21 cm</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">€5</td>
+<td style="text-align: right;">€300</td>
+</tr>
+<tr>
+<td>Μικρά πιάτα 16 cm, για ψωμί και γλυκό</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">€4</td>
+<td style="text-align: right;">€240</td>
+</tr>
+<tr>
+<td>Μπολ 16 cm, για γιαούρτι, φρούτα, σαλάτα</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">€5</td>
+<td style="text-align: right;">€300</td>
+</tr>
+<tr>
+<td>Φλιτζάνια cappuccino με πιατάκια</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">€7</td>
+<td style="text-align: right;">€420</td>
+</tr>
+<tr>
+<td>Φλιτζάνια espresso με πιατάκια</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: right;">€5</td>
+<td style="text-align: right;">€150</td>
+</tr>
+<tr>
+<td>Τσαγιέρες</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">€12</td>
+<td style="text-align: right;">€72</td>
+</tr>
+<tr>
+<td>Μικρές γαλατιέρες</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">€4</td>
+<td style="text-align: right;">€64</td>
+</tr>
+<tr>
+<td>Ραμεκίνια για βούτυρο, μαρμελάδα, σάλτσες</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">€2</td>
+<td style="text-align: right;">€120</td>
+</tr>
+<tr>
+<td>Αυγοθήκες</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">€2</td>
+<td style="text-align: right;">€32</td>
+</tr>
+<tr>
+<td>Πιατέλες και ξύλα σερβιρίσματος</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">€15</td>
+<td style="text-align: right;">€225</td>
+</tr>
+<tr>
+<td>Καλαθάκια ψωμιού</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">€6</td>
+<td style="text-align: right;">€90</td>
+</tr>
+<tr>
+<td>Καράφες νερού και κανάτες χυμού</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">€8</td>
+<td style="text-align: right;">€120</td>
+</tr>
+<tr>
+<td>Σετ αλατιέρας και πιπεριέρας</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">€6</td>
+<td style="text-align: right;">€90</td>
+</tr>
+<tr>
+<td>Θήκες για ζάχαρη και καρυκεύματα</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">€4</td>
+<td style="text-align: right;">€60</td>
+</tr>
+<tr>
+<td>Ποτήρια νερού</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">€2</td>
+<td style="text-align: right;">€120</td>
+</tr>
+<tr>
+<td>Ποτήρια χυμού</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">€2</td>
+<td style="text-align: right;">€120</td>
+</tr>
+<tr>
+<td>Ποτήρια κρασιού</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">€3,50</td>
+<td style="text-align: right;">€210</td>
+</tr>
+<tr>
+<td>Φλούτες για prosecco και mimosa</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: right;">€3,50</td>
+<td style="text-align: right;">€105</td>
+</tr>
+<tr>
+<td>Ποτήρια highball για κοκτέιλ και αναψυκτικά</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: right;">€3</td>
+<td style="text-align: right;">€90</td>
+</tr>
+<tr>
+<td>Μαχαίρια φαγητού</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">€2,50</td>
+<td style="text-align: right;">€150</td>
+</tr>
+<tr>
+<td>Πιρούνια φαγητού</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">€2</td>
+<td style="text-align: right;">€120</td>
+</tr>
+<tr>
+<td>Κουτάλια γλυκού</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">€1,80</td>
+<td style="text-align: right;">€108</td>
+</tr>
+<tr>
+<td>Κουταλάκια τσαγιού</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">€1</td>
+<td style="text-align: right;">€60</td>
+</tr>
+<tr>
+<td>Θήκες μαχαιροπίρουνων για τα τραπέζια</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">€8</td>
+<td style="text-align: right;">€120</td>
+</tr>
+<tr>
+<td>Δίσκοι σερβιρίσματος</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">€12</td>
+<td style="text-align: right;">€72</td>
+</tr>
+<tr>
+<td>Χαρτοπετσέτες καλής ποιότητας, αρχικό απόθεμα</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">€100</td>
+<td style="text-align: right;">€100</td>
+</tr>
+<tr>
+<td><strong>Υποσύνολο</strong></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"><strong>€3.958</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p class="sub">Κουζίνα</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Είδος</th>
+<th style="text-align: right;">Ποσότητα</th>
+<th style="text-align: right;">Κόστος τεμαχίου</th>
+<th style="text-align: right;">Συνολικό κόστος</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Επαγγελματικό πλυντήριο πιάτων κάτω από τον πάγκο</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">€2.500</td>
+<td style="text-align: right;">€2.500</td>
+</tr>
+<tr>
+<td>Καλάθια πλυντηρίου πιάτων</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">€20</td>
+<td style="text-align: right;">€120</td>
+</tr>
+<tr>
+<td>Μηχανή καφέ και μύλος</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">δωρεάν</td>
+<td style="text-align: right;">€0</td>
+</tr>
+<tr>
+<td>Επαγγελματική τοστιέρα</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">€250</td>
+<td style="text-align: right;">€250</td>
+</tr>
+<tr>
+<td>Αποχυμωτής πορτοκαλιών</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">€300</td>
+<td style="text-align: right;">€300</td>
+</tr>
+<tr>
+<td>Μπλέντερ</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">€150</td>
+<td style="text-align: right;">€150</td>
+</tr>
+<tr>
+<td>Ραβδομπλέντερ</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">€80</td>
+<td style="text-align: right;">€80</td>
+</tr>
+<tr>
+<td>Τηγάνια 24 και 28 cm</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">€35</td>
+<td style="text-align: right;">€210</td>
+</tr>
+<tr>
+<td>Κατσαρόλες και χύτρες</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">€250</td>
+<td style="text-align: right;">€250</td>
+</tr>
+<tr>
+<td>Ταψιά φούρνου</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">€15</td>
+<td style="text-align: right;">€120</td>
+</tr>
+<tr>
+<td>Δοχεία Gastronorm με καπάκια</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">€12</td>
+<td style="text-align: right;">€240</td>
+</tr>
+<tr>
+<td>Δοχεία φύλαξης τροφίμων με καπάκια</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: right;">€4</td>
+<td style="text-align: right;">€160</td>
+</tr>
+<tr>
+<td>Ανοξείδωτα μπολ ανάμειξης</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">€8</td>
+<td style="text-align: right;">€64</td>
+</tr>
+<tr>
+<td>Μαχαίρια: σεφ, ξεφλουδίσματος, ψωμιού, οδοντωτό</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">€200</td>
+<td style="text-align: right;">€200</td>
+</tr>
+<tr>
+<td>Επιφάνειες κοπής με χρωματική κωδικοποίηση</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">€60</td>
+<td style="text-align: right;">€120</td>
+</tr>
+<tr>
+<td>Σκεύη: λαβίδες, σπάτουλες, κουτάλες, σύρματα, σουρωτήρια</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">€150</td>
+<td style="text-align: right;">€150</td>
+</tr>
+<tr>
+<td>Θερμόμετρο με ακίδα</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">€25</td>
+<td style="text-align: right;">€50</td>
+</tr>
+<tr>
+<td>Θερμόμετρα ψυγείου</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">€5</td>
+<td style="text-align: right;">€20</td>
+</tr>
+<tr>
+<td>Ζυγαριές κουζίνας</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">€30</td>
+<td style="text-align: right;">€60</td>
+</tr>
+<tr>
+<td>Ετικέτες ημερομηνίας και μαρκαδόροι</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">€40</td>
+<td style="text-align: right;">€40</td>
+</tr>
+<tr>
+<td>Κάδοι κουζίνας: γενικά, ανακύκλωση, τρόφιμα</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">€40</td>
+<td style="text-align: right;">€120</td>
+</tr>
+<tr>
+<td>Πυρίμαχη κουβέρτα και κουτί πρώτων βοηθειών</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">€65</td>
+<td style="text-align: right;">€65</td>
+</tr>
+<tr>
+<td><strong>Υποσύνολο</strong></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"><strong>€5.269</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p class="sub">Μπαρ</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Είδος</th>
+<th style="text-align: right;">Ποσότητα</th>
+<th style="text-align: right;">Κόστος τεμαχίου</th>
+<th style="text-align: right;">Συνολικό κόστος</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Σετ κοκτέιλ: σέικερ, μεζούρα, στρέινερ, κουτάλι μπαρ, γουδοχέρι</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">€40</td>
+<td style="text-align: right;">€80</td>
+</tr>
+<tr>
+<td>Παγοδοχεία με λαβίδα</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">€15</td>
+<td style="text-align: right;">€60</td>
+</tr>
+<tr>
+<td>Σέσουλες πάγου</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">€8</td>
+<td style="text-align: right;">€16</td>
+</tr>
+<tr>
+<td>Ανοιχτήρια σερβιτόρου</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">€8</td>
+<td style="text-align: right;">€24</td>
+</tr>
+<tr>
+<td>Ροϊστές ποτών</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">€1</td>
+<td style="text-align: right;">€20</td>
+</tr>
+<tr>
+<td>Πατάκια μπαρ</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">€15</td>
+<td style="text-align: right;">€30</td>
+</tr>
+<tr>
+<td>Κανάτες για mimosa και λεμονάδα</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">€12</td>
+<td style="text-align: right;">€48</td>
+</tr>
+<tr>
+<td>Λεμονοστίφτης και ξύστης</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">€20</td>
+<td style="text-align: right;">€20</td>
+</tr>
+<tr>
+<td>Δίσκος γαρνιτούρας</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">€30</td>
+<td style="text-align: right;">€30</td>
+</tr>
+<tr>
+<td><strong>Υποσύνολο</strong></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"><strong>€328</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p class="sub">Σύνοψη</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Τομέας</th>
+<th style="text-align: right;">Συνολικό κόστος</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Κρεβάτια</td>
+<td style="text-align: right;">€2.744</td>
+</tr>
+<tr>
+<td>Λευκά είδη μπάνιου</td>
+<td style="text-align: right;">€672</td>
+</tr>
+<tr>
+<td>Εξοπλισμός δωματίων</td>
+<td style="text-align: right;">€3.591</td>
+</tr>
+<tr>
+<td>Είδη φιλοξενίας, αρχικό απόθεμα</td>
+<td style="text-align: right;">€690</td>
+</tr>
+<tr>
+<td>Καθαριότητα ορόφων</td>
+<td style="text-align: right;">€850</td>
+</tr>
+<tr>
+<td>Σερβίτσια για πρωινό και brunch</td>
+<td style="text-align: right;">€3.958</td>
+</tr>
+<tr>
+<td>Κουζίνα</td>
+<td style="text-align: right;">€5.269</td>
+</tr>
+<tr>
+<td>Μπαρ</td>
+<td style="text-align: right;">€328</td>
+</tr>
+<tr>
+<td><strong>Σύνολο</strong></td>
+<td style="text-align: right;"><strong>€18.102</strong></td>
+</tr>
+</tbody>
+</table></div></section><section id="el-s5"><h2><span class="n">05</span>Ρόλοι και εβδομαδιαίο πρόγραμμα</h2>
 <p>Μοιράστε την επιχείρηση μεταξύ σας ανά τομέα, όχι ανά εργασία, ώστε ο καθένας να έχει την ευθύνη των αποτελεσμάτων και το προσωπικό να ξέρει ποιον να ρωτήσει. Παρακάτω υπάρχει μια προτεινόμενη κατανομή· αλλάξτε τομείς ανάλογα με τα δυνατά σας σημεία.</p>
 <div class="tbl"><table>
 <thead>
@@ -1422,7 +2976,7 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);color:v
 <li>Πραγματικά επείγοντα (φωτιά, ιατρικό, διάρρηξη): καλέστε πρώτα το 112, μετά πηγαίνετε στο ξενοδοχείο.</li>
 </ul>
 <p class="sub">Σταδιακή απόσυρση</p>
-<p>Αποσυρθείτε από μια εργασία μόνο όταν το άτομο που την κάνει την έχει εκτελέσει μόνο του για 4 εβδομάδες χωρίς παράπονο επισκέπτη, και όταν είναι γραμμένη σε αυτό το εγχειρίδιο.</p></section><section id="el-s5"><h2><span class="n">05</span>Κρατήσεις και αυτόνομο check-in</h2>
+<p>Αποσυρθείτε από μια εργασία μόνο όταν το άτομο που την κάνει την έχει εκτελέσει μόνο του για 4 εβδομάδες χωρίς παράπονο επισκέπτη, και όταν είναι γραμμένη σε αυτό το εγχειρίδιο.</p></section><section id="el-s6"><h2><span class="n">06</span>Κρατήσεις και αυτόνομο check-in</h2>
 <p>Το check-in γίνεται από τις 15:00 και το check-out μέχρι τις 11:00. Κάθε κράτηση, από οποιοδήποτε κανάλι, καταχωρίζεται στο σύστημα κρατήσεων· τίποτα δεν γράφεται σε χαρτί ούτε κρατιέται μόνο σε ένα κινητό.</p>
 <p class="sub">Κανόνες λειτουργίας για δημοσίευση παντού</p>
 <div class="tbl"><table>
@@ -1506,7 +3060,7 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);color:v
 <li>Αν το ίδιο παράπονο εμφανιστεί δύο φορές, διορθώστε τη διαδικασία σε αυτό το εγχειρίδιο.</li>
 </ol>
 <p class="sub">Υπερκράτηση</p>
-<p>Ο channel manager πρέπει να κλείνει όλα τα κανάλια τη στιγμή που πωλείται ένα δωμάτιο. Αν ποτέ υπάρξει υπερκράτηση, ο επισκέπτης που έκλεισε τελευταίος μεταφέρεται σε αντίστοιχο ξενοδοχείο κοντά με δικά σας έξοδα, πληρώνοντας τη διαφορά τιμής και τη μεταφορά. Κρατήστε δίπλα στο τηλέφωνο τα τηλέφωνα δύο συνεργαζόμενων ξενοδοχείων για αυτόν τον σκοπό.</p></section><section id="el-s6"><h2><span class="n">06</span>Καθαριότητα δωματίων</h2>
+<p>Ο channel manager πρέπει να κλείνει όλα τα κανάλια τη στιγμή που πωλείται ένα δωμάτιο. Αν ποτέ υπάρξει υπερκράτηση, ο επισκέπτης που έκλεισε τελευταίος μεταφέρεται σε αντίστοιχο ξενοδοχείο κοντά με δικά σας έξοδα, πληρώνοντας τη διαφορά τιμής και τη μεταφορά. Κρατήστε δίπλα στο τηλέφωνο τα τηλέφωνα δύο συνεργαζόμενων ξενοδοχείων για αυτόν τον σκοπό.</p></section><section id="el-s7"><h2><span class="n">07</span>Καθαριότητα δωματίων</h2>
 <p>Κάθε κατειλημμένο δωμάτιο καθαρίζεται καθημερινά. Οι κωδικοί στέλνονται στις 13:00 και ενεργοποιούνται στις 15:00, και κάθε δωμάτιο ελέγχεται από έναν ιδιοκτήτη πριν ενεργοποιηθεί ο κωδικός του. Τις καθημερινές η καθαριότητα δωματίων γίνεται 11:30 με 14:30, πρώτα τα δωμάτια αναχώρησης και μετά τα δωμάτια με παραμονή. Τις ημέρες του brunch τα δωμάτια κήπου ακολουθούν δικό τους πλάνο, παρακάτω.</p>
 <p class="sub">Πρόγραμμα της ημέρας</p>
 <ol>
@@ -1562,9 +3116,9 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);color:v
 <li>Οι εργασίες γενικού καθαρισμού στα δωμάτια κήπου γίνονται μόνο Δευτέρα έως Πέμπτη.</li>
 </ul>
 <p class="sub">Δωμάτιο αναχώρησης: πλήρης καθαρισμός (περίπου 45 λεπτά)</p>
-<ul class="check"><li><input type="checkbox" aria-label="done"><span>Ανοίξτε τα παράθυρα, ξεστρώστε το κρεβάτι, αφαιρέστε όλα τα λινά και τις πετσέτες</span></li><li><input type="checkbox" aria-label="done"><span>Αδειάστε όλους τους κάδους. Ελέγξτε συρτάρια, ντουλάπα, χρηματοκιβώτιο και κάτω από το κρεβάτι για ξεχασμένα αντικείμενα</span></li><li><input type="checkbox" aria-label="done"><span>Μπάνιο: τουαλέτα, ντους, νιπτήρας, καθρέφτης, πλακάκια, πάτωμα. Καθαρίστε και μετά απολυμάνετε</span></li><li><input type="checkbox" aria-label="done"><span>Καθαρά λινά και πετσέτες. Στρώστε το κρεβάτι σύμφωνα με το πρότυπο του ξενοδοχείου, με βάση τη φωτογραφία αναφοράς</span></li><li><input type="checkbox" aria-label="done"><span>Ξεσκονίστε όλες τις επιφάνειες, διακόπτες, πόμολα, τηλεχειριστήρια, την τηλεόραση</span></li><li><input type="checkbox" aria-label="done"><span>Σκουπίστε με ηλεκτρική σκούπα και σφουγγαρίστε το πάτωμα</span></li><li><input type="checkbox" aria-label="done"><span>Συμπληρώστε τα είδη περιποίησης, καφέ, τσάι, νερό, χαρτί υγείας</span></li><li><input type="checkbox" aria-label="done"><span>Ελέγξτε κλιματιστικό, φώτα, τηλεόραση, ντους και κάρτα Wi-Fi. Αναφέρετε οτιδήποτε χαλασμένο</span></li><li><input type="checkbox" aria-label="done"><span>Κλείστε τα παράθυρα, ρυθμίστε το κλιματιστικό στους 24 βαθμούς, σβήστε τα φώτα, κλείστε την πόρτα</span></li></ul>
+<ul class="check"><li><input type="checkbox" aria-label="done" data-k="k8a4bc0ee81"><span>Ανοίξτε τα παράθυρα, ξεστρώστε το κρεβάτι, αφαιρέστε όλα τα λινά και τις πετσέτες</span></li><li><input type="checkbox" aria-label="done" data-k="k2444891268"><span>Αδειάστε όλους τους κάδους. Ελέγξτε συρτάρια, ντουλάπα, χρηματοκιβώτιο και κάτω από το κρεβάτι για ξεχασμένα αντικείμενα</span></li><li><input type="checkbox" aria-label="done" data-k="k4877986ff0"><span>Μπάνιο: τουαλέτα, ντους, νιπτήρας, καθρέφτης, πλακάκια, πάτωμα. Καθαρίστε και μετά απολυμάνετε</span></li><li><input type="checkbox" aria-label="done" data-k="k9cee479f6d"><span>Καθαρά λινά και πετσέτες. Στρώστε το κρεβάτι σύμφωνα με το πρότυπο του ξενοδοχείου, με βάση τη φωτογραφία αναφοράς</span></li><li><input type="checkbox" aria-label="done" data-k="k123bfb9409"><span>Ξεσκονίστε όλες τις επιφάνειες, διακόπτες, πόμολα, τηλεχειριστήρια, την τηλεόραση</span></li><li><input type="checkbox" aria-label="done" data-k="kb700b85c0c"><span>Σκουπίστε με ηλεκτρική σκούπα και σφουγγαρίστε το πάτωμα</span></li><li><input type="checkbox" aria-label="done" data-k="k73fa589475"><span>Συμπληρώστε τα είδη περιποίησης, καφέ, τσάι, νερό, χαρτί υγείας</span></li><li><input type="checkbox" aria-label="done" data-k="kfaa11d1aa9"><span>Ελέγξτε κλιματιστικό, φώτα, τηλεόραση, ντους και κάρτα Wi-Fi. Αναφέρετε οτιδήποτε χαλασμένο</span></li><li><input type="checkbox" aria-label="done" data-k="ka54f10dccf"><span>Κλείστε τα παράθυρα, ρυθμίστε το κλιματιστικό στους 24 βαθμούς, σβήστε τα φώτα, κλείστε την πόρτα</span></li></ul>
 <p class="sub">Δωμάτιο με παραμονή: φρεσκάρισμα (περίπου 20 λεπτά)</p>
-<ul class="check"><li><input type="checkbox" aria-label="done"><span>Στρώστε το κρεβάτι. Αλλάξτε τα λινά κάθε 3 νύχτες ή όταν ζητηθεί</span></li><li><input type="checkbox" aria-label="done"><span>Αντικαταστήστε τις πετσέτες που είναι στο πάτωμα. Οι κρεμασμένες πετσέτες ξαναχρησιμοποιούνται</span></li><li><input type="checkbox" aria-label="done"><span>Αδειάστε τους κάδους, καθαρίστε το μπάνιο, συμπληρώστε τα είδη περιποίησης</span></li><li><input type="checkbox" aria-label="done"><span>Τακτοποιήστε χωρίς να μετακινήσετε τα προσωπικά αντικείμενα του επισκέπτη</span></li></ul>
+<ul class="check"><li><input type="checkbox" aria-label="done" data-k="ka6d56a3229"><span>Στρώστε το κρεβάτι. Αλλάξτε τα λινά κάθε 3 νύχτες ή όταν ζητηθεί</span></li><li><input type="checkbox" aria-label="done" data-k="k5101615d81"><span>Αντικαταστήστε τις πετσέτες που είναι στο πάτωμα. Οι κρεμασμένες πετσέτες ξαναχρησιμοποιούνται</span></li><li><input type="checkbox" aria-label="done" data-k="k04b84136bd"><span>Αδειάστε τους κάδους, καθαρίστε το μπάνιο, συμπληρώστε τα είδη περιποίησης</span></li><li><input type="checkbox" aria-label="done" data-k="kbd64b64e73"><span>Τακτοποιήστε χωρίς να μετακινήσετε τα προσωπικά αντικείμενα του επισκέπτη</span></li></ul>
 <p class="sub">Λινά</p>
 <ul>
 <li>Τρία πλήρη σετ ανά κρεβάτι: ένα στο κρεβάτι, ένα στο πλυντήριο, ένα στην αποθήκη.</li>
@@ -1606,7 +3160,7 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);color:v
 <li>Τα ταχυδρομικά τα πληρώνει ο επισκέπτης, προκαταβολικά.</li>
 </ol>
 <p class="sub">Μην ενοχλείτε</p>
-<p>Σεβαστείτε την ταμπέλα. Αν ένα δωμάτιο την έχει για 2 μέρες, ένας ιδιοκτήτης χτυπά την πόρτα και ρωτά ευγενικά τον επισκέπτη αν όλα είναι εντάξει.</p></section><section id="el-s7"><h2><span class="n">07</span>Πρωινό</h2>
+<p>Σεβαστείτε την ταμπέλα. Αν ένα δωμάτιο την έχει για 2 μέρες, ένας ιδιοκτήτης χτυπά την πόρτα και ρωτά ευγενικά τον επισκέπτη αν όλα είναι εντάξει.</p></section><section id="el-s8"><h2><span class="n">08</span>Πρωινό</h2>
 <p>Το πρωινό σερβίρεται 07:30 με 10:00 στους επισκέπτες που έκλεισαν διαμονή με πρωινό, με προετοιμασία από τις 06:00. Με το πολύ 14 επισκέπτες, σερβίρετε ένα μικρό σταθερό πρωινό κατά παραγγελία αντί για μπουφέ: λιγότερη σπατάλη, καλύτερο φαγητό και πιο boutique αίσθηση.</p>
 <p class="sub">Το προηγούμενο βράδυ</p>
 <ol>
@@ -1615,7 +3169,7 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);color:v
 <li>Στρώστε τα τραπέζια στον κήπο ή στην αίθουσα πρωινού.</li>
 </ol>
 <p class="sub">Προετοιμασία, 06:00 με 07:30</p>
-<ul class="check"><li><input type="checkbox" aria-label="done"><span>Ανοίξτε και καθαρίστε την καφετιέρα. Δοκιμάστε το πρώτο σφηνάκι</span></li><li><input type="checkbox" aria-label="done"><span>Ελέγξτε τις θερμοκρασίες των ψυγείων και γράψτε τις στο αρχείο</span></li><li><input type="checkbox" aria-label="done"><span>Φρέσκος χυμός, φρούτα, γιαούρτι, αρτοσκευάσματα και ψωμί στο πλαϊνό τραπέζι, σκεπασμένα</span></li><li><input type="checkbox" aria-label="done"><span>Ετοιμάστε τα ζεστά για μαγείρεμα κατά παραγγελία: αυγά, χαλλούμι, λαχανικά</span></li><li><input type="checkbox" aria-label="done"><span>Στρωμένα τραπέζια, χαρτοπετσέτες, νερό, κάρτα μενού με τις επιλογές της ημέρας</span></li></ul>
+<ul class="check"><li><input type="checkbox" aria-label="done" data-k="k2845554156"><span>Ανοίξτε και καθαρίστε την καφετιέρα. Δοκιμάστε το πρώτο σφηνάκι</span></li><li><input type="checkbox" aria-label="done" data-k="kc816e2a3f1"><span>Ελέγξτε τις θερμοκρασίες των ψυγείων και γράψτε τις στο αρχείο</span></li><li><input type="checkbox" aria-label="done" data-k="k251597a78e"><span>Φρέσκος χυμός, φρούτα, γιαούρτι, αρτοσκευάσματα και ψωμί στο πλαϊνό τραπέζι, σκεπασμένα</span></li><li><input type="checkbox" aria-label="done" data-k="k475584351f"><span>Ετοιμάστε τα ζεστά για μαγείρεμα κατά παραγγελία: αυγά, χαλλούμι, λαχανικά</span></li><li><input type="checkbox" aria-label="done" data-k="k3178a911cd"><span>Στρωμένα τραπέζια, χαρτοπετσέτες, νερό, κάρτα μενού με τις επιλογές της ημέρας</span></li></ul>
 <p class="sub">Σερβίρισμα, 07:30 με 10:00</p>
 <ol>
 <li>Χαιρετήστε κάθε επισκέπτη με το όνομά του, βρείτε του θέση, προσφέρετε καφέ ή τσάι μέσα σε 2 λεπτά.</li>
@@ -1625,9 +3179,9 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);color:v
 <li>Επισκέπτες χωρίς πρωινό στην κράτησή τους μπορούν να παραγγείλουν και να πληρώσουν την ίδια μέρα: χρέωση στο δωμάτιο ή με κάρτα.</li>
 </ol>
 <p class="sub">Κλείσιμο, 10:00 με 10:30</p>
-<ul class="check"><li><input type="checkbox" aria-label="done"><span>Το φαγητό που περίσσεψε παίρνει ετικέτα με ημερομηνία ή πετιέται. Τίποτα μαγειρεμένο δεν μπαίνει πίσω στο ψυγείο χωρίς ετικέτα</span></li><li><input type="checkbox" aria-label="done"><span>Βάλτε το πλυντήριο πιάτων, καθαρίστε και απολυμάνετε τις επιφάνειες, σκουπίστε τα πατώματα</span></li><li><input type="checkbox" aria-label="done"><span>Καταγράψτε περίπου τη σπατάλη: αν πετιέται πάνω από 10% του φαγητού για μια εβδομάδα, μειώστε τις ποσότητες</span></li><li><input type="checkbox" aria-label="done"><span>Ενημερώστε τη λίστα αγορών για την επόμενη παράδοση</span></li></ul>
+<ul class="check"><li><input type="checkbox" aria-label="done" data-k="k16427c042a"><span>Το φαγητό που περίσσεψε παίρνει ετικέτα με ημερομηνία ή πετιέται. Τίποτα μαγειρεμένο δεν μπαίνει πίσω στο ψυγείο χωρίς ετικέτα</span></li><li><input type="checkbox" aria-label="done" data-k="kb6df4b169d"><span>Βάλτε το πλυντήριο πιάτων, καθαρίστε και απολυμάνετε τις επιφάνειες, σκουπίστε τα πατώματα</span></li><li><input type="checkbox" aria-label="done" data-k="kfa24d7c78d"><span>Καταγράψτε περίπου τη σπατάλη: αν πετιέται πάνω από 10% του φαγητού για μια εβδομάδα, μειώστε τις ποσότητες</span></li><li><input type="checkbox" aria-label="done" data-k="kc6bed24c32"><span>Ενημερώστε τη λίστα αγορών για την επόμενη παράδοση</span></li></ul>
 <p class="sub">Αλλεργίες</p>
-<p>Ρωτήστε για αλλεργίες στο μήνυμα πριν την άφιξη και ξανά στο τραπέζι. Κρατήστε μια κάρτα με τα 14 αλλεργιογόνα της ΕΕ σε κάθε πιάτο. Το προσωπικό δεν μαντεύει ποτέ.</p></section><section id="el-s8"><h2><span class="n">08</span>Brunch Σαββατοκύριακου</h2>
+<p>Ρωτήστε για αλλεργίες στο μήνυμα πριν την άφιξη και ξανά στο τραπέζι. Κρατήστε μια κάρτα με τα 14 αλλεργιογόνα της ΕΕ σε κάθε πιάτο. Το προσωπικό δεν μαντεύει ποτέ.</p></section><section id="el-s9"><h2><span class="n">09</span>Brunch Σαββατοκύριακου</h2>
 <p>Το brunch γίνεται Σάββατο και Κυριακή, 10:00 με 14:00, με την ομάδα σε βάρδια 09:00 με 15:00. Τα Σαββατοκύριακα, το πρωινό του ξενοδοχείου τελειώνει στις 10:00 για να αλλάξει η κουζίνα σε brunch. Όσοι επισκέπτες έρθουν αργότερα παραγγέλνουν από το μενού brunch, με το πρωινό τους να καλύπτεται μέχρι την αξία του.</p>
 <p class="sub">Το μενού</p>
 <ul>
@@ -1644,7 +3198,7 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);color:v
 <li>Ομάδες πάνω από 8 άτομα κλείνουν τηλεφωνικά, με σταθερό μενού και προκαταβολή με κάρτα.</li>
 </ul>
 <p class="sub">Προετοιμασία Παρασκευής</p>
-<ul class="check"><li><input type="checkbox" aria-label="done"><span>Ελέγξτε τον αριθμό κρατήσεων. Παραγγείλετε φρέσκα προϊόντα για παράδοση το Σάββατο το πρωί</span></li><li><input type="checkbox" aria-label="done"><span>Ετοιμάστε σάλτσες, ζύμες, κομμένα λαχανικά, μερίδες κρεάτων. Βάλτε ετικέτα και ημερομηνία σε όλα</span></li><li><input type="checkbox" aria-label="done"><span>Στήσιμο κήπου: ελέγξτε τραπέζια, μαξιλάρια, ομπρέλες ή θερμάστρες</span></li></ul>
+<ul class="check"><li><input type="checkbox" aria-label="done" data-k="kcbe317640a"><span>Ελέγξτε τον αριθμό κρατήσεων. Παραγγείλετε φρέσκα προϊόντα για παράδοση το Σάββατο το πρωί</span></li><li><input type="checkbox" aria-label="done" data-k="ka1ba1355df"><span>Ετοιμάστε σάλτσες, ζύμες, κομμένα λαχανικά, μερίδες κρεάτων. Βάλτε ετικέτα και ημερομηνία σε όλα</span></li><li><input type="checkbox" aria-label="done" data-k="k9dd0c9d67f"><span>Στήσιμο κήπου: ελέγξτε τραπέζια, μαξιλάρια, ομπρέλες ή θερμάστρες</span></li></ul>
 <p class="sub">Ημέρα σερβιρίσματος</p>
 <ol>
 <li>09:00: Η ομάδα φτάνει, καταγράφονται οι θερμοκρασίες των ψυγείων, ανοίγει η καφετιέρα, στρώνεται ο κήπος.</li>
@@ -1668,8 +3222,8 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);color:v
 </ul>
 <p class="sub">Επέκταση σε καθημερινές</p>
 <p>Προσθέστε καθημερινές μόνο όταν ισχύουν όλα τα παρακάτω για 6 συνεχόμενα Σαββατοκύριακα:</p>
-<ul class="check"><li><input type="checkbox" aria-label="done"><span>Μέσος όρος 40 ή περισσότεροι πελάτες ανά ημέρα</span></li><li><input type="checkbox" aria-label="done"><span>Κόστος φαγητού στο 32% ή χαμηλότερα</span></li><li><input type="checkbox" aria-label="done"><span>Το σερβίρισμα του Σαββατοκύριακου λειτουργεί χωρίς ιδιοκτήτη στην κουζίνα</span></li><li><input type="checkbox" aria-label="done"><span>Οι κριτικές αναφέρουν θετικά το brunch</span></li></ul>
-<p>Ξεκινήστε μόνο με Παρασκευή. Λειτουργήστε το για ένα μήνα και ελέγξτε τα ίδια τέσσερα σημεία πριν προσθέσετε άλλη μέρα.</p></section><section id="el-s9"><h2><span class="n">09</span>Ιδιωτικές εκδηλώσεις</h2>
+<ul class="check"><li><input type="checkbox" aria-label="done" data-k="kaff963a90a"><span>Μέσος όρος 40 ή περισσότεροι πελάτες ανά ημέρα</span></li><li><input type="checkbox" aria-label="done" data-k="ke909eda230"><span>Κόστος φαγητού στο 32% ή χαμηλότερα</span></li><li><input type="checkbox" aria-label="done" data-k="k121ccb5e59"><span>Το σερβίρισμα του Σαββατοκύριακου λειτουργεί χωρίς ιδιοκτήτη στην κουζίνα</span></li><li><input type="checkbox" aria-label="done" data-k="kf9fdea8dcf"><span>Οι κριτικές αναφέρουν θετικά το brunch</span></li></ul>
+<p>Ξεκινήστε μόνο με Παρασκευή. Λειτουργήστε το για ένα μήνα και ελέγξτε τα ίδια τέσσερα σημεία πριν προσθέσετε άλλη μέρα.</p></section><section id="el-s10"><h2><span class="n">10</span>Ιδιωτικές εκδηλώσεις</h2>
 <p>Οι εκδηλώσεις είναι μικρές, προγραμματισμένες και πληρωμένες εκ των προτέρων: μέχρι περίπου 50 άτομα στον κήπο, με υπογεγραμμένη συμφωνία και προκαταβολή πριν κρατηθεί η ημερομηνία. Κάθε εκδήλωση πρέπει να ταιριάζει με τους επισκέπτες του ξενοδοχείου και τους ιδιοκτήτες που μένουν στον χώρο.</p>
 <p class="sub">Κανόνες εκδηλώσεων που συμφωνούνται πρώτα με τον ιδιοκτήτη</p>
 <div class="tbl"><table>
@@ -1713,9 +3267,9 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);color:v
 <li>Ακύρωση: η προκαταβολή κρατείται αν η ακύρωση γίνει μέσα σε 60 μέρες. Πλήρης τιμή αν γίνει μέσα σε 14 μέρες.</li>
 </ol>
 <p class="sub">Η συμφωνία πρέπει να αναφέρει</p>
-<ul class="check"><li><input type="checkbox" aria-label="done"><span>Ημερομηνία, ώρα έναρξης και λήξης, αριθμό ατόμων και το μενού</span></li><li><input type="checkbox" aria-label="done"><span>Τιμή ανά άτομο, κόστος ενοικίασης χώρου, προκαταβολή και ημερομηνίες πληρωμής</span></li><li><input type="checkbox" aria-label="done"><span>Κανόνες για μουσική και θόρυβο, ώρα λήξης, χώρο καπνιστών</span></li><li><input type="checkbox" aria-label="done"><span>Ζημιές: ο πελάτης πληρώνει για οτιδήποτε σπάσουν οι καλεσμένοι του</span></li><li><input type="checkbox" aria-label="done"><span>Εξωτερικοί προμηθευτές (τούρτες, λουλούδια, φωτογράφοι) πρέπει να συμφωνηθούν από πριν</span></li></ul>
+<ul class="check"><li><input type="checkbox" aria-label="done" data-k="ka521b5530b"><span>Ημερομηνία, ώρα έναρξης και λήξης, αριθμό ατόμων και το μενού</span></li><li><input type="checkbox" aria-label="done" data-k="k49c3ca6470"><span>Τιμή ανά άτομο, κόστος ενοικίασης χώρου, προκαταβολή και ημερομηνίες πληρωμής</span></li><li><input type="checkbox" aria-label="done" data-k="kec9dea0621"><span>Κανόνες για μουσική και θόρυβο, ώρα λήξης, χώρο καπνιστών</span></li><li><input type="checkbox" aria-label="done" data-k="kb796bb486d"><span>Ζημιές: ο πελάτης πληρώνει για οτιδήποτε σπάσουν οι καλεσμένοι του</span></li><li><input type="checkbox" aria-label="done" data-k="k466894d8f4"><span>Εξωτερικοί προμηθευτές (τούρτες, λουλούδια, φωτογράφοι) πρέπει να συμφωνηθούν από πριν</span></li></ul>
 <p class="sub">Την προηγούμενη εβδομάδα</p>
-<ul class="check"><li><input type="checkbox" aria-label="done"><span>Επιβεβαιώστε αριθμό ατόμων, διατροφικές ανάγκες και αλλεργίες. Παραγγείλετε φαγητό και ποτά</span></li><li><input type="checkbox" aria-label="done"><span>Κλείστε επιπλέον προσωπικό: έναν σερβιτόρο ανά 15 με 20 άτομα, συν βοηθό κουζίνας</span></li><li><input type="checkbox" aria-label="done"><span>Νοικιάστε επιπλέον σερβίτσια, τραπέζια ή καρέκλες αν χρειάζεται</span></li><li><input type="checkbox" aria-label="done"><span>Ενημερώστε τους επισκέπτες του ξενοδοχείου και τους ιδιοκτήτες για την ημερομηνία και τις ώρες</span></li></ul>
+<ul class="check"><li><input type="checkbox" aria-label="done" data-k="k2ebae0ed82"><span>Επιβεβαιώστε αριθμό ατόμων, διατροφικές ανάγκες και αλλεργίες. Παραγγείλετε φαγητό και ποτά</span></li><li><input type="checkbox" aria-label="done" data-k="kfaac6c8b45"><span>Κλείστε επιπλέον προσωπικό: έναν σερβιτόρο ανά 15 με 20 άτομα, συν βοηθό κουζίνας</span></li><li><input type="checkbox" aria-label="done" data-k="kdd15eadd01"><span>Νοικιάστε επιπλέον σερβίτσια, τραπέζια ή καρέκλες αν χρειάζεται</span></li><li><input type="checkbox" aria-label="done" data-k="k87a103012e"><span>Ενημερώστε τους επισκέπτες του ξενοδοχείου και τους ιδιοκτήτες για την ημερομηνία και τις ώρες</span></li></ul>
 <p class="sub">Την ημέρα της εκδήλωσης</p>
 <ol>
 <li>Το στήσιμο τελειώνει 1 ώρα πριν φτάσουν οι καλεσμένοι. Ένας ιδιοκτήτης το ελέγχει και το εγκρίνει.</li>
@@ -1725,10 +3279,10 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);color:v
 <li>23:00 κλείνει η μουσική. 23:30 φεύγουν οι καλεσμένοι. Καθαρίστε τον κήπο το ίδιο βράδυ, ώστε οι επισκέπτες του ξενοδοχείου να ξυπνήσουν σε καθαρό χώρο.</li>
 </ol>
 <p class="sub">Μετά την εκδήλωση</p>
-<p>Στείλτε ευχαριστήριο μέσα σε 2 μέρες, ζητώντας μια κριτική στο Google και μερικές φωτογραφίες που μπορείτε να χρησιμοποιήσετε. Γράψτε στο αρχείο εκδηλώσεων τι πήγε καλά και τι πρέπει να διορθωθεί.</p></section><section id="el-s10"><h2><span class="n">10</span>Ασφάλεια τροφίμων</h2>
+<p>Στείλτε ευχαριστήριο μέσα σε 2 μέρες, ζητώντας μια κριτική στο Google και μερικές φωτογραφίες που μπορείτε να χρησιμοποιήσετε. Γράψτε στο αρχείο εκδηλώσεων τι πήγε καλά και τι πρέπει να διορθωθεί.</p></section><section id="el-s11"><h2><span class="n">11</span>Ασφάλεια τροφίμων</h2>
 <p>Κάθε επιχείρηση που σερβίρει φαγητό στην Κύπρο πρέπει να εφαρμόζει σύστημα ασφάλειας τροφίμων βασισμένο στο HACCP και να κρατά γραπτά αρχεία που μπορεί να ελέγξει υγειονομικός επιθεωρητής ανά πάσα στιγμή. Κρατήστε το απλό: λίγα αρχεία που συμπληρώνονται κάθε μέρα, και κανείς δεν αγγίζει φαγητό χωρίς έγκυρο πιστοποιητικό.</p>
 <p class="sub">Πριν το άνοιγμα</p>
-<ul class="check"><li><input type="checkbox" aria-label="done"><span>Εγγράψτε την κουζίνα στις τοπικές υγειονομικές υπηρεσίες και ρωτήστε ποια επιθεώρηση χρειάζεται πριν σερβίρετε στο κοινό</span></li><li><input type="checkbox" aria-label="done"><span>Ένα απλό σχέδιο HACCP γραμμένο για το μενού σας. Ένας σύμβουλος ασφάλειας τροφίμων μπορεί να το κάνει με μικρό κόστος</span></li><li><input type="checkbox" aria-label="done"><span>Πιστοποιητικά χειριστή τροφίμων για όλους όσοι ετοιμάζουν ή σερβίρουν φαγητό, μαζί και οι δύο ιδιοκτήτες</span></li><li><input type="checkbox" aria-label="done"><span>Συμβόλαιο απεντόμωσης σε ισχύ πριν την πρώτη παράδοση</span></li></ul>
+<ul class="check"><li><input type="checkbox" aria-label="done" data-k="k6254ef4813"><span>Εγγράψτε την κουζίνα στις τοπικές υγειονομικές υπηρεσίες και ρωτήστε ποια επιθεώρηση χρειάζεται πριν σερβίρετε στο κοινό</span></li><li><input type="checkbox" aria-label="done" data-k="k605cc4006f"><span>Ένα απλό σχέδιο HACCP γραμμένο για το μενού σας. Ένας σύμβουλος ασφάλειας τροφίμων μπορεί να το κάνει με μικρό κόστος</span></li><li><input type="checkbox" aria-label="done" data-k="k9075f89064"><span>Πιστοποιητικά χειριστή τροφίμων για όλους όσοι ετοιμάζουν ή σερβίρουν φαγητό, μαζί και οι δύο ιδιοκτήτες</span></li><li><input type="checkbox" aria-label="done" data-k="k76af55ac4d"><span>Συμβόλαιο απεντόμωσης σε ισχύ πριν την πρώτη παράδοση</span></li></ul>
 <p class="sub">Θερμοκρασίες</p>
 <div class="tbl"><table>
 <thead>
@@ -1786,7 +3340,7 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);color:v
 <li>Αναφορές απεντόμωσης</li>
 <li>Πιστοποιητικά και αρχεία εκπαίδευσης προσωπικού</li>
 </ul>
-<p>Κρατήστε τα για τουλάχιστον ένα χρόνο σε φάκελο στην κουζίνα.</p></section><section id="el-s11"><h2><span class="n">11</span>Συντήρηση</h2>
+<p>Κρατήστε τα για τουλάχιστον ένα χρόνο σε φάκελο στην κουζίνα.</p></section><section id="el-s12"><h2><span class="n">12</span>Συντήρηση</h2>
 <p>Τα μικρά προβλήματα που διορθώνονται την ίδια μέρα κρατούν ένα νέο κτήριο να δείχνει καινούργιο και τις αξιολογήσεις πάνω από 9. Κάθε βλάβη καταγράφεται σε ένα ενιαίο βιβλίο συντήρησης, με την ημερομηνία αναφοράς και την ημερομηνία επιδιόρθωσης.</p>
 <p class="sub">Ποιος διορθώνει τι</p>
 <div class="tbl"><table>
@@ -1820,25 +3374,25 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);color:v
 </tbody>
 </table></div>
 <p class="sub">Καθημερινά (καθαριότητα και ο υπεύθυνος της ημέρας στα δωμάτια)</p>
-<ul class="check"><li><input type="checkbox" aria-label="done"><span>Ελέγξτε κάθε δωμάτιο κατά τον καθαρισμό: φώτα, κλιματιστικό, τηλεόραση, πίεση ντους, ζεστό νερό, κωδικός πόρτας</span></li><li><input type="checkbox" aria-label="done"><span>Ο ανελκυστήρας λειτουργεί· αναφέρετε κάθε θόρυβο ή τράνταγμα</span></li><li><input type="checkbox" aria-label="done"><span>Τα φώτα και το πότισμα του κήπου λειτουργούν</span></li></ul>
+<ul class="check"><li><input type="checkbox" aria-label="done" data-k="k395a9acf53"><span>Ελέγξτε κάθε δωμάτιο κατά τον καθαρισμό: φώτα, κλιματιστικό, τηλεόραση, πίεση ντους, ζεστό νερό, κωδικός πόρτας</span></li><li><input type="checkbox" aria-label="done" data-k="k7ae2e1358a"><span>Ο ανελκυστήρας λειτουργεί· αναφέρετε κάθε θόρυβο ή τράνταγμα</span></li><li><input type="checkbox" aria-label="done" data-k="kdc5fa9cc91"><span>Τα φώτα και το πότισμα του κήπου λειτουργούν</span></li></ul>
 <p class="sub">Εβδομαδιαία</p>
-<ul class="check"><li><input type="checkbox" aria-label="done"><span>Περπατήστε όλο το κτήριο: διαδρόμους, σκάλες, κήπο, κουζίνα, αποθήκες</span></li><li><input type="checkbox" aria-label="done"><span>Δοκιμάστε το σύστημα κωδικών πόρτας και το εφεδρικό κλειδί</span></li><li><input type="checkbox" aria-label="done"><span>Ελέγξτε για διαρροές κάτω από τους νιπτήρες και γύρω από τις τουαλέτες</span></li></ul>
+<ul class="check"><li><input type="checkbox" aria-label="done" data-k="k925898bf33"><span>Περπατήστε όλο το κτήριο: διαδρόμους, σκάλες, κήπο, κουζίνα, αποθήκες</span></li><li><input type="checkbox" aria-label="done" data-k="k95970984f6"><span>Δοκιμάστε το σύστημα κωδικών πόρτας και το εφεδρικό κλειδί</span></li><li><input type="checkbox" aria-label="done" data-k="k880b39d180"><span>Ελέγξτε για διαρροές κάτω από τους νιπτήρες και γύρω από τις τουαλέτες</span></li></ul>
 <p class="sub">Μηνιαία</p>
-<ul class="check"><li><input type="checkbox" aria-label="done"><span>Καθαρίστε τα φίλτρα κλιματιστικού σε κάθε δωμάτιο και στην κουζίνα</span></li><li><input type="checkbox" aria-label="done"><span>Καθαρίστε τα φίλτρα του απορροφητήρα της κουζίνας</span></li><li><input type="checkbox" aria-label="done"><span>Κάντε οπτικό έλεγχο στους πυροσβεστήρες· δοκιμάστε τα φώτα ασφαλείας</span></li><li><input type="checkbox" aria-label="done"><span>Αρχειοθετήστε την αναφορά της επίσκεψης απεντόμωσης</span></li></ul>
+<ul class="check"><li><input type="checkbox" aria-label="done" data-k="kb817c950d7"><span>Καθαρίστε τα φίλτρα κλιματιστικού σε κάθε δωμάτιο και στην κουζίνα</span></li><li><input type="checkbox" aria-label="done" data-k="k2878610487"><span>Καθαρίστε τα φίλτρα του απορροφητήρα της κουζίνας</span></li><li><input type="checkbox" aria-label="done" data-k="k961d419b24"><span>Κάντε οπτικό έλεγχο στους πυροσβεστήρες· δοκιμάστε τα φώτα ασφαλείας</span></li><li><input type="checkbox" aria-label="done" data-k="kb382798283"><span>Αρχειοθετήστε την αναφορά της επίσκεψης απεντόμωσης</span></li></ul>
 <p class="sub">Κάθε 6 μήνες</p>
-<ul class="check"><li><input type="checkbox" aria-label="done"><span>Πλήρες σέρβις κλιματιστικών από τεχνικό πριν το καλοκαίρι και πριν τον χειμώνα</span></li><li><input type="checkbox" aria-label="done"><span>Φρεσκάρετε τη βαφή στα δωμάτια και στους διαδρόμους</span></li><li><input type="checkbox" aria-label="done"><span>Ελέγξτε αρμόστοκο, σιλικόνες και αποχετεύσεις σε όλα τα μπάνια</span></li></ul>
+<ul class="check"><li><input type="checkbox" aria-label="done" data-k="k51441fc7e6"><span>Πλήρες σέρβις κλιματιστικών από τεχνικό πριν το καλοκαίρι και πριν τον χειμώνα</span></li><li><input type="checkbox" aria-label="done" data-k="kcf35a28e70"><span>Φρεσκάρετε τη βαφή στα δωμάτια και στους διαδρόμους</span></li><li><input type="checkbox" aria-label="done" data-k="k82f396f57b"><span>Ελέγξτε αρμόστοκο, σιλικόνες και αποχετεύσεις σε όλα τα μπάνια</span></li></ul>
 <p class="sub">Ετήσια</p>
-<ul class="check"><li><input type="checkbox" aria-label="done"><span>Σέρβις και πιστοποίηση πυροσβεστήρων και συναγερμών</span></li><li><input type="checkbox" aria-label="done"><span>Ανανέωση του πιστοποιητικού επιθεώρησης του ανελκυστήρα</span></li><li><input type="checkbox" aria-label="done"><span>Έλεγχος ηλεκτρικής ασφάλειας των δικών σας συσκευών</span></li><li><input type="checkbox" aria-label="done"><span>Κλείστε ένα δωμάτιο τη φορά τον Ιανουάριο για πλήρη ανανέωση</span></li></ul>
+<ul class="check"><li><input type="checkbox" aria-label="done" data-k="kdf82baa6cd"><span>Σέρβις και πιστοποίηση πυροσβεστήρων και συναγερμών</span></li><li><input type="checkbox" aria-label="done" data-k="k535736acd0"><span>Ανανέωση του πιστοποιητικού επιθεώρησης του ανελκυστήρα</span></li><li><input type="checkbox" aria-label="done" data-k="kb76c0a7deb"><span>Έλεγχος ηλεκτρικής ασφάλειας των δικών σας συσκευών</span></li><li><input type="checkbox" aria-label="done" data-k="k4c3aeb00e7"><span>Κλείστε ένα δωμάτιο τη φορά τον Ιανουάριο για πλήρη ανανέωση</span></li></ul>
 <p class="sub">Όταν κάτι χαλάσει ενώ ο επισκέπτης είναι στο δωμάτιο</p>
 <ol>
 <li>Ζητήστε συγγνώμη και δώστε ώρα επιδιόρθωσης.</li>
 <li>Αν δεν διορθώνεται μέσα σε 2 ώρες και επηρεάζει την άνεση (χωρίς κλιματιστικό το καλοκαίρι, χωρίς ζεστό νερό), μεταφέρετε τον επισκέπτη σε άλλο δωμάτιο.</li>
 <li>Αν δεν υπάρχει ελεύθερο δωμάτιο, προσφέρετε έκπτωση για τη νύχτα και διορθώστε το πρώτο πράγμα την επόμενη μέρα.</li>
 </ol>
-<p>Κρατήστε λίστα επαφών με υδραυλικό, ηλεκτρολόγο, τεχνικό κλιματιστικών, εταιρεία ανελκυστήρα και κλειδαρά που έρχονται την ίδια μέρα, και συμφωνήστε από πριν τη χρέωση επίσκεψης.</p></section><section id="el-s12"><h2><span class="n">12</span>Ασφάλεια και έκτακτα περιστατικά</h2>
+<p>Κρατήστε λίστα επαφών με υδραυλικό, ηλεκτρολόγο, τεχνικό κλιματιστικών, εταιρεία ανελκυστήρα και κλειδαρά που έρχονται την ίδια μέρα, και συμφωνήστε από πριν τη χρέωση επίσκεψης.</p></section><section id="el-s13"><h2><span class="n">13</span>Ασφάλεια και έκτακτα περιστατικά</h2>
 <p>Αφού δεν υπάρχει κανείς στο κτήριο τη νύχτα, οι επισκέπτες πρέπει να μπορούν να βγουν με ασφάλεια και να ζητήσουν βοήθεια μόνοι τους. Ο αριθμός έκτακτης ανάγκης στην Κύπρο είναι 112 για αστυνομία, πυροσβεστική και ασθενοφόρο.</p>
 <p class="sub">Τι πρέπει να υπάρχει πριν τον πρώτο επισκέπτη</p>
-<ul class="check"><li><input type="checkbox" aria-label="done"><span>Σχέδιο διαφυγής πυρκαγιάς στο πίσω μέρος κάθε πόρτας δωματίου, στα αγγλικά και στα ελληνικά</span></li><li><input type="checkbox" aria-label="done"><span>Φωτισμός ασφαλείας και πινακίδες εξόδου σε λειτουργία σε κάθε όροφο</span></li><li><input type="checkbox" aria-label="done"><span>Πυροσβεστήρες και πυρίμαχη κουβέρτα στην κουζίνα, με σέρβις και ημερομηνία</span></li><li><input type="checkbox" aria-label="done"><span>Ανιχνευτές καπνού σε κάθε δωμάτιο και διάδρομο, δοκιμασμένοι</span></li><li><input type="checkbox" aria-label="done"><span>Οι πόρτες ανοίγουν από μέσα χωρίς κωδικό, πάντα</span></li><li><input type="checkbox" aria-label="done"><span>Φαρμακείο πρώτων βοηθειών στην κουζίνα και στη ρεσεψιόν, με μηνιαίο έλεγχο</span></li><li><input type="checkbox" aria-label="done"><span>Ο αριθμός του νυχτερινού τηλεφώνου και το 112 στην κάρτα πληροφοριών του δωματίου</span></li><li><input type="checkbox" aria-label="done"><span>Πιστοποιητικό πυρασφάλειας επιβεβαιωμένο με τον ιδιοκτήτη του ακινήτου</span></li></ul>
+<ul class="check"><li><input type="checkbox" aria-label="done" data-k="ka5b1659fa0"><span>Σχέδιο διαφυγής πυρκαγιάς στο πίσω μέρος κάθε πόρτας δωματίου, στα αγγλικά και στα ελληνικά</span></li><li><input type="checkbox" aria-label="done" data-k="k60522db992"><span>Φωτισμός ασφαλείας και πινακίδες εξόδου σε λειτουργία σε κάθε όροφο</span></li><li><input type="checkbox" aria-label="done" data-k="k3a74dd8bb0"><span>Πυροσβεστήρες και πυρίμαχη κουβέρτα στην κουζίνα, με σέρβις και ημερομηνία</span></li><li><input type="checkbox" aria-label="done" data-k="k13eca67f1b"><span>Ανιχνευτές καπνού σε κάθε δωμάτιο και διάδρομο, δοκιμασμένοι</span></li><li><input type="checkbox" aria-label="done" data-k="kba4954cba5"><span>Οι πόρτες ανοίγουν από μέσα χωρίς κωδικό, πάντα</span></li><li><input type="checkbox" aria-label="done" data-k="ke1373b27b9"><span>Φαρμακείο πρώτων βοηθειών στην κουζίνα και στη ρεσεψιόν, με μηνιαίο έλεγχο</span></li><li><input type="checkbox" aria-label="done" data-k="kc919ee5c4f"><span>Ο αριθμός του νυχτερινού τηλεφώνου και το 112 στην κάρτα πληροφοριών του δωματίου</span></li><li><input type="checkbox" aria-label="done" data-k="kbeafcaf241"><span>Πιστοποιητικό πυρασφάλειας επιβεβαιωμένο με τον ιδιοκτήτη του ακινήτου</span></li></ul>
 <p class="sub">Πυρκαγιά</p>
 <ol>
 <li>Όποιος εντοπίσει φωτιά σημαίνει συναγερμό και καλεί το 112.</li>
@@ -1889,7 +3443,7 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);color:v
 <li>Μην κρατάτε τις καταγραφές περισσότερο από όσο χρειάζεται, συνήθως έως 30 μέρες, εκτός αν τις χρειάζεται κάποιο συμβάν.</li>
 <li>Τα στοιχεία των επισκεπτών (ονόματα, ταυτότητες, κάρτες, τηλέφωνα) είναι προσωπικά δεδομένα βάσει GDPR: αποθηκεύστε τα μόνο στο σύστημα κρατήσεων, ποτέ σε προσωπικές συνομιλίες ή σε χαρτιά αφημένα εκτεθειμένα.</li>
 <li>Πρόσβαση στα δεδομένα επισκεπτών έχουν μόνο ο Αντρέας, η Μίρα και ονομαστικά ορισμένο προσωπικό. Διαγράψτε ό,τι δεν χρειάζεστε πλέον.</li>
-</ul></section><section id="el-s13"><h2><span class="n">13</span>Εμπειρία επισκεπτών και αξιολογήσεις</h2>
+</ul></section><section id="el-s14"><h2><span class="n">14</span>Εμπειρία επισκεπτών και αξιολογήσεις</h2>
 <p>Ο στόχος είναι βαθμολογία 9.0 ή υψηλότερη στο Booking.com μέχρι το τέλος του πρώτου καλοκαιριού. Σε αυτό το επίπεδο τιμής οι επισκέπτες περιμένουν προσωπική φροντίδα, και με το self check in αυτή η φροντίδα πρέπει να έρχεται από τα μηνύματα, τις μικρές λεπτομέρειες και την παρουσία του Αντρέα και της Μίρας.</p>
 <p class="sub">Τι φέρνει 9 ή 10 σε ένα boutique ξενοδοχείο</p>
 <div class="tbl"><table>
@@ -1942,7 +3496,7 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);color:v
 <li>Κάθε Δευτέρα, διαβάστε μαζί τις αξιολογήσεις της εβδομάδας και επιλέξτε ένα πράγμα για βελτίωση.</li>
 </ol>
 <p class="sub">Μηνύματα επισκεπτών</p>
-<p>Κρατήστε έτοιμες απαντήσεις για τις συχνές ερωτήσεις (στάθμευση, Wi Fi, μεταφορά από το αεροδρόμιο, late check out, κοντινά εστιατόρια) στο σύστημα κρατήσεων, αλλά πάντα προσθέτετε μια προσωπική γραμμή.</p></section><section id="el-s14"><h2><span class="n">14</span>Τιμολόγηση και έσοδα</h2>
+<p>Κρατήστε έτοιμες απαντήσεις για τις συχνές ερωτήσεις (στάθμευση, Wi Fi, μεταφορά από το αεροδρόμιο, late check out, κοντινά εστιατόρια) στο σύστημα κρατήσεων, αλλά πάντα προσθέτετε μια προσωπική γραμμή.</p></section><section id="el-s15"><h2><span class="n">15</span>Τιμολόγηση και έσοδα</h2>
 <p>Οι τιμές ορίζονται κάθε εβδομάδα, όχι μία φορά τη σεζόν. Μία ώρα κάθε Δευτέρα αρκεί για 7 δωμάτια, και αξίζει περισσότερο από οποιαδήποτε άλλη ώρα της εβδομάδας.</p>
 <p class="sub">Η ρουτίνα τιμολόγησης της Δευτέρας</p>
 <ol>
@@ -2025,7 +3579,7 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);color:v
 </tr>
 </tbody>
 </table></div>
-<p>Μετά το άνοιγμα, καταχωρίστε τα πραγματικά μηνιαία αποτελέσματα δίπλα στο πλάνο, ώστε να βλέπετε νωρίς αν η χρονιά είναι εντός στόχου.</p></section><section id="el-s15"><h2><span class="n">15</span>Οικονομικά και διαχείριση</h2>
+<p>Μετά το άνοιγμα, καταχωρίστε τα πραγματικά μηνιαία αποτελέσματα δίπλα στο πλάνο, ώστε να βλέπετε νωρίς αν η χρονιά είναι εντός στόχου.</p></section><section id="el-s16"><h2><span class="n">16</span>Οικονομικά και διαχείριση</h2>
 <p>Να γνωρίζετε τη ρευστότητά σας κάθε μέρα και το κέρδος σας κάθε μήνα. Τα περισσότερα μικρά ξενοδοχεία που αποτυγχάνουν μένουν χωρίς μετρητά τον χειμώνα, όχι χωρίς πελάτες το καλοκαίρι.</p>
 <p class="sub">Καθημερινό κλείσιμο ταμείου (10 λεπτά, κάθε βράδυ)</p>
 <ol>
@@ -2036,11 +3590,11 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);color:v
 <li>Σημειώστε τα σύνολα στο ημερήσιο φύλλο.</li>
 </ol>
 <p class="sub">Εβδομαδιαία</p>
-<ul class="check"><li><input type="checkbox" aria-label="done"><span>Πληρώστε τα τιμολόγια προμηθευτών που λήγουν την εβδομάδα· ελέγξτε το καθένα με το δελτίο αποστολής</span></li><li><input type="checkbox" aria-label="done"><span>Ελέγξτε ότι οι πληρωμές από Booking.com, Airbnb και Expedia έχουν εισπραχθεί και αντιστοιχούν στις κρατήσεις</span></li><li><input type="checkbox" aria-label="done"><span>Πρόβλεψη ρευστότητας για τις επόμενες 4 εβδομάδες: έσοδα σε σύγκριση με ενοίκιο, μισθοδοσία και προμηθευτές</span></li></ul>
+<ul class="check"><li><input type="checkbox" aria-label="done" data-k="k0df00b4e3b"><span>Πληρώστε τα τιμολόγια προμηθευτών που λήγουν την εβδομάδα· ελέγξτε το καθένα με το δελτίο αποστολής</span></li><li><input type="checkbox" aria-label="done" data-k="kde297daea2"><span>Ελέγξτε ότι οι πληρωμές από Booking.com, Airbnb και Expedia έχουν εισπραχθεί και αντιστοιχούν στις κρατήσεις</span></li><li><input type="checkbox" aria-label="done" data-k="k417110914b"><span>Πρόβλεψη ρευστότητας για τις επόμενες 4 εβδομάδες: έσοδα σε σύγκριση με ενοίκιο, μισθοδοσία και προμηθευτές</span></li></ul>
 <p class="sub">Μηνιαία</p>
-<ul class="check"><li><input type="checkbox" aria-label="done"><span>Μισθοδοσία και Κοινωνικές Ασφαλίσεις πληρωμένες έγκαιρα</span></li><li><input type="checkbox" aria-label="done"><span>Ενοίκιο πληρωμένο την ημερομηνία που συμφωνήθηκε</span></li><li><input type="checkbox" aria-label="done"><span>Όλα τα τιμολόγια και οι αποδείξεις στάλθηκαν στον λογιστή μέχρι τις 5 του μήνα</span></li><li><input type="checkbox" aria-label="done"><span>Αποτελέσματα καταχωρημένα στο πλάνο: πληρότητα, τιμή, brunch, εκδηλώσεις, κόστη, κέρδος</span></li><li><input type="checkbox" aria-label="done"><span>Μία ώρα ανασκόπηση μαζί: τι είναι μπροστά ή πίσω από το πλάνο, και μία ενέργεια για τον επόμενο μήνα</span></li></ul>
+<ul class="check"><li><input type="checkbox" aria-label="done" data-k="kf3ba25b5b1"><span>Μισθοδοσία και Κοινωνικές Ασφαλίσεις πληρωμένες έγκαιρα</span></li><li><input type="checkbox" aria-label="done" data-k="k02a963d3e4"><span>Ενοίκιο πληρωμένο την ημερομηνία που συμφωνήθηκε</span></li><li><input type="checkbox" aria-label="done" data-k="k938d806915"><span>Όλα τα τιμολόγια και οι αποδείξεις στάλθηκαν στον λογιστή μέχρι τις 5 του μήνα</span></li><li><input type="checkbox" aria-label="done" data-k="k0bbc4d7fd1"><span>Αποτελέσματα καταχωρημένα στο πλάνο: πληρότητα, τιμή, brunch, εκδηλώσεις, κόστη, κέρδος</span></li><li><input type="checkbox" aria-label="done" data-k="kdc61ef1561"><span>Μία ώρα ανασκόπηση μαζί: τι είναι μπροστά ή πίσω από το πλάνο, και μία ενέργεια για τον επόμενο μήνα</span></li></ul>
 <p class="sub">Τριμηνιαία και ετήσια</p>
-<ul class="check"><li><input type="checkbox" aria-label="done"><span>Δηλώσεις ΦΠΑ με τον λογιστή</span></li><li><input type="checkbox" aria-label="done"><span>Ετήσιοι λογαριασμοί και έλεγχος</span></li><li><input type="checkbox" aria-label="done"><span>Ασφάλειες και άδειες ανανεωμένες πριν λήξουν</span></li></ul>
+<ul class="check"><li><input type="checkbox" aria-label="done" data-k="kd5396f751f"><span>Δηλώσεις ΦΠΑ με τον λογιστή</span></li><li><input type="checkbox" aria-label="done" data-k="ka477e0b50c"><span>Ετήσιοι λογαριασμοί και έλεγχος</span></li><li><input type="checkbox" aria-label="done" data-k="ka657b8790a"><span>Ασφάλειες και άδειες ανανεωμένες πριν λήξουν</span></li></ul>
 <p class="sub">Προμηθευτές</p>
 <ul>
 <li>Να έχετε τουλάχιστον δύο προμηθευτές για ό,τι δεν μπορείτε να λειτουργήσετε χωρίς: τρόφιμα, πλυντήριο, καφέ, ποτά.</li>
@@ -2048,10 +3602,10 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);color:v
 <li>Επανεξετάζετε τις τιμές κάθε 6 μήνες· ζητήστε καλύτερη τιμή μόλις έχετε σταθερό όγκο.</li>
 </ul>
 <p class="sub">Αποθεματικό μετρητών</p>
-<p>Να έχετε αρκετά χρήματα στην τράπεζα για να καλύψετε 3 μήνες σταθερών εξόδων (ενοίκιο, μισθοί, λειτουργικά έξοδα) πριν βγάλετε οποιοδήποτε κέρδος. Αυτό είναι που σας περνά από τον Ιανουάριο και τον Φεβρουάριο.</p></section><section id="el-s16"><h2><span class="n">16</span>Πρόσληψη και εκπαίδευση προσωπικού</h2>
+<p>Να έχετε αρκετά χρήματα στην τράπεζα για να καλύψετε 3 μήνες σταθερών εξόδων (ενοίκιο, μισθοί, λειτουργικά έξοδα) πριν βγάλετε οποιοδήποτε κέρδος. Αυτό είναι που σας περνά από τον Ιανουάριο και τον Φεβρουάριο.</p></section><section id="el-s17"><h2><span class="n">17</span>Πρόσληψη και εκπαίδευση προσωπικού</h2>
 <p>Προσλάβετε με βάση τη στάση και εκπαιδεύστε στις δεξιότητες: ένας ζεστός, αξιόπιστος άνθρωπος μπορεί να μάθει τις διαδικασίες αυτού του εγχειριδίου, αλλά κανείς δεν μπορεί να εκπαιδευτεί να νοιάζεται. Ξεκινήστε τον καθένα με γραπτό συμβόλαιο και δοκιμαστική περίοδο.</p>
 <p class="sub">Πριν από την πρώτη πρόσληψη</p>
-<ul class="check"><li><input type="checkbox" aria-label="done"><span>Η εταιρεία εγγεγραμμένη ως εργοδότης στις Κοινωνικές Ασφαλίσεις</span></li><li><input type="checkbox" aria-label="done"><span>Ασφάλεια αστικής ευθύνης εργοδότη σε ισχύ</span></li><li><input type="checkbox" aria-label="done"><span>Ένα τυποποιημένο συμβόλαιο ελεγμένο από τον λογιστή ή τον δικηγόρο σας: ώρες, μισθός, ρεπό, δοκιμαστική περίοδος, προειδοποίηση</span></li><li><input type="checkbox" aria-label="done"><span>Ελέγξτε τον τρέχοντα εθνικό κατώτατο μισθό και τυχόν συλλογική σύμβαση του ξενοδοχειακού κλάδου για μισθούς, 13ο μισθό ή service charge</span></li></ul>
+<ul class="check"><li><input type="checkbox" aria-label="done" data-k="kbd2a6a9975"><span>Η εταιρεία εγγεγραμμένη ως εργοδότης στις Κοινωνικές Ασφαλίσεις</span></li><li><input type="checkbox" aria-label="done" data-k="kccc54f7fea"><span>Ασφάλεια αστικής ευθύνης εργοδότη σε ισχύ</span></li><li><input type="checkbox" aria-label="done" data-k="k83e6694df3"><span>Ένα τυποποιημένο συμβόλαιο ελεγμένο από τον λογιστή ή τον δικηγόρο σας: ώρες, μισθός, ρεπό, δοκιμαστική περίοδος, προειδοποίηση</span></li><li><input type="checkbox" aria-label="done" data-k="kbe6d2157a8"><span>Ελέγξτε τον τρέχοντα εθνικό κατώτατο μισθό και τυχόν συλλογική σύμβαση του ξενοδοχειακού κλάδου για μισθούς, 13ο μισθό ή service charge</span></li></ul>
 <p class="sub">Πρόσληψη</p>
 <ol>
 <li>Γράψτε μια σύντομη περιγραφή θέσης από τη σχετική ενότητα αυτού του εγχειριδίου.</li>
@@ -2101,10 +3655,10 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);color:v
 <li>Αξιολογήστε κάθε άτομο μετά από 3 μήνες και κάθε χρόνο μετά.</li>
 </ul>
 <p class="sub">Όταν κάτι πάει στραβά</p>
-<p>Θέστε το πρόβλημα ιδιωτικά και νωρίς, καταγράψτε τι συμφωνήθηκε, και ακολουθήστε τους όρους δοκιμαστικής περιόδου και προειδοποίησης του συμβολαίου. Συμβουλευτείτε τον λογιστή ή τον δικηγόρο σας πριν τερματίσετε την απασχόληση οποιουδήποτε.</p></section><section id="el-s17"><h2><span class="n">17</span>Συμβίωση με τους ιδιοκτήτες του ακινήτου</h2>
+<p>Θέστε το πρόβλημα ιδιωτικά και νωρίς, καταγράψτε τι συμφωνήθηκε, και ακολουθήστε τους όρους δοκιμαστικής περιόδου και προειδοποίησης του συμβολαίου. Συμβουλευτείτε τον λογιστή ή τον δικηγόρο σας πριν τερματίσετε την απασχόληση οποιουδήποτε.</p></section><section id="el-s18"><h2><span class="n">18</span>Συμβίωση με τους ιδιοκτήτες του ακινήτου</h2>
 <p>Οι ιδιοκτήτες του ακινήτου μένουν στο ίδιο κτήριο, άρα μια καλή σχέση μαζί τους είναι μέρος της λειτουργίας του ξενοδοχείου. Συμφωνήστε τους κανόνες γραπτώς από την αρχή· είναι πολύ πιο εύκολο από το να διορθώσετε μια παρεξήγηση αργότερα.</p>
 <p class="sub">Συμφωνήστε γραπτώς</p>
-<ul class="check"><li><input type="checkbox" aria-label="done"><span>Ποιοι χώροι είναι κοινόχρηστοι, ποιοι ανήκουν στο ξενοδοχείο και ποιοι είναι ιδιωτικοί</span></li><li><input type="checkbox" aria-label="done"><span>Ποια είσοδο χρησιμοποιεί η κάθε πλευρά, και αν οι επισκέπτες περνούν ποτέ από τους χώρους των ιδιοκτητών του ακινήτου</span></li><li><input type="checkbox" aria-label="done"><span>Ώρες κοινής ησυχίας για το ξενοδοχείο, τις εκδηλώσεις και το brunch</span></li><li><input type="checkbox" aria-label="done"><span>Πόσες εκδηλώσεις τον μήνα, και πόσο νωρίτερα ενημερώνονται οι ιδιοκτήτες του ακινήτου</span></li><li><input type="checkbox" aria-label="done"><span>Ποιος σταθμεύει πού, και πού γίνονται οι παραδόσεις</span></li><li><input type="checkbox" aria-label="done"><span>Αν οι ιδιοκτήτες του ακινήτου μπορούν να χρησιμοποιούν τον κήπο, και πότε</span></li></ul>
+<ul class="check"><li><input type="checkbox" aria-label="done" data-k="ka0263b4495"><span>Ποιοι χώροι είναι κοινόχρηστοι, ποιοι ανήκουν στο ξενοδοχείο και ποιοι είναι ιδιωτικοί</span></li><li><input type="checkbox" aria-label="done" data-k="k536d2d4a7e"><span>Ποια είσοδο χρησιμοποιεί η κάθε πλευρά, και αν οι επισκέπτες περνούν ποτέ από τους χώρους των ιδιοκτητών του ακινήτου</span></li><li><input type="checkbox" aria-label="done" data-k="k7454ac46de"><span>Ώρες κοινής ησυχίας για το ξενοδοχείο, τις εκδηλώσεις και το brunch</span></li><li><input type="checkbox" aria-label="done" data-k="k0911636647"><span>Πόσες εκδηλώσεις τον μήνα, και πόσο νωρίτερα ενημερώνονται οι ιδιοκτήτες του ακινήτου</span></li><li><input type="checkbox" aria-label="done" data-k="kb39f870f88"><span>Ποιος σταθμεύει πού, και πού γίνονται οι παραδόσεις</span></li><li><input type="checkbox" aria-label="done" data-k="kc2891bb710"><span>Αν οι ιδιοκτήτες του ακινήτου μπορούν να χρησιμοποιούν τον κήπο, και πότε</span></li></ul>
 <p class="sub">Καθημερινά</p>
 <ul>
 <li>Μοιραστείτε μαζί τους το ημερολόγιο εκδηλώσεων στην αρχή κάθε μήνα.</li>
@@ -2113,7 +3667,7 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);color:v
 <li>Μια σύντομη συνάντηση μία φορά τον μήνα: τι λειτουργεί, τι όχι.</li>
 </ul>
 <p class="sub">Οι επισκέπτες και οι ιδιοκτήτες του ακινήτου</p>
-<p>Οι επισκέπτες δεν πρέπει ποτέ να νιώθουν ότι μένουν στο σπίτι κάποιου. Σημαδέψτε καθαρά τους ιδιωτικούς χώρους, κρατήστε τις μετακινήσεις των ιδιοκτητών του ακινήτου ξεχωριστά από τους χώρους των επισκεπτών όπου είναι δυνατόν, και συμφωνήστε πώς θα τους συστήσετε αν ρωτήσει κάποιος επισκέπτης.</p></section><section id="el-s18" class="tpl"><h2><span class="n">18</span>Πρότυπα</h2>
+<p>Οι επισκέπτες δεν πρέπει ποτέ να νιώθουν ότι μένουν στο σπίτι κάποιου. Σημαδέψτε καθαρά τους ιδιωτικούς χώρους, κρατήστε τις μετακινήσεις των ιδιοκτητών του ακινήτου ξεχωριστά από τους χώρους των επισκεπτών όπου είναι δυνατόν, και συμφωνήστε πώς θα τους συστήσετε αν ρωτήσει κάποιος επισκέπτης.</p></section><section id="el-s19" class="tpl"><h2><span class="n">19</span>Πρότυπα</h2>
 <p>Τυπώστε τα, κρατήστε τα σε ένα clipboard εκεί όπου γίνεται η δουλειά, και αρχειοθετείτε τα συμπληρωμένα φύλλα κάθε εβδομάδα.</p>
 <p class="sub">Ημερολόγιο θερμοκρασίας ψυγείων και καταψύκτη</p>
 <div class="tbl"><table>
@@ -2408,6 +3962,7 @@ footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);color:v
 </div>
 <script>
 (function(){
+const OLDKEYS=["kb307c50122", "k6a2301cf9e", "k65975829b2", "k9b434de647", "k7c98c5d6f3", "kd9b1853057", "k8fdf8d723c", "k529c43ccfd", "kdf9ed50848", "keb06a6c2da", "k76067eac25", "kac218ddf02", "k984801be24", "ke8351bbab0", "kce2bd61c60", "k202f848abc", "k5a802d594d", "kf6e307db51", "k9a62d89d25", "kbc207a9334", "k0841f70631", "kd60576ae3b", "k911dbeeebb", "k9fc3503e25", "kb0ca8c0c73", "k4242c23e1b", "ka42b59dc6a", "k520d63ac88", "k14213ae2a7", "k89454ac2fa", "kd40011f725", "kd9b6accdf7", "k36d6295643", "kbf4ccae152", "ke0401f67d1", "kddec67432b", "k2b5ebabe68", "kfca5deea34", "kbc2d9fe23e", "ka01a3a3db4", "kbc944c7443", "ka265292d5d", "k55907386d3", "kc8b4e46809", "k6b81b282e2", "k024ec2f0b5", "k8a4bc0ee81", "k2444891268", "k4877986ff0", "k9cee479f6d", "k123bfb9409", "kb700b85c0c", "k73fa589475", "kfaa11d1aa9", "ka54f10dccf", "ka6d56a3229", "k5101615d81", "k04b84136bd", "kbd64b64e73", "k2845554156", "kc816e2a3f1", "k251597a78e", "k475584351f", "k3178a911cd", "k16427c042a", "kb6df4b169d", "kfa24d7c78d", "kc6bed24c32", "kcbe317640a", "ka1ba1355df", "k9dd0c9d67f", "kaff963a90a", "ke909eda230", "k121ccb5e59", "kf9fdea8dcf", "ka521b5530b", "k49c3ca6470", "kec9dea0621", "kb796bb486d", "k466894d8f4", "k2ebae0ed82", "kfaac6c8b45", "kdd15eadd01", "k87a103012e", "k6254ef4813", "k605cc4006f", "k9075f89064", "k76af55ac4d", "k395a9acf53", "k7ae2e1358a", "kdc5fa9cc91", "k925898bf33", "k95970984f6", "k880b39d180", "kb817c950d7", "k2878610487", "k961d419b24", "kb382798283", "k51441fc7e6", "kcf35a28e70", "k82f396f57b", "kdf82baa6cd", "k535736acd0", "kb76c0a7deb", "k4c3aeb00e7", "ka5b1659fa0", "k60522db992", "k3a74dd8bb0", "k13eca67f1b", "kba4954cba5", "ke1373b27b9", "kc919ee5c4f", "kbeafcaf241", "k0df00b4e3b", "kde297daea2", "k417110914b", "kf3ba25b5b1", "k02a963d3e4", "k938d806915", "k0bbc4d7fd1", "kdc61ef1561", "kd5396f751f", "ka477e0b50c", "ka657b8790a", "kbd2a6a9975", "kccc54f7fea", "k83e6694df3", "kbe6d2157a8", "ka0263b4495", "k536d2d4a7e", "k7454ac46de", "k0911636647", "kb39f870f88", "kc2891bb710"];
 const views={en:document.querySelector('[data-lang="en"]'),el:document.querySelector('[data-lang="el"]')};
 const btns=[...document.querySelectorAll('.switch button')];
 let cur='en';
@@ -2425,14 +3980,15 @@ function show(l,keep){
 
 function load(k,d){try{const v=JSON.parse(localStorage.getItem(k));return v==null?d:v}catch(e){return d}}
 function save(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
-const boxes={en:[...views.en.querySelectorAll('ul.check input')],el:[...views.el.querySelectorAll('ul.check input')]};
-let ticks=load('manual-ticks',[]);
-function paintTicks(){for(const k in boxes)boxes[k].forEach((b,i)=>b.checked=!!ticks[i]);}
+const boxes={en:[...views.en.querySelectorAll('input[type=checkbox]')],el:[...views.el.querySelectorAll('input[type=checkbox]')]};
+let ticks=load('manual-ticks2',null);
+if(!ticks){ticks={};const old=load('manual-ticks',[]);if(Array.isArray(old))old.forEach((v,i)=>{if(v&&OLDKEYS[i])ticks[OLDKEYS[i]]=true});save('manual-ticks2',ticks);}
+function paintTicks(){for(const k in boxes)boxes[k].forEach(b=>b.checked=!!ticks[b.dataset.k]);}
 paintTicks();
-for(const k in boxes)boxes[k].forEach((b,i)=>b.addEventListener('change',()=>{ticks[i]=b.checked;save('manual-ticks',ticks);paintTicks();}));
+for(const k in boxes)boxes[k].forEach(b=>b.addEventListener('change',()=>{if(b.checked)ticks[b.dataset.k]=true;else delete ticks[b.dataset.k];save('manual-ticks2',ticks);paintTicks();}));
 document.querySelectorAll('.clear').forEach(btn=>{const lab=btn.textContent;let t;btn.addEventListener('click',()=>{
   if(!btn.classList.contains('arm')){btn.classList.add('arm');btn.textContent=document.documentElement.lang==='el'?'Πατήστε ξανά για επιβεβαίωση':'Tap again to confirm';t=setTimeout(()=>{btn.classList.remove('arm');btn.textContent=lab},3000);return;}
-  clearTimeout(t);ticks=[];save('manual-ticks',ticks);paintTicks();btn.classList.remove('arm');btn.textContent=lab;});});
+  clearTimeout(t);ticks={};save('manual-ticks2',ticks);paintTicks();btn.classList.remove('arm');btn.textContent=lab;});});
 const phoneCells={};
 for(const k in views){const tbls=views[k].querySelectorAll('section.tpl table');const tb=tbls[tbls.length-1];
   phoneCells[k]=[...tb.querySelectorAll('tbody tr')].map(r=>r.cells[1]);}
