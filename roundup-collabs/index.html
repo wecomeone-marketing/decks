@@ -326,8 +326,8 @@
 
   .play-btn {
     position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
+    bottom: 12px; right: 12px;
+    transform: none;
     width: 44px; height: 44px;
     background: rgba(255,107,122,0.9);
     border-radius: 50%;
@@ -337,7 +337,7 @@
     transition: all 0.2s;
   }
 
-  .episode-card:hover .play-btn { background: var(--coral); transform: translate(-50%, -50%) scale(1.1); }
+  .episode-card:hover .play-btn { background: var(--coral); transform: scale(1.1); }
   .play-btn svg { margin-left: 3px; }
 
   .episode-info { padding: 20px; }
