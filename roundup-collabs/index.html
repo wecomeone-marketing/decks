@@ -326,7 +326,8 @@
 
   .play-btn {
     position: absolute;
-    top: 12px; right: 12px;
+    bottom: 12px; left: 50%;
+    transform: translateX(-50%);
     transform: none;
     width: 44px; height: 44px;
     background: rgba(255,107,122,0.9);
@@ -337,7 +338,7 @@
     transition: all 0.2s;
   }
 
-  .episode-card:hover .play-btn { background: var(--coral); transform: scale(1.1); }
+  .episode-card:hover .play-btn { background: var(--coral); transform: translateX(-50%) scale(1.1); }
   .play-btn svg { margin-left: 3px; }
 
   .episode-info { padding: 20px; }
@@ -939,12 +940,12 @@
       <div class="fade-in">
         <a href="https://youtu.be/_EAyTWQsa38" target="_blank" class="episode-card">
           <div class="episode-thumb-wrap">
-            <img src="https://img.youtube.com/vi/_EAyTWQsa38/maxresdefault.jpg" alt="Advertising & Comms Agencies" onerror="this.src='https://img.youtube.com/vi/_EAyTWQsa38/hqdefault.jpg'">
+            <img src="https://img.youtube.com/vi/_EAyTWQsa38/maxresdefault.jpg" alt="Advertising & Communications Agencies" onerror="this.src='https://img.youtube.com/vi/_EAyTWQsa38/hqdefault.jpg'">
             <div class="play-btn"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 2L14 8L4 14V2Z" fill="white"/></svg></div>
           </div>
           <div class="episode-info">
             <div class="episode-num">Episode 05</div>
-            <div class="episode-title">Advertising & Comms Agencies</div>
+            <div class="episode-title">Advertising & Communications Agencies</div>
             <span class="episode-link">Watch on YouTube</span>
           </div>
         </a>
