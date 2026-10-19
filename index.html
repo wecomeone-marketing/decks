@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Travio Overview</title>
+<meta name="description" content="Travio company overview: an AI travel planner sold to travellers and licensed to travel agents. What it is and where it stands.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ocean:#0D9488; --ocean-dark:#0B7C72; --sunset:#FACC15;
+    --sand:#F8FAFB; --charcoal:#1E293B; --muted:#64748B;
+    --line:#E6ECEF; --white:#ffffff;
+    --maxw:1020px;
+    --head: 'Plus Jakarta Sans', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    --body: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; font-family:var(--body); color:var(--charcoal);
+    background:var(--white); line-height:1.6; -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--ocean); text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  /* scroll progress */
+  #progress{position:fixed; top:0; left:0; height:3px; width:0%; background:var(--ocean); z-index:60; transition:width .1s linear}
+
+  /* logo */
+  .logo{display:block; width:auto}
+  .logo-bar{height:26px}
+  .logo-hero{height:clamp(50px,10.5vw,96px); margin:0 0 18px}
+  .logo-close{height:46px; margin:0 auto 16px}
+
+  /* header */
+  header.bar{
+    position:sticky; top:0; z-index:50; backdrop-filter:saturate(180%) blur(8px);
+    background:rgba(255,255,255,.82); border-bottom:1px solid var(--line);
+  }
+  .bar-in{max-width:var(--maxw); margin:0 auto; padding:13px 20px; display:flex; align-items:center; justify-content:space-between}
+  .bar a.site{font-size:14px; font-weight:600; color:var(--muted)}
+
+  section{padding:76px 20px}
+  .wrap{max-width:var(--maxw); margin:0 auto}
+  .alt{background:var(--sand)}
+  .kicker{font-family:var(--head); font-weight:700; letter-spacing:.14em; text-transform:uppercase; font-size:12px; color:var(--ocean); margin:0 0 14px}
+  h2{font-family:var(--head); font-weight:800; font-size:clamp(26px,4vw,38px); line-height:1.15; letter-spacing:-.02em; margin:0 0 18px}
+  h3{font-family:var(--head); font-weight:700; font-size:19px; margin:0 0 8px; letter-spacing:-.01em}
+  p{margin:0 0 16px}
+  p.lead{font-size:clamp(18px,2.4vw,22px); color:var(--charcoal)}
+  .muted{color:var(--muted)}
+
+  /* hero */
+  .hero{min-height:92vh; display:flex; align-items:center; position:relative; overflow:hidden;
+    background:
+      radial-gradient(900px 500px at 82% -10%, rgba(13,148,136,.12), transparent 60%),
+      radial-gradient(700px 480px at 0% 110%, rgba(250,204,21,.14), transparent 55%),
+      var(--white);
+    border-bottom:1px solid var(--line);
+  }
+  .hero .wrap{padding:40px 0}
+  .hero .tagline{font-family:var(--head); font-weight:600; font-size:clamp(18px,2.6vw,24px); color:var(--muted); margin:0 0 26px}
+  .hero .one{font-size:clamp(18px,2.6vw,22px); max-width:640px; margin:0 0 30px}
+  .meta{font-size:14px; color:var(--muted); line-height:2}
+  .meta strong{color:var(--charcoal); font-weight:600}
+  .scrollcue{margin-top:34px; font-size:13px; color:var(--muted); font-weight:600; letter-spacing:.04em}
+  .scrollcue span{display:inline-block; animation:bob 1.8s ease-in-out infinite}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
+
+  /* grids & cards */
+  .grid{display:grid; gap:18px}
+  .g2{grid-template-columns:repeat(2,1fr)}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  .card{background:var(--white); border:1px solid var(--line); border-radius:16px; padding:24px}
+  .card h3{color:var(--charcoal)}
+  .card p{margin:0; color:var(--muted); font-size:15px}
+  .pill{display:inline-block; font-family:var(--head); font-weight:700; font-size:12px; color:var(--ocean); background:rgba(13,148,136,.10); border-radius:999px; padding:4px 11px; margin-bottom:12px; letter-spacing:.02em}
+
+  /* steps */
+  .step{display:flex; gap:18px; align-items:flex-start; padding:18px 0; border-bottom:1px solid var(--line)}
+  .step:last-child{border-bottom:0}
+  .num{flex:none; width:40px; height:40px; border-radius:12px; background:var(--ocean); color:#fff; font-family:var(--head); font-weight:800; display:flex; align-items:center; justify-content:center; font-size:18px}
+  .step div h3{margin-bottom:4px}
+  .step div p{margin:0; color:var(--muted); font-size:15px}
+
+  /* stat tiles */
+  .stat{background:var(--white); border:1px solid var(--line); border-radius:16px; padding:26px 22px}
+  .stat .big{font-family:var(--head); font-weight:800; font-size:clamp(28px,4.5vw,40px); color:var(--ocean); letter-spacing:-.02em; line-height:1.05}
+  .stat p{margin:10px 0 0; color:var(--muted); font-size:14px}
+
+  /* status list */
+  .status{display:grid; gap:12px; margin:0; padding:0; list-style:none}
+  .status li{display:flex; gap:12px; align-items:flex-start; font-size:16px}
+  .status .tick{flex:none; width:24px; height:24px; border-radius:50%; background:rgba(13,148,136,.12); color:var(--ocean); display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:800; margin-top:1px}
+
+  /* roadmap */
+  .road{list-style:none; margin:0; padding:0}
+  .road li{position:relative; padding:0 0 22px 28px; border-left:2px solid var(--line); margin-left:6px}
+  .road li:last-child{border-left-color:transparent; padding-bottom:0}
+  .road li::before{content:""; position:absolute; left:-7px; top:4px; width:12px; height:12px; border-radius:50%; background:var(--sunset); border:2px solid var(--white)}
+  .road li strong{font-family:var(--head); display:block; color:var(--charcoal); font-weight:700; margin-bottom:2px}
+  .road li span{color:var(--muted); font-size:15px}
+
+  /* team */
+  .team h3{margin-bottom:2px}
+  .team .role{color:var(--ocean); font-weight:600; font-size:14px; font-family:var(--head); margin-bottom:10px}
+
+  /* close */
+  .close{background:var(--charcoal); color:#fff; text-align:center}
+  .close a{color:#fff}
+  .close .site{font-family:var(--head); font-weight:700; font-size:20px; color:#fff; margin:0 0 20px; display:inline-block}
+  .close p{color:rgba(255,255,255,.72); margin:4px 0}
+
+  /* reveal */
+  .reveal{opacity:0; transform:translateY(14px); transition:opacity .6s ease, transform .6s ease}
+  .reveal.in{opacity:1; transform:none}
+  @media (prefers-reduced-motion: reduce){.reveal{opacity:1; transform:none; transition:none} .scrollcue span{animation:none}}
+
+  @media (max-width:760px){
+    section{padding:54px 20px}
+    .g2,.g3{grid-template-columns:1fr}
+    .hero{min-height:88vh}
+  }
+</style>
+</head>
+<body>
+<div id="progress" aria-hidden="true"></div>
+
+<header class="bar">
+  <div class="bar-in">
+    <svg class="logo logo-bar" viewBox="150 250 1150 256" role="img" aria-label="Travio"><g transform="matrix(1, 0, 0, 1, 150, 255)"><g><g fill="#0d9488" fill-opacity="1"><g transform="translate(2.284234, 236.795197)"><g><path d="M 103.8125 2.15625 C 91.738281 2.15625 80.378906 -0.0234375 69.734375 -4.390625 C 59.097656 -8.753906 49.773438 -14.878906 41.765625 -22.765625 C 33.640625 -30.773438 27.304688 -40.035156 22.765625 -50.546875 C 18.222656 -61.066406 15.953125 -72.304688 15.953125 -84.265625 L 15.953125 -208.859375 C 15.953125 -213.285156 17.566406 -217.113281 20.796875 -220.34375 C 23.898438 -223.445312 27.601562 -225 31.90625 -225 C 36.332031 -225 40.21875 -223.445312 43.5625 -220.34375 C 46.789062 -217.113281 48.40625 -213.285156 48.40625 -208.859375 L 48.40625 -173.71875 L 119.578125 -173.71875 C 124.003906 -173.71875 127.769531 -172.132812 130.875 -168.96875 C 133.976562 -165.800781 135.53125 -162.007812 135.53125 -157.59375 C 135.53125 -153.289062 134.003906 -149.671875 130.953125 -146.734375 C 127.910156 -143.804688 124.117188 -142.34375 119.578125 -142.34375 L 48.40625 -142.34375 L 48.40625 -83.90625 C 48.40625 -76.375 49.804688 -69.289062 52.609375 -62.65625 C 55.421875 -56.019531 59.398438 -50.191406 64.546875 -45.171875 C 69.566406 -40.160156 75.453125 -36.28125 82.203125 -33.53125 C 88.953125 -30.78125 96.15625 -29.40625 103.8125 -29.40625 C 118.382812 -29.40625 130.332031 -33.707031 139.65625 -42.3125 C 143.488281 -45.894531 147.492188 -47.6875 151.671875 -47.6875 C 155.253906 -47.6875 158.601562 -46.3125 161.71875 -43.5625 C 164.582031 -40.695312 166.015625 -37.171875 166.015625 -32.984375 C 166.015625 -27.722656 164.101562 -23.179688 160.28125 -19.359375 C 145.21875 -5.015625 126.394531 2.15625 103.8125 2.15625 Z M 103.8125 2.15625 "/></g></g></g><g fill="#0d9488" fill-opacity="1"><g transform="translate(216.485403, 236.795197)"><g><path d="M 32.265625 0 C 27.722656 0 23.957031 -1.492188 20.96875 -4.484375 C 17.625 -7.472656 15.953125 -11.238281 15.953125 -15.78125 L 15.953125 -81.390625 C 15.953125 -93.703125 18.3125 -105.445312 23.03125 -116.625 C 27.757812 -127.800781 34.304688 -137.628906 42.671875 -146.109375 C 51.160156 -154.597656 60.929688 -161.203125 71.984375 -165.921875 C 83.035156 -170.648438 94.71875 -173.015625 107.03125 -173.015625 L 107.921875 -173.015625 C 113.179688 -173.015625 117.242188 -171.546875 120.109375 -168.609375 C 122.984375 -165.679688 124.421875 -161.890625 124.421875 -157.234375 C 124.421875 -152.691406 122.835938 -148.925781 119.671875 -145.9375 C 116.503906 -142.945312 112.585938 -141.453125 107.921875 -141.453125 L 107.03125 -141.453125 C 99.019531 -141.453125 91.425781 -139.894531 84.25 -136.78125 C 77.082031 -133.675781 70.753906 -129.378906 65.265625 -123.890625 C 59.640625 -118.265625 55.273438 -111.804688 52.171875 -104.515625 C 49.066406 -97.222656 47.515625 -89.515625 47.515625 -81.390625 L 47.515625 -15.78125 C 47.515625 -11.238281 46.046875 -7.472656 43.109375 -4.484375 C 40.179688 -1.492188 36.566406 0 32.265625 0 Z M 32.265625 0 "/></g></g></g><g fill="#0d9488" fill-opacity="1"><g transform="translate(380.666432, 236.795197)"><g><path d="M 95.375 2.15625 C 83.539062 2.15625 72.363281 -0.0820312 61.84375 -4.5625 C 51.332031 -9.050781 42.070312 -15.359375 34.0625 -23.484375 C 26.050781 -31.492188 19.804688 -40.816406 15.328125 -51.453125 C 10.847656 -62.085938 8.609375 -73.382812 8.609375 -85.34375 C 8.609375 -97.289062 10.847656 -108.582031 15.328125 -119.21875 C 19.804688 -129.851562 26.050781 -139.238281 34.0625 -147.375 C 42.070312 -155.5 51.332031 -161.800781 61.84375 -166.28125 C 72.363281 -170.769531 83.539062 -173.015625 95.375 -173.015625 C 107.207031 -173.015625 118.351562 -170.800781 128.8125 -166.375 C 139.269531 -161.945312 148.503906 -155.734375 156.515625 -147.734375 C 164.398438 -139.722656 170.582031 -130.457031 175.0625 -119.9375 C 179.550781 -109.414062 181.914062 -98.242188 182.15625 -86.421875 L 182.15625 -15.0625 C 182.15625 -10.519531 180.597656 -6.664062 177.484375 -3.5 C 174.378906 -0.332031 170.554688 1.25 166.015625 1.25 C 161.472656 1.25 157.765625 -0.300781 154.890625 -3.40625 C 152.023438 -6.507812 150.59375 -10.394531 150.59375 -15.0625 L 150.421875 -17.5625 C 142.765625 -11.226562 134.242188 -6.359375 124.859375 -2.953125 C 115.484375 0.453125 105.65625 2.15625 95.375 2.15625 Z M 95.375 -29.578125 C 103.144531 -29.578125 110.375 -31.007812 117.0625 -33.875 C 123.757812 -36.75 129.679688 -40.816406 134.828125 -46.078125 C 139.835938 -51.210938 143.71875 -57.15625 146.46875 -63.90625 C 149.21875 -70.664062 150.59375 -77.8125 150.59375 -85.34375 C 150.59375 -92.875 149.21875 -100.015625 146.46875 -106.765625 C 143.71875 -113.515625 139.835938 -119.460938 134.828125 -124.609375 C 129.679688 -129.742188 123.734375 -133.742188 116.984375 -136.609375 C 110.234375 -139.484375 103.03125 -140.921875 95.375 -140.921875 C 87.726562 -140.921875 80.554688 -139.484375 73.859375 -136.609375 C 67.171875 -133.742188 61.316406 -129.742188 56.296875 -124.609375 C 51.273438 -119.460938 47.359375 -113.515625 44.546875 -106.765625 C 41.742188 -100.015625 40.34375 -92.875 40.34375 -85.34375 C 40.34375 -77.8125 41.742188 -70.664062 44.546875 -63.90625 C 47.359375 -57.15625 51.273438 -51.210938 56.296875 -46.078125 C 61.316406 -40.816406 67.171875 -36.75 73.859375 -33.875 C 80.554688 -31.007812 87.726562 -29.578125 95.375 -29.578125 Z M 95.375 -29.578125 "/></g></g></g><g fill="#facc15" fill-opacity="1"><g transform="translate(623.56471, 236.795197)"><g><path d="M 83.71875 0.890625 C 79.894531 0.890625 76.726562 -0.00390625 74.21875 -1.796875 C 71.707031 -3.585938 69.859375 -5.914062 68.671875 -8.78125 L 9.140625 -149.515625 C 8.179688 -151.785156 7.703125 -154.054688 7.703125 -156.328125 C 7.703125 -160.515625 9.226562 -164.191406 12.28125 -167.359375 C 15.332031 -170.523438 19.128906 -172.109375 23.671875 -172.109375 C 26.648438 -172.109375 29.425781 -171.269531 32 -169.59375 C 34.570312 -167.925781 36.515625 -165.539062 37.828125 -162.4375 L 83.359375 -52.703125 L 128.546875 -162.4375 C 129.859375 -165.300781 131.859375 -167.597656 134.546875 -169.328125 C 137.234375 -171.066406 140.070312 -171.9375 143.0625 -171.9375 C 147.25 -171.9375 150.957031 -170.320312 154.1875 -167.09375 C 157.289062 -163.988281 158.84375 -160.34375 158.84375 -156.15625 C 158.96875 -154.476562 158.488281 -152.265625 157.40625 -149.515625 L 97.890625 -8.78125 C 96.335938 -5.789062 94.363281 -3.429688 91.96875 -1.703125 C 89.582031 0.0234375 86.832031 0.890625 83.71875 0.890625 Z M 83.71875 0.890625 "/></g></g></g><g fill="#facc15" fill-opacity="1"><g transform="translate(834.180206, 236.795197)"><g><path d="M 34.421875 -194.15625 C 29.523438 -194.15625 25.28125 -195.953125 21.6875 -199.546875 C 18.101562 -203.128906 16.3125 -207.3125 16.3125 -212.09375 C 16.3125 -216.988281 18.101562 -221.234375 21.6875 -224.828125 C 25.15625 -228.285156 29.398438 -230.015625 34.421875 -230.015625 C 39.085938 -230.015625 43.332031 -228.285156 47.15625 -224.828125 C 50.738281 -221.472656 52.53125 -217.226562 52.53125 -212.09375 C 52.53125 -207.1875 50.738281 -203.003906 47.15625 -199.546875 C 43.445312 -195.953125 39.203125 -194.15625 34.421875 -194.15625 Z M 34.421875 1.25 C 29.992188 1.25 26.195312 -0.269531 23.03125 -3.3125 C 19.863281 -6.363281 18.28125 -10.097656 18.28125 -14.515625 L 18.28125 -157.046875 C 18.28125 -161.585938 19.894531 -165.351562 23.125 -168.34375 C 26.226562 -171.457031 30.054688 -173.015625 34.609375 -173.015625 C 38.910156 -173.015625 42.550781 -171.457031 45.53125 -168.34375 C 48.519531 -165.238281 50.015625 -161.472656 50.015625 -157.046875 L 50.015625 -14.515625 C 50.015625 -10.097656 48.488281 -6.363281 45.4375 -3.3125 C 42.394531 -0.269531 38.722656 1.25 34.421875 1.25 Z M 34.421875 1.25 "/></g></g></g><g fill="#facc15" fill-opacity="1"><g transform="translate(946.906825, 236.795197)"><g><path d="M 95.375 2.15625 C 83.539062 2.15625 72.332031 -0.0820312 61.75 -4.5625 C 51.175781 -9.050781 41.828125 -15.359375 33.703125 -23.484375 C 25.578125 -31.492188 19.242188 -40.847656 14.703125 -51.546875 C 10.160156 -62.242188 7.890625 -73.507812 7.890625 -85.34375 C 7.890625 -97.175781 10.160156 -108.4375 14.703125 -119.125 C 19.242188 -129.820312 25.578125 -139.238281 33.703125 -147.375 C 41.828125 -155.5 51.175781 -161.800781 61.75 -166.28125 C 72.332031 -170.769531 83.539062 -173.015625 95.375 -173.015625 C 107.332031 -173.015625 118.660156 -170.738281 129.359375 -166.1875 C 140.054688 -161.644531 149.40625 -155.375 157.40625 -147.375 C 165.414062 -139.238281 171.660156 -129.851562 176.140625 -119.21875 C 180.628906 -108.582031 182.875 -97.289062 182.875 -85.34375 C 182.875 -73.382812 180.628906 -62.085938 176.140625 -51.453125 C 171.660156 -40.816406 165.414062 -31.492188 157.40625 -23.484375 C 149.40625 -15.472656 140.054688 -9.195312 129.359375 -4.65625 C 118.660156 -0.113281 107.332031 2.15625 95.375 2.15625 Z M 95.375 -29.578125 C 103.144531 -29.578125 110.40625 -31.007812 117.15625 -33.875 C 123.914062 -36.75 129.863281 -40.816406 135 -46.078125 C 140.132812 -51.210938 144.109375 -57.15625 146.921875 -63.90625 C 149.734375 -70.664062 151.140625 -77.8125 151.140625 -85.34375 C 151.140625 -92.875 149.734375 -100.015625 146.921875 -106.765625 C 144.109375 -113.515625 140.132812 -119.460938 135 -124.609375 C 129.863281 -129.742188 123.914062 -133.742188 117.15625 -136.609375 C 110.40625 -139.484375 103.144531 -140.921875 95.375 -140.921875 C 87.726562 -140.921875 80.523438 -139.484375 73.765625 -136.609375 C 67.015625 -133.742188 61.070312 -129.742188 55.9375 -124.609375 C 50.800781 -119.460938 46.796875 -113.515625 43.921875 -106.765625 C 41.054688 -100.015625 39.625 -92.875 39.625 -85.34375 C 39.625 -77.8125 41.054688 -70.664062 43.921875 -63.90625 C 46.796875 -57.15625 50.800781 -51.210938 55.9375 -46.078125 C 61.070312 -40.816406 67.015625 -36.75 73.765625 -33.875 C 80.523438 -31.007812 87.726562 -29.578125 95.375 -29.578125 Z M 95.375 -29.578125 "/></g></g></g></g></g></svg>
+    <a class="site" href="https://travio.one" target="_blank" rel="noopener">travio.one</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <p class="kicker">Company Overview</p>
+    <svg class="logo logo-hero" viewBox="150 250 1150 256" role="img" aria-label="Travio"><g transform="matrix(1, 0, 0, 1, 150, 255)"><g><g fill="#0d9488" fill-opacity="1"><g transform="translate(2.284234, 236.795197)"><g><path d="M 103.8125 2.15625 C 91.738281 2.15625 80.378906 -0.0234375 69.734375 -4.390625 C 59.097656 -8.753906 49.773438 -14.878906 41.765625 -22.765625 C 33.640625 -30.773438 27.304688 -40.035156 22.765625 -50.546875 C 18.222656 -61.066406 15.953125 -72.304688 15.953125 -84.265625 L 15.953125 -208.859375 C 15.953125 -213.285156 17.566406 -217.113281 20.796875 -220.34375 C 23.898438 -223.445312 27.601562 -225 31.90625 -225 C 36.332031 -225 40.21875 -223.445312 43.5625 -220.34375 C 46.789062 -217.113281 48.40625 -213.285156 48.40625 -208.859375 L 48.40625 -173.71875 L 119.578125 -173.71875 C 124.003906 -173.71875 127.769531 -172.132812 130.875 -168.96875 C 133.976562 -165.800781 135.53125 -162.007812 135.53125 -157.59375 C 135.53125 -153.289062 134.003906 -149.671875 130.953125 -146.734375 C 127.910156 -143.804688 124.117188 -142.34375 119.578125 -142.34375 L 48.40625 -142.34375 L 48.40625 -83.90625 C 48.40625 -76.375 49.804688 -69.289062 52.609375 -62.65625 C 55.421875 -56.019531 59.398438 -50.191406 64.546875 -45.171875 C 69.566406 -40.160156 75.453125 -36.28125 82.203125 -33.53125 C 88.953125 -30.78125 96.15625 -29.40625 103.8125 -29.40625 C 118.382812 -29.40625 130.332031 -33.707031 139.65625 -42.3125 C 143.488281 -45.894531 147.492188 -47.6875 151.671875 -47.6875 C 155.253906 -47.6875 158.601562 -46.3125 161.71875 -43.5625 C 164.582031 -40.695312 166.015625 -37.171875 166.015625 -32.984375 C 166.015625 -27.722656 164.101562 -23.179688 160.28125 -19.359375 C 145.21875 -5.015625 126.394531 2.15625 103.8125 2.15625 Z M 103.8125 2.15625 "/></g></g></g><g fill="#0d9488" fill-opacity="1"><g transform="translate(216.485403, 236.795197)"><g><path d="M 32.265625 0 C 27.722656 0 23.957031 -1.492188 20.96875 -4.484375 C 17.625 -7.472656 15.953125 -11.238281 15.953125 -15.78125 L 15.953125 -81.390625 C 15.953125 -93.703125 18.3125 -105.445312 23.03125 -116.625 C 27.757812 -127.800781 34.304688 -137.628906 42.671875 -146.109375 C 51.160156 -154.597656 60.929688 -161.203125 71.984375 -165.921875 C 83.035156 -170.648438 94.71875 -173.015625 107.03125 -173.015625 L 107.921875 -173.015625 C 113.179688 -173.015625 117.242188 -171.546875 120.109375 -168.609375 C 122.984375 -165.679688 124.421875 -161.890625 124.421875 -157.234375 C 124.421875 -152.691406 122.835938 -148.925781 119.671875 -145.9375 C 116.503906 -142.945312 112.585938 -141.453125 107.921875 -141.453125 L 107.03125 -141.453125 C 99.019531 -141.453125 91.425781 -139.894531 84.25 -136.78125 C 77.082031 -133.675781 70.753906 -129.378906 65.265625 -123.890625 C 59.640625 -118.265625 55.273438 -111.804688 52.171875 -104.515625 C 49.066406 -97.222656 47.515625 -89.515625 47.515625 -81.390625 L 47.515625 -15.78125 C 47.515625 -11.238281 46.046875 -7.472656 43.109375 -4.484375 C 40.179688 -1.492188 36.566406 0 32.265625 0 Z M 32.265625 0 "/></g></g></g><g fill="#0d9488" fill-opacity="1"><g transform="translate(380.666432, 236.795197)"><g><path d="M 95.375 2.15625 C 83.539062 2.15625 72.363281 -0.0820312 61.84375 -4.5625 C 51.332031 -9.050781 42.070312 -15.359375 34.0625 -23.484375 C 26.050781 -31.492188 19.804688 -40.816406 15.328125 -51.453125 C 10.847656 -62.085938 8.609375 -73.382812 8.609375 -85.34375 C 8.609375 -97.289062 10.847656 -108.582031 15.328125 -119.21875 C 19.804688 -129.851562 26.050781 -139.238281 34.0625 -147.375 C 42.070312 -155.5 51.332031 -161.800781 61.84375 -166.28125 C 72.363281 -170.769531 83.539062 -173.015625 95.375 -173.015625 C 107.207031 -173.015625 118.351562 -170.800781 128.8125 -166.375 C 139.269531 -161.945312 148.503906 -155.734375 156.515625 -147.734375 C 164.398438 -139.722656 170.582031 -130.457031 175.0625 -119.9375 C 179.550781 -109.414062 181.914062 -98.242188 182.15625 -86.421875 L 182.15625 -15.0625 C 182.15625 -10.519531 180.597656 -6.664062 177.484375 -3.5 C 174.378906 -0.332031 170.554688 1.25 166.015625 1.25 C 161.472656 1.25 157.765625 -0.300781 154.890625 -3.40625 C 152.023438 -6.507812 150.59375 -10.394531 150.59375 -15.0625 L 150.421875 -17.5625 C 142.765625 -11.226562 134.242188 -6.359375 124.859375 -2.953125 C 115.484375 0.453125 105.65625 2.15625 95.375 2.15625 Z M 95.375 -29.578125 C 103.144531 -29.578125 110.375 -31.007812 117.0625 -33.875 C 123.757812 -36.75 129.679688 -40.816406 134.828125 -46.078125 C 139.835938 -51.210938 143.71875 -57.15625 146.46875 -63.90625 C 149.21875 -70.664062 150.59375 -77.8125 150.59375 -85.34375 C 150.59375 -92.875 149.21875 -100.015625 146.46875 -106.765625 C 143.71875 -113.515625 139.835938 -119.460938 134.828125 -124.609375 C 129.679688 -129.742188 123.734375 -133.742188 116.984375 -136.609375 C 110.234375 -139.484375 103.03125 -140.921875 95.375 -140.921875 C 87.726562 -140.921875 80.554688 -139.484375 73.859375 -136.609375 C 67.171875 -133.742188 61.316406 -129.742188 56.296875 -124.609375 C 51.273438 -119.460938 47.359375 -113.515625 44.546875 -106.765625 C 41.742188 -100.015625 40.34375 -92.875 40.34375 -85.34375 C 40.34375 -77.8125 41.742188 -70.664062 44.546875 -63.90625 C 47.359375 -57.15625 51.273438 -51.210938 56.296875 -46.078125 C 61.316406 -40.816406 67.171875 -36.75 73.859375 -33.875 C 80.554688 -31.007812 87.726562 -29.578125 95.375 -29.578125 Z M 95.375 -29.578125 "/></g></g></g><g fill="#facc15" fill-opacity="1"><g transform="translate(623.56471, 236.795197)"><g><path d="M 83.71875 0.890625 C 79.894531 0.890625 76.726562 -0.00390625 74.21875 -1.796875 C 71.707031 -3.585938 69.859375 -5.914062 68.671875 -8.78125 L 9.140625 -149.515625 C 8.179688 -151.785156 7.703125 -154.054688 7.703125 -156.328125 C 7.703125 -160.515625 9.226562 -164.191406 12.28125 -167.359375 C 15.332031 -170.523438 19.128906 -172.109375 23.671875 -172.109375 C 26.648438 -172.109375 29.425781 -171.269531 32 -169.59375 C 34.570312 -167.925781 36.515625 -165.539062 37.828125 -162.4375 L 83.359375 -52.703125 L 128.546875 -162.4375 C 129.859375 -165.300781 131.859375 -167.597656 134.546875 -169.328125 C 137.234375 -171.066406 140.070312 -171.9375 143.0625 -171.9375 C 147.25 -171.9375 150.957031 -170.320312 154.1875 -167.09375 C 157.289062 -163.988281 158.84375 -160.34375 158.84375 -156.15625 C 158.96875 -154.476562 158.488281 -152.265625 157.40625 -149.515625 L 97.890625 -8.78125 C 96.335938 -5.789062 94.363281 -3.429688 91.96875 -1.703125 C 89.582031 0.0234375 86.832031 0.890625 83.71875 0.890625 Z M 83.71875 0.890625 "/></g></g></g><g fill="#facc15" fill-opacity="1"><g transform="translate(834.180206, 236.795197)"><g><path d="M 34.421875 -194.15625 C 29.523438 -194.15625 25.28125 -195.953125 21.6875 -199.546875 C 18.101562 -203.128906 16.3125 -207.3125 16.3125 -212.09375 C 16.3125 -216.988281 18.101562 -221.234375 21.6875 -224.828125 C 25.15625 -228.285156 29.398438 -230.015625 34.421875 -230.015625 C 39.085938 -230.015625 43.332031 -228.285156 47.15625 -224.828125 C 50.738281 -221.472656 52.53125 -217.226562 52.53125 -212.09375 C 52.53125 -207.1875 50.738281 -203.003906 47.15625 -199.546875 C 43.445312 -195.953125 39.203125 -194.15625 34.421875 -194.15625 Z M 34.421875 1.25 C 29.992188 1.25 26.195312 -0.269531 23.03125 -3.3125 C 19.863281 -6.363281 18.28125 -10.097656 18.28125 -14.515625 L 18.28125 -157.046875 C 18.28125 -161.585938 19.894531 -165.351562 23.125 -168.34375 C 26.226562 -171.457031 30.054688 -173.015625 34.609375 -173.015625 C 38.910156 -173.015625 42.550781 -171.457031 45.53125 -168.34375 C 48.519531 -165.238281 50.015625 -161.472656 50.015625 -157.046875 L 50.015625 -14.515625 C 50.015625 -10.097656 48.488281 -6.363281 45.4375 -3.3125 C 42.394531 -0.269531 38.722656 1.25 34.421875 1.25 Z M 34.421875 1.25 "/></g></g></g><g fill="#facc15" fill-opacity="1"><g transform="translate(946.906825, 236.795197)"><g><path d="M 95.375 2.15625 C 83.539062 2.15625 72.332031 -0.0820312 61.75 -4.5625 C 51.175781 -9.050781 41.828125 -15.359375 33.703125 -23.484375 C 25.578125 -31.492188 19.242188 -40.847656 14.703125 -51.546875 C 10.160156 -62.242188 7.890625 -73.507812 7.890625 -85.34375 C 7.890625 -97.175781 10.160156 -108.4375 14.703125 -119.125 C 19.242188 -129.820312 25.578125 -139.238281 33.703125 -147.375 C 41.828125 -155.5 51.175781 -161.800781 61.75 -166.28125 C 72.332031 -170.769531 83.539062 -173.015625 95.375 -173.015625 C 107.332031 -173.015625 118.660156 -170.738281 129.359375 -166.1875 C 140.054688 -161.644531 149.40625 -155.375 157.40625 -147.375 C 165.414062 -139.238281 171.660156 -129.851562 176.140625 -119.21875 C 180.628906 -108.582031 182.875 -97.289062 182.875 -85.34375 C 182.875 -73.382812 180.628906 -62.085938 176.140625 -51.453125 C 171.660156 -40.816406 165.414062 -31.492188 157.40625 -23.484375 C 149.40625 -15.472656 140.054688 -9.195312 129.359375 -4.65625 C 118.660156 -0.113281 107.332031 2.15625 95.375 2.15625 Z M 95.375 -29.578125 C 103.144531 -29.578125 110.40625 -31.007812 117.15625 -33.875 C 123.914062 -36.75 129.863281 -40.816406 135 -46.078125 C 140.132812 -51.210938 144.109375 -57.15625 146.921875 -63.90625 C 149.734375 -70.664062 151.140625 -77.8125 151.140625 -85.34375 C 151.140625 -92.875 149.734375 -100.015625 146.921875 -106.765625 C 144.109375 -113.515625 140.132812 -119.460938 135 -124.609375 C 129.863281 -129.742188 123.914062 -133.742188 117.15625 -136.609375 C 110.40625 -139.484375 103.144531 -140.921875 95.375 -140.921875 C 87.726562 -140.921875 80.523438 -139.484375 73.765625 -136.609375 C 67.015625 -133.742188 61.070312 -129.742188 55.9375 -124.609375 C 50.800781 -119.460938 46.796875 -113.515625 43.921875 -106.765625 C 41.054688 -100.015625 39.625 -92.875 39.625 -85.34375 C 39.625 -77.8125 41.054688 -70.664062 43.921875 -63.90625 C 46.796875 -57.15625 50.800781 -51.210938 55.9375 -46.078125 C 61.070312 -40.816406 67.015625 -36.75 73.765625 -33.875 C 80.523438 -31.007812 87.726562 -29.578125 95.375 -29.578125 Z M 95.375 -29.578125 "/></g></g></g></g></g></svg>
+    <p class="tagline">Your trip, perfectly planned.</p>
+    <p class="one">An AI travel planner, sold directly to travellers and licensed to professional travel agents as a planning co-pilot.</p>
+    <div class="meta">
+      <div>Operated by <strong>A.A. MARKETING AND COMMS LTD</strong></div>
+      <div><strong>travio.one</strong> &middot; Larnaca, Cyprus</div>
+      <div>Prepared for <strong>Varnavas Timotheou</strong> ahead of our mentoring session &middot; October 2026</div>
+    </div>
+    <div class="scrollcue"><span>Scroll to explore &darr;</span></div>
+  </div>
+</section>
+
+<!-- WHAT IT IS -->
+<section>
+  <div class="wrap reveal">
+    <p class="kicker">What Travio is</p>
+    <h2>Budget-accurate, bookable trips in seconds.</h2>
+    <p class="lead">Travio turns a traveller's budget, dates and style into three budget-accurate destinations and a complete, day-by-day itinerary, each built around real places and real prices.</p>
+    <p class="muted">The what: genuine trip planning, not inventory search. The how: artificial intelligence grounded in live flight, hotel and venue data. The why: travellers lose hours to uncertain planning, and travel agents lose billable time building every itinerary by hand. Travio removes both, direct to the consumer and licensed to the trade.</p>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="alt">
+  <div class="wrap reveal">
+    <p class="kicker">The problem</p>
+    <h2>Planning a trip is slow, fragmented and uncertain.</h2>
+    <div class="grid g2" style="margin:26px 0 20px">
+      <div class="card">
+        <h3>For travellers</h3>
+        <p>You juggle flights, hotels and things to do across a dozen tabs, and still cannot tell whether the trip fits your budget until hours of research are done. So people overspend, under-plan, or rebook the same familiar place.</p>
+      </div>
+      <div class="card">
+        <h3>For travel agents</h3>
+        <p>A good multi-day itinerary is built by hand and takes hours of research per client. That caps how many clients one agent can serve and squeezes already-thin margins.</p>
+      </div>
+    </div>
+    <p class="muted">Today's tools each solve only part of it: online travel agencies sell inventory but do not plan a trip or check a budget, and generic AI invents hotels and guesses prices that are simply wrong.</p>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section>
+  <div class="wrap reveal">
+    <p class="kicker">How it works</p>
+    <h2>Three steps, a few seconds.</h2>
+    <div style="margin-top:22px">
+      <div class="step"><div class="num">1</div><div><h3>Tell Travio the basics</h3><p>Your budget, dates, group and travel style. No account needed.</p></div></div>
+      <div class="step"><div class="num">2</div><div><h3>Get three matched destinations</h3><p>Each with live flight and hotel prices and a clear verdict on whether it fits your budget.</p></div></div>
+      <div class="step"><div class="num">3</div><div><h3>Open a full day-by-day itinerary</h3><p>Built around real, well-rated restaurants and attractions with exact map links, then hand off to booking partners in one click.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- DIFFERENT -->
+<section class="alt">
+  <div class="wrap reveal">
+    <p class="kicker">Why it is different</p>
+    <h2>Grounded, bookable, and honest about the budget.</h2>
+    <div class="grid g2" style="margin-top:24px">
+      <div class="card"><h3>Live prices, not estimates</h3><p>Flight and hotel prices come from live Google data, so the budget reflects what the traveller will actually pay.</p></div>
+      <div class="card"><h3>Real venues, not hallucinations</h3><p>Restaurants and attractions are grounded in real, rated places with links to the exact map pin, the thing generic AI gets wrong.</p></div>
+      <div class="card"><h3>A budget that holds together</h3><p>The verdict is verified on the server and the same figures flow from the destination card into the itinerary, so nothing contradicts itself.</p></div>
+      <div class="card"><h3>Seconds, not hours</h3><p>A full, bookable plan appears in the time it takes to read this sentence.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- MODEL -->
+<section>
+  <div class="wrap reveal">
+    <p class="kicker">The model</p>
+    <h2>Sold to travellers, licensed to the trade.</h2>
+    <div class="grid g2" style="margin-top:24px">
+      <div class="card">
+        <span class="pill">The engine</span>
+        <h3>B2B licensing</h3>
+        <p>A per-seat subscription for licensed travel agents using Travio as an AI itinerary co-pilot, &euro;59 per seat per month, recurring.</p>
+      </div>
+      <div class="card">
+        <span class="pill">The shop window</span>
+        <h3>B2C consumer</h3>
+        <p>The free consumer app, with a premium tier and affiliate commissions, which also proves the product and feeds the agent pipeline.</p>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:18px">A deliberate shield: the licensed agents hold the travel licences and the booking liability, so Travio stays a pure, low-regulation software layer.</p>
+  </div>
+</section>
+
+<!-- MARKET -->
+<section class="alt">
+  <div class="wrap reveal">
+    <p class="kicker">The market</p>
+    <h2>A large industry, a focused entry point.</h2>
+    <div class="grid g3" style="margin-top:24px">
+      <div class="stat"><div class="big">~$700B</div><p>global online travel in 2025, forecast past $1.4 trillion by 2034</p></div>
+      <div class="stat"><div class="big">~95,000</div><p>travel-agency businesses across Europe (323 licensed in Cyprus, about 1,500 HATTA members in Greece)</p></div>
+      <div class="stat"><div class="big">&euro;59 / seat</div><p>per month, recurring, with a lifetime value above &euro;2,000 per agent seat</p></div>
+    </div>
+    <p class="muted" style="margin-top:18px; font-size:13px">Figures are third-party estimates (Global Market Insights, IBISWorld, Cyprus Deputy Ministry of Tourism, HATTA) and vary by scope.</p>
+  </div>
+</section>
+
+<!-- STATUS -->
+<section>
+  <div class="wrap reveal">
+    <p class="kicker">Where we are now</p>
+    <h2>Built, deployed, and working end to end.</h2>
+    <ul class="status" style="margin-top:22px">
+      <li><span class="tick">&check;</span><span>Built and deployed, live at <strong>travio.one</strong> in Coming Soon mode</span></li>
+      <li><span class="tick">&check;</span><span>Live flight, hotel and venue data working end to end</span></li>
+      <li><span class="tick">&check;</span><span>A budget engine with server-side verification</span></li>
+      <li><span class="tick">&check;</span><span>Save, share and passwordless accounts</span></li>
+      <li><span class="tick">&check;</span><span>Bootstrapped, pre-launch, with no paid marketing run yet</span></li>
+    </ul>
+    <p class="muted" style="margin-top:20px">Traction so far is a complete, working product rather than user numbers: the platform is ready, and the public launch is the next milestone.</p>
+  </div>
+</section>
+
+<!-- NEXT -->
+<section class="alt">
+  <div class="wrap reveal">
+    <p class="kicker">What is next</p>
+    <h2>From a working platform to a live business.</h2>
+    <ul class="road" style="margin-top:24px">
+      <li><strong>Public launch</strong><span>After a font licence purchase and a legal sign-off on policies.</span></li>
+      <li><strong>The agent co-pilot</strong><span>The licensed B2B product: branded client proposals, saved client profiles, and a margin line.</span></li>
+      <li><strong>Best-date selection</strong><span>Shop the chosen month for the best-value travel dates and show them.</span></li>
+      <li><strong>Multi-country trips</strong><span>Plans that span more than one destination in a single journey.</span></li>
+      <li><strong>Car-rental affiliate</strong><span>An additive revenue line for road-trip and island destinations.</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team">
+  <div class="wrap reveal">
+    <p class="kicker">The team</p>
+    <h2>Lean, with deep domain backing.</h2>
+    <div class="grid g3" style="margin-top:24px">
+      <div class="card">
+        <h3>Andreas Andronikou</h3>
+        <div class="role">Founder &amp; CEO</div>
+        <p>Founder of Wecomeone, a Cyprus marketing and communications agency. Digital marketing, branding and data, and the builder of the product.</p>
+      </div>
+      <div class="card">
+        <h3>Eirini Ioannou</h3>
+        <div class="role">Marketing</div>
+        <p>Qualified digital marketing professional supporting brand and growth, a resource shared with Wecomeone.</p>
+      </div>
+      <div class="card">
+        <h3>Eva Englezou</h3>
+        <div class="role">Advisor</div>
+        <p>25 years as a travel agent. Validates the product, the agent pain and the go-to-market, and opens the door to the first agencies.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSE -->
+<section class="close">
+  <div class="wrap reveal">
+    <svg class="logo logo-close" viewBox="150 250 1150 256" role="img" aria-label="Travio"><g transform="matrix(1, 0, 0, 1, 150, 255)"><g><g fill="#0d9488" fill-opacity="1"><g transform="translate(2.284234, 236.795197)"><g><path d="M 103.8125 2.15625 C 91.738281 2.15625 80.378906 -0.0234375 69.734375 -4.390625 C 59.097656 -8.753906 49.773438 -14.878906 41.765625 -22.765625 C 33.640625 -30.773438 27.304688 -40.035156 22.765625 -50.546875 C 18.222656 -61.066406 15.953125 -72.304688 15.953125 -84.265625 L 15.953125 -208.859375 C 15.953125 -213.285156 17.566406 -217.113281 20.796875 -220.34375 C 23.898438 -223.445312 27.601562 -225 31.90625 -225 C 36.332031 -225 40.21875 -223.445312 43.5625 -220.34375 C 46.789062 -217.113281 48.40625 -213.285156 48.40625 -208.859375 L 48.40625 -173.71875 L 119.578125 -173.71875 C 124.003906 -173.71875 127.769531 -172.132812 130.875 -168.96875 C 133.976562 -165.800781 135.53125 -162.007812 135.53125 -157.59375 C 135.53125 -153.289062 134.003906 -149.671875 130.953125 -146.734375 C 127.910156 -143.804688 124.117188 -142.34375 119.578125 -142.34375 L 48.40625 -142.34375 L 48.40625 -83.90625 C 48.40625 -76.375 49.804688 -69.289062 52.609375 -62.65625 C 55.421875 -56.019531 59.398438 -50.191406 64.546875 -45.171875 C 69.566406 -40.160156 75.453125 -36.28125 82.203125 -33.53125 C 88.953125 -30.78125 96.15625 -29.40625 103.8125 -29.40625 C 118.382812 -29.40625 130.332031 -33.707031 139.65625 -42.3125 C 143.488281 -45.894531 147.492188 -47.6875 151.671875 -47.6875 C 155.253906 -47.6875 158.601562 -46.3125 161.71875 -43.5625 C 164.582031 -40.695312 166.015625 -37.171875 166.015625 -32.984375 C 166.015625 -27.722656 164.101562 -23.179688 160.28125 -19.359375 C 145.21875 -5.015625 126.394531 2.15625 103.8125 2.15625 Z M 103.8125 2.15625 "/></g></g></g><g fill="#0d9488" fill-opacity="1"><g transform="translate(216.485403, 236.795197)"><g><path d="M 32.265625 0 C 27.722656 0 23.957031 -1.492188 20.96875 -4.484375 C 17.625 -7.472656 15.953125 -11.238281 15.953125 -15.78125 L 15.953125 -81.390625 C 15.953125 -93.703125 18.3125 -105.445312 23.03125 -116.625 C 27.757812 -127.800781 34.304688 -137.628906 42.671875 -146.109375 C 51.160156 -154.597656 60.929688 -161.203125 71.984375 -165.921875 C 83.035156 -170.648438 94.71875 -173.015625 107.03125 -173.015625 L 107.921875 -173.015625 C 113.179688 -173.015625 117.242188 -171.546875 120.109375 -168.609375 C 122.984375 -165.679688 124.421875 -161.890625 124.421875 -157.234375 C 124.421875 -152.691406 122.835938 -148.925781 119.671875 -145.9375 C 116.503906 -142.945312 112.585938 -141.453125 107.921875 -141.453125 L 107.03125 -141.453125 C 99.019531 -141.453125 91.425781 -139.894531 84.25 -136.78125 C 77.082031 -133.675781 70.753906 -129.378906 65.265625 -123.890625 C 59.640625 -118.265625 55.273438 -111.804688 52.171875 -104.515625 C 49.066406 -97.222656 47.515625 -89.515625 47.515625 -81.390625 L 47.515625 -15.78125 C 47.515625 -11.238281 46.046875 -7.472656 43.109375 -4.484375 C 40.179688 -1.492188 36.566406 0 32.265625 0 Z M 32.265625 0 "/></g></g></g><g fill="#0d9488" fill-opacity="1"><g transform="translate(380.666432, 236.795197)"><g><path d="M 95.375 2.15625 C 83.539062 2.15625 72.363281 -0.0820312 61.84375 -4.5625 C 51.332031 -9.050781 42.070312 -15.359375 34.0625 -23.484375 C 26.050781 -31.492188 19.804688 -40.816406 15.328125 -51.453125 C 10.847656 -62.085938 8.609375 -73.382812 8.609375 -85.34375 C 8.609375 -97.289062 10.847656 -108.582031 15.328125 -119.21875 C 19.804688 -129.851562 26.050781 -139.238281 34.0625 -147.375 C 42.070312 -155.5 51.332031 -161.800781 61.84375 -166.28125 C 72.363281 -170.769531 83.539062 -173.015625 95.375 -173.015625 C 107.207031 -173.015625 118.351562 -170.800781 128.8125 -166.375 C 139.269531 -161.945312 148.503906 -155.734375 156.515625 -147.734375 C 164.398438 -139.722656 170.582031 -130.457031 175.0625 -119.9375 C 179.550781 -109.414062 181.914062 -98.242188 182.15625 -86.421875 L 182.15625 -15.0625 C 182.15625 -10.519531 180.597656 -6.664062 177.484375 -3.5 C 174.378906 -0.332031 170.554688 1.25 166.015625 1.25 C 161.472656 1.25 157.765625 -0.300781 154.890625 -3.40625 C 152.023438 -6.507812 150.59375 -10.394531 150.59375 -15.0625 L 150.421875 -17.5625 C 142.765625 -11.226562 134.242188 -6.359375 124.859375 -2.953125 C 115.484375 0.453125 105.65625 2.15625 95.375 2.15625 Z M 95.375 -29.578125 C 103.144531 -29.578125 110.375 -31.007812 117.0625 -33.875 C 123.757812 -36.75 129.679688 -40.816406 134.828125 -46.078125 C 139.835938 -51.210938 143.71875 -57.15625 146.46875 -63.90625 C 149.21875 -70.664062 150.59375 -77.8125 150.59375 -85.34375 C 150.59375 -92.875 149.21875 -100.015625 146.46875 -106.765625 C 143.71875 -113.515625 139.835938 -119.460938 134.828125 -124.609375 C 129.679688 -129.742188 123.734375 -133.742188 116.984375 -136.609375 C 110.234375 -139.484375 103.03125 -140.921875 95.375 -140.921875 C 87.726562 -140.921875 80.554688 -139.484375 73.859375 -136.609375 C 67.171875 -133.742188 61.316406 -129.742188 56.296875 -124.609375 C 51.273438 -119.460938 47.359375 -113.515625 44.546875 -106.765625 C 41.742188 -100.015625 40.34375 -92.875 40.34375 -85.34375 C 40.34375 -77.8125 41.742188 -70.664062 44.546875 -63.90625 C 47.359375 -57.15625 51.273438 -51.210938 56.296875 -46.078125 C 61.316406 -40.816406 67.171875 -36.75 73.859375 -33.875 C 80.554688 -31.007812 87.726562 -29.578125 95.375 -29.578125 Z M 95.375 -29.578125 "/></g></g></g><g fill="#facc15" fill-opacity="1"><g transform="translate(623.56471, 236.795197)"><g><path d="M 83.71875 0.890625 C 79.894531 0.890625 76.726562 -0.00390625 74.21875 -1.796875 C 71.707031 -3.585938 69.859375 -5.914062 68.671875 -8.78125 L 9.140625 -149.515625 C 8.179688 -151.785156 7.703125 -154.054688 7.703125 -156.328125 C 7.703125 -160.515625 9.226562 -164.191406 12.28125 -167.359375 C 15.332031 -170.523438 19.128906 -172.109375 23.671875 -172.109375 C 26.648438 -172.109375 29.425781 -171.269531 32 -169.59375 C 34.570312 -167.925781 36.515625 -165.539062 37.828125 -162.4375 L 83.359375 -52.703125 L 128.546875 -162.4375 C 129.859375 -165.300781 131.859375 -167.597656 134.546875 -169.328125 C 137.234375 -171.066406 140.070312 -171.9375 143.0625 -171.9375 C 147.25 -171.9375 150.957031 -170.320312 154.1875 -167.09375 C 157.289062 -163.988281 158.84375 -160.34375 158.84375 -156.15625 C 158.96875 -154.476562 158.488281 -152.265625 157.40625 -149.515625 L 97.890625 -8.78125 C 96.335938 -5.789062 94.363281 -3.429688 91.96875 -1.703125 C 89.582031 0.0234375 86.832031 0.890625 83.71875 0.890625 Z M 83.71875 0.890625 "/></g></g></g><g fill="#facc15" fill-opacity="1"><g transform="translate(834.180206, 236.795197)"><g><path d="M 34.421875 -194.15625 C 29.523438 -194.15625 25.28125 -195.953125 21.6875 -199.546875 C 18.101562 -203.128906 16.3125 -207.3125 16.3125 -212.09375 C 16.3125 -216.988281 18.101562 -221.234375 21.6875 -224.828125 C 25.15625 -228.285156 29.398438 -230.015625 34.421875 -230.015625 C 39.085938 -230.015625 43.332031 -228.285156 47.15625 -224.828125 C 50.738281 -221.472656 52.53125 -217.226562 52.53125 -212.09375 C 52.53125 -207.1875 50.738281 -203.003906 47.15625 -199.546875 C 43.445312 -195.953125 39.203125 -194.15625 34.421875 -194.15625 Z M 34.421875 1.25 C 29.992188 1.25 26.195312 -0.269531 23.03125 -3.3125 C 19.863281 -6.363281 18.28125 -10.097656 18.28125 -14.515625 L 18.28125 -157.046875 C 18.28125 -161.585938 19.894531 -165.351562 23.125 -168.34375 C 26.226562 -171.457031 30.054688 -173.015625 34.609375 -173.015625 C 38.910156 -173.015625 42.550781 -171.457031 45.53125 -168.34375 C 48.519531 -165.238281 50.015625 -161.472656 50.015625 -157.046875 L 50.015625 -14.515625 C 50.015625 -10.097656 48.488281 -6.363281 45.4375 -3.3125 C 42.394531 -0.269531 38.722656 1.25 34.421875 1.25 Z M 34.421875 1.25 "/></g></g></g><g fill="#facc15" fill-opacity="1"><g transform="translate(946.906825, 236.795197)"><g><path d="M 95.375 2.15625 C 83.539062 2.15625 72.332031 -0.0820312 61.75 -4.5625 C 51.175781 -9.050781 41.828125 -15.359375 33.703125 -23.484375 C 25.578125 -31.492188 19.242188 -40.847656 14.703125 -51.546875 C 10.160156 -62.242188 7.890625 -73.507812 7.890625 -85.34375 C 7.890625 -97.175781 10.160156 -108.4375 14.703125 -119.125 C 19.242188 -129.820312 25.578125 -139.238281 33.703125 -147.375 C 41.828125 -155.5 51.175781 -161.800781 61.75 -166.28125 C 72.332031 -170.769531 83.539062 -173.015625 95.375 -173.015625 C 107.332031 -173.015625 118.660156 -170.738281 129.359375 -166.1875 C 140.054688 -161.644531 149.40625 -155.375 157.40625 -147.375 C 165.414062 -139.238281 171.660156 -129.851562 176.140625 -119.21875 C 180.628906 -108.582031 182.875 -97.289062 182.875 -85.34375 C 182.875 -73.382812 180.628906 -62.085938 176.140625 -51.453125 C 171.660156 -40.816406 165.414062 -31.492188 157.40625 -23.484375 C 149.40625 -15.472656 140.054688 -9.195312 129.359375 -4.65625 C 118.660156 -0.113281 107.332031 2.15625 95.375 2.15625 Z M 95.375 -29.578125 C 103.144531 -29.578125 110.40625 -31.007812 117.15625 -33.875 C 123.914062 -36.75 129.863281 -40.816406 135 -46.078125 C 140.132812 -51.210938 144.109375 -57.15625 146.921875 -63.90625 C 149.734375 -70.664062 151.140625 -77.8125 151.140625 -85.34375 C 151.140625 -92.875 149.734375 -100.015625 146.921875 -106.765625 C 144.109375 -113.515625 140.132812 -119.460938 135 -124.609375 C 129.863281 -129.742188 123.914062 -133.742188 117.15625 -136.609375 C 110.40625 -139.484375 103.144531 -140.921875 95.375 -140.921875 C 87.726562 -140.921875 80.523438 -139.484375 73.765625 -136.609375 C 67.015625 -133.742188 61.070312 -129.742188 55.9375 -124.609375 C 50.800781 -119.460938 46.796875 -113.515625 43.921875 -106.765625 C 41.054688 -100.015625 39.625 -92.875 39.625 -85.34375 C 39.625 -77.8125 41.054688 -70.664062 43.921875 -63.90625 C 46.796875 -57.15625 50.800781 -51.210938 55.9375 -46.078125 C 61.070312 -40.816406 67.015625 -36.75 73.765625 -33.875 C 80.523438 -31.007812 87.726562 -29.578125 95.375 -29.578125 Z M 95.375 -29.578125 "/></g></g></g></g></g></svg>
+    <a class="site" href="https://travio.one" target="_blank" rel="noopener">travio.one</a>
+    <p>Operated by A.A. MARKETING AND COMMS LTD &middot; Larnaca, Cyprus</p>
+    <p><a href="mailto:hello@wecomeone.me">hello@wecomeone.me</a></p>
+    <p style="margin-top:18px">Looking forward to our conversation.</p>
+  </div>
+</section>
+
+<script>
+  (function(){
+    try{
+      var bar=document.getElementById('progress');
+      function onScroll(){
+        var h=document.documentElement;
+        var sc=h.scrollTop||document.body.scrollTop;
+        var max=(h.scrollHeight-h.clientHeight)||1;
+        bar.style.width=(sc/max*100)+'%';
+      }
+      document.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+    }catch(e){}
+    try{
+      var els=[].slice.call(document.querySelectorAll('.reveal'));
+      if('IntersectionObserver' in window){
+        var io=new IntersectionObserver(function(entries){
+          entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target);} });
+        },{threshold:.12});
+        els.forEach(function(el){ io.observe(el); });
+      } else { els.forEach(function(el){ el.classList.add('in'); }); }
+    }catch(e){ [].slice.call(document.querySelectorAll('.reveal')).forEach(function(el){ el.classList.add('in'); }); }
+  })();
+</script>
+</body>
+</html>
