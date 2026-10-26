@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SolarDrive Cyprus Quotation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1A1A1A;
+    --mint:#44FFCF;
+    --paper:#FFFFFF;
+    --off:#F7F7F7;
+    --line:#DADADA;
+    --line-dark:#333333;
+    --muted:#6B6B6B;
+    --muted-dark:#9A9A9A;
+    --gutter:clamp(16px,5vw,80px);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{font-family:'Manrope',system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.6;font-size:16px}
+
+  /* Grid */
+  .band{padding:clamp(56px,9vw,120px) var(--gutter);border-bottom:1px solid var(--line)}
+  .band.dark{background:var(--ink);color:#fff;border-bottom-color:var(--line-dark)}
+  .band.off{background:var(--off)}
+  .row{display:grid;grid-template-columns:minmax(160px,1fr) 3fr;gap:clamp(24px,5vw,80px)}
+  .label{font-size:12px;letter-spacing:2.4px;text-transform:uppercase;font-weight:700;color:var(--muted)}
+  .dark .label{color:var(--muted-dark)}
+  .num{display:block;font-size:clamp(56px,7vw,96px);font-weight:200;line-height:1;letter-spacing:-3px;color:var(--ink);margin-bottom:14px}
+  .dark .num{color:var(--mint)}
+  h2{font-size:clamp(32px,4.4vw,60px);font-weight:800;letter-spacing:-2px;line-height:1.02;margin-bottom:clamp(28px,4vw,48px)}
+  h2 em{font-style:normal;font-weight:200}
+  .dark h2 em{color:var(--mint)}
+
+  /* Cover */
+  .cover{min-height:100vh;display:flex;flex-direction:column;justify-content:space-between;background:var(--ink);color:#fff;padding:clamp(28px,4vw,48px) var(--gutter)}
+  .top{display:flex;justify-content:space-between;align-items:center;gap:16px}
+  .brand{font-size:24px;font-weight:700;letter-spacing:-0.5px}
+  .brand span{color:var(--mint)}
+  .doc{font-size:12px;letter-spacing:2.4px;text-transform:uppercase;color:var(--muted-dark);font-weight:600}
+  .cover h1{font-size:clamp(48px,9vw,148px);font-weight:800;letter-spacing:clamp(-2px,-0.05em,-6px);line-height:0.92;margin:clamp(48px,8vw,96px) 0}
+  .cover h1 em{font-style:normal;font-weight:200;color:var(--mint)}
+  .meta{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;border-top:1px solid var(--line-dark);padding-top:24px}
+  .meta div{font-size:14px;color:#E6E6E6}
+  .meta b{display:block;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--mint);font-weight:600;margin-bottom:6px}
+
+  /* Overview */
+  .statement{font-size:clamp(24px,2.8vw,38px);font-weight:300;line-height:1.3;letter-spacing:-0.6px}
+  .statement strong{font-weight:800}
+  .aside{margin-top:32px;max-width:640px;color:#444;font-size:16px}
+
+  /* Scope */
+  .scope{list-style:none;border-top:2px solid var(--ink)}
+  .scope li{display:grid;grid-template-columns:56px 1fr;gap:16px;padding:28px 0;border-bottom:1px solid var(--line)}
+  .scope .i{font-size:14px;font-weight:700;color:var(--muted);padding-top:4px}
+  .scope h3{font-size:clamp(20px,2vw,26px);font-weight:700;letter-spacing:-0.5px;margin-bottom:6px}
+  .scope p{color:var(--muted);font-size:15px;max-width:640px}
+
+  /* Investment band */
+  .invest{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap}
+  .big{font-size:clamp(72px,14vw,200px);font-weight:800;letter-spacing:clamp(-3px,-0.05em,-8px);line-height:0.85}
+  .big span{font-size:clamp(18px,2vw,28px);font-weight:300;letter-spacing:0;color:var(--mint);margin-left:12px;vertical-align:top}
+  .invest p{max-width:340px;color:#BDBDBD;font-size:15px}
+
+  /* Hosting */
+  .host-price{display:flex;align-items:baseline;gap:12px;margin:-16px 0 40px;flex-wrap:wrap}
+  .host-price b{font-size:clamp(40px,5vw,64px);font-weight:800;letter-spacing:-2px}
+  .host-price span{color:var(--muted);font-size:15px}
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:0 clamp(24px,4vw,64px)}
+  .col{padding:24px 0;border-top:1px solid var(--line)}
+  .col h3{font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:700;margin-bottom:12px}
+  .col ul{list-style:none}
+  .col li{font-size:16px;padding:5px 0;color:#333}
+  .excl{margin-top:32px;padding-top:24px;border-top:2px solid var(--ink);font-size:14px;color:var(--muted);max-width:720px}
+
+  /* Timeline */
+  .tl{border-top:1px solid var(--line-dark)}
+  .tl div{display:grid;grid-template-columns:clamp(110px,14vw,180px) 1fr;gap:24px;padding:22px 0;border-bottom:1px solid var(--line-dark);align-items:baseline}
+  .tl b{font-size:clamp(20px,2.2vw,30px);font-weight:200;letter-spacing:-0.5px;color:#fff}
+  .tl span{font-size:16px;color:#D0D0D0}
+  .tl .key b{color:var(--mint);font-weight:700}
+  .tl .key span{color:#fff;font-weight:600}
+  .fine{font-size:14px;color:var(--muted);margin-top:24px;max-width:640px}
+  .dark .fine{color:var(--muted-dark)}
+
+  /* Payment */
+  .pay{width:100%;border-collapse:collapse;max-width:820px}
+  .pay td{padding:20px 0;border-bottom:1px solid var(--line);font-size:17px;vertical-align:baseline}
+  .pay td:last-child{text-align:right;font-weight:700;white-space:nowrap;padding-left:24px}
+  .pay td small{display:block;color:var(--muted);font-size:13px;margin-top:2px}
+  .pay tr.sum td{border-top:2px solid var(--ink);border-bottom:none;font-weight:800;font-size:22px;padding-top:24px}
+
+  /* Terms */
+  .terms{display:grid;grid-template-columns:1fr 1fr;gap:0 clamp(24px,4vw,64px)}
+  .terms div{padding:24px 0;border-top:1px solid var(--line)}
+  .terms h3{font-size:18px;font-weight:700;letter-spacing:-0.3px;margin-bottom:6px}
+  .terms p{font-size:15px;color:#444}
+
+  /* Accept */
+  .sign{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,64px);margin-top:56px}
+  .sign div{font-size:13px;color:var(--muted)}
+  .sign .ln{border-bottom:1px solid var(--ink);height:64px;margin-bottom:10px}
+
+  footer{background:var(--ink);color:#BDBDBD;padding:clamp(40px,6vw,72px) var(--gutter);font-size:14px;display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+  footer .brand{font-size:clamp(40px,6vw,80px);letter-spacing:-2px;color:#fff;line-height:1;margin-bottom:16px}
+  footer a{color:var(--mint);text-decoration:none}
+  footer .r{text-align:right}
+
+  @media (max-width:760px){
+    .row{grid-template-columns:1fr;gap:8px}
+    .num{font-size:56px}
+    .meta{grid-template-columns:1fr 1fr}
+    .cols,.terms,.sign{grid-template-columns:1fr}
+    .scope li{grid-template-columns:36px 1fr}
+    .tl div{grid-template-columns:1fr;gap:4px}
+    footer .r{text-align:left}
+  }
+  @media print{
+    .cover{min-height:auto}
+    .band{break-inside:avoid}
+    *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  }
+</style>
+</head>
+<body>
+
+<header class="cover">
+  <div class="top">
+    <div class="brand">we<span>comeone</span></div>
+    <div class="doc">Quotation · SolarDrive Cyprus</div>
+  </div>
+  <h1>Landing page,<br>corporate email<br>&amp; <em>investor<br>data room</em></h1>
+  <div class="meta">
+    <div><b>Prepared for</b>Rolf Haeusermann<br>SolarDrive Cyprus Ltd. (in formation)</div>
+    <div><b>Prepared by</b>Wecomeone<br>Marketing And Comms</div>
+    <div><b>Date</b>26 October 2026</div>
+    <div><b>Valid until</b>30 October 2026</div>
+  </div>
+</header>
+
+<section class="band">
+  <div class="row">
+    <div><span class="num">01</span><div class="label">Overview</div></div>
+    <div>
+      <p class="statement">A fast, premium one page website that turns visits from <strong>villa owners, real estate developers and car dealerships</strong> into qualified leads, with a secure space where approved investors can access the business plan.</p>
+      <p class="aside">All copy, technical data and certifications are supplied by SolarDrive. Wecomeone handles design, build, hosting, domain, corporate email and launch, fully operational by <strong>10 November 2026</strong>.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="row">
+    <div><span class="num">02</span><div class="label">Scope</div></div>
+    <div>
+      <h2>What is <em>included</em></h2>
+      <ul class="scope">
+        <li><span class="i">A</span><div><h3>Landing page design and build</h3><p>Custom one page design in a clean, tech focused, premium style. Mobile responsive, optimised for speed, SSL, privacy notice and cookie consent.</p></div></li>
+        <li><span class="i">B</span><div><h3>Lead generation form</h3><p>Contact form with audience selection (villa owner, real estate developer, car dealership), spam protection and instant delivery to your corporate inbox.</p></div></li>
+        <li><span class="i">C</span><div><h3>Investor data room</h3><p>Password protected page, hidden from search engines, where qualified investors can download the business plan and NDA. One shared password, changeable on request.</p></div></li>
+        <li><span class="i">D</span><div><h3>Domain and corporate email setup</h3><p>Domain registration in the company's name, DNS configuration, mailbox setup on Google Workspace or Microsoft 365, email authentication (SPF, DKIM, DMARC) and branded signatures.</p></div></li>
+        <li><span class="i">E</span><div><h3>Basic SEO optimisation</h3><p>Keyword focused page title, meta description and headings, image optimisation, social sharing previews, XML sitemap, and setup of Google Search Console and Google Analytics.</p></div></li>
+        <li><span class="i">F</span><div><h3>Priority delivery</h3><p>Dedicated scheduling to guarantee launch by 10 November 2026.</p></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="band dark">
+  <div class="row">
+    <div><span class="num">03</span><div class="label">Investment</div></div>
+    <div class="invest">
+      <div class="big">€1,850<span>+ VAT</span></div>
+      <p>One time project fee covering everything in scope. VAT is charged at 19%.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="row">
+    <div><span class="num">04</span><div class="label">Hosting and maintenance</div></div>
+    <div>
+      <h2>Live, secure <em>and looked after</em></h2>
+      <div class="host-price"><b>€400</b><span>per year + VAT, charged from launch</span></div>
+      <div class="cols">
+        <div class="col"><h3>Hosting</h3><ul>
+          <li>Managed hosting on fast SSD servers</li>
+          <li>Cloudflare DNS, CDN and DDoS protection</li>
+          <li>SSL certificate, renewed automatically</li>
+          <li>Daily backups with restore on request</li>
+        </ul></div>
+        <div class="col"><h3>Security and monitoring</h3><ul>
+          <li>24/7 uptime monitoring</li>
+          <li>Security and software updates</li>
+          <li>Spam protection on the contact form</li>
+          <li>Data room password changes on request</li>
+        </ul></div>
+        <div class="col"><h3>Content updates</h3><ul>
+          <li>Up to two small updates per month</li>
+          <li>Data room document replacements</li>
+          <li>Larger changes quoted separately</li>
+        </ul></div>
+        <div class="col"><h3>Support</h3><ul>
+          <li>Email support at hello@wecomeone.me</li>
+          <li>Response within one working day</li>
+          <li>Form and email routing checks</li>
+        </ul></div>
+      </div>
+      <p class="excl">Not included: domain renewal and email subscriptions (Google Workspace or Microsoft 365, approximately €6 to €7 per mailbox per month). These are billed at cost or paid directly by SolarDrive.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band dark">
+  <div class="row">
+    <div><span class="num">05</span><div class="label">Timeline</div></div>
+    <div>
+      <h2>Path to <em>10 November</em></h2>
+      <div class="tl">
+        <div><b>29 Oct</b><span>Quotation accepted, deposit paid, all copy, assets and domain details received</span></div>
+        <div><b>30 Oct</b><span>Domain and corporate email live</span></div>
+        <div><b>3 Nov</b><span>Full design preview shared for review</span></div>
+        <div><b>3 to 6 Nov</b><span>Two rounds of revisions, data room set up and tested</span></div>
+        <div class="key"><b>10 Nov</b><span>Website fully operational</span></div>
+      </div>
+      <p class="fine">The launch date depends on receiving all content, the deposit and domain details by 29 October 2026. Any delay moves the launch date by the same number of working days.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="row">
+    <div><span class="num">06</span><div class="label">Payment</div></div>
+    <div>
+      <h2>Payment <em>schedule</em></h2>
+      <table class="pay">
+        <tr><td>Deposit on acceptance<small>50% of project fee</small></td><td>€925</td></tr>
+        <tr><td>Balance on launch<small>50% of project fee</small></td><td>€925</td></tr>
+        <tr><td>Hosting and maintenance<small>First year, on launch</small></td><td>€400</td></tr>
+        <tr class="sum"><td>Total first year</td><td>€2,250 + VAT</td></tr>
+      </table>
+      <p class="fine">Hosting and maintenance renews annually at €400 + VAT, payable in advance. The annual fee may be adjusted at renewal to reflect system updates and market prices, with notice given before the renewal date.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band off">
+  <div class="row">
+    <div><span class="num">07</span><div class="label">Terms</div></div>
+    <div>
+      <h2>Good <em>to know</em></h2>
+      <div class="terms">
+        <div><h3>Content</h3><p>All copy, technical data and certifications are supplied by SolarDrive, final and in English. Copywriting and translation are not included.</p></div>
+        <div><h3>Revisions</h3><p>Two rounds of revisions are included. Further rounds or changes after approval are billed separately.</p></div>
+        <div><h3>Data room scope</h3><p>One shared password with downloadable files. Individual investor logins or download tracking can be quoted separately.</p></div>
+        <div><h3>Ownership</h3><p>The website, domain and content belong to SolarDrive once the project is paid in full.</p></div>
+        <div><h3>Third party costs</h3><p>Domain and email subscriptions are registered in the company's name and billed at cost.</p></div>
+        <div><h3>Confidentiality</h3><p>This project is covered by the mutual NDA between SolarDrive and A.A. MARKETING AND COMMS LTD.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="row">
+    <div><span class="num">08</span><div class="label">Acceptance</div></div>
+    <div>
+      <h2>Ready <em>to start</em></h2>
+      <p class="aside" style="margin-top:0">To accept, simply reply to the email this quotation was sent with and confirm you are happy to proceed. Work begins once the deposit is received.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>
+    <div class="brand">we<span style="color:var(--mint)">comeone</span></div>
+    <div>A.A. MARKETING AND COMMS LTD · HE444177</div>
+    <div>Agiou Lazarou 40, 6020, Larnaka, Cyprus</div>
+  </div>
+  <div class="r">
+    <div><a href="mailto:hello@wecomeone.me">hello@wecomeone.me</a></div>
+    <div>+357 99007611</div>
+    <div><a href="https://wecomeone.me">wecomeone.me</a></div>
+  </div>
+</footer>
+
+</body>
+</html>
